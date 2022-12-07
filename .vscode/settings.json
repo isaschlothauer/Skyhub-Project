@@ -1,0 +1,7 @@
+{
+  "eslint.workingDirectories": [
+    { "mode": "auto" },
+    "apps/backend",
+    "apps/web"
+  ]
+}
