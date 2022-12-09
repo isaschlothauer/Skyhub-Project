@@ -2,6 +2,8 @@
 
 This is an official pnpm starter turborepo.
 
+TODO: Describe project structure and where to find stuff in legacy site
+
 ## What's inside?
 
 This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes the following packages/apps:
