@@ -39,3 +39,10 @@ Small.args = {
   size: 'small',
   label: 'Button',
 };
+
+export const Purple = Template.bind({});
+Purple.args = {
+  primary: true,
+  label: 'Click me!',
+  backgroundColor: '##e55bff'
+};
