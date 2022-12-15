@@ -1,0 +1,280 @@
+.row-widgets {
+  margin-bottom: 100px;
+}
+.widget {
+  position: relative;
+  img {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+  .widget-overlay {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    padding-bottom: 30px;
+    padding-left: 30px;
+
+    .widget-subtitle {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      margin-bottom: 5px;
+    }
+
+    .widget-title {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 38px;
+      margin-bottom: 25px;
+    }
+
+    .widget-link {
+      display: inline-block;
+      position: relative;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      padding-right: 85px;
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        margin-top: -11px;
+        right: 0;
+        width: 70px;
+        height: 21px;
+        background: url("../assets/images/icons/arrow-right-long-white.png")
+          no-repeat center center;
+      }
+    }
+  }
+  &.widget-check-other {
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -68px;
+      right: -8px;
+      width: 101px;
+      height: 136px;
+      background: url("../assets/images/widget/bg-widget-contact-brand.png")
+        no-repeat center center;
+    }
+  }
+  &.widget-contact-us {
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -12px;
+      right: -20px;
+      width: 213px;
+      height: 158px;
+      background: url("../assets/images/widget/bg-widget-contact-brand.png")
+        no-repeat center center;
+    }
+  }
+  &.widget-2 {
+    margin-bottom: 20px;
+  }
+  &.widget-3,
+  &.widget-2 {
+    .widget-title {
+      font-size: 28px;
+      line-height: 34px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .widget-subtitle {
+      font-size: 16px;
+      line-height: 24px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 25px;
+      font-weight: normal;
+    }
+  }
+  &.widget-general {
+    border-radius: 30px;
+    background: url("../assets/images/widget/bg-widget-1.jpg") no-repeat center
+      center;
+    background-size: cover;
+    padding-top: 66%;
+    .widget-overlay {
+      padding-top: 100px;
+    }
+  }
+  &.widget-general-pilot {
+    border-radius: 30px;
+    background: url("../assets/images/widget/bg-widget-10.png") no-repeat center
+      center;
+    background-size: cover;
+    padding-top: 66%;
+    .widget-overlay {
+      padding-top: 100px;
+    }
+  }
+  &.widget-general-cabin {
+    border-radius: 30px;
+    background: url("../assets/images/widget/bg-widget-12.png") no-repeat center
+      center;
+    background-size: cover;
+    padding-top: 66%;
+    .widget-overlay {
+      padding-top: 100px;
+    }
+  }
+  &.widget-general-atc {
+    border-radius: 30px;
+    background: url("../assets/images/widget/bg-widget-11.png") no-repeat center
+      center;
+    background-size: cover;
+    padding-top: 66%;
+    .widget-overlay {
+      padding-top: 100px;
+    }
+  }
+  &.widget-requirements {
+    border-radius: 30px;
+    background: url("../assets/images/widget/bg-widget-18.png") no-repeat center
+      center;
+    background-size: cover;
+    padding-top: 66%;
+    .widget-overlay {
+      padding-top: 100px;
+    }
+  }
+  &.widget-apply {
+    border-radius: 30px;
+    background: url("../assets/images/widget/bg-widget-24.png") no-repeat center
+      center;
+    background-size: cover;
+    padding-top: 66%;
+    .widget-overlay {
+      padding-top: 100px;
+    }
+  }
+  &.widget-training {
+    border-radius: 30px;
+    background: url("../assets/images/widget/bg-widget-4.jpg") no-repeat center
+      center;
+    background-size: cover;
+    padding-top: 66%;
+    .widget-overlay {
+      padding-top: 100px;
+    }
+  }
+  &.widget-training-pilot {
+    border-radius: 30px;
+    background: url("../assets/images/widget/bg-widget-14.png") no-repeat center
+      center;
+    background-size: cover;
+    padding-top: 66%;
+    .widget-overlay {
+      padding-top: 100px;
+    }
+  }
+  &.widget-training-cabin {
+    border-radius: 30px;
+    background: url("../assets/images/widget/bg-widget-15.png") no-repeat center
+      center;
+    background-size: cover;
+    padding-top: 66%;
+    .widget-overlay {
+      padding-top: 100px;
+    }
+  }
+  &.widget-training-atc {
+    border-radius: 30px;
+    background: url("../assets/images/widget/bg-widget-16.png") no-repeat center
+      center;
+    background-size: cover;
+    padding-top: 66%;
+    .widget-overlay {
+      padding-top: 100px;
+    }
+  }
+  &.widget-costs {
+    border-radius: 30px;
+    background: url("../assets/images/widget/bg-widget-7.png") no-repeat center center;
+    background-size: cover;
+    padding-top: 66%;
+    .widget-overlay {
+      padding-top: 100px;
+    }
+  }
+  &.widget-insights {
+    border-radius: 30px;
+    background: url("../assets/images/widget/bg-widget-6.jpg") no-repeat center center;
+    background-size: cover;
+    padding-top: 66%;
+    .widget-overlay {
+      padding-top: 100px;
+    }
+  }
+}
+
+.go-homepage-row {
+  margin-bottom: 80px;
+
+  .go-homepage-col {
+    background: white;
+    border-radius: 30px;
+  }
+}
+
+.go-homepage {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Nunito", "Open Sans", sans-serif;
+  padding: 40px 30px;
+
+  .go-homepage-text-1 {
+    color: #a5a5b1;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .go-homepage-text-2 {
+    color: #010e98;
+    font-size: 30px;
+    font-weight: 900;
+
+    span {
+      color: #19ebce;
+    }
+  }
+
+  .go-homepage-link {
+    a {
+      color: #ec018c;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 16px;
+      position: relative;
+      display: inline-block;
+      padding-right: 90px;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 70px;
+        height: 21px;
+        background: url("../assets/images/icons/arrow-right-long-pink.png") no-repeat
+          center center;
+        right: 0;
+        top: 50%;
+        margin-top: -11px;
+      }
+    }
+  }
+}

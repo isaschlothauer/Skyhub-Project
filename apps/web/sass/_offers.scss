@@ -1,0 +1,166 @@
+#offers {
+  position: relative;
+  z-index: 2;
+
+}
+
+#offers-filter {
+  position: relative;
+  z-index: 2;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: white;
+  margin-bottom: 60px;
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  .btn {
+    margin-top: 11px;
+    text-align: left;
+    padding-right: 100px;
+    padding-left: 25px;
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 70px;
+      height: 21px;
+      right: 16px;
+      top: 13px;
+      background: url('images/icons/arrow-right-long-white.png') no-repeat center center;
+    }
+  }
+}
+
+#offers {
+  margin-bottom: 100px;
+  .job-offer-list-item {
+    margin-bottom: 30px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: white;
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    padding: 45px;
+    .job-offer-list-item-image {
+      margin-bottom: 50px;
+      img {
+        display: block;
+        margin: 0;
+        max-width: 100%;
+      }
+    }
+    .job-offer-list-item-role {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 38px;
+      color: #000e94;
+      margin-bottom: 20px;
+    }
+    .job-offer-list-item-company {
+      font-size: 20px;
+      line-height: 28px;
+      color: #727481;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+    .job-offer-list-item-details {
+      line-height: 24px;
+      font-size: 16px;
+      color: #727481;
+      .job-offer-list-item-contract {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 8px;
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 14px;
+          height: 18px;
+          top: 50%;
+          margin-top: -9px;
+          left: 0;
+          background: url('images/icons/contract.png') no-repeat center center;
+        }
+      }
+      .job-offer-list-item-location {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 8px;
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 16px;
+          height: 20px;
+          top: 50%;
+          margin-top: -10px;
+          left: 0;
+          background: url('images/icons/location.png') no-repeat center center;
+        }
+      }
+      .job-offer-list-item-date {
+        position: relative;
+        padding-left: 30px;
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          top: 50%;
+          margin-top: -10px;
+          left: 0;
+          background: url('images/icons/date.png') no-repeat center center;
+        }
+      }
+    }
+    .job-offer-list-item-more {
+      position: relative;
+      z-index: 0;
+      .btn {
+        margin-top: 25px;
+        text-align: left;
+        padding-right: 100px;
+        padding-left: 25px;
+        position: relative;
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 70px;
+          height: 21px;
+          right: 16px;
+          top: 13px;
+          background: url('images/icons/arrow-right-long-pink.png') no-repeat center center;
+        }
+        &:after {
+          content: '';
+          display: none;
+          position: absolute;
+          z-index: -1;
+          pointer-events: none;
+          background: url('images/branding/branding-1.png') no-repeat center center;
+          width: 142px;
+          height: 105px;
+          right: -70px;
+          top: -25px;
+        }
+        &:hover {
+          &:after {
+            display: block;
+          }
+          &:before {
+            background: url('images/icons/arrow-right-long-white.png') no-repeat center center;
+          }
+        }
+      }
+    }
+  }
+}

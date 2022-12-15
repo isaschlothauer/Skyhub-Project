@@ -1,0 +1,123 @@
+.faq-page {
+  background: url("../assets/images/home/bg-pattern.jpg") repeat top center;
+  color: #727481;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: url("../assets/images/home/bg-faq.png") no-repeat top center;
+    background-size: 100% auto;
+  }
+  #page {
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - 212px);
+  }
+  .faq-search {
+    background: white;
+    border-radius: 50px;
+    position: relative;
+    padding: 20px 70px;
+    margin-bottom: 48px;
+    .faq-search-input {
+      display: block;
+      margin: 0;
+      outline: none;
+      border: none;
+      font-size: 16px;
+      line-height: 32px;
+      height: 32px;
+      width: 100%;
+      background: transparent;
+    }
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 19px;
+      height: 19px;
+      top: 27px;
+      left: 33px;
+      background: url("../assets/images/icons/search.png") no-repeat center center;
+    }
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 85px;
+      height: 63px;
+      top: 30px;
+      right: -32px;
+      background: url("../assets/images/home/brand-faq-search.png") no-repeat center center;
+    }
+  }
+  .faq-questions-container {
+    margin-bottom: 70px;
+  }
+  .faq-questions {
+    background: white;
+    padding: 60px 15px;
+    border-radius: 35px;
+    position: relative;
+    .faq-question-box {
+      padding: 0 25px;
+    }
+    .faq-question {
+      font-size: 16px;
+      line-height: 24px;
+      color: #ec008c;
+      font-weight: bold;
+      margin-bottom: 8px;
+      padding-top: 35px;
+    }
+    .faq-answer {
+      font-size: 13px;
+      line-height: 18px;
+      color: #727481;
+      border-bottom: 1px solid #ececec;
+      padding-bottom: 35px;
+      a, strong {
+        color: #ec008c;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
+    .row:last-child {
+      .faq-answer {
+        border-bottom: none;
+      }
+    }
+    .row:first-child {
+      .faq-question {
+        padding-top: 0;
+      }
+    }
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 85px;
+      height: 63px;
+      top: -3px;
+      left: -7px;
+      background: url("../assets/images/home/brand-faq-answer.png") no-repeat center center;
+    }
+  }
+  .faq-question-no-row {
+    display: none;
+    font-size: 16px;
+    line-height: 18px;
+    color: #727481;
+    padding: 25px;
+    text-align: center;
+    strong {
+      color: #ec008c;
+      font-weight: bold;
+    }
+  }
+}
