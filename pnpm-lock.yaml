@@ -60,7 +60,6 @@ importers:
       next: 13.0.0_mz53pcrhrtbilczuivypd336dm
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      sass: 1.56.2
       ui: link:../../packages/ui
     devDependencies:
       '@babel/core': 7.20.5
@@ -69,6 +68,7 @@ importers:
       '@types/react-dom': 18.0.9
       eslint: 7.32.0
       eslint-config-custom: link:../../packages/eslint-config-custom
+      sass: 1.56.2
       tsconfig: link:../../packages/tsconfig
       typescript: 4.9.4
 
@@ -7547,7 +7547,6 @@ packages:
 
   /immutable/4.1.0:
     resolution: {integrity: sha512-oNkuqVTA8jqG1Q6c+UglTOD1xhC1BtjKI7XkCXRkZHrN5m18/XsnUp8Q89GkQO/z+0WjonSvl0FLhDYftp46nQ==}
-    dev: false
 
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
@@ -10399,7 +10398,6 @@ packages:
       chokidar: 3.5.3
       immutable: 4.1.0
       source-map-js: 1.0.2
-    dev: false
 
   /scheduler/0.23.0:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
