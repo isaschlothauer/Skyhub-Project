@@ -4,5 +4,6 @@
     "apps/backend",
     "apps/web",
     "packages/ui"
-  ]
+  ],
+  "css.customData": ["./css-data.json"]
 }

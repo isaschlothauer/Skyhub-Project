@@ -1,11 +1,11 @@
 import * as React from "react";
-import styles from "./Home.module.scss";
+import styles from "./home.module.scss";
 import Image from "next/image";
-import summary1 from "../assets/images/home/summary-1.png";
-import summary2 from "../assets/images/home/summary-2.png";
-import summary3 from "../assets/images/home/summary-3.png";
-import widgetcheck from "../assets/images/widget/bg-widget-check.png";
-import widgetcontact from "../assets/images/widget/bg-widget-contact.png";
+import summary1 from "../../assets/images/home/summary-1.png";
+import summary2 from "../../assets/images/home/summary-2.png";
+import summary3 from "../../assets/images/home/summary-3.png";
+import widgetcheck from "../../assets/images/widget/bg-widget-check.png";
+import widgetcontact from "../../assets/images/widget/bg-widget-contact.png";
 
 const Home = () => {
   return (
@@ -55,8 +55,12 @@ const Home = () => {
                 <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Register</a>
                 @endif 
                 */}
-                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
-                <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Register</a>
+                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>
+                  Log In
+                  </a>
+                <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>
+                  Register
+                  </a>
                 </div>
               </div>
             </div>
@@ -70,6 +74,7 @@ const Home = () => {
                 </h1>
               </div>
             </div>
+
             <div className={`${styles.row} ${styles["top-summary"]}`}>
               <div className={styles["col-sm-12"]}>
                 <div className={styles["summary-box"]}>
@@ -91,6 +96,7 @@ const Home = () => {
                       <div className={styles["summary-footer-title"]}>
                         Pilot
                       </div>
+
                       <div className={styles["summary-more"]}>
                         <a href="http://{{ env('PILOT_DOMAIN') }}/subject">
                           learn more
