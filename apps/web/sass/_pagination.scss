@@ -1,0 +1,59 @@
+.pagination {
+  display: block;
+  padding: 15px;
+  text-align: center;
+  border-radius: 15px;
+  &-previous {
+    display: inline-block;
+    vertical-align: middle;
+    width: 37px;
+    height: 37px;
+    background: url('images/icons/arrow-left-pink.png') no-repeat center center;
+    margin-right: 24px;
+  }
+  &-next {
+    display: inline-block;
+    vertical-align: middle;
+    width: 37px;
+    height: 37px;
+    background: url('images/icons/arrow-right-pink.png') no-repeat center center;
+    margin-left: 24px;
+  }
+  &-first {
+    display: inline-block;
+    vertical-align: middle;
+    width: 37px;
+    height: 37px;
+    background: url('images/icons/arrow-first-pink.png') no-repeat center center;
+    margin-right: 16px;
+  }
+  &-last {
+    display: inline-block;
+    vertical-align: middle;
+    width: 37px;
+    height: 37px;
+    background: url('images/icons/arrow-last-pink.png') no-repeat center center;
+    margin-left: 16px;
+  }
+  &-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #727481;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 0 6px;
+    &:hover,
+    &.active {
+      text-decoration: none;
+      color: #ec008c;
+    }
+  }
+  &-spoiler {
+    display: inline-block;
+    color: #ec008c;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+}

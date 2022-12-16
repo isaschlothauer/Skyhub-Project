@@ -1,0 +1,451 @@
+@import 'variables';
+
+#insights-filter {
+    position: relative;
+    z-index: 2;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    background: white;
+    margin-bottom: 60px;
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 86px;
+        height: 63px;
+        top: 40px;
+        right: -42px;
+        background: url("images/branding-visual-xs.png") no-repeat center center;
+        z-index: 999999;
+        pointer-events: none;
+    }
+}
+
+#insights {
+    .insights-list-item {
+        display: block;
+        margin-bottom: 30px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        background: white;
+        -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        &-image {
+            min-height: 125px;
+            position: relative;
+            margin-bottom: 15px;
+            img {
+                display: block;
+                margin: 0 auto;
+                max-height: 115px;
+                max-width: 100%;
+            }
+        }
+        &-company {
+            font-family: "Nunito", sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 800;
+            color: #000e94;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        &-arrow {
+            display: block;
+            text-align: center;
+            span {
+                display: inline-block;
+                width: 37px;
+                height: 37px;
+                background: url("images/icons/arrow-right-pink.png") no-repeat
+                    center center;
+            }
+        }
+    }
+}
+
+#insight {
+    font-family: "Nunito", sans-serif;
+    margin-bottom: 80px;
+    .insight-title {
+        position: relative;
+        z-index: 1;
+        font-size: 19px;
+        line-height: 28px;
+        font-weight: 800;
+        color: #000e94;
+        margin-bottom: 16px;
+        &.insight-title-branding {
+            margin-top: 110px;
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 85px;
+                height: 63px;
+                top: -65px;
+                left: -40px;
+                background: url("images/branding-visual-xs-2.png") no-repeat
+                    center center;
+                z-index: 0;
+                pointer-events: none;
+            }
+        }
+        &.insight-title-icon-airplane {
+            padding-right: 27px;
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 24px;
+                height: 24px;
+                background: url("images/icons/icon-airplane.png") no-repeat
+                    center center;
+                top: 50%;
+                right: 0;
+                margin-top: -12px;
+            }
+        }
+    }
+    .insight-info {
+        position: relative;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        background: white;
+        -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        padding: 65px 40px 25px 40px;
+    }
+    .insight-company {
+        text-align: center;
+        .insight-company-image {
+            position: relative;
+            min-height: 125px;
+            img {
+                max-height: 115px;
+                max-width: 100%;
+            }
+        }
+        .insight-company-name {
+            font-size: 13px;
+            line-height: 18px;
+            color: #727481;
+        }
+        .insight-company-name-value {
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 32px;
+            color: #ec008c;
+            margin-bottom: 40px;
+        }
+    }
+    .insight-stats {
+        position: relative;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        background: white;
+        -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 12px;
+        padding: 5px 5px 25px 5px;
+        .insight-stats-icon {
+            min-height: 75px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            &-headquarter {
+                background-image: url("images/icons/icon-headquarter.png");
+            }
+            &-founding {
+                background-image: url("images/icons/icon-founding.png");
+            }
+            &-employees {
+                background-image: url("images/icons/icon-employees.png");
+            }
+            &-profits {
+                background-image: url("images/icons/icon-profits.png");
+            }
+            &-destinations {
+                background-image: url("images/icons/icon-destinations.png");
+            }
+            &-callsign {
+                background-image: url("images/icons/icon-callsign.png");
+            }
+        }
+        .insight-stats-title {
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: bold;
+            color: #ec008c;
+        }
+        .insight-stats-value {
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            color: #727481;
+        }
+    }
+
+    .insight-fleet {
+        position: relative;
+        overflow: hidden;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        background: white;
+        -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        p,
+        .insight-fleet-info {
+            font-size: 14px;
+            line-height: 24px;
+            font-weight: 600;
+            color: #727481;
+            padding: 4px 0;
+            margin: 0;
+        }
+        .insight-fleet-content {
+            padding: 40px 30px 0px 40px;
+            margin: 25px 10px 25px 0px;
+            overflow-y: scroll;
+            min-height: 16rem;
+            max-height: 32rem;
+            scrollbar-color: $scrollbar-background;
+            &::-webkit-scrollbar,
+            & *::-webkit-scrollbar {
+                width: 0.4rem;
+                background-color: $scrollbar-background;
+            }
+            &::-webkit-scrollbar-thumb,
+            & *::-webkit-scrollbar-thumb {
+                border-radius: 0.2rem;
+                background-color: $scrollbar-thumb;
+                min-height: 1rem;
+            }
+            &::-webkit-scrollbar-thumb:focus,
+            & *::-webkit-scrollbar-thumb:focus {
+                background-color: $scrollbar-thumb-active;
+            }
+            &::-webkit-scrollbar-thumb:active,
+            & *::-webkit-scrollbar-thumb:active {
+                background-color: $scrollbar-thumb-active;
+            }
+            &::-webkit-scrollbar-thumb:hover,
+            & *::-webkit-scrollbar-thumb:hover {
+                background-color: $scrollbar-thumb-active;
+            }
+            &::-webkit-scrollbar-corner,
+            & *::-webkit-scrollbar-corner {
+                background-color: $scrollbar-background;
+            }
+        }
+    }
+
+    .insight-assessment {
+        background: url("images/bg-assessment-3.png") no-repeat bottom center;
+        background-size: cover;
+        position: relative;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        padding: 65px 40px 25px 40px;
+        color: white;
+        .insight-assessment-title {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 34px;
+            color: white;
+            margin: 12px 0;
+        }
+        ul,
+        .insight-assessment-list {
+            padding-left: 28px;
+            li,
+            .insight-assessment-list-item {
+                font-size: 16px;
+                font-weight: normal;
+                line-height: 22px;
+                color: white;
+                padding: 6px 0;
+            }
+        }
+        .insight-assessment-more {
+            text-align: center;
+            margin: 20px 0 10px 0;
+            a {
+                display: block;
+                text-align: left;
+                position: relative;
+                padding: 20px 110px 20px 20px;
+                background: white;
+                color: #ec008c;
+                font-size: 16px;
+                line-height: 21px;
+                font-weight: 600;
+                text-decoration: none;
+                border-radius: 50px;
+                &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 70px;
+                    height: 21px;
+                    top: 50%;
+                    right: 20px;
+                    margin-top: -11px;
+                    background: url("images/icons/arrow-right-long-pink.png")
+                        no-repeat center center;
+                }
+            }
+        }
+    }
+
+    .insight-benefits {
+        position: relative;
+        background: white;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        padding: 65px 40px 25px 40px;
+        .insight-title {
+            margin-bottom: 35px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 24px;
+            color: #727481;
+            margin-bottom: 12px;
+            strong {
+                font-weight: bold;
+                color: #eb008c;
+            }
+        }
+    }
+
+    .insight-salary {
+        position: relative;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        padding: 65px 40px 25px 40px;
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            tr {
+                td {
+                    border: 1px solid #eaeaea;
+                    padding: 35px 15px;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #727481;
+                    &:first-child {
+                        border-left: none;
+                    }
+                    &:last-child {
+                        border-right: none;
+                    }
+                }
+                &:first-child {
+                    td {
+                        border-top: none;
+                        padding: 15px;
+                    }
+                }
+                &:last-child {
+                    td {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+
+        .insight-salary-rank {
+            display: block;
+            position: relative;
+            padding-top: 12px;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: bold;
+            color: #ec008c;
+            text-align: center;
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: -74px;
+                left: 0;
+                width: 100%;
+                height: 74px;
+            }
+            &.captain:before {
+                background: url("images/icons/icon-rank-captain.png") no-repeat
+                    center center;
+            }
+            &.sfo:before {
+                background: url("images/icons/icon-rank-sfo.png") no-repeat
+                    center center;
+            }
+            &.fo:before {
+                background: url("images/icons/icon-rank-fo.png") no-repeat
+                    center center;
+            }
+            &.so:before {
+                background: url("images/icons/icon-rank-so.png") no-repeat
+                    center center;
+            }
+        }
+
+        .insight-salary-with-icon {
+            color: #ec008c;
+            font-weight: bold;
+            position: relative;
+            padding-left: 38px;
+            display: inline-block;
+            &:before {
+                content: "";
+                display: block;
+                width: 26px;
+                height: 22px;
+                position: absolute;
+                top: 50%;
+                margin-top: -11px;
+                left: 0;
+            }
+            &.max:before {
+                background: url("images/icons/icon-salary-max.png") no-repeat
+                    center center;
+            }
+            &.min:before {
+                background: url("images/icons/icon-salary-min.png") no-repeat
+                    center center;
+            }
+            &.avg:before {
+                background: url("images/icons/icon-salary-avg.png") no-repeat
+                    center center;
+            }
+        }
+    }
+}
