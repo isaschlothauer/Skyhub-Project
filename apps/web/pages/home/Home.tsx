@@ -1,11 +1,13 @@
 import * as React from "react";
 import styles from "./home.module.scss";
 import Image from "next/image";
+import Footer from "../../components/Footer";
 import summary1 from "../../assets/images/home/summary-1.png";
 import summary2 from "../../assets/images/home/summary-2.png";
 import summary3 from "../../assets/images/home/summary-3.png";
 import widgetcheck from "../../assets/images/widget/bg-widget-check.png";
 import widgetcontact from "../../assets/images/widget/bg-widget-contact.png";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -14,7 +16,6 @@ const Home = () => {
         <div className={"row"}>
           <div className={"container"}>
             <div className={"row"}>
-
               {/* COMPONENT1 BUTTONS */}
               <div className={"col-md-5"}>
                 {/*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
@@ -43,7 +44,9 @@ const Home = () => {
               {/* COMPONENT2 BUTTONS */}
               <div className={`${"col-md-5"} ${"text-right"}`}>
                 <div
-                  className={`${styles["user-links"]} ${"d-none"} ${"d-md-block"}`}
+                  className={`${
+                    styles["user-links"]
+                  } ${"d-none"} ${"d-md-block"}`}
                 >
                   {/*@if (Auth::user())
                 @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
@@ -59,11 +62,17 @@ const Home = () => {
                 <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Register</a>
                 @endif 
                 */}
-                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles["btn"]} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>
-                  Log In
+                  <a
+                    href="{{ route('login') }}"
+                    className={`${styles["btn-login"]} ${styles["btn"]} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
+                  >
+                    Log In
                   </a>
-                <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles["btn"]} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>
-                  Register
+                  <a
+                    href="{{ route('register') }}"
+                    className={`${styles["btn-login"]} ${styles["btn"]} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
+                  >
+                    Register
                   </a>
                 </div>
               </div>
@@ -82,8 +91,7 @@ const Home = () => {
             </div>
 
             <div className={`${"row"} ${styles["top-summary"]}`}>
-
-              { /* COMPONENT TILE: PILOT */}
+              {/* COMPONENT TILE: PILOT */}
               <div className={"col-sm-12"}>
                 <div className={styles["summary-box"]}>
                   <div className={styles["summary-image"]}>
@@ -92,7 +100,7 @@ const Home = () => {
                   </div>
                   <div
                     className={styles["summary-overlay"]}
-                    onClick="window.open(`http://{{ env('PILOT_DOMAIN') }}/subject`, '_self')" /*style="cursor:pointer;"*/
+                    /* onClick="window.open(`http://{{ env('PILOT_DOMAIN') }}/subject`, '_self')" style="cursor:pointer;"*/
                   >
                     <div className={styles["summary-count"]}>
                       <strong>{/* { $pilotCount } */}</strong> active offers
@@ -106,16 +114,17 @@ const Home = () => {
                       </div>
 
                       <div className={styles["summary-more"]}>
-                        <a href="http://{{ env('PILOT_DOMAIN') }}/subject">
+                        <Link href="/jobs">
+                          {" "}
+                          {/* In future, route to the PILOT offer's page*/}
                           learn more
-                        </a>
+                        </Link>
                       </div>
                     </div>
                     <div className={styles["summary-line"]}></div>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -130,8 +139,7 @@ const Home = () => {
           </div>
         </div>
         <div className={`${"row"} ${styles["top-summary-2"]}`}>
-
-        { /* COMPONENT TILE: CABIN */}
+          {/* COMPONENT TILE: CABIN */}
           <div className={"col-sm-12"}>
             <div className={styles["summary-box"]}>
               <div className={styles["summary-image"]}>
@@ -139,7 +147,7 @@ const Home = () => {
               </div>
               <div
                 className={styles["summary-overlay"]}
-                onClick="window.open(`http://{{ env('CABIN_DOMAIN') }}/subject`, '_self')" /* style="cursor:pointer;"*/
+                /* onClick="window.open(`http://{{ env('CABIN_DOMAIN') }}/subject`, '_self')"  style="cursor:pointer;"*/
               >
                 <div className={styles["summary-count"]}>
                   <strong>{/* { $cabinCount } */}</strong> active offers
@@ -150,9 +158,11 @@ const Home = () => {
                   </div>
                   <div className={styles["summary-footer-title"]}>Cabin</div>
                   <div className={styles["summary-more"]}>
-                    <a href="http://{{ env('CABIN_DOMAIN') }}/subject">
+                    <Link href="/jobs">
+                      {" "}
+                      {/* In future, route to the CABIN offer's page*/}
                       learn more
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className={styles["summary-line"]}></div>
@@ -171,8 +181,7 @@ const Home = () => {
           </div>
         </div>
         <div className={"row"}>
-
-        { /* COMPONENT TILE: AIR TRAFFIC CONTROL */ }
+          {/* COMPONENT TILE: AIR TRAFFIC CONTROL */}
           <div className={"col-md-12"}>
             <div
               className={`${styles["summary-box"]} ${styles["summary-shapes"]} ${styles["summary-wide"]}`}
@@ -182,7 +191,7 @@ const Home = () => {
               </div>
               <div
                 className={styles["summary-overlay"]}
-                onClick="window.open(`http://{{ env('ATC_DOMAIN') }}/subject`, '_self')" /* style="cursor:pointer;" */
+                /* onClick="window.open(`http://{{ env('ATC_DOMAIN') }}/subject`, '_self')"  style="cursor:pointer;" */
               >
                 <div className={`${styles["summary-count"]} ${styles.pink}`}>
                   <strong>{/* { $atcCount } */}</strong> active offers
@@ -195,9 +204,11 @@ const Home = () => {
                     Air Traffic Control
                   </div>
                   <div className={styles["summary-more"]}>
-                    <a href="http://{{ env('ATC_DOMAIN') }}/subject">
+                    <Link href="/jobs">
+                      {" "}
+                      {/* In future, route to the AIR offer's page*/}
                       learn more
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className={styles["summary-line"]}></div>
@@ -211,15 +222,13 @@ const Home = () => {
         <div
           className={`${"row"} ${"align-items-end"} ${styles["row-widgets"]}`}
         >
-          { /* FAQ BUTTON COMPONENT */ }
+          {/* FAQ BUTTON COMPONENT */}
           <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div className={`${styles.widget} ${styles["widget-check-other"]}`}>
               <Image src={widgetcheck} alt="widgetcheck" />
               <div className={styles["widget-overlay"]}>
-                <div
-                  onClick="window.open('/faq', '_self')"
-                  /* style="cursor:pointer;"*/
-                >
+                <div>
+                  <Link href="/faq" />
                   <div className={styles["widget-subtitle"]}>
                     How can we help you?
                   </div>
@@ -232,8 +241,7 @@ const Home = () => {
             </div>
           </div>
 
-
-          { /* CONTACT US COMPONENT */ }
+          {/* CONTACT US COMPONENT */}
           <div className={`${"col-md-8"} ${"px-md-2"}`}>
             <div className={`${styles.widget} ${styles["widget-contact-us"]}`}>
               <Image src={widgetcontact} alt="widgetcontact" />
@@ -254,10 +262,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
 
-    // FOOTER COMPONENT 
-    
+      <Footer />
+    </div>
   );
 };
 
