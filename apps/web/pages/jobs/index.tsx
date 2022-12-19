@@ -3,10 +3,13 @@ import Mini_Header from "../../components/Mini_Header";
 import styles from "./jobs.module.scss";
 import Link from "next/link";
 import Footer from "../../components/Footer";
+import GoBackHome from "../../components/GoBackHome";
+import ContactUs from "../../components/ContactUs";
+import JobsBtn from "../../components/JobsBtn";
 
 function Jobs() {
   return (
-    <div id={styles.page}>
+    <div className={styles["faq-page"]}>
       <Mini_Header title={"Available Jobs"} />
       <div className={"container"}>
         <div className={"row subject-branding"}>
@@ -33,7 +36,7 @@ function Jobs() {
 
           <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div
-              className={`{styles.widget} ${styles["widget-2"]} ${styles["widget-requirements"]} 
+              className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-requirements"]} 
           ${styles["branding-1"]} ${styles["branding-left-65"]} ${styles["branding-top-75"]}`}
             >
               <div className={styles["widget-overlay"]}>
@@ -77,7 +80,7 @@ function Jobs() {
         </div>
 
         <div className={"row"}>
-          <div className={`{"col-md-4"} ${"px-md-2"}`}>
+          <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div
               className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-training"]}`}
             >
@@ -100,7 +103,7 @@ function Jobs() {
             </div>
           </div>
 
-          <div className={`{"col-md-4"} ${"px-md-2"}`}>
+          <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div
               className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-costs"]} ${styles["branding-1"]} 
           ${styles["branding-right-85"]} ${styles["branding-bottom-60"]}`}
@@ -144,7 +147,12 @@ function Jobs() {
             </div>
           </div>
         </div>
-
+        <div
+          className={`${"row"} ${"align-items-end"} ${styles["row-widgets"]}}`}
+        >
+          <JobsBtn />
+          <ContactUs />
+        </div>
         {/* 
 
   @widget('GoBack', [
@@ -160,7 +168,9 @@ function Jobs() {
   @widget('GoHomepage')
 
 */}
+        <GoBackHome />
       </div>
+
       <Footer />
     </div>
   );

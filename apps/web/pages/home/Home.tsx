@@ -6,8 +6,8 @@ import summary1 from "../../assets/images/home/summary-1.png";
 import summary2 from "../../assets/images/home/summary-2.png";
 import summary3 from "../../assets/images/home/summary-3.png";
 import widgetcheck from "../../assets/images/widget/bg-widget-check.png";
-import widgetcontact from "../../assets/images/widget/bg-widget-contact.png";
 import Link from "next/link";
+import ContactUs from "../../components/ContactUs";
 
 const Home = () => {
   return (
@@ -241,25 +241,8 @@ const Home = () => {
             </div>
           </div>
 
-          {/* CONTACT US COMPONENT */}
-          <div className={`${"col-md-8"} ${"px-md-2"}`}>
-            <div className={`${styles.widget} ${styles["widget-contact-us"]}`}>
-              <Image src={widgetcontact} alt="widgetcontact" />
-              <div className={styles["widget-overlay"]}>
-                <div
-                  onClick="window.open('#', '_self')" /* style="cursor:pointer;" */
-                >
-                  <div className={styles["widget-subtitle"]}>
-                    Do you have questions?
-                  </div>
-                  <div className={styles["widget-title"]}>Contact us</div>
-                  <a href="#" className={styles["widget-link"]}>
-                    open a ticket
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ContactUs />
+
         </div>
       </div>
 
