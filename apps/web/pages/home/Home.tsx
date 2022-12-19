@@ -10,11 +10,13 @@ import widgetcontact from "../../assets/images/widget/bg-widget-contact.png";
 const Home = () => {
   return (
     <div id={styles.page}>
-      <div className={styles["container-fluid"]} id={styles["top-container"]}>
-        <div className={styles.row}>
-          <div className={styles.container}>
-            <div className={styles.row}>
-              <div className={styles["col-md-5"]}>
+      <div className={"container-fluid"} id={styles["top-container"]}>
+        <div className={"row"}>
+          <div className={"container"}>
+            <div className={"row"}>
+
+              {/* COMPONENT1 BUTTONS */}
+              <div className={"col-md-5"}>
                 {/*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
                 @if (Auth::user())
                 @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
@@ -32,14 +34,16 @@ const Home = () => {
               */}
                 &nbsp;
               </div>
-              <div className={styles["col-md-2"]}>
+              <div className={"col-md-2"}>
                 <div className={styles["top-logo"]}>
                   <div className={styles.logo}></div>
                 </div>
               </div>
-              <div className={`${styles["col-md-5"]} ${styles["text-right"]}`}>
+
+              {/* COMPONENT2 BUTTONS */}
+              <div className={`${"col-md-5"} ${"text-right"}`}>
                 <div
-                  className={`${styles["user-links"]} ${styles["d-none"]} ${styles["d-md-block"]}`}
+                  className={`${styles["user-links"]} ${"d-none"} ${"d-md-block"}`}
                 >
                   {/*@if (Auth::user())
                 @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
@@ -55,17 +59,19 @@ const Home = () => {
                 <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Register</a>
                 @endif 
                 */}
-                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>
+                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles["btn"]} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>
                   Log In
                   </a>
-                <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>
+                <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles["btn"]} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>
                   Register
                   </a>
                 </div>
               </div>
             </div>
-            <div className={styles.row}>
-              <div className={styles["col-md-12"]}>
+
+            {/* COMPONENT PHRASE GENERATOR */}
+            <div className={"row"}>
+              <div className={"col-md-12"}>
                 <h1
                   className={styles["top-title-1"]}
                   id={styles["find-your-texts"]}
@@ -75,8 +81,10 @@ const Home = () => {
               </div>
             </div>
 
-            <div className={`${styles.row} ${styles["top-summary"]}`}>
-              <div className={styles["col-sm-12"]}>
+            <div className={`${"row"} ${styles["top-summary"]}`}>
+
+              { /* COMPONENT TILE: PILOT */}
+              <div className={"col-sm-12"}>
                 <div className={styles["summary-box"]}>
                   <div className={styles["summary-image"]}>
                     <Image src={summary1} alt="summary1" />
@@ -107,21 +115,24 @@ const Home = () => {
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
       </div>
 
-      <div className={styles["container"]}>
-        <div className={styles.row}>
-          <div className={styles["col-md-12"]}>
+      <div className={"container"}>
+        <div className={"row"}>
+          <div className={"col-md-12"}>
             <div className={styles["not-enough"]}>
               Not enough? We've got <span>more</span>!
             </div>
           </div>
         </div>
-        <div className={`${styles.row} ${styles["top-summary-2"]}`}>
-          <div className={styles["col-sm-12"]}>
+        <div className={`${"row"} ${styles["top-summary-2"]}`}>
+
+        { /* COMPONENT TILE: CABIN */}
+          <div className={"col-sm-12"}>
             <div className={styles["summary-box"]}>
               <div className={styles["summary-image"]}>
                 <Image src={summary2} alt="summary2" />
@@ -151,16 +162,18 @@ const Home = () => {
         </div>
       </div>
 
-      <div className={`${styles["container"]} ${styles["last-container"]}`}>
-        <div className={styles.row}>
-          <div className={styles["col-md-12"]}>
+      <div className={`${"container"} ${styles["last-container"]}`}>
+        <div className={"row"}>
+          <div className={"col-md-12"}>
             <div className={styles["even-more"]}>
               ...and even <span>more</span>!
             </div>
           </div>
         </div>
-        <div className={styles.row}>
-          <div className={styles["col-md-12"]}>
+        <div className={"row"}>
+
+        { /* COMPONENT TILE: AIR TRAFFIC CONTROL */ }
+          <div className={"col-md-12"}>
             <div
               className={`${styles["summary-box"]} ${styles["summary-shapes"]} ${styles["summary-wide"]}`}
             >
@@ -194,11 +207,12 @@ const Home = () => {
         </div>
       </div>
 
-      <div className={styles.container}>
+      <div className={"container"}>
         <div
-          className={`${styles.row} ${styles["align-items-end"]} ${styles["row-widgets"]}`}
+          className={`${"row"} ${"align-items-end"} ${styles["row-widgets"]}`}
         >
-          <div className={`${styles["col-md-4"]} ${styles["px-md-2"]}`}>
+          { /* FAQ BUTTON COMPONENT */ }
+          <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div className={`${styles.widget} ${styles["widget-check-other"]}`}>
               <Image src={widgetcheck} alt="widgetcheck" />
               <div className={styles["widget-overlay"]}>
@@ -218,7 +232,9 @@ const Home = () => {
             </div>
           </div>
 
-          <div className={`${styles["col-md-8"]} ${styles["px-md-2"]}`}>
+
+          { /* CONTACT US COMPONENT */ }
+          <div className={`${"col-md-8"} ${"px-md-2"}`}>
             <div className={`${styles.widget} ${styles["widget-contact-us"]}`}>
               <Image src={widgetcontact} alt="widgetcontact" />
               <div className={styles["widget-overlay"]}>
@@ -239,6 +255,9 @@ const Home = () => {
         </div>
       </div>
     </div>
+
+    // FOOTER COMPONENT 
+    
   );
 };
 
