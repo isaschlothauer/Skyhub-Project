@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./jobsBtn.module.scss";
 import widgetjob from "../assets/images/widget/bg-widget-jobs.png";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Jobs() {
   return (
@@ -10,13 +11,13 @@ export default function Jobs() {
           <Image src={widgetjob} alt="widgetcontact" />
           <div className={styles["widget-overlay"]}>
             <div
-              onClick="window.open('#', '_self')" /* style="cursor:pointer;" */
+              /* onClick="window.open('#', '_self')"  style="cursor:pointer;" */
             >
               <div className={styles["widget-subtitle"]}>Jobs</div>
               <div className={styles["widget-title"]}>Current offers</div>
-              <a href="#" className={styles["widget-link"]}>
+              <Link href="/jobs" className={styles["widget-link"]}>
                 Learn more
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ import JobsBtn from "../../components/JobsBtn";
 
 function Jobs() {
   return (
-    <div className={styles["faq-page"]}>
+    <div id={"page"}>
       <Mini_Header title={"Available Jobs"} />
       <div className={"container"}>
         <div className={"row subject-branding"}>
@@ -19,14 +19,14 @@ function Jobs() {
             >
               <div className={styles["widget-overlay"]}>
                 <div
-                  onclick="window.open('/general', '_self')" /* style="cursor:pointer;" */
+                /*  onclick="window.open('/general', '_self')"  style="cursor:pointer;" */
                 >
                   <div className={styles["widget-title"]}>General</div>
                   <div className={styles["widget-subtitle"]}>
                     All you need to know
                   </div>
 
-                  <Link href="/general" className={styles["widget-link"]}>
+                  <Link href="/jobs/general" className={styles["widget-link"]}>
                     learn more
                   </Link>
                 </div>
@@ -41,14 +41,14 @@ function Jobs() {
             >
               <div className={styles["widget-overlay"]}>
                 <div
-                  onclick="window.open('/requirements', '_self')" /* style="cursor:pointer;" */
+                /*  onclick="window.open('/requirements', '_self')"  style="cursor:pointer;" */
                 >
                   <div className={styles["widget-title"]}>Requirements</div>
                   <div className={styles["widget-subtitle"]}>
                     Do you have what it takes?
                   </div>
 
-                  <Link href="/requirements" className={styles["widget-link"]}>
+                  <Link href="/jobs/requirements" className={styles["widget-link"]}>
                     learn more
                   </Link>
                 </div>
@@ -63,14 +63,14 @@ function Jobs() {
             >
               <div className={styles["widget-overlay"]}>
                 <div
-                  onclick="window.open('/apply', '_self')" /* style="cursor:pointer;" */
+                 /* onclick="window.open('/apply', '_self')" style="cursor:pointer;" */
                 >
                   <div className={styles["widget-title"]}>Application</div>
                   <div className={styles["widget-subtitle"]}>
                     How, where, why?
                   </div>
 
-                  <Link href="/apply" className={styles["widget-link"]}>
+                  <Link href="/jobs/apply" className={styles["widget-link"]}>
                     learn more
                   </Link>
                 </div>
@@ -88,14 +88,14 @@ function Jobs() {
               {/* -{{ $type }} */}
               <div className={styles["widget-overlay"]}>
                 <div
-                  onclick="window.open('/training', '_self')" /* style="cursor:pointer;" */
+                /*  onclick="window.open('/training', '_self')"  style="cursor:pointer;" */
                 >
                   <div className={styles["widget-title"]}>Training</div>
                   <div className={styles["widget-subtitle"]}>
                     Learning by doing
                   </div>
 
-                  <Link href="/training" className={styles["widget-link"]}>
+                  <Link href="/jobs/training" className={styles["widget-link"]}>
                     learn more
                   </Link>
                 </div>
@@ -110,14 +110,14 @@ function Jobs() {
             >
               <div className={styles["widget-overlay"]}>
                 <div
-                  onclick="window.open('/costs', '_self')" /* style="cursor:pointer;" */
+                /*  onclick="window.open('/costs', '_self')"  style="cursor:pointer;" */
                 >
                   <div className={styles["widget-title"]}>Costs</div>
                   <div className={styles["widget-subtitle"]}>
                     Doing the maths
                   </div>
 
-                  <Link href="/costs" className={styles["widget-link"]}>
+                  <Link href="/jobs/costs" className={styles["widget-link"]}>
                     learn more
                   </Link>
                 </div>
@@ -132,14 +132,14 @@ function Jobs() {
             >
               <div className={styles["widget-overlay"]}>
                 <div
-                  onclick="window.open('/insights', '_self')" /* style="cursor:pointer;" */
+                /*  onclick="window.open('/insights', '_self')"  style="cursor:pointer;" */
                 >
                   <div className={styles["widget-title"]}>Insights</div>
                   <div className={styles["widget-subtitle"]}>
                     Have a look inside
                   </div>
 
-                  <Link href="/insights" className={styles["widget-link"]}>
+                  <Link href="/jobs/insights" className={styles["widget-link"]}>
                     learn more
                   </Link>
                 </div>
