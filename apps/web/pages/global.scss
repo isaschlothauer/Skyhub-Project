@@ -43,6 +43,10 @@
     "Liberation Mono", "Courier New", monospace;
 }
 
+body::-webkit-scrollbar-corner,
+  body *::-webkit-scrollbar-corner {
+    background-color: #bfc0ce; }
+
 *,
 *::before,
 *::after {

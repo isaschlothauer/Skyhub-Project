@@ -1,13 +1,60 @@
 import * as React from "react";
 import styles from "./home.module.scss";
-import Image from "next/image";
-import Footer from "../../components/Footer";
+import styles2 from "../../components/Tile.module.scss";
+
 import summary1 from "../../assets/images/home/summary-1.png";
 import summary2 from "../../assets/images/home/summary-2.png";
 import summary3 from "../../assets/images/home/summary-3.png";
+
 import widgetcheck from "../../assets/images/widget/bg-widget-check.png";
+import widgetcontact from "../../assets/images/widget/bg-widget-contact.png";
+
+import FAQContact from "../../components/FAQ_contact_tile";
+import Footer from "../../components/Footer";
+import Tile from "../../components/Tile";
 import Link from "next/link";
-import ContactUs from "../../components/ContactUs";
+import Image from "next/image";
+
+const test = [
+  {
+    pic: summary1,
+    label: "Pilot",
+    className: styles2["tile-main-container"],
+    subtitle: "Enter Your Office Above the Clouds",
+  },
+
+  {
+    pic: summary2,
+    label: "Cabin",
+    className: styles2["tile-main-container"],
+    subtitle: "Travel Around the World",
+  },
+
+  {
+    pic: summary3,
+    label: "Air Traffic Control",
+    className: styles2["tile-main-container"],
+    subtitle: "Manage the Sky",
+  },
+];
+
+const test2 = [
+  {
+    label: "FAQ",
+    subtext: "How can we help you?",
+    styleprop: styles["contactus-container"],
+    tailwind: "md:w-1/3 pr-4 pl-4 md:px-2",
+    pic: widgetcheck,
+  },
+
+  {
+    label: "Contact Us",
+    subtext: "Do you have questions?",
+    styleprop: styles["faq-container"],
+    tailwind: "md:w-2/3 pr-4 pl-4 md:px-2",
+    pic: widgetcontact,
+  },
+];
 
 const Home = () => {
   return (
@@ -35,6 +82,7 @@ const Home = () => {
               */}
                 &nbsp;
               </div>
+
               <div className={"col-md-2"}>
                 <div className={styles["top-logo"]}>
                   <div className={styles.logo}></div>
@@ -89,44 +137,20 @@ const Home = () => {
                 </h1>
               </div>
             </div>
-
-            <div className={`${"row"} ${styles["top-summary"]}`}>
-              {/* COMPONENT TILE: PILOT */}
-              <div className={"col-sm-12"}>
-                <div className={styles["summary-box"]}>
-                  <div className={styles["summary-image"]}>
-                    <Image src={summary1} alt="summary1" />
-                    <div className={styles["summary-branding"]}></div>
-                  </div>
-                  <div
-                    className={styles["summary-overlay"]}
-                    /* onClick="window.open(`http://{{ env('PILOT_DOMAIN') }}/subject`, '_self')" style="cursor:pointer;"*/
-                  >
-                    <div className={styles["summary-count"]}>
-                      <strong>{/* { $pilotCount } */}</strong> active offers
-                    </div>
-                    <div className={styles["summary-footer"]}>
-                      <div className={styles["summary-footer-subtitle"]}>
-                        Enter Your Office Above the Clouds
-                      </div>
-                      <div className={styles["summary-footer-title"]}>
-                        Pilot
-                      </div>
-
-                      <div className={styles["summary-more"]}>
-                        <Link href="/jobs">
-                          {" "}
-                          {/* In future, route to the PILOT offer's page*/}
-                          learn more
-                        </Link>
-                      </div>
-                    </div>
-                    <div className={styles["summary-line"]}></div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
+        </div>
+      </div>
+
+      <div className={"container"}>
+        <div className={"row"}>
+          {test.map((test) => (
+            <Tile
+              label={test.label}
+              test={test.className}
+              pic={test.pic}
+              subtitle={test.subtitle}
+            />
+          ))}
         </div>
       </div>
 
@@ -135,38 +159,6 @@ const Home = () => {
           <div className={"col-md-12"}>
             <div className={styles["not-enough"]}>
               Not enough? We've got <span>more</span>!
-            </div>
-          </div>
-        </div>
-        <div className={`${"row"} ${styles["top-summary-2"]}`}>
-          {/* COMPONENT TILE: CABIN */}
-          <div className={"col-sm-12"}>
-            <div className={styles["summary-box"]}>
-              <div className={styles["summary-image"]}>
-                <Image src={summary2} alt="summary2" />
-              </div>
-              <div
-                className={styles["summary-overlay"]}
-                /* onClick="window.open(`http://{{ env('CABIN_DOMAIN') }}/subject`, '_self')"  style="cursor:pointer;"*/
-              >
-                <div className={styles["summary-count"]}>
-                  <strong>{/* { $cabinCount } */}</strong> active offers
-                </div>
-                <div className={styles["summary-footer"]}>
-                  <div className={styles["summary-footer-subtitle"]}>
-                    Travel the World
-                  </div>
-                  <div className={styles["summary-footer-title"]}>Cabin</div>
-                  <div className={styles["summary-more"]}>
-                    <Link href="/jobs">
-                      {" "}
-                      {/* In future, route to the CABIN offer's page*/}
-                      learn more
-                    </Link>
-                  </div>
-                </div>
-                <div className={styles["summary-line"]}></div>
-              </div>
             </div>
           </div>
         </div>
@@ -180,49 +172,12 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className={"row"}>
-          {/* COMPONENT TILE: AIR TRAFFIC CONTROL */}
-          <div className={"col-md-12"}>
-            <div
-              className={`${styles["summary-box"]} ${styles["summary-shapes"]} ${styles["summary-wide"]}`}
-            >
-              <div className={styles["summary-image"]}>
-                <Image src={summary3} alt="summary3" />
-              </div>
-              <div
-                className={styles["summary-overlay"]}
-                /* onClick="window.open(`http://{{ env('ATC_DOMAIN') }}/subject`, '_self')"  style="cursor:pointer;" */
-              >
-                <div className={`${styles["summary-count"]} ${styles.pink}`}>
-                  <strong>{/* { $atcCount } */}</strong> active offers
-                </div>
-                <div className={styles["summary-footer"]}>
-                  <div className={styles["summary-footer-subtitle"]}>
-                    Manage the Sky
-                  </div>
-                  <div className={styles["summary-footer-title"]}>
-                    Air Traffic Control
-                  </div>
-                  <div className={styles["summary-more"]}>
-                    <Link href="/jobs">
-                      {" "}
-                      {/* In future, route to the AIR offer's page*/}
-                      learn more
-                    </Link>
-                  </div>
-                </div>
-                <div className={styles["summary-line"]}></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div className={"container"}>
-        <div
-          className={`${"row"} ${"align-items-end"} ${styles["row-widgets"]}`}
-        >
-          {/* FAQ BUTTON COMPONENT */}
+        <div className={"container"}>
+          <div
+            className={`${"row"} ${"align-items-end"} ${styles["row-widgets"]}`}
+          >
+            {/* FAQ BUTTON COMPONENT OLD
           <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div className={`${styles.widget} ${styles["widget-check-other"]}`}>
               <Image src={widgetcheck} alt="widgetcheck" />
@@ -240,12 +195,29 @@ const Home = () => {
               </div>
             </div>
           </div>
-
           <ContactUs />
+           */}
 
+            <div className={"container"}>
+              <div
+                className={`${"row"} ${"align-items-end"} ${
+                  styles["row-widgets"]
+                }}`}
+              >
+                {test2.map((test) => (
+                  <FAQContact
+                    label={test.label}
+                    sprop={test.styleprop}
+                    subtext={test.subtext}
+                    tailwindclass={test.tailwind}
+                    pic={test.pic}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );
