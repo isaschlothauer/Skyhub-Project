@@ -136,21 +136,21 @@ const Home = () => {
                   Find your <strong data-find-text></strong>
                 </h1>
               </div>
+
+            
+                <div className={`${"row"}${styles["top-summary"]}`}>
+                  {test.slice(0, 1).map((test) => (
+                    <Tile
+                      label={test.label}
+                      test={test.className}
+                      pic={test.pic}
+                      subtitle={test.subtitle}
+                    />
+                  ))}
+                </div>
+              
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className={"container"}>
-        <div className={"row"}>
-          {test.map((test) => (
-            <Tile
-              label={test.label}
-              test={test.className}
-              pic={test.pic}
-              subtitle={test.subtitle}
-            />
-          ))}
         </div>
       </div>
 
@@ -164,12 +164,38 @@ const Home = () => {
         </div>
       </div>
 
+      <div className={"container"}>
+        <div className={"row"}>
+          {test.slice(1, 2).map((test) => (
+            <Tile
+              label={test.label}
+              test={test.className}
+              pic={test.pic}
+              subtitle={test.subtitle}
+            />
+          ))}
+        </div>
+      </div>
+
       <div className={`${"container"} ${styles["last-container"]}`}>
         <div className={"row"}>
           <div className={"col-md-12"}>
             <div className={styles["even-more"]}>
               ...and even <span>more</span>!
             </div>
+          </div>
+        </div>
+
+        <div className={"container"}>
+          <div className={"row"}>
+            {test.slice(2, 3).map((test) => (
+              <Tile
+                label={test.label}
+                test={test.className}
+                pic={test.pic}
+                subtitle={test.subtitle}
+              />
+            ))}
           </div>
         </div>
 
