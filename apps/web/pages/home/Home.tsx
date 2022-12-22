@@ -14,6 +14,7 @@ import Footer from "../../components/Footer";
 import Tile from "../../components/Tile";
 import Link from "next/link";
 import Image from "next/image";
+import GoBackHome from "../../components/GoBackHome";
 
 const test = [
   {
@@ -239,6 +240,7 @@ const Home = () => {
                     pic={test.pic}
                   />
                 ))}
+               
               </div>
             </div>
           </div>
