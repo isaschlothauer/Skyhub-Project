@@ -1,20 +1,5 @@
-//Footer
-
+//Footer Element
 #footer {
-
-  //Images with Crosses and Squares
-    .footer-branding {
-      display: block;
-      position: absolute;
-      bottom: 8px;
-      left: -170px;
-      width: 3000px;
-      height: 84px;
-      background: url("../assets/images/home/footer-branding.png") no-repeat center center;
-    }
-  
-  
-  
   
     // Container with the SkyHub logo and other links (PP and ToS)
     .linkswithlogo {
@@ -41,8 +26,6 @@
     
       }
     }
-  
-  
   
   //Copyright Box with Information
     .copyrightbox {
