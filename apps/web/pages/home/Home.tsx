@@ -151,7 +151,9 @@ const Home = () => {
       </div>
 
 
-      
+      {/*CROSSES AND SQAURES IMAGE*/}
+      <Image className={styles.crossimage1} src={CrossandSquare} alt="CrossandSquare"/>
+
       {/*PILOT TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
         <div className={"flex flex-wrap"}>
@@ -223,7 +225,9 @@ const Home = () => {
           </div>
         </div>
         
-        <Image src={CrossandSquare} alt="CrossandSquare"/>
+
+        {/*CROSSES AND SQAURES IMAGE*/}
+        <Image className={styles.crossimage2} src={CrossandSquare} alt="CrossandSquare"/>
 
 
         {/* FAQ & CONTACT US COMPONENT*/}

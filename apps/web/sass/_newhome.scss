@@ -30,6 +30,9 @@
 
 
 //Container of the phrase generator component
+.mainpage-robotcontainer{
+  z-index:999;
+
   .maingpage-robottext {
     font-size: 48px;
     line-height: 52px;
@@ -38,12 +41,13 @@
     text-align: center;
     margin-top: 15rem;
     margin-bottom: 100px;
+    z-index:999;
     strong {
       color: #1aebcf;
     }
   }
 
-
+}
 
  //Container of the first text on the main page
   .mainpage-firsttext {
@@ -73,6 +77,12 @@
     }
   }
 
+  
+//Container of the ATC Tile
+.mainpage-atctile{
+  margin-bottom: 150px;
+}
+
 
 
   //Container of the FAQ and Contact us Tile
@@ -81,14 +91,24 @@
 }
 
 
-//Container of the ATC Tile
-.mainpage-atctile{
-  margin-bottom: 150px;
+
+//Properties of the Cross and Squares Images
+.crossimage2{
+  position: absolute;
+  z-index: 999;
+  width: 200px;
+  height: 150px;
+  right:200px;
+ top:155rem;
+
 }
 
-//Container of the Robot Generator
-.mainpage-robotcontainer{
-  z-index:999;
+.crossimage1{
+  position: absolute;
+  z-index: 999;
+  width: 200px;
+  height: 150px;
+  top:290px;
+  left:100px;
+  
 }
-
- 
