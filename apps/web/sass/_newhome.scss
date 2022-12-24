@@ -1,4 +1,10 @@
+.mainpage{
+  font-family:"Nunito", "Open Sans", sans-serif;
+}
+
 //Main page header
+
+
 .mainpage-header {
     width: 100%;
     height: 83%;
@@ -10,6 +16,7 @@
     background-size: cover;
     margin-bottom: 2rem;
     position: absolute;
+    
 
 
     //Logo container and properties
@@ -87,7 +94,8 @@
 
   //Container of the FAQ and Contact us Tile
 .mainpage-faqcontact{
-  margin-bottom: 100px;
+  margin-bottom: 110px;
+  padding-left: 0.5rem;
 }
 
 
@@ -99,7 +107,7 @@
   width: 200px;
   height: 150px;
   right:200px;
- top:155rem;
+  top:145rem;
 
 }
 

@@ -14,6 +14,7 @@ import CrossandSquare from "../../assets/images/branding/branding-3.png"
 import Tile from "../../components/Tile";
 import FAQContact from "../../components/FAQ_contact_tile";
 import Footer from "../../components/Footer";
+import Link from "next/link";
 
 
 
@@ -45,7 +46,7 @@ const fcTiles = [
     tilename: "FAQ",
     subtilename: "How can we help you?",
     cSass: stylesFC["contactus-container"],
-    cTailwind: "md:w-1/3 pr-2 pl-2 md:px-2",
+    cTailwind: "md:w-1/3 pr-0 pl-14",
     picture: FAQTile,
   },
 
@@ -53,7 +54,7 @@ const fcTiles = [
     tilename: "Contact Us",
     subtilename: "Do you have questions?",
     cSass: stylesFC["faq-container"],
-    cTailwind: "md:w-2/3 pr-2 pl-2 md:px-2",
+    cTailwind: "md:w-2/3 pr-16 pl-6",
     picture: ContactTile,
   },
 ];
@@ -61,14 +62,16 @@ const fcTiles = [
 
 const Home = () => {
   return (
-    
-    <div> 
+  
+
+<>
+    <div className={styles["mainpage"]}> 
       <div className={styles["mainpage-header"]}>
         <div className={"flex flex-wrap"}>
           <div className={`container mx-auto sm:px-0`}>
             <div className={"flex flex-wrap"}>
               {/* COMPONENT1 BUTTONS */}
-              <div className={"md:w-2/5 pr-4 pl-4"}>
+              <div className={"md:w-2/5 pr-0 pl-0"}>
                 {/*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
                 @if (Auth::user())
                 @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
@@ -143,7 +146,7 @@ const Home = () => {
 
        {/*PHRASE GENERATOR - ROBOT */}
       <div className={"flex flex-wrap"}>
-        <div className={`md:w-full pr-4 pl-4 ${styles["mainpage-robotcontainer"]}`}>
+        <div className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}>
           <h1 className={styles["maingpage-robottext"]}>
           Find your <strong data-find-text></strong> {/*!!! Database Info*/}
         </h1>
@@ -172,7 +175,7 @@ const Home = () => {
        {/* FIRST TEXT MAIN PAGE*/}
        <div className={"container mx-auto sm:px-0"}>
         <div className={"flex flex-wrap"}>
-          <div className={"md:w-full pr-4 pl-4"}>
+          <div className={"md:w-full pr-0 pl-0"}>
             <div className={styles["mainpage-firsttext"]}>
               Not enough? We've got <span>more</span>!
             </div>
@@ -232,7 +235,7 @@ const Home = () => {
 
         {/* FAQ & CONTACT US COMPONENT*/}
         <div className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}>
-              <div className={`${"flex flex-wrap"} ${"items-end"}`}>
+              <div className={`${"flex flex-wrap"} ${"items-end"}` }>
                 {fcTiles.map((fctile) => (
                   <FAQContact
                     tilename={fctile.tilename}
@@ -247,11 +250,12 @@ const Home = () => {
       
       <Footer />
     </div>
+    </>
   );
 };
 
 export default Home;
 
 
-{/*container=container mx-auto sm:px-0*/}
-{/*cointainer-fluid=mainpage-header*/}
+{/*container = container mx-auto sm:px-0*/}
+{/*cointainer-fluid = mainpage-header*/}

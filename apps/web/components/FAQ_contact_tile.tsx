@@ -22,7 +22,7 @@ export const FAQContact = ({
     <>
       <div className={cTailwind}>
         <div className={`${styles.faqcontact} ${cSass}`}>
-          <Image src={picture} alt="widgetcheck" />
+          <Image src={picture}  alt="widgetcheck" />
           <div className={styles["faqcontact-textoverlay"]}>
             <div>
               <Link href="/faq" />
