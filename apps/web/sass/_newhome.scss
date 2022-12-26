@@ -36,6 +36,18 @@
   }
 
 
+//Containeirs of the Login/Register buttons
+.mainpage-logincontainer{
+   z-index:999;
+  }
+  
+  
+.mainpage-logincontainer2nd {
+   padding-top: 40px;
+   z-index: 999;
+  }
+
+
 //Container of the phrase generator component
 .mainpage-robotcontainer{
   z-index:998;
@@ -92,7 +104,7 @@
 
 
 
-  //Container of the FAQ and Contact us Tile
+//Container of the FAQ and Contact us Tile
 .mainpage-faqcontact{
   margin-bottom: 110px;
   padding-left: 0.5rem;
@@ -121,6 +133,4 @@
   
 }
 
-.test{
-z-index:999;
-}
+

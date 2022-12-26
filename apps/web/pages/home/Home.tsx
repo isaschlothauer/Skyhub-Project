@@ -1,9 +1,21 @@
 import * as React from "react";
 import Image, { StaticImageData } from "next/image";
+
+{/*STYLES*/}
 import styles from "./home.module.scss";
 import stylesJobs from "../../components/Tile.module.scss";
 import stylesFC from "../../components/FAQ_contact.module.scss";
+import styleslrButton from "../../components/LoginRegisterButton.module.scss"
+import stylesArrow from "../../components/LearnMoreArrow.module.scss";
 
+{/*COMPONENTS*/}
+import Tile from "../../components/Tile";
+import FAQContact from "../../components/FAQ_contact_tile";
+import Footer from "../../components/Footer";
+import { LearnMoreArrow } from "../../components/LearnMoreArrow";
+import LoginButton from "../../components/LoginRegisterButton"
+
+{/*IMAGES*/}
 import PilotTile from "../../assets/images/home/summary-1.png";
 import CabinTile from "../../assets/images/home/summary-2.png";
 import ATCTile from "../../assets/images/home/summary-3.png";
@@ -11,14 +23,7 @@ import FAQTile from "../../assets/images/widget/bg-widget-check.png";
 import ContactTile from "../../assets/images/widget/bg-widget-contact.png";
 import CrossandSquare from "../../assets/images/branding/branding-3.png"
 
-import Tile from "../../components/Tile";
-import FAQContact from "../../components/FAQ_contact_tile";
-import Footer from "../../components/Footer";
-import Link from "next/link";
-import stylesArrow from "../../components/LearnMoreArrow.module.scss";
-import { LearnMoreArrow } from "../../components/LearnMoreArrow";
-import styleslrButton from "../../components/LoginRegisterButton.module.scss"
-import LoginButton from "../../components/LoginRegisterButton"
+
 
 const loginregButtons =[
   {
@@ -95,8 +100,6 @@ const fcTiles = [
 
 const Home = () => {
   return (
-  
-
 <>
     <div className={styles["mainpage"]}> 
       <div className={styles["mainpage-header"]}>
@@ -105,17 +108,16 @@ const Home = () => {
             <div className={"flex flex-wrap"}>
               <div className={"md:w-2/5 pr-0 pl-0"}></div>
 
-
-            {/*SkyHub Logo*/}
+            {/*SKYHUB LOGO*/}
             <div className={"md:w-1/5 pr-4 pl-4"}>
                 <div className={styles["mainpage-logocontainer"]}>
                   <div className={styles["mainpage-logo"]}></div>
                 </div>
               </div>
               
-              {/* COMPONENT BUTTONS */}
-                 <div className={`${"md:w-2/5 pr-1 pl-4"} ${"text-right"} ${styles["test"]}`}>
-                  <div className={`${styleslrButton["loginreg-container"] } ${"hidden"} ${"md:block"}`} >
+            {/*LOGIN/REGISTER BUTTON*/}
+                 <div className={`${"md:w-2/5 pr-1 pl-4"} ${"text-right"} ${styles["mainpage-logincontainer"]}`}>
+                  <div className={`${styles["mainpage-logincontainer2nd"] } ${"hidden"} ${"md:block"}`} >
 
                    {loginregButtons.map((test) => (
                                <LoginButton
@@ -254,37 +256,45 @@ const Home = () => {
 export default Home;
 
 
-{/*container = container mx-auto sm:px-0*/}
-{/*cointainer-fluid = mainpage-header*/}
+{/*
+      NOTES ABOUT BS TO TW:
 
-                  {/*@if (Auth::user())
-                @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
-                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
-                >Dashboard</a>
-                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
-                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
-                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
-                <a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
-                @endif
-                @else
-                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
-                <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Register</a>
-                @endif 
-                */}
+container = container mx-auto sm:px-0
+cointainer-fluid = mainpage-header*/
+}
 
-                                {/*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
-                @if (Auth::user())
-                @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
-                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
-                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
-                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
-                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
-                <a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
-                @endif
-                @else
-                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
-                <a href="{{ route('register') }}" className={`${styles["btn-register"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-rounded"]}`}>Register</a>
-                @endif
-              </div> 
-              */}
+
+ {/*
+      NOTES ABOUT THE DIFFERENT STYLES AFTER LOG IN:
+      
+ @if (Auth::user())
+@if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
+ <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
+>Dashboard</a>
+@elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
+<a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
+ @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
+ <a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
+ @endif
+@else
+<a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
+<a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Register</a>
+@endif 
+*/}
+
+ {/*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
+ @if (Auth::user())
+@if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
+<a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
+@elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
+<a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
+ @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
+<a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
+ @endif
+@else
+<a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
+<a href="{{ route('register') }}" className={`${styles["btn-register"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-rounded"]}`}>Register</a>
+@endif
+</div> 
+*/}
             
