@@ -17,7 +17,6 @@ import Footer from "../../components/Footer";
 import Link from "next/link";
 
 
-
 const jobTiles = [
   {
     picture: PilotTile,
@@ -245,6 +244,7 @@ const Home = () => {
                     picture={fctile.picture}
                   />
                 ))}
+               
               </div>
         </div>
       
