@@ -1,7 +1,10 @@
 import * as React from "react";
-import styles from "./FAQ_Contact.module.scss";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+
+{/*STYLES*/}
+import styles from "./FAQ_Contact.module.scss";
+
 
 export interface FAQContactProps {
   tilename: string;
@@ -9,6 +12,7 @@ export interface FAQContactProps {
   cSass: string;
   cTailwind: string;
   picture: StaticImageData;
+  arrowbinfo:string;
 }
 
 export const FAQContact = ({
@@ -17,6 +21,7 @@ export const FAQContact = ({
   cSass,
   cTailwind,
   picture,
+  arrowbinfo
 }: FAQContactProps) => {
   return (
     <>
@@ -28,6 +33,7 @@ export const FAQContact = ({
               <Link href="/faq" />
               <div className={styles["faqcontact-subtext"]}>{subtilename}</div>
               <div className={styles["faqcontact-maintext"]}>{tilename}</div>
+              {arrowbinfo}
             </div>
           </div>
         </div>

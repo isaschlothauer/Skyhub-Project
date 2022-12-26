@@ -1,6 +1,3 @@
-//Container with the login/register button - THIS CLASS SHOULD GO ON THE HOMEPAGE.SCSS
-.loginreg-container {
-    padding-top: 40px;
 //Container with the properties about the login button
 .loginreg-pink {
         background: #ec008c;
@@ -9,7 +6,7 @@
         -webkit-border-radius: 50px;
         -moz-border-radius: 50px;
         border-radius: 50px;
-        padding: 8px 40px;
+        padding: 11px 45px;
         margin-right: 15px;
         font-weight: 600;
         &:hover {
@@ -25,16 +22,15 @@
         -webkit-border-radius: 50px;
         -moz-border-radius: 50px;
         border-radius: 50px;
-        padding: 8px 40px;
-        margin-right: 15px;
+        padding: 11px 45px;
+        margin-right: 20px;
         font-weight: 600;
         &:hover {
           background: white;
           color: #ec008c;
-          text-decoration: none;
           transition: 0.2s;
+          text-decoration: none;
         }
       }
-    }
   
 

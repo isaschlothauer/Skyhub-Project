@@ -1,11 +1,15 @@
 import React from "react";
+
+{/*STYLES*/}
 import styles from "./Footer.module.scss";
+
+
 
 export default function Footer() {
   return (
     <>
       <div id={styles.footer}>
-        <div className="container mx-auto sm:px-14" /* style="position: relative" */>
+        <div className="container mx-auto sm:px-0" /* style="position: relative" */>
           <div
             className={` flex flex-wrap items-end ${styles["linkswithlogo"]}`}
           >

@@ -1,6 +1,4 @@
 import * as React from "react";
-import style from "./LoginRegisterButton.module.scss";
-
 
 export interface LoginButtonProps {
     route: string;
