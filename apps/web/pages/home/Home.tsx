@@ -75,7 +75,7 @@ const fcTiles = [
     tilename: "FAQ",
     subtilename: "How can we help you?",
     cSass: stylesFC["contactus-container"],
-    cTailwind: "md:w-1/3 pr-0 pl-14",
+    cTailwind: "md:w-1/3 pr-2 pl-2",
     picture: FAQTile,
     arrowbmap:arrowButtons.slice(1, 2).map((arrowbutton) => (<LearnMoreArrow text={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
   },
@@ -84,11 +84,13 @@ const fcTiles = [
     tilename: "Contact Us",
     subtilename: "Do you have questions?",
     cSass: stylesFC["faq-container"],
-    cTailwind: "md:w-2/3 pr-16 pl-6",
+    cTailwind: "md:w-2/3 pr-2 pl-2",
     picture: ContactTile,
     arrowbmap:arrowButtons.slice(1, 2).map((arrowbutton) => (<LearnMoreArrow text={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
   },
 ];
+
+
 
 
 const Home = () => {
