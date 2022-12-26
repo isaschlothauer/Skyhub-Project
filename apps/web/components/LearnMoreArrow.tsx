@@ -1,16 +1,17 @@
 import * as React from 'react';
 
+
 export interface ArrowProps {
-    text?: string;
+    arrowtext?: string;
     cSass:string;
   }
 
-export const LearnMoreArrow = ({ text, cSass}: ArrowProps) => {
+export const LearnMoreArrow = ({ arrowtext, cSass}: ArrowProps) => {
   return (
     <>
       <div className={cSass}>
           <a href="http://{{ env('CABIN_DOMAIN') }}/subject">
-            {text}
+            {arrowtext}
           </a>
         </div>
     </>

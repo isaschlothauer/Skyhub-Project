@@ -13,12 +13,14 @@ import Footer from "../../components/Footer";
 import { LearnMoreArrow } from "../../components/LearnMoreArrow";
 import LoginButton from "../../components/LoginRegisterButton"
 import ContainerFAQContact from "../../components/containerFAQContact";
+import GoBackHome from "../../components/GoBackHome";
 
 {/*IMAGES*/}
 import PilotTile from "../../assets/images/home/summary-1.png";
 import CabinTile from "../../assets/images/home/summary-2.png";
 import ATCTile from "../../assets/images/home/summary-3.png";
 import CrossandSquare from "../../assets/images/branding/branding-3.png"
+
 
 
 
@@ -52,7 +54,7 @@ const jobTiles = [
     tilename: "Pilot",
     cSass: stylesJobs["tile-main-container"],
     subtilename: "Enter Your Office Above the Clouds",
-    arrowbmap: arrowButtons.slice(2, 3).map((arrowbutton) => (<LearnMoreArrow text={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
+    arrowbmap: arrowButtons.slice(2, 3).map((arrowbutton) => (<LearnMoreArrow arrowtext={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
   },
 
   {
@@ -60,7 +62,7 @@ const jobTiles = [
     tilename: "Cabin",
     cSass: stylesJobs["tile-main-container"],
     subtilename: "Travel Around the World",
-    arrowbmap: arrowButtons.slice(2, 3).map((arrowbutton) => (<LearnMoreArrow text={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
+    arrowbmap: arrowButtons.slice(2, 3).map((arrowbutton) => (<LearnMoreArrow arrowtext={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
   },
 
   {
@@ -68,7 +70,7 @@ const jobTiles = [
     tilename: "Air Traffic Control",
     cSass: stylesJobs["tile-main-container"],
     subtilename: "Manage the Sky",
-    arrowbmap: arrowButtons.slice(2, 3).map((arrowbutton) => (<LearnMoreArrow text={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
+    arrowbmap: arrowButtons.slice(2, 3).map((arrowbutton) => (<LearnMoreArrow arrowtext={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
   },
 ];
 
@@ -210,6 +212,7 @@ const Home = () => {
 
         {/* FAQ & CONTACT US COMPONENT*/}
         <ContainerFAQContact/>
+        <GoBackHome />
 
       
       <Footer />

@@ -34,7 +34,7 @@ const fcTiles = [
       cSass: stylesFC["contactus-container"],
       cTailwind: "md:w-1/3 pr-2 pl-2",
       picture: FAQTile,
-      arrowbmap:arrowButtons.slice(1, 2).map((arrowbutton) => (<LearnMoreArrow text={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
+      arrowbmap:arrowButtons.slice(1, 2).map((arrowbutton) => (<LearnMoreArrow arrowtext={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
     },
   
     {
@@ -43,7 +43,7 @@ const fcTiles = [
       cSass: stylesFC["faq-container"],
       cTailwind: "md:w-2/3 pr-2 pl-2",
       picture: ContactTile,
-      arrowbmap:arrowButtons.slice(1, 2).map((arrowbutton) => (<LearnMoreArrow text={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
+      arrowbmap:arrowButtons.slice(1, 2).map((arrowbutton) => (<LearnMoreArrow arrowtext={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
     },
   ];
   
