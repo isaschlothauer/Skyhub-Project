@@ -38,7 +38,7 @@
 
 //Container of the phrase generator component
 .mainpage-robotcontainer{
-  z-index:999;
+  z-index:998;
 
   .maingpage-robottext {
     font-size: 48px;
@@ -119,4 +119,8 @@
   top:290px;
   left:150px;
   
+}
+
+.test{
+z-index:999;
 }

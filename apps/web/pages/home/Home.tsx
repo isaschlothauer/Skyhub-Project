@@ -114,7 +114,7 @@ const Home = () => {
               </div>
               
               {/* COMPONENT BUTTONS */}
-                 <div className={`${"md:w-2/5 pr-4 pl-4"} ${"text-right"}`}>
+                 <div className={`${"md:w-2/5 pr-1 pl-4"} ${"text-right"} ${styles["test"]}`}>
                   <div className={`${styleslrButton["loginreg-container"] } ${"hidden"} ${"md:block"}`} >
 
                    {loginregButtons.map((test) => (
