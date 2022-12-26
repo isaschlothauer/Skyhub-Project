@@ -1,19 +1,22 @@
 import React from "react";
-import styles from "./general.module.scss";
+import styles from "./pilotgeneral.module.scss";
 import Footer from "../../../components/Footer";
 import Mini_Header from "../../../components/Mini_Header";
-import JobsBtn from "../../../components/JobsBtn";
-import ContactUs from "../../../components/ContactUs";
+
 
 export default function General() {
+
   return (
-    <div id={"page"}>
-      <Mini_Header title={"You are looking for an office above the clouds?"} />
-      <div className={"container"}>
-        <div className={"row"} /* style="position: relative;" */>
-          <div className={styles["static-page-branding"]}></div>
-          <div className={"col-md-12"} id={styles["static-page"]}>
-            <div className={styles["static-page-content"]}>
+    <div className={styles["staticpage"]}>
+      <Mini_Header title={"General"} />
+      <div className={`container mx-auto sm:pl-0 pr-0`}>
+        <div className={"flex flex-wrap"}>
+          <div className={`md:w-full pr-3.5 pl-3.5 ${styles["staticpage-content"]}`}>
+            <div className={styles["staticpage-databaseinfo"]}>
+
+
+
+              {/*Beggining of the Database Info*/}
               <h2>
                 Einstieg ab sofort für 6 Monate
                 <br />
@@ -63,30 +66,31 @@ export default function General() {
                   Gesellschaften und Konzernfunktionen organisiert.
                 </i>
               </p>
+              {/*Ending of the Database Info*/}
 
+
+
+
+             {/* ---> Do we need this info????
               <hr />
-              <div className={styles["static-page-company"]}>
-                <div className={styles["static-page-company-text"]}>
+
+              <div className={styles["staticpage-company"]}>
+                <div className={styles["staticpage-companytext"]}>
                   Company who employing
                 </div>
-                <div className={styles["static-page-company-link"]}>
+                <div className={styles["staticpage-companylink"]}>
                   <a href="#">www.lufthansa.com</a>
                 </div>
-                <div className={styles["static-page-company-arrow"]}>
+                <div className={styles["staticpage-companyarrow"]}>
                   <a href="#"></a>
                 </div>
-              </div>
+  </div>*/}
             </div>
           </div>
         </div>
-        <div
-          className={`${"row"} ${"align-items-end"} ${styles["row-widgets"]}}`}
-        >
-          <JobsBtn />
-          <ContactUs />
-        </div>
       </div>
-      <Footer />
+         <Footer /> {/*Add this button, corrected*/}
     </div>
   );
 }
+
