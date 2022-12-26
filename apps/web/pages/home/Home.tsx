@@ -15,7 +15,21 @@ import Tile from "../../components/Tile";
 import FAQContact from "../../components/FAQ_contact_tile";
 import Footer from "../../components/Footer";
 import Link from "next/link";
+import stylesArrow from "../../components/LearnMoreArrow.module.scss";
+import { LearnMoreArrow } from "../../components/LearnMoreArrow";
 
+
+
+const arrowButtons= [{
+  arrowtext: "Open a Ticket",
+  cSass:stylesArrow["arrow-faqcontact"],
+},{
+  arrowtext: "Check Now",
+  cSass:stylesArrow["arrow-faqcontact"],
+},{
+  arrowtext: "Learn More",
+  cSass:stylesArrow["arrow-jobs"]
+}]
 
 const jobTiles = [
   {
@@ -23,6 +37,7 @@ const jobTiles = [
     tilename: "Pilot",
     cSass: stylesJobs["tile-main-container"],
     subtilename: "Enter Your Office Above the Clouds",
+    arrowbmap: arrowButtons.slice(2, 3).map((arrowbutton) => (<LearnMoreArrow text={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
   },
 
   {
@@ -30,6 +45,7 @@ const jobTiles = [
     tilename: "Cabin",
     cSass: stylesJobs["tile-main-container"],
     subtilename: "Travel Around the World",
+    arrowbmap: arrowButtons.slice(2, 3).map((arrowbutton) => (<LearnMoreArrow text={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
   },
 
   {
@@ -37,6 +53,7 @@ const jobTiles = [
     tilename: "Air Traffic Control",
     cSass: stylesJobs["tile-main-container"],
     subtilename: "Manage the Sky",
+    arrowbmap: arrowButtons.slice(2, 3).map((arrowbutton) => (<LearnMoreArrow text={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
   },
 ];
 
@@ -47,6 +64,7 @@ const fcTiles = [
     cSass: stylesFC["contactus-container"],
     cTailwind: "md:w-1/3 pr-0 pl-14",
     picture: FAQTile,
+    arrowbmap:arrowButtons.slice(1, 2).map((arrowbutton) => (<LearnMoreArrow text={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
   },
 
   {
@@ -55,6 +73,7 @@ const fcTiles = [
     cSass: stylesFC["faq-container"],
     cTailwind: "md:w-2/3 pr-16 pl-6",
     picture: ContactTile,
+    arrowbmap:arrowButtons.slice(1, 2).map((arrowbutton) => (<LearnMoreArrow text={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
   },
 ];
 
@@ -165,6 +184,7 @@ const Home = () => {
               cSass={pilottile.cSass}
               picture={pilottile.picture}
               subtilename={pilottile.subtilename}
+              arrowbinfo={pilottile.arrowbmap}
             />
           ))}
         </div>
@@ -195,6 +215,7 @@ const Home = () => {
               cSass={cabintile.cSass}
               picture={cabintile.picture}
               subtilename={cabintile.subtilename}
+              arrowbinfo={cabintile.arrowbmap}
             />
           ))}
         </div>
@@ -222,6 +243,7 @@ const Home = () => {
                 cSass={atctile.cSass}
                 picture={atctile.picture}
                 subtilename={atctile.subtilename}
+                arrowbinfo={atctile.arrowbmap}
               />
             ))}
           </div>
@@ -242,6 +264,7 @@ const Home = () => {
                     subtilename={fctile.subtilename}
                     cTailwind={fctile.cTailwind}
                     picture={fctile.picture}
+                    arrowbinfo={fctile.arrowbmap}
                   />
                 ))}
                

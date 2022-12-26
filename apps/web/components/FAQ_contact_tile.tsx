@@ -9,6 +9,7 @@ export interface FAQContactProps {
   cSass: string;
   cTailwind: string;
   picture: StaticImageData;
+  arrowbinfo:string;
 }
 
 export const FAQContact = ({
@@ -17,6 +18,7 @@ export const FAQContact = ({
   cSass,
   cTailwind,
   picture,
+  arrowbinfo
 }: FAQContactProps) => {
   return (
     <>
@@ -28,6 +30,7 @@ export const FAQContact = ({
               <Link href="/faq" />
               <div className={styles["faqcontact-subtext"]}>{subtilename}</div>
               <div className={styles["faqcontact-maintext"]}>{tilename}</div>
+              {arrowbinfo}
             </div>
           </div>
         </div>
