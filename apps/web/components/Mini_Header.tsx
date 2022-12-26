@@ -5,9 +5,9 @@ import styles from "./mini_header.module.scss";
 export default function Mini_Header({ title }) {
   return (
     <div id={styles["mini-header"]}>
-      <div className={"container"}>
-        <div className={"row"}>
-          <div className={"col-md-12"}>
+      <div className={"container mx-auto sm:px-0"}>
+        <div className={"flex flex-wrap "}>
+          <div className={"md:w-full pr-0 pl-0"}>
             <Link href="/" className={styles.logo} />
             <h1>{title}</h1>
           </div>
