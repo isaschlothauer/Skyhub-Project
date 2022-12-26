@@ -1,11 +1,15 @@
 import React from "react";
+
+{/*STYLES*/}
 import styles from "./pilotgeneral.module.scss";
+
+{/*COMPONENTS*/}
 import Footer from "../../../components/Footer";
 import Mini_Header from "../../../components/Mini_Header";
 
 
-export default function General() {
 
+export default function General() {
   return (
     <div className={styles["staticpage"]}>
       <Mini_Header title={"General"} />
@@ -89,7 +93,7 @@ export default function General() {
           </div>
         </div>
       </div>
-         <Footer /> {/*Add this button, corrected*/}
+         <Footer />
     </div>
   );
 }

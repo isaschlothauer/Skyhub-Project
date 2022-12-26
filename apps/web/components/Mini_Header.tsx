@@ -1,8 +1,16 @@
 import Link from "next/link";
 import React from "react";
+
+{/*STYLES*/}
 import styles from "./mini_header.module.scss";
 
-export default function Mini_Header({ title }) {
+
+
+export interface HeaderProps {
+  title: string;
+}
+
+const Mini_Header = ({ title }: HeaderProps) => {
   return (
     <div id={styles["mini-header"]}>
       <div className={"container mx-auto sm:px-0"}>
@@ -16,3 +24,5 @@ export default function Mini_Header({ title }) {
     </div>
   );
 }
+
+export default Mini_Header;
