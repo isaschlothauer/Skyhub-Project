@@ -17,8 +17,21 @@ import Footer from "../../components/Footer";
 import Link from "next/link";
 import stylesArrow from "../../components/LearnMoreArrow.module.scss";
 import { LearnMoreArrow } from "../../components/LearnMoreArrow";
+import styleslrButton from "../../components/LoginRegisterButton.module.scss"
+import LoginButton from "../../components/LoginRegisterButton"
 
-
+const loginregButtons =[
+  {
+   route:"{{ route('login') }}",
+   cSass: styleslrButton["loginreg-white"],
+   buttontext:"Log In"
+  }, 
+  {
+   route:"{{ route('register') }}",
+   cSass: styleslrButton["loginreg-pink"],
+   buttontext: "Register"
+   }
+]
 
 const arrowButtons= [{
   arrowtext: "Open a Ticket",
@@ -88,25 +101,7 @@ const Home = () => {
         <div className={"flex flex-wrap"}>
           <div className={`container mx-auto sm:px-0`}>
             <div className={"flex flex-wrap"}>
-              {/* COMPONENT1 BUTTONS */}
-              <div className={"md:w-2/5 pr-0 pl-0"}>
-                {/*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
-                @if (Auth::user())
-                @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
-                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
-                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
-                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
-                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
-                <a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
-                @endif
-                @else
-                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
-                <a href="{{ route('register') }}" className={`${styles["btn-register"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-rounded"]}`}>Register</a>
-                @endif
-              </div> 
-              */}
-                &nbsp;
-              </div>
+              <div className={"md:w-2/5 pr-0 pl-0"}></div>
 
 
             {/*SkyHub Logo*/}
@@ -115,44 +110,21 @@ const Home = () => {
                   <div className={styles["mainpage-logo"]}></div>
                 </div>
               </div>
-                          {/* COMPONENT BUTTONS */}
-            <div className={`${"md:w-2/5 pr-4 pl-4"} ${"text-right"}`}>
-                <div
-                  className={`${
-                    styles["user-links"]
-                  } ${"d-none"} ${"d-md-block"}`}
-                >
-                  {/*@if (Auth::user())
-                @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
-                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
-                >Dashboard</a>
-                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
-                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
-                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
-                <a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
-                @endif
-                @else
-                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
-                <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Register</a>
-                @endif 
-                */}
-                  <a
-                    href="{{ route('login') }}"
-                    className={`${styles["btn-login"]} ${styles["btn"]} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
-                  >
-                    Log In
-                  </a>
-                  <a
-                    href="{{ route('register') }}"
-                    className={`${styles["btn-login"]} ${styles["btn"]} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
-                  >
-                    Register
-                  </a>
-                </div>
-        
-                
-              </div>
               
+              {/* COMPONENT BUTTONS */}
+                 <div className={`${"md:w-2/5 pr-4 pl-4"} ${"text-right"}`}>
+                  <div className={`${styleslrButton["loginreg-container"] } ${"hidden"} ${"md:block"}`} >
+
+                   {loginregButtons.map((test) => (
+                               <LoginButton
+                               route={test.route}
+                               cSass={test.cSass}
+                               buttontext={test.buttontext}
+                               />
+                           ))}
+                    </div>
+                 </div>
+                 
             </div>         
           </div>
         </div>
@@ -282,3 +254,35 @@ export default Home;
 
 {/*container = container mx-auto sm:px-0*/}
 {/*cointainer-fluid = mainpage-header*/}
+
+                  {/*@if (Auth::user())
+                @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
+                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
+                >Dashboard</a>
+                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
+                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
+                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
+                <a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
+                @endif
+                @else
+                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
+                <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Register</a>
+                @endif 
+                */}
+
+                                {/*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
+                @if (Auth::user())
+                @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
+                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
+                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
+                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
+                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
+                <a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
+                @endif
+                @else
+                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
+                <a href="{{ route('register') }}" className={`${styles["btn-register"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-rounded"]}`}>Register</a>
+                @endif
+              </div> 
+              */}
+            

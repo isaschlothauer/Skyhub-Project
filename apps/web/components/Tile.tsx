@@ -15,7 +15,7 @@ export interface TileProps {
 const Tile = ({ tilename, cSass, picture, subtilename, arrowbinfo }: TileProps) => {
   return (
     <div className={`mx-auto sm:px-0`}>
-      <div className="sm:w-full pr-16 pl-16">
+      <div className="sm:w-full pr-3 pl-3">
         <div className={cSass}>
           <div className={styles["tile-image"]}>
             <Image src={picture} alt="summary1" />
