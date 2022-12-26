@@ -1,35 +1,33 @@
 import * as React from "react";
 import styles from "./FAQ_Contact.module.scss";
 import Image from "next/image";
-import widgetcheck from "../assets/images/widget/bg-widget-check.png";
-import widgetcontact from "../assets/images/widget/bg-widget-contact.png";
 import Link from "next/link";
 
 export interface FAQContactProps {
-  label: string;
-  subtext?: string;
-  sprop: string;
-  tailwindclass: string;
-  pic: StaticImageData;
+  tilename: string;
+  subtilename?: string;
+  cSass: string;
+  cTailwind: string;
+  picture: StaticImageData;
 }
 
 export const FAQContact = ({
-  label,
-  subtext,
-  sprop,
-  tailwindclass,
-  pic,
+  tilename,
+  subtilename,
+  cSass,
+  cTailwind,
+  picture,
 }: FAQContactProps) => {
   return (
     <>
-      <div className={tailwindclass}>
-        <div className={`${styles.faqcontact} ${sprop}`}>
-          <Image src={pic} alt="widgetcheck" />
+      <div className={cTailwind}>
+        <div className={`${styles.faqcontact} ${cSass}`}>
+          <Image src={picture}  alt="widgetcheck" />
           <div className={styles["faqcontact-textoverlay"]}>
             <div>
               <Link href="/faq" />
-              <div className={styles["faqcontact-subtext"]}>{subtext}</div>
-              <div className={styles["faqcontact-maintext"]}>{label}</div>
+              <div className={styles["faqcontact-subtext"]}>{subtilename}</div>
+              <div className={styles["faqcontact-maintext"]}>{tilename}</div>
             </div>
           </div>
         </div>

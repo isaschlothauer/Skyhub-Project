@@ -3,19 +3,19 @@ import styles from "./Tile.module.scss";
 import Image, { StaticImageData } from "next/image";
 
 export interface TileProps {
-  label: string;
-  test?: string;
-  pic: StaticImageData;
-  subtitle: string;
+  tilename: string;
+  cSass?: string;
+  picture: StaticImageData;
+  subtilename: string;
 }
 
-const Tile = ({ label, test, pic, subtitle }: TileProps) => {
+const Tile = ({ tilename, cSass, picture, subtilename }: TileProps) => {
   return (
-    <div className="mx-auto sm:px-4">
-      <div className="sm:w-full pr-4 pl-4">
-        <div className={test}>
+    <div className={`mx-auto sm:px-0`}>
+      <div className="sm:w-full pr-16 pl-16">
+        <div className={cSass}>
           <div className={styles["tile-image"]}>
-            <Image src={pic} alt="summary1" />
+            <Image src={picture} alt="summary1" />
           </div>
           <div className={styles["tile-offers"]}>
             <div className={styles["tile-offerscount"]}>
@@ -23,9 +23,9 @@ const Tile = ({ label, test, pic, subtitle }: TileProps) => {
             </div>
             <div className={styles["tile-traveltheworld"]}>
               <div className={styles["tile-traveltheworld-subtitle"]}>
-                {subtitle}
+                {subtilename}
               </div>
-              <div className={styles["tile-traveltheworld-title"]}>{label}</div>
+              <div className={styles["tile-traveltheworld-title"]}>{tilename}</div>
             </div>
             <div className={styles["tile-leftline"]}></div>
           </div>
