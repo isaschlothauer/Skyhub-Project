@@ -1,5 +1,5 @@
 import * as React from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
 {/*STYLES*/}
 import styles from "./home.module.scss";

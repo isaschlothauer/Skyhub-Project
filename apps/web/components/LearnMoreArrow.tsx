@@ -1,12 +1,9 @@
 import * as React from 'react';
-import styles from "./LearnMoreArrow.module.scss";
 
 export interface ArrowProps {
     text?: string;
     cSass:string;
   }
-
-
 
 export const LearnMoreArrow = ({ text, cSass}: ArrowProps) => {
   return (

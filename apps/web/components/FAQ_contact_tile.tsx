@@ -1,7 +1,10 @@
 import * as React from "react";
-import styles from "./FAQ_Contact.module.scss";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+
+{/*STYLES*/}
+import styles from "./FAQ_Contact.module.scss";
+
 
 export interface FAQContactProps {
   tilename: string;

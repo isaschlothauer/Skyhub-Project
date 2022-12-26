@@ -1,11 +1,18 @@
 import * as React from "react";
 import FAQContact from "../components/FAQ_contact_tile";
+
+{/*STYLES*/}
+import styles from "../components/containerFAQContact.module.scss";
 import stylesFC from "../components/FAQ_contact.module.scss";
+import stylesArrow from "../components/LearnMoreArrow.module.scss";
+
+{/*COMPONENTS*/}
+import { LearnMoreArrow } from "../components/LearnMoreArrow";
+
+{/*IMAGES*/}
 import FAQTile from "../assets/images/widget/bg-widget-check.png";
 import ContactTile from "../assets/images/widget/bg-widget-contact.png";
-import stylesArrow from "../components/LearnMoreArrow.module.scss";
-import { LearnMoreArrow } from "../components/LearnMoreArrow";
-import styles from "../components/containerFAQContact.module.scss";
+
 
 
 const arrowButtons= [{
@@ -43,21 +50,20 @@ const fcTiles = [
   const ContainerFAQContact = () => {
     return (
 
-<div className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}>
-<div className={`${"flex flex-wrap"} ${"items-end"}` }>
-  {fcTiles.map((fctile) => (
-    <FAQContact
-      tilename={fctile.tilename}
-      cSass={fctile.cSass}
-      subtilename={fctile.subtilename}
-      cTailwind={fctile.cTailwind}
-      picture={fctile.picture}
-      arrowbinfo={fctile.arrowbmap}
-    />
-  ))}
- 
-</div>
-</div>
+    <div className={`container mx-auto sm:px-0 ${styles["containerfaqcontact"]}`}>
+      <div className={`${"flex flex-wrap"} ${"items-end"}` }>
+       {fcTiles.map((fctile) => (
+           <FAQContact
+            tilename={fctile.tilename}
+            cSass={fctile.cSass}
+            subtilename={fctile.subtilename}
+            cTailwind={fctile.cTailwind}
+            picture={fctile.picture}
+            arrowbinfo={fctile.arrowbmap}
+           />
+        ))}
+      </div>
+    </div>
 
 );
 };
