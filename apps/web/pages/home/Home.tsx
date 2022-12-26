@@ -13,7 +13,6 @@ import Footer from "../../components/Footer";
 import { LearnMoreArrow } from "../../components/LearnMoreArrow";
 import LoginButton from "../../components/LoginRegisterButton"
 import ContainerFAQContact from "../../components/containerFAQContact";
-import GoBackHome from "../../components/GoBackHome";
 
 {/*IMAGES*/}
 import PilotTile from "../../assets/images/home/summary-1.png";
@@ -212,7 +211,7 @@ const Home = () => {
 
         {/* FAQ & CONTACT US COMPONENT*/}
         <ContainerFAQContact/>
-        <GoBackHome />
+        
 
       
       <Footer />
