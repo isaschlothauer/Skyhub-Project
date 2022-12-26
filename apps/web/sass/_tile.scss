@@ -1,8 +1,7 @@
-//Tile Component
-
 //Container With all the Info
 .tile-main-container {
   position: relative;
+  
   .tile-image {
     position: relative;
     img {
@@ -13,17 +12,6 @@
   }
 }
 
-.tile-main-container2 {
-  position: relative;
-  .tile-image {
-    position: relative;
-    img {
-      max-width: 100%;
-      width: 50%;
-      display: block;
-    }
-  }
-}
 
 // Container Active Offers
 .tile-offers {

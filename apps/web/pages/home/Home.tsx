@@ -1,71 +1,76 @@
 import * as React from "react";
+import Image, { StaticImageData } from "next/image";
 import styles from "./home.module.scss";
-import styles2 from "../../components/Tile.module.scss";
+import stylesJobs from "../../components/Tile.module.scss";
+import stylesFC from "../../components/FAQ_contact.module.scss";
 
-import summary1 from "../../assets/images/home/summary-1.png";
-import summary2 from "../../assets/images/home/summary-2.png";
-import summary3 from "../../assets/images/home/summary-3.png";
+import PilotTile from "../../assets/images/home/summary-1.png";
+import CabinTile from "../../assets/images/home/summary-2.png";
+import ATCTile from "../../assets/images/home/summary-3.png";
+import FAQTile from "../../assets/images/widget/bg-widget-check.png";
+import ContactTile from "../../assets/images/widget/bg-widget-contact.png";
+import CrossandSquare from "../../assets/images/branding/branding-3.png"
 
-import widgetcheck from "../../assets/images/widget/bg-widget-check.png";
-import widgetcontact from "../../assets/images/widget/bg-widget-contact.png";
-
+import Tile from "../../components/Tile";
 import FAQContact from "../../components/FAQ_contact_tile";
 import Footer from "../../components/Footer";
-import Tile from "../../components/Tile";
 import Link from "next/link";
-import Image from "next/image";
-import GoBackHome from "../../components/GoBackHome";
 
-const test = [
+
+const jobTiles = [
   {
-    pic: summary1,
-    label: "Pilot",
-    className: styles2["tile-main-container"],
-    subtitle: "Enter Your Office Above the Clouds",
+    picture: PilotTile,
+    tilename: "Pilot",
+    cSass: stylesJobs["tile-main-container"],
+    subtilename: "Enter Your Office Above the Clouds",
   },
 
   {
-    pic: summary2,
-    label: "Cabin",
-    className: styles2["tile-main-container"],
-    subtitle: "Travel Around the World",
+    picture: CabinTile,
+    tilename: "Cabin",
+    cSass: stylesJobs["tile-main-container"],
+    subtilename: "Travel Around the World",
   },
 
   {
-    pic: summary3,
-    label: "Air Traffic Control",
-    className: styles2["tile-main-container"],
-    subtitle: "Manage the Sky",
+    picture: ATCTile,
+    tilename: "Air Traffic Control",
+    cSass: stylesJobs["tile-main-container"],
+    subtilename: "Manage the Sky",
+  },
+];
+
+const fcTiles = [
+  {
+    tilename: "FAQ",
+    subtilename: "How can we help you?",
+    cSass: stylesFC["contactus-container"],
+    cTailwind: "md:w-1/3 pr-0 pl-14",
+    picture: FAQTile,
+  },
+
+  {
+    tilename: "Contact Us",
+    subtilename: "Do you have questions?",
+    cSass: stylesFC["faq-container"],
+    cTailwind: "md:w-2/3 pr-16 pl-6",
+    picture: ContactTile,
   },
 ];
 
-const test2 = [
-  {
-    label: "FAQ",
-    subtext: "How can we help you?",
-    styleprop: styles["contactus-container"],
-    tailwind: "md:w-1/3 pr-4 pl-4 md:px-2",
-    pic: widgetcheck,
-  },
-
-  {
-    label: "Contact Us",
-    subtext: "Do you have questions?",
-    styleprop: styles["faq-container"],
-    tailwind: "md:w-2/3 pr-4 pl-4 md:px-2",
-    pic: widgetcontact,
-  },
-];
 
 const Home = () => {
   return (
-    <div id={styles.page}>
-      <div className={"container-fluid"} id={styles["top-container"]}>
-        <div className={"row"}>
-          <div className={"container"}>
-            <div className={"row"}>
+  
+
+<>
+    <div className={styles["mainpage"]}> 
+      <div className={styles["mainpage-header"]}>
+        <div className={"flex flex-wrap"}>
+          <div className={`container mx-auto sm:px-0`}>
+            <div className={"flex flex-wrap"}>
               {/* COMPONENT1 BUTTONS */}
-              <div className={"col-md-5"}>
+              <div className={"md:w-2/5 pr-0 pl-0"}>
                 {/*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
                 @if (Auth::user())
                 @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
@@ -84,14 +89,15 @@ const Home = () => {
                 &nbsp;
               </div>
 
-              <div className={"col-md-2"}>
-                <div className={styles["top-logo"]}>
-                  <div className={styles.logo}></div>
+
+            {/*SkyHub Logo*/}
+            <div className={"md:w-1/5 pr-4 pl-4"}>
+                <div className={styles["mainpage-logocontainer"]}>
+                  <div className={styles["mainpage-logo"]}></div>
                 </div>
               </div>
-
-              {/* COMPONENT2 BUTTONS */}
-              <div className={`${"col-md-5"} ${"text-right"}`}>
+                          {/* COMPONENT BUTTONS */}
+            <div className={`${"md:w-2/5 pr-4 pl-4"} ${"text-right"}`}>
                 <div
                   className={`${
                     styles["user-links"]
@@ -124,131 +130,132 @@ const Home = () => {
                     Register
                   </a>
                 </div>
+        
+                
               </div>
-            </div>
-
-            {/* COMPONENT PHRASE GENERATOR */}
-            <div className={"row"}>
-              <div className={"col-md-12"}>
-                <h1
-                  className={styles["top-title-1"]}
-                  id={styles["find-your-texts"]}
-                >
-                  Find your <strong data-find-text></strong>
-                </h1>
-              </div>
-
-            
-                <div className={`${"row"}${styles["top-summary"]}`}>
-                  {test.slice(0, 1).map((test) => (
-                    <Tile
-                      label={test.label}
-                      test={test.className}
-                      pic={test.pic}
-                      subtitle={test.subtitle}
-                    />
-                  ))}
-                </div>
               
-            </div>
+            </div>         
           </div>
         </div>
       </div>
 
-      <div className={"container"}>
-        <div className={"row"}>
-          <div className={"col-md-12"}>
-            <div className={styles["not-enough"]}>
+
+
+
+
+       {/*PHRASE GENERATOR - ROBOT */}
+      <div className={"flex flex-wrap"}>
+        <div className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}>
+          <h1 className={styles["maingpage-robottext"]}>
+          Find your <strong data-find-text></strong> {/*!!! Database Info*/}
+        </h1>
+       </div>
+      </div>
+
+
+      {/*CROSSES AND SQAURES IMAGE*/}
+      <Image className={styles.crossimage1} src={CrossandSquare} alt="CrossandSquare"/>
+
+      {/*PILOT TILE COMPONENT*/}
+      <div className={`container mx-auto sm:px-0`}>
+        <div className={"flex flex-wrap"}>
+          {jobTiles.slice(0, 1).map((pilottile) => (
+            <Tile
+              tilename={pilottile.tilename}
+              cSass={pilottile.cSass}
+              picture={pilottile.picture}
+              subtilename={pilottile.subtilename}
+            />
+          ))}
+        </div>
+      </div>
+
+
+       {/* FIRST TEXT MAIN PAGE*/}
+       <div className={"container mx-auto sm:px-0"}>
+        <div className={"flex flex-wrap"}>
+          <div className={"md:w-full pr-0 pl-0"}>
+            <div className={styles["mainpage-firsttext"]}>
               Not enough? We've got <span>more</span>!
             </div>
           </div>
         </div>
       </div>
 
-      <div className={"container"}>
-        <div className={"row"}>
-          {test.slice(1, 2).map((test) => (
+
+
+
+
+       {/*CABIN TILE COMPONENT*/}
+      <div className={`container mx-auto sm:px-0`}>
+        <div className={"flex flex-wrap"}>
+          {jobTiles.slice(1, 2).map((cabintile) => (
             <Tile
-              label={test.label}
-              test={test.className}
-              pic={test.pic}
-              subtitle={test.subtitle}
+              tilename={cabintile.tilename}
+              cSass={cabintile.cSass}
+              picture={cabintile.picture}
+              subtilename={cabintile.subtilename}
             />
           ))}
         </div>
       </div>
 
-      <div className={`${"container"} ${styles["last-container"]}`}>
-        <div className={"row"}>
-          <div className={"col-md-12"}>
-            <div className={styles["even-more"]}>
+
+       {/* SECOND TEXT MAIN PAGE*/}
+      <div className={`${"container mx-auto sm:px-0"}`}>
+        <div className={"flex flex-wrap"}>
+          <div className={"md:w-full pr-4 pl-4"}>
+            <div className={styles["mainpage-secondtext"]}>
               ...and even <span>more</span>!
             </div>
           </div>
         </div>
+      </div>
 
-        <div className={"container"}>
-          <div className={"row"}>
-            {test.slice(2, 3).map((test) => (
+
+        {/* ATC TILE COMPONENT*/}
+        <div className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}>
+          <div className={"flex flex-wrap"}>
+            {jobTiles.slice(2, 3).map((atctile) => (
               <Tile
-                label={test.label}
-                test={test.className}
-                pic={test.pic}
-                subtitle={test.subtitle}
+                tilename={atctile.tilename}
+                cSass={atctile.cSass}
+                picture={atctile.picture}
+                subtilename={atctile.subtilename}
               />
             ))}
           </div>
         </div>
+        
 
-        <div className={"container"}>
-          <div
-            className={`${"row"} ${"align-items-end"} ${styles["row-widgets"]}`}
-          >
-            {/* FAQ BUTTON COMPONENT OLD
-          <div className={`${"col-md-4"} ${"px-md-2"}`}>
-            <div className={`${styles.widget} ${styles["widget-check-other"]}`}>
-              <Image src={widgetcheck} alt="widgetcheck" />
-              <div className={styles["widget-overlay"]}>
-                <div>
-                  <Link href="/faq" />
-                  <div className={styles["widget-subtitle"]}>
-                    How can we help you?
-                  </div>
-                  <div className={styles["widget-title"]}>FAQ</div>
-                  <a href="/faq" className={styles["widget-link"]}>
-                    check now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <ContactUs />
-           */}
+        {/*CROSSES AND SQAURES IMAGE*/}
+        <Image className={styles.crossimage2} src={CrossandSquare} alt="CrossandSquare"/>
 
-            <div className={"container"}>
-              <div
-                className={`${"row"} ${"align-items-end"} ${
-                  styles["row-widgets"]
-                }}`}
-              >
-                {test2.map((test) => (
+
+        {/* FAQ & CONTACT US COMPONENT*/}
+        <div className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}>
+              <div className={`${"flex flex-wrap"} ${"items-end"}` }>
+                {fcTiles.map((fctile) => (
                   <FAQContact
-                    label={test.label}
-                    sprop={test.styleprop}
-                    subtext={test.subtext}
-                    tailwindclass={test.tailwind}
-                    pic={test.pic}
+                    tilename={fctile.tilename}
+                    cSass={fctile.cSass}
+                    subtilename={fctile.subtilename}
+                    cTailwind={fctile.cTailwind}
+                    picture={fctile.picture}
                   />
                 ))}
                
               </div>
-            </div>
-          </div>
         </div>
-      </div>
+      
       <Footer />
     </div>
+    </>
   );
 };
 
 export default Home;
+
+
+{/*container = container mx-auto sm:px-0*/}
+{/*cointainer-fluid = mainpage-header*/}
