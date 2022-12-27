@@ -1,4 +1,5 @@
-import React from "react";
+import * as React from "react";
+import { ReactElement } from "react";
 
 {/*STYLES*/}
 import styles from "./staticpage.module.scss";
@@ -10,7 +11,7 @@ import Footer from "../components/Footer";
 
 export interface StaticProps {
   cSass?: string;
-  miniheader?: string;
+  miniheader?: ReactElement;
 }
 
 

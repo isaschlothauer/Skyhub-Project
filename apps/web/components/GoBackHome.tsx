@@ -1,6 +1,7 @@
-import styles from "./go_back_home.module.scss";
+import * as React from "react";
 
 {/*STYLES*/}
+import styles from "./go_back_home.module.scss";
 import stylesArrow from "../components/LearnMoreArrow.module.scss";
 
 {/*COMPONENTS*/}
@@ -17,11 +18,11 @@ export default function GoBackHome() {
       <div className={`md:w-full pr-2 pl-2 ${styles["goback-componentcontainer"]}`}>
           
         <div className={styles["goback-textcontainer"]}
-          onclick="window.open(`http://{{ env('MAIN_DOMAIN') }}`, '_self')"
+          /*onClick="window.open(`http://{{ env('MAIN_DOMAIN') }}`, '_self')"*/
           /* style="cursor:pointer;" */ >
           <div>
             <div className={styles["goback-subtext"]}>
-              Didn't find what you were looking for?
+              Didn&apos;t find what you were looking for?
             </div>
             <div className={styles["goback-maintext"]}>
               Start again from the <span>beginning</span>...

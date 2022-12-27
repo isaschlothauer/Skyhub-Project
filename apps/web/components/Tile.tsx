@@ -11,7 +11,7 @@ export interface TileProps {
   cSass?: string;
   picture: StaticImageData;
   subtilename: string;
-  arrowbinfo:string;
+  arrowbinfo:any;
 
 }
 

@@ -1,6 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 
+
 {/*STYLES*/}
 import styles from "./home.module.scss";
 import stylesJobs from "../../components/Tile.module.scss";
@@ -151,7 +152,7 @@ const Home = () => {
         <div className={"flex flex-wrap"}>
           <div className={"md:w-full pr-0 pl-0"}>
             <div className={styles["mainpage-firsttext"]}>
-              Not enough? We've got <span>more</span>!
+              Not enough? We&apos;ve got <span>more</span>!
             </div>
           </div>
         </div>

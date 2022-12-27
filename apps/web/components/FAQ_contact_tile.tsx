@@ -12,7 +12,7 @@ export interface FAQContactProps {
   cSass: string;
   cTailwind: string;
   picture: StaticImageData;
-  arrowbinfo:string;
+  arrowbinfo: any;
 }
 
 export const FAQContact = ({
