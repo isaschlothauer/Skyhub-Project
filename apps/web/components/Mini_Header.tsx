@@ -12,11 +12,11 @@ export interface HeaderProps {
 
 const Mini_Header = ({ title }: HeaderProps) => {
   return (
-    <div id={styles["mini-header"]}>
+    <div className={styles["header-container"]}>
       <div className={"container mx-auto sm:px-0"}>
         <div className={"flex flex-wrap "}>
           <div className={"md:w-full pr-0 pl-0"}>
-            <Link href="/" className={styles.logo} />
+            <Link href="/" className={styles["header-logo"]} />
             <h1>{title}</h1>
           </div>
         </div>

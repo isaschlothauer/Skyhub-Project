@@ -9,7 +9,7 @@ import StaticPage from "../../../components/Staticpage";
 
 
 
-export default function General() {
+export default function Static() {
   return (
     <div>
       <StaticPage cSass={`${styles["staticpage"]} ${styles["staticpage-costs"]}`} miniheader={<Mini_Header title={"Costs"}/>}/>

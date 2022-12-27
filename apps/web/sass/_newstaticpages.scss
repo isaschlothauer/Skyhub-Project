@@ -1,3 +1,4 @@
+//Main container common to all the static pages
 .staticpage{
   padding-left:10px;
     position: relative;
@@ -7,7 +8,58 @@
     
 
 
-  
+//---SUBJECT/JOB TYPES PAGES----
+
+.staticpage-pilot{
+  background: url("../assets/images/header/subject-header-pilot.png") no-repeat top center;
+  background-size: 100% auto;
+}
+
+
+.staticpage-cabin{
+  background: url("../assets/images/header/subject-header-cabin.png") no-repeat top center;
+  background-size: 100% auto;
+}
+
+
+.staticpage-atc{
+  background: url("../assets/images/header/subject-header-atc.png") no-repeat top center;
+  background-size: 100% auto;
+}
+
+
+
+//---INSIGHTS PAGES----
+
+.staticpage-allinsights{
+  background: url("../assets/images/header/bg-yellow-2.jpg") no-repeat top center;
+  background-size: 100% auto;
+}
+
+.staticpage-airlineinsight{
+    background: url("../assets/images/header/bg-yellow-2.jpg") no-repeat top center;
+    background-size: 100% auto;
+}
+
+
+
+//---JOBS PAGES----
+
+.staticpage-alloffers{
+    background: url("../assets/images/header/bg-pink-1.jpg") no-repeat top center;
+    background-size: 100% auto;
+}
+
+.staticpage-joboffer{
+    background: url("../assets/images/header/bg-pink-1.jpg") no-repeat top center;
+    background-size: 100% auto;
+}
+
+
+
+//---STATIC PAGES----
+
+   //General
   .staticpage-generalpilot{
       background: url("../assets/images/header/bg-blue-5.png") no-repeat top center;
       background-size: 100% auto;
@@ -26,6 +78,8 @@
   }
 
 
+
+  //Training
   .staticpage-trainingpilot{
       background: url("../assets/images/header/bg-red-4.png") no-repeat top center;
       background-size: 100% auto;
@@ -44,70 +98,38 @@
   }
 
 
-  .staticpage-pilot{
-      background: url("../assets/images/header/subject-header-pilot.png") no-repeat top center;
-      background-size: 100% auto;
-  }
 
-
-  .staticpage-cabin{
-      background: url("../assets/images/header/subject-header-cabin.png") no-repeat top center;
-      background-size: 100% auto;
-  }
-
-
-  .staticpage-atc{
-      background: url("../assets/images/header/subject-header-atc.png") no-repeat top center;
-      background-size: 100% auto;
-  }
-
-
+  //Requirements
   .staticpage-requirements{
       background: url("../assets/images/header/bg-blue-light-9.png") no-repeat top center;
       background-size: 100% auto;
   }
 
 
+
+  //Costs
   .staticpage-costs{
       background: url("../assets/images/header/bg-yellow-3.png") no-repeat top center;
       background-size: 100% auto;
   }
 
 
+
+  //Application
   .staticpage-application{
       background: url("../assets/images/header/bg-blue-light-5.png") no-repeat top center;
       background-size: 100% auto;
   }
 
 
-  .staticpage-allinsights{
-      background: url("../assets/images/header/bg-yellow-2.jpg") no-repeat top center;
-      background-size: 100% auto;
-  }
 
-
-  .staticpage-airlineinsight{
-      background: url("../assets/images/header/bg-yellow-2.jpg") no-repeat top center;
-      background-size: 100% auto;
-  }
-
-
-  .staticpage-alloffers{
-      background: url("../assets/images/header/bg-pink-1.jpg") no-repeat top center;
-      background-size: 100% auto;
-  }
-
-
-  .staticpage-joboffer{
-      background: url("../assets/images/header/bg-pink-1.jpg") no-repeat top center;
-      background-size: 100% auto;
-  }
-  
+//---FAQ PAGE----
 
   .staticpage-faq{
-      background: url("../assets/images/home/bg-faq.png") no-repeat top center;
-      background-size: 100% auto;
-  }
+    background: url("../assets/images/home/bg-faq.png") no-repeat top center;
+    background-size: 100% auto;
+}
+
 
 
     //Container with the properties for the information/content retrieved from the database
