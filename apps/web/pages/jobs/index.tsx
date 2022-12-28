@@ -4,16 +4,43 @@ import styles from "./jobs.module.scss";
 import Link from "next/link";
 import Footer from "../../components/Footer";
 import GoBackHome from "../../components/GoBackHome";
-import ContactUs from "../../components/ContactUs";
-import JobsBtn from "../../components/JobsBtn";
+import FAQContact from "../../components/FAQ_contact_tile";
+import stylesFC from "../../components/FAQ_contact.module.scss";
+import FAQTile from "../../assets/images/widget/bg-widget-check.png";
+import ContactTile from "../../assets/images/widget/bg-widget-contact.png";
+import InsightsContainer from "../../components/InsightsContainer";
+
+const fcTiles = [
+  {
+    tilename: "FAQ",
+    subtilename: "How can we help you?",
+    cSass: stylesFC["contactus-container"],
+    cTailwind: "md:w-1/3 pr-2 pl-2 md:px-2",
+    picture: FAQTile,
+  },
+
+  {
+    tilename: "Contact Us",
+    subtilename: "Do you have questions?",
+    cSass: stylesFC["faq-container"],
+    cTailwind: "md:w-2/3 pr-2 pl-2 md:px-2",
+    picture: ContactTile,
+  },
+];
 
 function Jobs() {
   return (
     <div id={"page"}>
       <Mini_Header title={"Available Jobs"} />
-      <div className={"container"}>
-        <div className={"row subject-branding"}>
-          <div className={"col-md-4 px-md-2"}>
+      <div className={"container mx-auto sm:px-0"}>
+        {" "}
+        {/* All containers CONTAINER */}
+        <div className={`${"flex flex-wrap"} ${styles["subject-branding"]}`}>
+          {" "}
+          {/* first container line */}
+          <div className={`${"md:w-1/3 pr-4 pl-4"} ${"md:px-2"}`}>
+            {" "}
+            {/* Individual tile */}
             <div
               className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-general"]} ${styles["branding-1"]} ${styles["branding-left-80"]} ${styles["branding-top-45"]}`}
             >
@@ -33,7 +60,6 @@ function Jobs() {
               </div>
             </div>
           </div>
-
           <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div
               className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-requirements"]} 
@@ -48,14 +74,16 @@ function Jobs() {
                     Do you have what it takes?
                   </div>
 
-                  <Link href="/jobs/requirements" className={styles["widget-link"]}>
+                  <Link
+                    href="/jobs/requirements"
+                    className={styles["widget-link"]}
+                  >
                     learn more
                   </Link>
                 </div>
               </div>
             </div>
           </div>
-
           <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div
               className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-apply"]} ${styles["branding-1"]} 
@@ -63,7 +91,7 @@ function Jobs() {
             >
               <div className={styles["widget-overlay"]}>
                 <div
-                 /* onclick="window.open('/apply', '_self')" style="cursor:pointer;" */
+                /* onclick="window.open('/apply', '_self')" style="cursor:pointer;" */
                 >
                   <div className={styles["widget-title"]}>Application</div>
                   <div className={styles["widget-subtitle"]}>
@@ -78,7 +106,6 @@ function Jobs() {
             </div>
           </div>
         </div>
-
         <div className={"row"}>
           <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div
@@ -123,8 +150,10 @@ function Jobs() {
                 </div>
               </div>
             </div>
+            
           </div>
 
+          {/* INSIGHTS CONTAINER */}
           <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div
               className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-insights"]} ${styles["branding-2"]} 
@@ -147,11 +176,24 @@ function Jobs() {
             </div>
           </div>
         </div>
+        
+        <InsightsContainer />
+
+        {/* FAQ & CONTACT US COMPONENT*/}
         <div
-          className={`${"row"} ${"align-items-end"} ${styles["row-widgets"]}}`}
+          className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}
         >
-          <JobsBtn />
-          <ContactUs />
+          <div className={`${"flex flex-wrap"} ${"items-end"}`}>
+            {fcTiles.map((fctile) => (
+              <FAQContact
+                tilename={fctile.tilename}
+                cSass={fctile.cSass}
+                subtilename={fctile.subtilename}
+                cTailwind={fctile.cTailwind}
+                picture={fctile.picture}
+              />
+            ))}
+          </div>
         </div>
         {/* 
 

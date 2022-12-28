@@ -1,252 +1,287 @@
 import * as React from "react";
-import styles from "./home.module.scss";
-import styles2 from "../../components/Tile.module.scss";
-
-import summary1 from "../../assets/images/home/summary-1.png";
-import summary2 from "../../assets/images/home/summary-2.png";
-import summary3 from "../../assets/images/home/summary-3.png";
-
-import widgetcheck from "../../assets/images/widget/bg-widget-check.png";
-import widgetcontact from "../../assets/images/widget/bg-widget-contact.png";
-
-import FAQContact from "../../components/FAQ_contact_tile";
-import Footer from "../../components/Footer";
-import Tile from "../../components/Tile";
-import Link from "next/link";
 import Image from "next/image";
 
-const test = [
-  {
-    pic: summary1,
-    label: "Pilot",
-    className: styles2["tile-main-container"],
-    subtitle: "Enter Your Office Above the Clouds",
-  },
+{
+  /*STYLES*/
+}
+import styles from "./home.module.scss";
+import stylesJobs from "../../components/Tile.module.scss";
+import styleslrButton from "../../components/LoginRegisterButton.module.scss";
+import stylesArrow from "../../components/LearnMoreArrow.module.scss";
 
-  {
-    pic: summary2,
-    label: "Cabin",
-    className: styles2["tile-main-container"],
-    subtitle: "Travel Around the World",
-  },
+{
+  /*COMPONENTS*/
+}
+import Tile from "../../components/Tile";
+import Footer from "../../components/Footer";
+import { LearnMoreArrow } from "../../components/LearnMoreArrow";
+import LoginButton from "../../components/LoginRegisterButton";
+import ContainerFAQContact from "../../components/containerFAQContact";
 
+{
+  /*IMAGES*/
+}
+import PilotTile from "../../assets/images/home/summary-1.png";
+import CabinTile from "../../assets/images/home/summary-2.png";
+import ATCTile from "../../assets/images/home/summary-3.png";
+import CrossandSquare from "../../assets/images/branding/branding-3.png";
+
+const loginregButtons = [
   {
-    pic: summary3,
-    label: "Air Traffic Control",
-    className: styles2["tile-main-container"],
-    subtitle: "Manage the Sky",
+    route: "/login",
+    cSass: styleslrButton["loginreg-white"],
+    buttontext: "Log In",
+  },
+  {
+    route: "/login",
+    cSass: styleslrButton["loginreg-pink"],
+    buttontext: "Register",
   },
 ];
 
-const test2 = [
+const jobTiles = [
   {
-    label: "FAQ",
-    subtext: "How can we help you?",
-    styleprop: styles["contactus-container"],
-    tailwind: "md:w-1/3 pr-4 pl-4 md:px-2",
-    pic: widgetcheck,
+    picture: PilotTile,
+    tilename: "Pilot",
+    cSass: stylesJobs["tile-main-container"],
+    subtilename: "Enter Your Office Above the Clouds",
+    arrowbmap: (
+      <LearnMoreArrow
+        arrowtext={"Check Now"}
+        cSass={stylesArrow["arrow-faqcontact"]}
+        link={"/jobs"}
+      />
+    ),
   },
 
   {
-    label: "Contact Us",
-    subtext: "Do you have questions?",
-    styleprop: styles["faq-container"],
-    tailwind: "md:w-2/3 pr-4 pl-4 md:px-2",
-    pic: widgetcontact,
+    picture: CabinTile,
+    tilename: "Cabin",
+    cSass: stylesJobs["tile-main-container"],
+    subtilename: "Travel Around the World",
+    arrowbmap: (
+      <LearnMoreArrow
+        arrowtext={"Check Now"}
+        cSass={stylesArrow["arrow-faqcontact"]}
+        link={"/jobs"}
+      />
+    ),
+  },
+
+  {
+    picture: ATCTile,
+    tilename: "Air Traffic Control",
+    cSass: stylesJobs["tile-main-container"],
+    subtilename: "Manage the Sky",
+    arrowbmap: (
+      <LearnMoreArrow
+        arrowtext={"Check Now"}
+        cSass={stylesArrow["arrow-faqcontact"]}
+        link={"/jobs"}
+      />
+    ),
   },
 ];
 
 const Home = () => {
   return (
-    <div id={styles.page}>
-      <div className={"container-fluid"} id={styles["top-container"]}>
-        <div className={"row"}>
-          <div className={"container"}>
-            <div className={"row"}>
-              {/* COMPONENT1 BUTTONS */}
-              <div className={"col-md-5"}>
-                {/*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
-                @if (Auth::user())
-                @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
-                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
-                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
-                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
-                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
-                <a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
-                @endif
-                @else
-                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
-                <a href="{{ route('register') }}" className={`${styles["btn-register"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-rounded"]}`}>Register</a>
-                @endif
-              </div> 
-              */}
-                &nbsp;
-              </div>
+    <>
+      <div className={styles["mainpage"]}>
+        <div className={styles["mainpage-header"]}>
+          <div className={"flex flex-wrap"}>
+            <div className={`container mx-auto sm:px-0`}>
+              <div className={"flex flex-wrap"}>
+                <div className={"md:w-2/5 pr-0 pl-0"}></div>
 
-              <div className={"col-md-2"}>
-                <div className={styles["top-logo"]}>
-                  <div className={styles.logo}></div>
+                {/*SKYHUB LOGO*/}
+                <div className={"md:w-1/5 pr-4 pl-4"}>
+                  <div className={styles["mainpage-logocontainer"]}>
+                    <div className={styles["mainpage-logo"]}></div>
+                  </div>
                 </div>
-              </div>
 
-              {/* COMPONENT2 BUTTONS */}
-              <div className={`${"col-md-5"} ${"text-right"}`}>
+                {/*LOGIN/REGISTER BUTTON*/}
                 <div
-                  className={`${
-                    styles["user-links"]
-                  } ${"d-none"} ${"d-md-block"}`}
+                  className={`${"md:w-2/5 pr-1 pl-4"} ${"text-right"} ${
+                    styles["mainpage-logincontainer"]
+                  }`}
                 >
-                  {/*@if (Auth::user())
-                @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
-                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
-                >Dashboard</a>
-                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
-                <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
-                @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
-                <a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
-                @endif
-                @else
-                <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
-                <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Register</a>
-                @endif 
-                */}
-                  <a
-                    href="{{ route('login') }}"
-                    className={`${styles["btn-login"]} ${styles["btn"]} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
+                  <div
+                    className={`${
+                      styles["mainpage-logincontainer2nd"]
+                    } ${"hidden"} ${"md:block"}`}
                   >
-                    Log In
-                  </a>
-                  <a
-                    href="{{ route('register') }}"
-                    className={`${styles["btn-login"]} ${styles["btn"]} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
-                  >
-                    Register
-                  </a>
+                    {loginregButtons.map((test) => (
+                      <LoginButton
+                        route={test.route}
+                        cSass={test.cSass}
+                        buttontext={test.buttontext}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* COMPONENT PHRASE GENERATOR */}
-            <div className={"row"}>
-              <div className={"col-md-12"}>
-                <h1
-                  className={styles["top-title-1"]}
-                  id={styles["find-your-texts"]}
-                >
-                  Find your <strong data-find-text></strong>
-                </h1>
-              </div>
-
-            
-                <div className={`${"row"}${styles["top-summary"]}`}>
-                  {test.slice(0, 1).map((test) => (
-                    <Tile
-                      label={test.label}
-                      test={test.className}
-                      pic={test.pic}
-                      subtitle={test.subtitle}
-                    />
-                  ))}
-                </div>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className={"container"}>
-        <div className={"row"}>
-          <div className={"col-md-12"}>
-            <div className={styles["not-enough"]}>
-              Not enough? We've got <span>more</span>!
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className={"container"}>
-        <div className={"row"}>
-          {test.slice(1, 2).map((test) => (
-            <Tile
-              label={test.label}
-              test={test.className}
-              pic={test.pic}
-              subtitle={test.subtitle}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className={`${"container"} ${styles["last-container"]}`}>
-        <div className={"row"}>
-          <div className={"col-md-12"}>
-            <div className={styles["even-more"]}>
-              ...and even <span>more</span>!
-            </div>
           </div>
         </div>
 
-        <div className={"container"}>
-          <div className={"row"}>
-            {test.slice(2, 3).map((test) => (
+        {/*PHRASE GENERATOR - ROBOT */}
+        <div className={"flex flex-wrap"}>
+          <div
+            className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}
+          >
+            <h1 className={styles["maingpage-robottext"]}>
+              Find your <strong data-find-text></strong> {/*!!! Database Info*/}
+            </h1>
+          </div>
+        </div>
+
+        {/*CROSSES AND SQAURES IMAGE*/}
+        <Image
+          className={styles.crossimage1}
+          src={CrossandSquare}
+          alt="CrossandSquare"
+        />
+
+        {/*PILOT TILE COMPONENT*/}
+        <div className={`container mx-auto sm:px-0`}>
+          <div className={"flex flex-wrap"}>
+            {jobTiles.slice(0, 1).map((pilottile) => (
               <Tile
-                label={test.label}
-                test={test.className}
-                pic={test.pic}
-                subtitle={test.subtitle}
+                tilename={pilottile.tilename}
+                cSass={pilottile.cSass}
+                picture={pilottile.picture}
+                subtilename={pilottile.subtilename}
+                arrowbmap={pilottile.arrowbmap}
               />
             ))}
           </div>
         </div>
 
-        <div className={"container"}>
-          <div
-            className={`${"row"} ${"align-items-end"} ${styles["row-widgets"]}`}
-          >
-            {/* FAQ BUTTON COMPONENT OLD
-          <div className={`${"col-md-4"} ${"px-md-2"}`}>
-            <div className={`${styles.widget} ${styles["widget-check-other"]}`}>
-              <Image src={widgetcheck} alt="widgetcheck" />
-              <div className={styles["widget-overlay"]}>
-                <div>
-                  <Link href="/faq" />
-                  <div className={styles["widget-subtitle"]}>
-                    How can we help you?
-                  </div>
-                  <div className={styles["widget-title"]}>FAQ</div>
-                  <a href="/faq" className={styles["widget-link"]}>
-                    check now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <ContactUs />
-           */}
-
-            <div className={"container"}>
-              <div
-                className={`${"row"} ${"align-items-end"} ${
-                  styles["row-widgets"]
-                }}`}
-              >
-                {test2.map((test) => (
-                  <FAQContact
-                    label={test.label}
-                    sprop={test.styleprop}
-                    subtext={test.subtext}
-                    tailwindclass={test.tailwind}
-                    pic={test.pic}
-                  />
-                ))}
+        {/* FIRST TEXT MAIN PAGE*/}
+        <div className={"container mx-auto sm:px-0"}>
+          <div className={"flex flex-wrap"}>
+            <div className={"md:w-full pr-0 pl-0"}>
+              <div className={styles["mainpage-firsttext"]}>
+                Not enough? We've got <span>more</span>!
               </div>
             </div>
           </div>
         </div>
+
+        {/*CABIN TILE COMPONENT*/}
+        <div className={`container mx-auto sm:px-0`}>
+          <div className={"flex flex-wrap"}>
+            {jobTiles.slice(1, 2).map((cabintile) => (
+              <Tile
+                tilename={cabintile.tilename}
+                cSass={cabintile.cSass}
+                picture={cabintile.picture}
+                subtilename={cabintile.subtilename}
+                arrowbmap={cabintile.arrowbmap}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* SECOND TEXT MAIN PAGE*/}
+        <div className={`${"container mx-auto sm:px-0"}`}>
+          <div className={"flex flex-wrap"}>
+            <div className={"md:w-full pr-4 pl-4"}>
+              <div className={styles["mainpage-secondtext"]}>
+                ...and even <span>more</span>!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ATC TILE COMPONENT*/}
+        <div
+          className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
+        >
+          <div className={"flex flex-wrap"}>
+            {jobTiles.slice(2, 3).map((atctile) => (
+              <Tile
+                tilename={atctile.tilename}
+                cSass={atctile.cSass}
+                picture={atctile.picture}
+                subtilename={atctile.subtilename}
+                arrowbmap={atctile.arrowbmap}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/*CROSSES AND SQAURES IMAGE*/}
+        <Image
+          className={styles.crossimage2}
+          src={CrossandSquare}
+          alt="CrossandSquare"
+        />
+
+        {/* FAQ & CONTACT US COMPONENT*/}
+        <div
+          className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}
+        >
+          <ContainerFAQContact />
+        </div>
+
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 
 export default Home;
+
+{
+  /*
+      NOTES ABOUT BS TO TW:
+container = container mx-auto sm:px-0
+cointainer-fluid = mainpage-header*/
+}
+
+{
+  /*
+      NOTES ABOUT THE DIFFERENT STYLES AFTER LOG IN:
+      
+ @if (Auth::user())
+@if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
+ <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
+>Dashboard</a>
+@elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
+<a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
+ @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
+ <a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
+ @endif
+@else
+<a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
+<a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Register</a>
+@endif 
+*/
+}
+
+{
+  /*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
+ @if (Auth::user())
+@if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
+<a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
+@elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
+<a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
+ @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
+<a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
+ @endif
+@else
+<a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
+<a href="{{ route('register') }}" className={`${styles["btn-register"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-rounded"]}`}>Register</a>
+@endif
+</div> 
+*/
+}
+
+{
+  /*container=container mx-auto sm:px-0*/
+}
+{
+  /*cointainer-fluid=mainpage-header*/
+}

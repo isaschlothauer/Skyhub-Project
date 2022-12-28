@@ -1,32 +1,39 @@
-import React from "react";
 import styles from "./go_back_home.module.scss";
+
+{
+  /*STYLES*/
+}
+import stylesArrow from "../components/LearnMoreArrow.module.scss";
+
+{
+  /*COMPONENTS*/
+}
+import { LearnMoreArrow } from "./LearnMoreArrow";
 
 export default function GoBackHome() {
   return (
-    <div className={`${"row"} ${styles["go-homepage-row"]}`}>
-      <div
-        className={`${"col-md-12"} ${styles["go-homepage-col"]} ${
-          styles["branding-1"]
-        } 
-  ${styles["branding-size-75"]} ${styles["branding-right-95"]} ${
-          styles["branding-top-0"]
-        }`}
-      >
+    <div className="container mx-auto sm:px-0">
+      <div className={`flex flex-wrap ${styles["goback-maincontainer"]}`}>
         <div
-          className={styles["go-homepage"]}
-          onclick="window.open(`http://{{ env('MAIN_DOMAIN') }}`, '_self')"
-          /* style="cursor:pointer;" */
+          className={`md:w-full pr-2 pl-2 ${styles["goback-componentcontainer"]}`}
         >
-          <div className={styles["go-homepage-text"]}>
-            <div className={styles["go-homepage-text-1"]}>
-              Didn't find what you were looking for?
+          <div
+            className={styles["goback-textcontainer"]}
+            onclick="window.open(`http://{{ env('MAIN_DOMAIN') }}`, '_self')"
+            /* style="cursor:pointer;" */
+          >
+            <div>
+              <div className={styles["goback-subtext"]}>
+                Didn't find what you were looking for?
+              </div>
+              <div className={styles["goback-maintext"]}>
+                Start again from the <span>beginning</span>...
+              </div>
             </div>
-            <div className={styles["go-homepage-text-2"]}>
-              Start again from the <span>beginning</span>...
-            </div>
-          </div>
-          <div className={styles["go-homepage-link"]}>
-            <a href="http://{{ env('MAIN_DOMAIN') }}">Go to homepage</a>
+            <LearnMoreArrow
+              cSass={stylesArrow["arrow-gobackhome"]}
+              arrowtext="Go to Homepage"
+            />
           </div>
         </div>
       </div>
