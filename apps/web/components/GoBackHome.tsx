@@ -1,14 +1,14 @@
-import styles from "./go_back_home.module.scss";
-
+import Router from "next/router";
+import { LearnMoreArrow } from "./LearnMoreArrow";
 {
   /*STYLES*/
 }
+import styles from "./go_back_home.module.scss";
 import stylesArrow from "../components/LearnMoreArrow.module.scss";
 
 {
   /*COMPONENTS*/
 }
-import { LearnMoreArrow } from "./LearnMoreArrow";
 
 export default function GoBackHome() {
   return (
@@ -19,25 +19,35 @@ export default function GoBackHome() {
         >
           <div
             className={styles["goback-textcontainer"]}
-            onclick="window.open(`http://{{ env('MAIN_DOMAIN') }}`, '_self')"
+
             /* style="cursor:pointer;" */
           >
             <div>
-              <div className={styles["goback-subtext"]}>
+              <div
+                className={styles["goback-subtext"]}
+                onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+                  Router.push("/");
+                }}
+              >
                 Didn't find what you were looking for?
               </div>
-              <div className={styles["goback-maintext"]}>
+              <div
+                className={styles["goback-maintext"]}
+                onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+                  Router.push("/");
+                }}
+              >
                 Start again from the <span>beginning</span>...
               </div>
             </div>
             <LearnMoreArrow
               cSass={stylesArrow["arrow-gobackhome"]}
               arrowtext="Go to Homepage"
+              link="/"
             />
           </div>
         </div>
       </div>
     </div>
-  </div>
   );
 }

@@ -1,32 +1,19 @@
 import React from "react";
-import Mini_Header from "../../components/Mini_Header";
-import styles from "./jobs.module.scss";
 import Link from "next/link";
+
+{
+  /* STYLES */
+}
+import styles from "./jobs.module.scss";
+
+{
+  /* COMPONENTS */
+}
+import Mini_Header from "../../components/Mini_Header";
 import Footer from "../../components/Footer";
 import GoBackHome from "../../components/GoBackHome";
-import FAQContact from "../../components/FAQ_contact_tile";
-import stylesFC from "../../components/FAQ_contact.module.scss";
-import FAQTile from "../../assets/images/widget/bg-widget-check.png";
-import ContactTile from "../../assets/images/widget/bg-widget-contact.png";
 import InsightsContainer from "../../components/InsightsContainer";
-
-const fcTiles = [
-  {
-    tilename: "FAQ",
-    subtilename: "How can we help you?",
-    cSass: stylesFC["contactus-container"],
-    cTailwind: "md:w-1/3 pr-2 pl-2 md:px-2",
-    picture: FAQTile,
-  },
-
-  {
-    tilename: "Contact Us",
-    subtilename: "Do you have questions?",
-    cSass: stylesFC["faq-container"],
-    cTailwind: "md:w-2/3 pr-2 pl-2 md:px-2",
-    picture: ContactTile,
-  },
-];
+import ContainerFAQContact from "../../components/containerFAQContact";
 
 function Jobs() {
   return (
@@ -150,7 +137,6 @@ function Jobs() {
                 </div>
               </div>
             </div>
-            
           </div>
 
           {/* INSIGHTS CONTAINER */}
@@ -176,24 +162,12 @@ function Jobs() {
             </div>
           </div>
         </div>
-        
         <InsightsContainer />
-
         {/* FAQ & CONTACT US COMPONENT*/}
         <div
           className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}
         >
-          <div className={`${"flex flex-wrap"} ${"items-end"}`}>
-            {fcTiles.map((fctile) => (
-              <FAQContact
-                tilename={fctile.tilename}
-                cSass={fctile.cSass}
-                subtilename={fctile.subtilename}
-                cTailwind={fctile.cTailwind}
-                picture={fctile.picture}
-              />
-            ))}
-          </div>
+          <ContainerFAQContact />
         </div>
         {/* 
 
