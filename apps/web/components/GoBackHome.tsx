@@ -38,5 +38,6 @@ export default function GoBackHome() {
         </div>
       </div>
     </div>
+  </div>
   );
 }

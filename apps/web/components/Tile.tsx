@@ -1,6 +1,10 @@
 import * as React from "react";
-import styles from "./Tile.module.scss";
 import Image, { StaticImageData } from "next/image";
+
+{/*STYLES*/}
+import styles from "./Tile.module.scss";
+
+
 
 export interface TileProps {
   tilename: string;

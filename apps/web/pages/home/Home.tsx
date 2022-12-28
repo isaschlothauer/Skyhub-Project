@@ -124,6 +124,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </div>
 
         {/*PHRASE GENERATOR - ROBOT */}
         <div className={"flex flex-wrap"}>
@@ -157,6 +158,7 @@ const Home = () => {
             ))}
           </div>
         </div>
+        
 
         {/* FIRST TEXT MAIN PAGE*/}
         <div className={"container mx-auto sm:px-0"}>
