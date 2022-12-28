@@ -85,152 +85,148 @@ const jobTiles = [
 
 const Home = () => {
   return (
-    <>
-      <div className={styles["mainpage"]}>
-        <div className={styles["mainpage-header"]}>
-          <div className={"flex flex-wrap"}>
-            <div className={`container mx-auto sm:px-0`}>
-              <div className={"flex flex-wrap"}>
-                <div className={"md:w-2/5 pr-0 pl-0"}></div>
-
-                {/*SKYHUB LOGO*/}
-                <div className={"md:w-1/5 pr-4 pl-4"}>
-                  <div className={styles["mainpage-logocontainer"]}>
-                    <div className={styles["mainpage-logo"]}></div>
-                  </div>
-                </div>
-
-                {/*LOGIN/REGISTER BUTTON*/}
-                <div
-                  className={`${"md:w-2/5 pr-1 pl-4"} ${"text-right"} ${
-                    styles["mainpage-logincontainer"]
-                  }`}
-                >
-                  <div
-                    className={`${
-                      styles["mainpage-logincontainer2nd"]
-                    } ${"hidden"} ${"md:block"}`}
-                  >
-                    {loginregButtons.map((test) => (
-                      <LoginButton
-                        route={test.route}
-                        cSass={test.cSass}
-                        buttontext={test.buttontext}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-        {/*PHRASE GENERATOR - ROBOT */}
+    <div className={styles["mainpage"]}>
+      <div className={styles["mainpage-header"]}>
         <div className={"flex flex-wrap"}>
-          <div
-            className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}
-          >
-            <h1 className={styles["maingpage-robottext"]}>
-              Find your <strong data-find-text></strong> {/*!!! Database Info*/}
-            </h1>
-          </div>
-        </div>
+          <div className={`container mx-auto sm:px-0`}>
+            <div className={"flex flex-wrap"}>
+              <div className={"md:w-2/5 pr-0 pl-0"}></div>
 
-        {/*CROSSES AND SQAURES IMAGE*/}
-        <Image
-          className={styles.crossimage1}
-          src={CrossandSquare}
-          alt="CrossandSquare"
-        />
+              {/*SKYHUB LOGO*/}
+              <div className={"md:w-1/5 pr-4 pl-4"}>
+                <div className={styles["mainpage-logocontainer"]}>
+                  <div className={styles["mainpage-logo"]}></div>
+                </div>
+              </div>
 
-        {/*PILOT TILE COMPONENT*/}
-        <div className={`container mx-auto sm:px-0`}>
-          <div className={"flex flex-wrap"}>
-            {jobTiles.slice(0, 1).map((pilottile) => (
-              <Tile
-                tilename={pilottile.tilename}
-                cSass={pilottile.cSass}
-                picture={pilottile.picture}
-                subtilename={pilottile.subtilename}
-                arrowbmap={pilottile.arrowbmap}
-              />
-            ))}
-          </div>
-        </div>
-        
-
-        {/* FIRST TEXT MAIN PAGE*/}
-        <div className={"container mx-auto sm:px-0"}>
-          <div className={"flex flex-wrap"}>
-            <div className={"md:w-full pr-0 pl-0"}>
-              <div className={styles["mainpage-firsttext"]}>
-                Not enough? We've got <span>more</span>!
+              {/*LOGIN/REGISTER BUTTON*/}
+              <div
+                className={`${"md:w-2/5 pr-1 pl-4"} ${"text-right"} ${
+                  styles["mainpage-logincontainer"]
+                }`}
+              >
+                <div
+                  className={`${
+                    styles["mainpage-logincontainer2nd"]
+                  } ${"hidden"} ${"md:block"}`}
+                >
+                  {loginregButtons.map((test) => (
+                    <LoginButton
+                      route={test.route}
+                      cSass={test.cSass}
+                      buttontext={test.buttontext}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/*CABIN TILE COMPONENT*/}
-        <div className={`container mx-auto sm:px-0`}>
-          <div className={"flex flex-wrap"}>
-            {jobTiles.slice(1, 2).map((cabintile) => (
-              <Tile
-                tilename={cabintile.tilename}
-                cSass={cabintile.cSass}
-                picture={cabintile.picture}
-                subtilename={cabintile.subtilename}
-                arrowbmap={cabintile.arrowbmap}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* SECOND TEXT MAIN PAGE*/}
-        <div className={`${"container mx-auto sm:px-0"}`}>
-          <div className={"flex flex-wrap"}>
-            <div className={"md:w-full pr-4 pl-4"}>
-              <div className={styles["mainpage-secondtext"]}>
-                ...and even <span>more</span>!
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ATC TILE COMPONENT*/}
-        <div
-          className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
-        >
-          <div className={"flex flex-wrap"}>
-            {jobTiles.slice(2, 3).map((atctile) => (
-              <Tile
-                tilename={atctile.tilename}
-                cSass={atctile.cSass}
-                picture={atctile.picture}
-                subtilename={atctile.subtilename}
-                arrowbmap={atctile.arrowbmap}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/*CROSSES AND SQAURES IMAGE*/}
-        <Image
-          className={styles.crossimage2}
-          src={CrossandSquare}
-          alt="CrossandSquare"
-        />
-
-        {/* FAQ & CONTACT US COMPONENT*/}
-        <div
-          className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}
-        >
-          <ContainerFAQContact />
-        </div>
-
-        <Footer />
       </div>
-    </>
+
+      {/*PHRASE GENERATOR - ROBOT */}
+      <div className={"flex flex-wrap"}>
+        <div
+          className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}
+        >
+          <h1 className={styles["maingpage-robottext"]}>
+            Find your <strong data-find-text></strong> {/*!!! Database Info*/}
+          </h1>
+        </div>
+      </div>
+
+      {/*CROSSES AND SQAURES IMAGE*/}
+      <Image
+        className={styles.crossimage1}
+        src={CrossandSquare}
+        alt="CrossandSquare"
+      />
+
+      {/*PILOT TILE COMPONENT*/}
+      <div className={`container mx-auto sm:px-0`}>
+        <div className={"flex flex-wrap"}>
+          {jobTiles.slice(0, 1).map((pilottile) => (
+            <Tile
+              tilename={pilottile.tilename}
+              cSass={pilottile.cSass}
+              picture={pilottile.picture}
+              subtilename={pilottile.subtilename}
+              arrowbmap={pilottile.arrowbmap}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* FIRST TEXT MAIN PAGE*/}
+      <div className={"container mx-auto sm:px-0"}>
+        <div className={"flex flex-wrap"}>
+          <div className={"md:w-full pr-0 pl-0"}>
+            <div className={styles["mainpage-firsttext"]}>
+              Not enough? We've got <span>more</span>!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/*CABIN TILE COMPONENT*/}
+      <div className={`container mx-auto sm:px-0`}>
+        <div className={"flex flex-wrap"}>
+          {jobTiles.slice(1, 2).map((cabintile) => (
+            <Tile
+              tilename={cabintile.tilename}
+              cSass={cabintile.cSass}
+              picture={cabintile.picture}
+              subtilename={cabintile.subtilename}
+              arrowbmap={cabintile.arrowbmap}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* SECOND TEXT MAIN PAGE*/}
+      <div className={`${"container mx-auto sm:px-0"}`}>
+        <div className={"flex flex-wrap"}>
+          <div className={"md:w-full pr-4 pl-4"}>
+            <div className={styles["mainpage-secondtext"]}>
+              ...and even <span>more</span>!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ATC TILE COMPONENT*/}
+      <div
+        className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
+      >
+        <div className={"flex flex-wrap"}>
+          {jobTiles.slice(2, 3).map((atctile) => (
+            <Tile
+              tilename={atctile.tilename}
+              cSass={atctile.cSass}
+              picture={atctile.picture}
+              subtilename={atctile.subtilename}
+              arrowbmap={atctile.arrowbmap}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/*CROSSES AND SQAURES IMAGE*/}
+      <Image
+        className={styles.crossimage2}
+        src={CrossandSquare}
+        alt="CrossandSquare"
+      />
+
+      {/* FAQ & CONTACT US COMPONENT*/}
+      <div
+        className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}
+      >
+        <ContainerFAQContact />
+      </div>
+
+      <Footer />
+    </div>
   );
 };
 
