@@ -1,23 +1,23 @@
 import * as React from "react";
+import Link from "next/link";
 
-{/*STYLES*/}
+{
+  /*STYLES*/
+}
 import styles from "./Footer.module.scss";
-
-
 
 export default function Footer() {
   return (
     <>
       <div id={styles.footer}>
-        <div className="container mx-auto sm:px-0" /* style="position: relative" */>
+        <div
+          className="container mx-auto sm:px-0" /* style="position: relative" */
+        >
           <div
             className={` flex flex-wrap items-end ${styles["linkswithlogo"]}`}
           >
             <div className="md:w-1/2 pr-3 pl-3">
-              <a
-                href="http://{{ env('MAIN_DOMAIN') }}"
-                className={styles.skyhublogo}
-              ></a>
+              <Link href="/" className={styles.skyhublogo} />
             </div>
             <div className="md:w-1/2 pr-3 pl-3">
               <div className={`text-right ${styles["links"]}`}>
@@ -32,7 +32,9 @@ export default function Footer() {
                 <span>
                   Copyright {/*&copy;{{ date('Y') }}*/}. All rights reserved.
                 </span>
-                <a href="http://{{ env('MAIN_DOMAIN') }}">www.skyhub.aero</a>
+                <Link href="/" className={styles.skyhublogo}>
+                  www.skyhub.aero
+                </Link>
               </div>
             </div>
             <div className="md:w-1/2 pr-3 pl-3">

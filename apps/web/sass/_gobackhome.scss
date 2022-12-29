@@ -21,17 +21,20 @@
   align-items: center;
   font-family: "Nunito", "Open Sans", sans-serif;
   padding: 40px 30px;
+  
 
   .goback-subtext {
     color: #a5a5b1;
     font-weight: 700;
     font-size: 16px;
+    cursor: pointer;
   }
 
   .goback-maintext {
     color: #010e98;
     font-size: 30px;
     font-weight: 900;
+    cursor: pointer;
 
     span {
       color: #19ebce;

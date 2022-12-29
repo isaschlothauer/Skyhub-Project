@@ -2,51 +2,43 @@ import * as React from "react";
 import Image from "next/image";
 
 
+
 {/*STYLES*/}
+
 import styles from "./home.module.scss";
 import stylesJobs from "../../components/Tile.module.scss";
-import styleslrButton from "../../components/LoginRegisterButton.module.scss"
+import styleslrButton from "../../components/LoginRegisterButton.module.scss";
 import stylesArrow from "../../components/LearnMoreArrow.module.scss";
 
-{/*COMPONENTS*/}
+{
+  /*COMPONENTS*/
+}
 import Tile from "../../components/Tile";
 import Footer from "../../components/Footer";
 import { LearnMoreArrow } from "../../components/LearnMoreArrow";
-import LoginButton from "../../components/LoginRegisterButton"
+import LoginButton from "../../components/LoginRegisterButton";
 import ContainerFAQContact from "../../components/containerFAQContact";
 
-{/*IMAGES*/}
+{
+  /*IMAGES*/
+}
 import PilotTile from "../../assets/images/home/summary-1.png";
 import CabinTile from "../../assets/images/home/summary-2.png";
 import ATCTile from "../../assets/images/home/summary-3.png";
-import CrossandSquare from "../../assets/images/branding/branding-3.png"
+import CrossandSquare from "../../assets/images/branding/branding-3.png";
 
-
-
-
-const loginregButtons =[
+const loginregButtons = [
   {
-   route:"{{ route('login') }}",
-   cSass: styleslrButton["loginreg-white"],
-   buttontext:"Log In"
-  }, 
+    route: "/login",
+    cSass: styleslrButton["loginreg-white"],
+    buttontext: "Log In",
+  },
   {
-   route:"{{ route('register') }}",
-   cSass: styleslrButton["loginreg-pink"],
-   buttontext: "Register"
-   }
-]
-
-const arrowButtons= [{
-  arrowtext: "Open a Ticket",
-  cSass:stylesArrow["arrow-faqcontact"],
-},{
-  arrowtext: "Check Now",
-  cSass:stylesArrow["arrow-faqcontact"],
-},{
-  arrowtext: "Learn More",
-  cSass:stylesArrow["arrow-jobs"]
-}]
+    route: "/login",
+    cSass: styleslrButton["loginreg-pink"],
+    buttontext: "Register",
+  },
+];
 
 const jobTiles = [
   {
@@ -54,7 +46,13 @@ const jobTiles = [
     tilename: "Pilot",
     cSass: stylesJobs["tile-main-container"],
     subtilename: "Enter Your Office Above the Clouds",
-    arrowbmap: arrowButtons.slice(2, 3).map((arrowbutton) => (<LearnMoreArrow arrowtext={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
+    arrowbmap: (
+      <LearnMoreArrow
+        arrowtext={"Check Now"}
+        cSass={stylesArrow["arrow-faqcontact"]}
+        link={"/jobs"}
+      />
+    ),
   },
 
   {
@@ -62,7 +60,13 @@ const jobTiles = [
     tilename: "Cabin",
     cSass: stylesJobs["tile-main-container"],
     subtilename: "Travel Around the World",
-    arrowbmap: arrowButtons.slice(2, 3).map((arrowbutton) => (<LearnMoreArrow arrowtext={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
+    arrowbmap: (
+      <LearnMoreArrow
+        arrowtext={"Check Now"}
+        cSass={stylesArrow["arrow-faqcontact"]}
+        link={"/jobs"}
+      />
+    ),
   },
 
   {
@@ -70,66 +74,74 @@ const jobTiles = [
     tilename: "Air Traffic Control",
     cSass: stylesJobs["tile-main-container"],
     subtilename: "Manage the Sky",
-    arrowbmap: arrowButtons.slice(2, 3).map((arrowbutton) => (<LearnMoreArrow arrowtext={arrowbutton.arrowtext} cSass={arrowbutton.cSass}/>))
+    arrowbmap: (
+      <LearnMoreArrow
+        arrowtext={"Check Now"}
+        cSass={stylesArrow["arrow-faqcontact"]}
+        link={"/jobs"}
+      />
+    ),
   },
 ];
 
-
-
-
-
 const Home = () => {
   return (
-<>
-    <div className={styles["mainpage"]}> 
+    <div className={styles["mainpage"]}>
       <div className={styles["mainpage-header"]}>
         <div className={"flex flex-wrap"}>
           <div className={`container mx-auto sm:px-0`}>
             <div className={"flex flex-wrap"}>
               <div className={"md:w-2/5 pr-0 pl-0"}></div>
 
-            {/*SKYHUB LOGO*/}
-            <div className={"md:w-1/5 pr-4 pl-4"}>
+              {/*SKYHUB LOGO*/}
+              <div className={"md:w-1/5 pr-4 pl-4"}>
                 <div className={styles["mainpage-logocontainer"]}>
                   <div className={styles["mainpage-logo"]}></div>
                 </div>
               </div>
-              
-            {/*LOGIN/REGISTER BUTTON*/}
-                 <div className={`${"md:w-2/5 pr-1 pl-4"} ${"text-right"} ${styles["mainpage-logincontainer"]}`}>
-                  <div className={`${styles["mainpage-logincontainer2nd"] } ${"hidden"} ${"md:block"}`} >
 
-                   {loginregButtons.map((test) => (
-                               <LoginButton
-                               route={test.route}
-                               cSass={test.cSass}
-                               buttontext={test.buttontext}
-                               />
-                           ))}
-                    </div>
-                 </div>
-                 
-            </div>         
+              {/*LOGIN/REGISTER BUTTON*/}
+              <div
+                className={`${"md:w-2/5 pr-1 pl-4"} ${"text-right"} ${
+                  styles["mainpage-logincontainer"]
+                }`}
+              >
+                <div
+                  className={`${
+                    styles["mainpage-logincontainer2nd"]
+                  } ${"hidden"} ${"md:block"}`}
+                >
+                  {loginregButtons.map((test) => (
+                    <LoginButton
+                      route={test.route}
+                      cSass={test.cSass}
+                      buttontext={test.buttontext}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-
-
-
-
-       {/*PHRASE GENERATOR - ROBOT */}
+      {/*PHRASE GENERATOR - ROBOT */}
       <div className={"flex flex-wrap"}>
-        <div className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}>
+        <div
+          className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}
+        >
           <h1 className={styles["maingpage-robottext"]}>
-          Find your <strong data-find-text></strong> {/*!!! Database Info*/}
-        </h1>
-       </div>
+            Find your <strong data-find-text></strong> {/*!!! Database Info*/}
+          </h1>
+        </div>
       </div>
 
-
       {/*CROSSES AND SQAURES IMAGE*/}
-      <Image className={styles.crossimage1} src={CrossandSquare} alt="CrossandSquare"/>
+      <Image
+        className={styles.crossimage1}
+        src={CrossandSquare}
+        alt="CrossandSquare"
+      />
 
       {/*PILOT TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
@@ -140,15 +152,14 @@ const Home = () => {
               cSass={pilottile.cSass}
               picture={pilottile.picture}
               subtilename={pilottile.subtilename}
-              arrowbinfo={pilottile.arrowbmap}
+              arrowbmap={pilottile.arrowbmap}
             />
           ))}
         </div>
       </div>
 
-
-       {/* FIRST TEXT MAIN PAGE*/}
-       <div className={"container mx-auto sm:px-0"}>
+      {/* FIRST TEXT MAIN PAGE*/}
+      <div className={"container mx-auto sm:px-0"}>
         <div className={"flex flex-wrap"}>
           <div className={"md:w-full pr-0 pl-0"}>
             <div className={styles["mainpage-firsttext"]}>
@@ -158,11 +169,7 @@ const Home = () => {
         </div>
       </div>
 
-
-
-
-
-       {/*CABIN TILE COMPONENT*/}
+      {/*CABIN TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
         <div className={"flex flex-wrap"}>
           {jobTiles.slice(1, 2).map((cabintile) => (
@@ -171,14 +178,13 @@ const Home = () => {
               cSass={cabintile.cSass}
               picture={cabintile.picture}
               subtilename={cabintile.subtilename}
-              arrowbinfo={cabintile.arrowbmap}
+              arrowbmap={cabintile.arrowbmap}
             />
           ))}
         </div>
       </div>
 
-
-       {/* SECOND TEXT MAIN PAGE*/}
+      {/* SECOND TEXT MAIN PAGE*/}
       <div className={`${"container mx-auto sm:px-0"}`}>
         <div className={"flex flex-wrap"}>
           <div className={"md:w-full pr-4 pl-4"}>
@@ -189,50 +195,53 @@ const Home = () => {
         </div>
       </div>
 
-
-        {/* ATC TILE COMPONENT*/}
-        <div className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}>
-          <div className={"flex flex-wrap"}>
-            {jobTiles.slice(2, 3).map((atctile) => (
-              <Tile
-                tilename={atctile.tilename}
-                cSass={atctile.cSass}
-                picture={atctile.picture}
-                subtilename={atctile.subtilename}
-                arrowbinfo={atctile.arrowbmap}
-              />
-            ))}
-          </div>
+      {/* ATC TILE COMPONENT*/}
+      <div
+        className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
+      >
+        <div className={"flex flex-wrap"}>
+          {jobTiles.slice(2, 3).map((atctile) => (
+            <Tile
+              tilename={atctile.tilename}
+              cSass={atctile.cSass}
+              picture={atctile.picture}
+              subtilename={atctile.subtilename}
+              arrowbmap={atctile.arrowbmap}
+            />
+          ))}
         </div>
-        
+      </div>
 
-        {/*CROSSES AND SQAURES IMAGE*/}
-        <Image className={styles.crossimage2} src={CrossandSquare} alt="CrossandSquare"/>
+      {/*CROSSES AND SQAURES IMAGE*/}
+      <Image
+        className={styles.crossimage2}
+        src={CrossandSquare}
+        alt="CrossandSquare"
+      />
 
+      {/* FAQ & CONTACT US COMPONENT*/}
+      <div
+        className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}
+      >
+        <ContainerFAQContact />
+      </div>
 
-        {/* FAQ & CONTACT US COMPONENT*/}
-        <ContainerFAQContact/>
-        
-
-      
       <Footer />
     </div>
-    </>
   );
 };
 
 export default Home;
 
-
-{/*
+{
+  /*
       NOTES ABOUT BS TO TW:
-
 container = container mx-auto sm:px-0
 cointainer-fluid = mainpage-header*/
 }
 
-
- {/*
+{
+  /*
       NOTES ABOUT THE DIFFERENT STYLES AFTER LOG IN:
       
  @if (Auth::user())
@@ -248,9 +257,11 @@ cointainer-fluid = mainpage-header*/
 <a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
 <a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Register</a>
 @endif 
-*/}
+*/
+}
 
- {/*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
+{
+  /*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
  @if (Auth::user())
 @if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
 <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
@@ -264,5 +275,12 @@ cointainer-fluid = mainpage-header*/
 <a href="{{ route('register') }}" className={`${styles["btn-register"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-rounded"]}`}>Register</a>
 @endif
 </div> 
-*/}
-            
+*/
+}
+
+{
+  /*container=container mx-auto sm:px-0*/
+}
+{
+  /*cointainer-fluid=mainpage-header*/
+}

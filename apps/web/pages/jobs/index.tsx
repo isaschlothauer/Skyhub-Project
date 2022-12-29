@@ -1,19 +1,33 @@
 import React from "react";
-import Mini_Header from "../../components/Mini_Header";
-import styles from "./jobs.module.scss";
 import Link from "next/link";
+
+{
+  /* STYLES */
+}
+import styles from "./jobs.module.scss";
+
+{
+  /* COMPONENTS */
+}
+import Mini_Header from "../../components/Mini_Header";
 import Footer from "../../components/Footer";
 import GoBackHome from "../../components/GoBackHome";
-import ContactUs from "../../components/ContactUs";
-import JobsBtn from "../../components/JobsBtn";
+import InsightsContainer from "../../components/InsightsContainer";
+import ContainerFAQContact from "../../components/containerFAQContact";
 
 function Jobs() {
   return (
     <div id={"page"}>
       <Mini_Header title={"Available Jobs"} />
-      <div className={"container"}>
-        <div className={"row subject-branding"}>
-          <div className={"col-md-4 px-md-2"}>
+      <div className={"container mx-auto sm:px-0"}>
+        {" "}
+        {/* All containers CONTAINER */}
+        <div className={`${"flex flex-wrap"} ${styles["subject-branding"]}`}>
+          {" "}
+          {/* first container line */}
+          <div className={`${"md:w-1/3 pr-4 pl-4"} ${"md:px-2"}`}>
+            {" "}
+            {/* Individual tile */}
             <div
               className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-general"]} ${styles["branding-1"]} ${styles["branding-left-80"]} ${styles["branding-top-45"]}`}
             >
@@ -33,7 +47,6 @@ function Jobs() {
               </div>
             </div>
           </div>
-
           <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div
               className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-requirements"]} 
@@ -48,14 +61,16 @@ function Jobs() {
                     Do you have what it takes?
                   </div>
 
-                  <Link href="/jobs/requirements" className={styles["widget-link"]}>
+                  <Link
+                    href="/jobs/requirements"
+                    className={styles["widget-link"]}
+                  >
                     learn more
                   </Link>
                 </div>
               </div>
             </div>
           </div>
-
           <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div
               className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-apply"]} ${styles["branding-1"]} 
@@ -63,7 +78,7 @@ function Jobs() {
             >
               <div className={styles["widget-overlay"]}>
                 <div
-                 /* onclick="window.open('/apply', '_self')" style="cursor:pointer;" */
+                /* onclick="window.open('/apply', '_self')" style="cursor:pointer;" */
                 >
                   <div className={styles["widget-title"]}>Application</div>
                   <div className={styles["widget-subtitle"]}>
@@ -78,7 +93,6 @@ function Jobs() {
             </div>
           </div>
         </div>
-
         <div className={"row"}>
           <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div
@@ -125,6 +139,7 @@ function Jobs() {
             </div>
           </div>
 
+          {/* INSIGHTS CONTAINER */}
           <div className={`${"col-md-4"} ${"px-md-2"}`}>
             <div
               className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-insights"]} ${styles["branding-2"]} 
@@ -147,11 +162,12 @@ function Jobs() {
             </div>
           </div>
         </div>
+        <InsightsContainer />
+        {/* FAQ & CONTACT US COMPONENT*/}
         <div
-          className={`${"row"} ${"align-items-end"} ${styles["row-widgets"]}}`}
+          className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}
         >
-          <JobsBtn />
-          <ContactUs />
+          <ContainerFAQContact />
         </div>
         {/* 
 

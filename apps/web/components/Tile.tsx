@@ -11,11 +11,16 @@ export interface TileProps {
   cSass?: string;
   picture: StaticImageData;
   subtilename: string;
-  arrowbinfo:any;
-
+  arrowbmap: JSX.Element;
 }
 
-const Tile = ({ tilename, cSass, picture, subtilename, arrowbinfo }: TileProps) => {
+const Tile = ({
+  tilename,
+  cSass,
+  picture,
+  subtilename,
+  arrowbmap,
+}: TileProps) => {
   return (
     <div className={`mx-auto sm:px-0`}>
       <div className="sm:w-full pr-3 pl-3">
@@ -31,8 +36,10 @@ const Tile = ({ tilename, cSass, picture, subtilename, arrowbinfo }: TileProps) 
               <div className={styles["tile-traveltheworld-subtitle"]}>
                 {subtilename}
               </div>
-              <div className={styles["tile-traveltheworld-title"]}>{tilename}</div>
-               {arrowbinfo}
+              <div className={styles["tile-traveltheworld-title"]}>
+                {tilename}
+              </div>
+              <div className={styles["tile-learnmore"]}>{arrowbmap}</div>
             </div>
             <div className={styles["tile-leftline"]}></div>
           </div>

@@ -1,19 +1,18 @@
-import * as React from 'react';
-
+import Link from "next/link";
+import * as React from "react";
 
 export interface ArrowProps {
-    arrowtext?: string;
-    cSass:string;
-  }
+  arrowtext?: string;
+  cSass: string;
+  link: string;
+}
 
-export const LearnMoreArrow = ({ arrowtext, cSass}: ArrowProps) => {
+export const LearnMoreArrow = ({ arrowtext, cSass, link }: ArrowProps) => {
   return (
     <>
       <div className={cSass}>
-          <a href="http://{{ env('CABIN_DOMAIN') }}/subject">
-            {arrowtext}
-          </a>
-        </div>
+        <Link href={`${link}`}>{arrowtext}</Link>
+      </div>
     </>
-  )
-}
+  );
+};
