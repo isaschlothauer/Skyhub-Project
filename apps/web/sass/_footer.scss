@@ -1,17 +1,16 @@
 //Footer Element
 #footer {
-  
   // Container with the SkyHub logo and other links (PP and ToS)
   .linkswithlogo {
     padding-top: 20px;
     padding-bottom: 20px;
 
-
     .skyhublogo {
       display: block;
       width: 69px;
       height: 89px;
-      background: url("../assets/images/home/logo-color.png") no-repeat center center;
+      background: url("../assets/images/home/logo-color.png") no-repeat center
+        center;
       background-size: contain;
     }
 
@@ -19,15 +18,14 @@
       a {
         font-size: 16px;
         line-height: 24px;
-        font-family: 'Nunito', sans-serif;
+        font-family: "Nunito", sans-serif;
         color: #727481;
         margin-left: 30px;
       }
-  
     }
   }
 
-//Copyright Box with Information
+  //Copyright Box with Information
   .copyrightbox {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -47,9 +45,7 @@
       }
     }
 
-
-
-//LinkedIn Container (with link to LinkedIn)
+    //LinkedIn Container (with link to LinkedIn)
     .linkedin {
       display: inline-block;
       position: relative;
@@ -64,14 +60,15 @@
         display: block;
       }
       &:before {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         top: 4px;
         right: 0;
         width: 81px;
         height: 32px;
-        background: url("../assets/images/home/footer-linkedin.png") no-repeat center center;
+        background: url("../assets/images/home/footer-linkedin.png") no-repeat
+          center center;
         background-size: contain;
       }
     }

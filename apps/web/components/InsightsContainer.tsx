@@ -4,8 +4,8 @@ import Link from "next/link";
 
 function InsightsContainer() {
   return (
-    <div className={"flex flex-wrap "}>
-      <div className={`${"md:w-1/3 pr-4 pl-4"} ${"md:px-2"}`}>
+    <div className={"container mx-auto sm:px-1"}>
+      
         <div
           className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-insights"]} ${styles["branding-2"]} 
           ${styles["branding-left-80"]} ${styles["branding-top-10"]}`}
@@ -25,7 +25,7 @@ function InsightsContainer() {
             </div>
           </div>
         </div>
-      </div>
+     
     </div>
   );
 }
