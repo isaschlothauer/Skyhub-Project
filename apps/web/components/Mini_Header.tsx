@@ -1,14 +1,24 @@
+import * as React from "react";
 import Link from "next/link";
-import React from "react";
+
+{/*STYLES*/}
 import styles from "./mini_header.module.scss";
 
-export default function Mini_Header({ title }) {
+
+
+export interface HeaderProps {
+  title: string;
+}
+
+const Mini_Header = ({ title }: HeaderProps) => {
   return (
-    <div id={styles["mini-header"]}>
+
+    <div className={styles["header-container"]}>
       <div className={"container mx-auto sm:px-0"}>
-        <div className={"flex flex-wrap"}>
-          <div className={"md:w-full pr-4 pl-4"}>
-            <Link href="/" className={styles.logo} />
+        <div className={"flex flex-wrap "}>
+          <div className={"md:w-full pr-0 pl-0"}>
+            <Link href="/" className={styles["header-logo"]} />
+
             <h1>{title}</h1>
           </div>
         </div>
@@ -16,3 +26,5 @@ export default function Mini_Header({ title }) {
     </div>
   );
 }
+
+export default Mini_Header;
