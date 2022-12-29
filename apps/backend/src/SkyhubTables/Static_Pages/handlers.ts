@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import database from "../database";
+import database from "../../database";
 import { RowDataPacket } from "mysql2";
 
 
-const pilotGeneral = async (req: Request, res: Response) => {
+ export const pilotGeneral = async (req: Request, res: Response) => {
   database
   .query("select content from static_page")
   .then((result) => {
@@ -11,7 +11,9 @@ const pilotGeneral = async (req: Request, res: Response) => {
   });
 };
   
-export default pilotGeneral
+
+
+
 
 
 

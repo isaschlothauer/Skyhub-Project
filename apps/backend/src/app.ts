@@ -1,7 +1,6 @@
 import express from "express";
 import database from "./database";
-import pilotGeneral  from "./SkyhubTables/handlers";
-
+import MainRouter from "./SkyhubTables/mainrouter";
 
 
 const app = express();
@@ -11,13 +10,8 @@ app.get("/", (req, res) => {
   res.send("Hello there!");
 });
 
-
-app.get("/pilot/general", pilotGeneral);
-
-
-
-
-
+//Main Router Usage
+app.use("/", MainRouter);
 
 
 // Database Connection Test
