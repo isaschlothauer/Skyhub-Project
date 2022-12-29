@@ -1,67 +1,80 @@
 //Footer Element
 #footer {
 
-    // Container with the SkyHub logo and other links (PP and ToS)
-    .linkswithlogo {
-      padding-top: 20px;
-      padding-bottom: 20px;
- 
+  // Container with the SkyHub logo and other links (PP and ToS)
+  .linkswithlogo {
+  padding-top: 20px;
+  padding-bottom: 20px;
   
-    }
+  
+  .skyhublogo {
+  display: block;
+  width: 69px;
+  height: 89px;
+  background: url("../assets/images/home/logo-color.png") no-repeat center center;
+  background-size: contain;
   }
-
-//Copyright Box with Information
+  
+  .links {
+  a {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: 'Nunito', sans-serif;
+  color: #727481;
+  margin-left: 30px;
+  }
+  
+  }
+  }
+  
+  //Copyright Box with Information
   .copyrightbox {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid #e8e9eb;
-
-    .copyrightinfo {
-      color: #727481;
-      font-size: 12px;
-      line-height: 18px;
-      span {
-        display: block;
-      }
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #e8e9eb;
   
-      .links {
-        a {
-          font-size: 16px;
-          line-height: 24px;
-
-          color: #727481;
-          margin-left: 30px;
-        }
-      }
-    }
-
-
-
-//LinkedIn Container (with link to LinkedIn)
-    .linkedin {
-      display: inline-block;
-      position: relative;
-      color: #727481;
-      font-size: 12px;
-      line-height: 18px;
-      padding-right: 110px;
-      text-align: left;
-      text-decoration: none;
-      strong {
-        font-size: 16px;
-        display: block;
-      }
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 4px;
-        right: 0;
-        width: 81px;
-        height: 32px;
-        background: url("../assets/images/home/footer-linkedin.png") no-repeat center center;
-        background-size: contain;
-      }
-    }
+  .copyrightinfo {
+  color: #727481;
+  font-size: 12px;
+  line-height: 18px;
+  span {
+  display: block;
   }
-}
+  a {
+  color: #727481;
+  font-size: 16px;
+  line-height: 24px;
+  }
+  }
+  
+  
+  
+  //LinkedIn Container (with link to LinkedIn)
+  .linkedin {
+  display: inline-block;
+  position: relative;
+  color: #727481;
+  font-size: 12px;
+  line-height: 18px;
+  padding-right: 110px;
+  text-align: left;
+  text-decoration: none;
+  strong {
+  font-size: 16px;
+  display: block;
+  }
+  &:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 4px;
+  right: 0;
+  width: 81px;
+  height: 32px;
+  background: url("../assets/images/home/footer-linkedin.png") no-repeat center center;
+  background-size: contain;
+  }
+  }
+  }
+  }
+  
