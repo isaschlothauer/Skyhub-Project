@@ -1,5 +1,8 @@
 import * as React from "react";
 import { ReactElement } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 
 {/*STYLES*/}
 import styles from "./staticpage.module.scss";
@@ -16,6 +19,20 @@ export interface StaticProps {
 
 
 const StaticPage = ({ cSass, miniheader }: StaticProps) => {
+  const [movies, setMovies] = useState([]);
+
+  const backendURL = "http://localhost:5000";
+
+  useEffect(() => {
+    const source = axios.CancelToken.source();
+
+    axios
+      .get(`${backendURL}/pilot/general`, { cancelToken: source.token }) 
+      .then((response) => response.data)
+      .then((data) => setMovies(data));
+
+   
+  }, []);
   return (
     <div className={cSass}>
       {miniheader}
