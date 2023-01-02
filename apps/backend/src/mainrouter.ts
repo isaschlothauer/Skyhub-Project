@@ -1,5 +1,5 @@
 import { Router } from "express";
-import RouterStaticPage from "./Static_Pages/router_staticpages";
+import RouterStaticPage from "./handlers/StaticPage";
 
 const MainRouter = Router();
 
