@@ -1,7 +1,6 @@
 #offers {
   position: relative;
   z-index: 2;
-
 }
 
 #offers-filter {
@@ -23,14 +22,15 @@
     padding-left: 25px;
     position: relative;
     &:before {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       width: 70px;
       height: 21px;
       right: 16px;
       top: 13px;
-      background: url('images/icons/arrow-right-long-white.png') no-repeat center center;
+      background: url("../assets/images/icons/arrow-right-long-white.png")
+        no-repeat center center;
     }
   }
 }
@@ -78,7 +78,7 @@
         padding-left: 30px;
         margin-bottom: 8px;
         &:before {
-          content: '';
+          content: "";
           display: block;
           position: absolute;
           width: 14px;
@@ -86,7 +86,8 @@
           top: 50%;
           margin-top: -9px;
           left: 0;
-          background: url('images/icons/contract.png') no-repeat center center;
+          background: url("../assets/images/icons/contract.png") no-repeat
+            center center;
         }
       }
       .job-offer-list-item-location {
@@ -94,7 +95,7 @@
         padding-left: 30px;
         margin-bottom: 8px;
         &:before {
-          content: '';
+          content: "";
           display: block;
           position: absolute;
           width: 16px;
@@ -102,14 +103,15 @@
           top: 50%;
           margin-top: -10px;
           left: 0;
-          background: url('images/icons/location.png') no-repeat center center;
+          background: url("../assets/images/icons/location.png") no-repeat
+            center center;
         }
       }
       .job-offer-list-item-date {
         position: relative;
         padding-left: 30px;
         &:before {
-          content: '';
+          content: "";
           display: block;
           position: absolute;
           width: 20px;
@@ -117,7 +119,8 @@
           top: 50%;
           margin-top: -10px;
           left: 0;
-          background: url('images/icons/date.png') no-repeat center center;
+          background: url("../assets/images/icons/date.png") no-repeat center
+            center;
         }
       }
     }
@@ -131,22 +134,24 @@
         padding-left: 25px;
         position: relative;
         &:before {
-          content: '';
+          content: "";
           display: block;
           position: absolute;
           width: 70px;
           height: 21px;
           right: 16px;
           top: 13px;
-          background: url('images/icons/arrow-right-long-pink.png') no-repeat center center;
+          background: url("../assets/images/icons/arrow-right-long-pink.png")
+            no-repeat center center;
         }
         &:after {
-          content: '';
+          content: "";
           display: none;
           position: absolute;
           z-index: -1;
           pointer-events: none;
-          background: url('images/branding/branding-1.png') no-repeat center center;
+          background: url("../assets/images/branding/branding-1.png") no-repeat
+            center center;
           width: 142px;
           height: 105px;
           right: -70px;
@@ -157,7 +162,8 @@
             display: block;
           }
           &:before {
-            background: url('images/icons/arrow-right-long-white.png') no-repeat center center;
+            background: url("../assets/images/icons/arrow-right-long-white.png")
+              no-repeat center center;
           }
         }
       }

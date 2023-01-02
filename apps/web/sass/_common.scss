@@ -11,85 +11,111 @@
 
 .col-branding-top-left {
   &:before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     width: 85px;
     height: 63px;
     top: -5px;
     left: 0;
-    background: url('images/branding-visual-xs-2.png') no-repeat center center;
+    background: url("../assets/images/miscellaneous/branding-visual-xs-2.png")
+      no-repeat center center;
     z-index: 0;
     pointer-events: none;
   }
 }
 
-$positions: (0: 0, 5: 5%, 10: 10%, 15: 15%, 20: 20%, 25: 25%, 30: 30%, 35: 35%, 40: 40%, 45: 45%, 50: 50%, 55: 55%, 60: 60%, 65: 65%, 70: 70%, 75: 75%, 80: 80%, 85: 85%, 90: 90%, 95: 95%, 100: 100%);
+$positions: (
+  0: 0,
+  5: 5%,
+  10: 10%,
+  15: 15%,
+  20: 20%,
+  25: 25%,
+  30: 30%,
+  35: 35%,
+  40: 40%,
+  45: 45%,
+  50: 50%,
+  55: 55%,
+  60: 60%,
+  65: 65%,
+  70: 70%,
+  75: 75%,
+  80: 80%,
+  85: 85%,
+  90: 90%,
+  95: 95%,
+  100: 100%,
+);
 $branding1Width: 142px;
 $branding1Height: 105px;
 
 .branding-1:before,
 .branding-2:before {
-    content: '';
-    display: block;
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    width: $branding1Width;
-    height: $branding1Height;
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  width: $branding1Width;
+  height: $branding1Height;
 }
 
 .branding-1:before {
-    background: url('images/branding/branding-1.png') no-repeat center center;
-    background-size: contain;
+  background: url("../assets/images/branding/branding-1.png") no-repeat center
+    center;
+  background-size: contain;
 }
 
 .branding-2:before {
-    background: url('images/branding/branding-2.png') no-repeat center center;
-    background-size: contain;
+  background: url("../assets/images/branding/branding-1.png") no-repeat center
+    center;
+  background-size: contain;
 }
 
 @each $name, $position in $positions {
-    .branding-size-#{$name}:before {
-        width: $branding1Width * $name / 100;
-        height: $branding1Height * $name / 100;
-    }
+  .branding-size-#{$name}:before {
+    width: $branding1Width * $name / 100;
+    height: $branding1Height * $name / 100;
+  }
 
-    .branding-left-#{$name}:before {
-        left: $position;
-    }
+  .branding-left-#{$name}:before {
+    left: $position;
+  }
 
-    .branding-top-#{$name}:before {
-        top: $position;
-    }
+  .branding-top-#{$name}:before {
+    top: $position;
+  }
 
-    .branding-bottom-#{$name}:before {
-        bottom: $position;
-    }
+  .branding-bottom-#{$name}:before {
+    bottom: $position;
+  }
 
-    .branding-right-#{$name}:before {
-        right: $position;
-    }
+  .branding-right-#{$name}:before {
+    right: $position;
+  }
 }
 
 .offers-branding:before,
 .subject-branding:before {
-    content: '';
-    display: block;
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    width: 468px;
-    height: 346px;
-    background: url('images/branding/branding-3.png') no-repeat center center;
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  width: 468px;
+  height: 346px;
+  background: url("../assets/images/branding/branding-3.png") no-repeat center
+    center;
 }
 
 .subject-branding:before {
-    left: -70px;
-    top: 115px;
+  left: -70px;
+  top: 115px;
 }
 
 .offers-branding:before {
-    left: -270px;
-    top: -215px;
+  left: -270px;
+  top: -215px;
 }

@@ -1,5 +1,6 @@
 .static-page {
-  background: #fafafa url('images/header/bg-blue.jpg') no-repeat top center;
+  background: #fafafa url("../assets/images/header/bg-blue-2.jpg") no-repeat top
+    center;
   background-size: 100% auto;
   color: #727481;
 }
@@ -8,7 +9,8 @@
   position: absolute;
   width: 468px;
   height: 346px;
-  background: url('images/header/branding-visual.png') no-repeat center center;
+  background: url("../assets/images/header/branding-visual.png") no-repeat
+    center center;
   top: -240px;
   left: -300px;
 }
@@ -87,7 +89,8 @@
       display: block;
       width: 16px;
       height: 14px;
-      background: url('images/icons/arrow-right.png') no-repeat center center;
+      background: url("../assets/images/icons/arrow-right.png") no-repeat center
+        center;
     }
   }
 }

@@ -1,0 +1,11 @@
+On the Backend folder was installed:
+
+"@types/express-serve-static-core": "^4.17.31"; -  pnpm install --save @types/express-serve-static-core
+"dotenv": "^16.0.3". - pnpm instal dotenv
+
+
+On the Frontend folder was installed:
+"axios": "^1.2.1"; - pnpm install axios
+"cors": "^2.8.5". - pnpm install cors
+
+THE CORS PACKAGE MIGHT BE NEEDED TO BE INSTALLED IN THE BACKEND FOLDER TOO

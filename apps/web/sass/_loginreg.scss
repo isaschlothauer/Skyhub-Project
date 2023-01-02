@@ -1,0 +1,35 @@
+//Container with the properties about the login button
+.loginreg-pink {
+  background: #ec008c;
+  border: 1px solid #ec008c;
+  color: white;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  padding: 11px 45px;
+  margin-right: 15px;
+  font-weight: 600;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+//Container with the properties about the register button
+.loginreg-white {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  padding: 11px 45px;
+  margin-right: 20px;
+  font-weight: 600;
+  &:hover {
+    background: white;
+    color: #ec008c;
+    transition: 0.2s;
+    text-decoration: none;
+  }
+}
+

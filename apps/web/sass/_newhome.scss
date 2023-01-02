@@ -1,0 +1,126 @@
+//Main page header
+.mainpage{
+  font-family: 'Nunito', sans-serif;
+}
+
+
+.mainpage-header {
+    width: 100%;
+    height: 83%;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    margin-right: auto;
+    margin-left: auto;
+    background: url("../assets/images/home/top-background.jpg") no-repeat center center;
+    background-size: cover;
+    margin-bottom: 2rem;
+    position: absolute; //This property affects the slightlt difference in the line-height of footer
+    
+
+
+    //Logo container and properties
+    .mainpage-logocontainer {
+        padding-top: 45px;
+        text-align: center;
+        padding-bottom: 100px;
+  
+
+        .mainpage-logo {
+          background: url("../assets/images/home/logo-white.png") no-repeat center center;
+          width: 69px;
+          height: 89px;
+          margin: 0 auto;
+        }
+      }
+  }
+
+
+//Containeirs of the Login/Register buttons
+.mainpage-logincontainer{
+   z-index:999;
+  }
+  
+  
+.mainpage-logincontainer2nd {
+   padding-top: 40px;
+   z-index: 999;
+  }
+
+
+//Container of the phrase generator component
+.mainpage-robotcontainer{
+  z-index:998;
+
+  .maingpage-robottext {
+    font-size: 48px;
+    line-height: 52px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    margin-top: 15rem;
+    margin-bottom: 100px;
+    z-index:999;
+    strong {
+      color: #1aebcf;
+    }
+  }
+
+}
+
+ //Container of the first text on the main page
+  .mainpage-firsttext {
+    font-size: 48px;
+    font-weight: 900;
+    color: #000e95;
+    text-align: center;
+    margin-bottom: 120px;
+    margin-top:120px;
+    span {
+      color: #1aebcf;
+    }
+  }
+
+
+
+  //Container of the second text on the main page
+  .mainpage-secondtext {
+    font-size: 48px;
+    font-weight: 900;
+    color: #000e95;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    span {
+      color: #1aebcf;
+    }
+  }
+
+  
+//Container of the ATC Tile
+.mainpage-atctile{
+  margin-bottom: 150px;
+}
+
+
+
+//Properties of the Cross and Squares Images
+.crossimage2{
+  position: absolute;
+  z-index: 999;
+  width: 200px;
+  height: 150px;
+  right:200px;
+  top:155rem;
+
+}
+
+.crossimage1{
+  position: absolute;
+  z-index: 999;
+  width: 200px;
+  height: 150px;
+  top:290px;
+  left:150px;
+  
+}
+

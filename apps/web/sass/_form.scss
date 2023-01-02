@@ -37,7 +37,7 @@
       height: 7px;
       top: 33px;
       right: 78px;
-      background: url('images/icons/caret-down.png') no-repeat center center;
+      background: url('../assets/images/icons/caret-down.png') no-repeat center center;
     }
   }
   .sky-select-options {
@@ -84,7 +84,7 @@
     height: 20px;
     top: 25px;
     right: 25px;
-    background: url('images/icons/question.png') no-repeat center center;
+    background: url('../assets/images/icons/question.png') no-repeat center center;
   }
 }
 
@@ -142,7 +142,7 @@
     height: 20px;
     top: 25px;
     right: 25px;
-    background: url('images/icons/question.png') no-repeat center center;
+    background: url('../assets/images/icons/question.png') no-repeat center center;
   }
   .sky-input-error {
     font-size: 12px;
@@ -179,7 +179,7 @@
         height: 100%;
         top: 0;
         right: 100%;
-        background: url('images/bg-heading-left.png') repeat-y top center;
+        background: url('../assets/images/miscellaneous/bg-heading-left.png') repeat-y top center;
       }
       &:after {
         content :'';
@@ -189,7 +189,7 @@
         height: 100%;
         top: 0;
         left: 100%;
-        background: url('images/bg-heading-right.png') repeat-y top center;
+        background: url('../assets/images/miscellaneous/bg-heading-right.png') repeat-y top center;
       }
     }
     &:before {
