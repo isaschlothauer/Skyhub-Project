@@ -1,14 +1,15 @@
-import { Router, Request, Response } from "express";
+import { RequestHandler } from "express";
 import { RowDataPacket } from "mysql2";
-import database from "../database";
-
-const StaticPageHandler = Router();
+import database from "../../database";
 
 export interface StaticPage extends RowDataPacket {
   [field: string]: any;
 }
 
-StaticPageHandler.get("/:domain/:slug", async (req: Request, res: Response) => {
+export const getStaticPage: RequestHandler<{
+  domain: string;
+  slug: string;
+}> = async (req, res) => {
   const { domain, slug } = req.params;
   database
     .query<StaticPage[]>(
@@ -18,6 +19,4 @@ StaticPageHandler.get("/:domain/:slug", async (req: Request, res: Response) => {
     .then(([result]) => {
       res.json(result[0]);
     });
-});
-
-export default StaticPageHandler;
+};

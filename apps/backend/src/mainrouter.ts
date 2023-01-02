@@ -1,8 +1,8 @@
 import { Router } from "express";
-import RouterStaticPage from "./handlers/StaticPage";
+import StaticPageRouter from "./routes/static/router";
 
 const MainRouter = Router();
 
-MainRouter.use("/static", RouterStaticPage);
+MainRouter.use("/static", StaticPageRouter);
 
 export default MainRouter;
