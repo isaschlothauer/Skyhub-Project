@@ -5,7 +5,7 @@ import FAQContact from "../components/FAQ_contact_tile";
   /*STYLES*/
 }
 import styles from "../components/containerFAQContact.module.scss";
-import stylesFC from "../components/FAQ_contact.module.scss";
+import stylesFC from "../components/FAQ_Contact.module.scss";
 import stylesArrow from "../components/LearnMoreArrow.module.scss";
 
 {

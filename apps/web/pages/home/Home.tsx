@@ -1,9 +1,9 @@
 import * as React from "react";
 import Image from "next/image";
 
-
-
-{/*STYLES*/}
+{
+  /*STYLES*/
+}
 
 import styles from "./home.module.scss";
 import stylesJobs from "../../components/Tile.module.scss";
@@ -145,7 +145,7 @@ const Home = () => {
 
       {/*PILOT TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
-        <div className={"flex flex-wrap"}>
+        <div>
           {jobTiles.slice(0, 1).map((pilottile) => (
             <Tile
               tilename={pilottile.tilename}
@@ -171,7 +171,7 @@ const Home = () => {
 
       {/*CABIN TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
-        <div className={"flex flex-wrap"}>
+        <div>
           {jobTiles.slice(1, 2).map((cabintile) => (
             <Tile
               tilename={cabintile.tilename}
@@ -186,7 +186,7 @@ const Home = () => {
 
       {/* SECOND TEXT MAIN PAGE*/}
       <div className={`${"container mx-auto sm:px-0"}`}>
-        <div className={"flex flex-wrap"}>
+        <div>
           <div className={"md:w-full pr-4 pl-4"}>
             <div className={styles["mainpage-secondtext"]}>
               ...and even <span>more</span>!
@@ -199,7 +199,7 @@ const Home = () => {
       <div
         className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
       >
-        <div className={"flex flex-wrap"}>
+        <div>
           {jobTiles.slice(2, 3).map((atctile) => (
             <Tile
               tilename={atctile.tilename}
