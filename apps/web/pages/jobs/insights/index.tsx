@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./insights.module.scss";
 import ContactUs from "../../../components/ContactUs";
 import JobsBtn from "../../../components/JobsBtn";
-import Mini_Header from "../../../components/Mini_Header";
+import Mini_Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 
 export default function Insights() {
@@ -74,11 +74,11 @@ export default function Insights() {
                 <div className={styles["insights-list-item-image"]}>
                   {/* If statement */}
 
-                  { /* <img
+                  {/* <img
                     src="{{ $insightService->getLogoSrc($insight->image_id) }}"
                     className={"centered-image"}
-                  /> */ }
-                </div>  
+                  /> */}
+                </div>
                 <div className={styles["insights-list-item-company"]}>
                   {/* {{ $insight->name }} */}
                 </div>

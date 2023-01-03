@@ -10,7 +10,7 @@ import stylesB from "../../components/buttonCMP.module.scss";
 {
   /* COMPONENTS */
 }
-import Mini_Header from "../../components/Mini_Header";
+import Mini_Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import GoBackHome from "../../components/GoBackHome";
 import InsightsContainer from "../../components/AirlineContainer";

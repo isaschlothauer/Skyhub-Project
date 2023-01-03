@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./offers.module.scss";
-import Mini_Header from "../../../components/Mini_Header";
+import Mini_Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import ContactUs from "../../../components/ContactUs";
 import JobsBtn from "../../../components/JobsBtn";
