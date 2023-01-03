@@ -2,8 +2,7 @@ import * as React from "react";
 import Link from "next/link";
 
 {/*STYLES*/}
-import styles from "./mini_header.module.scss";
-
+import styles from "./header.module.scss";
 
 
 export interface HeaderProps {

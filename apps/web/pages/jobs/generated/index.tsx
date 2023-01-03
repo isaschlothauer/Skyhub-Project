@@ -2,7 +2,7 @@ import React from "react";
 import JobsBtn from "../../../components/JobsBtn";
 import ContactUs from "../../../components/ContactUs";
 import styles from "./generated.module.scss";
-import Mini_Header from "../../../components/Mini_Header";
+import Mini_Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 
 export default function Generated() {
