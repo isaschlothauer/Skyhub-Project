@@ -9,7 +9,9 @@ export interface StaticPage extends RowDataPacket {
 export const getStaticPage: RequestHandler<{
   domain: string;
   slug: string;
+
 }> = (req, res) => {
+
   const { domain, slug } = req.params;
   database
     .query<StaticPage[]>(
