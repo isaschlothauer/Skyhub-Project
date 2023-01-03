@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./airlineContainer.module.scss";
 import Image from "next/image";
 import stylesArrow from "../components/LearnMoreArrow.module.scss";
-import airlineImg from "../assets/images/header/bg-blue-light-10.png";
+import airlineImg from "../assets/images/widget/InsightsPicJobPage.png";
 import { LearnMoreArrow } from "./LearnMoreArrow";
 
 function InsightsContainer() {
