@@ -1,9 +1,21 @@
 import React from "react";
-import styles from "./airlineContainer.module.scss";
 import Image from "next/image";
-import stylesArrow from "../components/LearnMoreArrow.module.scss";
+
+{
+  /* STYLES */
+}
+import styles from "./airlineContainer.module.scss";
+import stylesArrow from "../components/arrowButton.module.scss";
+
+{
+  /* IMAGES */
+}
 import airlineImg from "../assets/images/widget/InsightsPicJobPage.png";
-import { LearnMoreArrow } from "./LearnMoreArrow";
+
+{
+  /* COMPONENTS */
+}
+import { LearnMoreArrow } from "./ArrowButton";
 
 function InsightsContainer() {
   return (
