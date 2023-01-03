@@ -1,3 +1,5 @@
+// REDO
+
 //Main container common to all the static pages
 .staticpage{
     position: relative;
@@ -10,19 +12,19 @@
 //---SUBJECT/JOB TYPES PAGES----
 
 .staticpage-pilot{
-  background: url("../assets/images/header/subject-header-pilot.png") no-repeat top center;
+  background: url("../assets/images/header/bgHeaderBlue.png") no-repeat top center;
   background-size: 100% auto;
 }
 
 
 .staticpage-cabin{
-  background: url("../assets/images/header/subject-header-cabin.png") no-repeat top center;
+  background: url("../assets/images/header/bgHeaderYellow.png") no-repeat top center;
   background-size: 100% auto;
 }
 
 
 .staticpage-atc{
-  background: url("../assets/images/header/subject-header-atc.png") no-repeat top center;
+  background: url("../assets/images/header/bgHeaderTurquoise.png") no-repeat top center;
   background-size: 100% auto;
 }
 

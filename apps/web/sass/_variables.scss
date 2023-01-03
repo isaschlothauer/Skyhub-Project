@@ -1,33 +1,20 @@
 
-// Body
-$body-bg: #f8fafc;
+// LEGACY - BUT YOU CAN USE IT
 
-// Typography
-$font-family-sans-serif: "Nunito", sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+// background for Home, Jobs
+$body-bg: #FAFAFA;
 
 // Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66D9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$pink: #ec008c;
+$black: #000000;
+$white: #fff;
+$white-tilesbg: #fafafa;
+$pilot-tile-airline: #c7d2fe;
+$cabin-tile-airline: #fef3c7;
+$atc-tile-airline: #9af5e9;
 
 // Scrollbar
 $scrollbar-background: transparent;
 $scrollbar-thumb: #000e94;
 $scrollbar-thumb-active: #0e21ca;
 $scrollbar-background-body: #bfc0ce;
-
-// startup App.tsx
-$background-color: #f06292;
-$text-color: #f1d3b3;
-$btn-width: 120px;
-$btn-height: 40px;
-$block-padding: 60px;

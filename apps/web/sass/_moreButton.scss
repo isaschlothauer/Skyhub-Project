@@ -1,0 +1,18 @@
+// REDO
+
+.see-more-btn {
+    background: $white;
+    border: 1px solid $pink;
+    color: $pink;
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    border-radius: 3rem;
+    padding: .6rem 2rem;
+    font-weight: 600;
+    transition: all ease 0.15s;
+    &:hover {
+      text-decoration: none;
+      background: $pink;
+      color: $white;
+    }
+  }

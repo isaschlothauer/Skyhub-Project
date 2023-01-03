@@ -6,18 +6,18 @@ import Image from "next/image";
 }
 
 import styles from "./home.module.scss";
-import stylesJobs from "../../components/Tile.module.scss";
-import styleslrButton from "../../components/LoginRegisterButton.module.scss";
-import stylesArrow from "../../components/LearnMoreArrow.module.scss";
+import stylesJobs from "../../components/subjectTile.module.scss";
+import styleslrButton from "../../components/generalButton.module.scss";
+import stylesArrow from "../../components/arrowButton.module.scss";
 
 {
   /*COMPONENTS*/
 }
-import Tile from "../../components/Tile";
+import Tile from "../../components/SubjectTile";
 import Footer from "../../components/Footer";
-import { LearnMoreArrow } from "../../components/LearnMoreArrow";
-import LoginButton from "../../components/LoginRegisterButton";
-import ContainerFAQContact from "../../components/containerFAQContact";
+import { LearnMoreArrow } from "../../components/ArrowButton";
+import LoginButton from "../../components/GeneralButton";
+import ContainerFAQContact from "../../components/FAQ_Contact_Container";
 
 {
   /*IMAGES*/
@@ -145,43 +145,37 @@ const Home = () => {
 
       {/*PILOT TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
-        <div>
-          {jobTiles.slice(0, 1).map((pilottile) => (
-            <Tile
-              tilename={pilottile.tilename}
-              cSass={pilottile.cSass}
-              picture={pilottile.picture}
-              subtilename={pilottile.subtilename}
-              arrowbmap={pilottile.arrowbmap}
-            />
-          ))}
-        </div>
+        {jobTiles.slice(0, 1).map((pilottile) => (
+          <Tile
+            tilename={pilottile.tilename}
+            cSass={pilottile.cSass}
+            picture={pilottile.picture}
+            subtilename={pilottile.subtilename}
+            arrowbmap={pilottile.arrowbmap}
+          />
+        ))}
       </div>
 
       {/* FIRST TEXT MAIN PAGE*/}
       <div className={"container mx-auto sm:px-0"}>
-        <div className={"flex flex-wrap"}>
-          <div className={"md:w-full pr-0 pl-0"}>
-            <div className={styles["mainpage-firsttext"]}>
-              Not enough? We&apos;ve got <span>more</span>!
-            </div>
+        <div className={"md:w-full pr-0 pl-0"}>
+          <div className={styles["mainpage-firsttext"]}>
+            Not enough? We&apos;ve got <span>more</span>!
           </div>
         </div>
       </div>
 
       {/*CABIN TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
-        <div>
-          {jobTiles.slice(1, 2).map((cabintile) => (
-            <Tile
-              tilename={cabintile.tilename}
-              cSass={cabintile.cSass}
-              picture={cabintile.picture}
-              subtilename={cabintile.subtilename}
-              arrowbmap={cabintile.arrowbmap}
-            />
-          ))}
-        </div>
+        {jobTiles.slice(1, 2).map((cabintile) => (
+          <Tile
+            tilename={cabintile.tilename}
+            cSass={cabintile.cSass}
+            picture={cabintile.picture}
+            subtilename={cabintile.subtilename}
+            arrowbmap={cabintile.arrowbmap}
+          />
+        ))}
       </div>
 
       {/* SECOND TEXT MAIN PAGE*/}
@@ -199,17 +193,15 @@ const Home = () => {
       <div
         className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
       >
-        <div>
-          {jobTiles.slice(2, 3).map((atctile) => (
-            <Tile
-              tilename={atctile.tilename}
-              cSass={atctile.cSass}
-              picture={atctile.picture}
-              subtilename={atctile.subtilename}
-              arrowbmap={atctile.arrowbmap}
-            />
-          ))}
-        </div>
+        {jobTiles.slice(2, 3).map((atctile) => (
+          <Tile
+            tilename={atctile.tilename}
+            cSass={atctile.cSass}
+            picture={atctile.picture}
+            subtilename={atctile.subtilename}
+            arrowbmap={atctile.arrowbmap}
+          />
+        ))}
       </div>
 
       {/*CROSSES AND SQAURES IMAGE*/}

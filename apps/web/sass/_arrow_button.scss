@@ -1,0 +1,84 @@
+// REDO
+
+//Container with the arrows for jobs tiles
+.arrow-jobs {
+  // Set alignment in container
+  text-align: right;
+  a {
+    display: inline-block;
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+    padding-right: 70px;
+    position: relative;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      margin-top: -20px;
+      height: 40px;
+      width: 70px;
+      background: url("../assets/images/icons/arrow-right-pink.png") no-repeat
+        center center;
+    }
+  }
+}
+
+//Container with the arrows for the FAQ and contact us tiles
+.arrow-faqcontact {
+  // Set alignment in container
+  // text-align: right;
+  a {
+    display: inline-block;
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+    padding-right: 70px;
+    position: relative;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      margin-top: -20px;
+      height: 40px;
+      width: 70px;
+      background: url("../assets/images/icons/arrow-right-pink.png") no-repeat
+        center center;
+    }
+  }
+}
+
+.dark-text {
+  a {
+    color: black;
+  }
+}
+
+//Container with the arrows for the GoBackHome component
+.arrow-gobackhome {
+  text-align: right;
+  a {
+    display: inline-block;
+    color: #ec008c;
+    font-size: 18px;
+    font-weight: 800;
+    padding-right: 70px;
+    position: relative;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      margin-top: -20px;
+      height: 40px;
+      width: 70px;
+      background: url("../assets/images/icons/arrow-right-pink.png") no-repeat
+        center center;
+    }
+  }
+}

@@ -1,8 +1,10 @@
+// REDO
+
 //Container with the properties about the login button
 .loginreg-pink {
-  background: #ec008c;
-  border: 1px solid #ec008c;
-  color: white;
+  background: $pink;
+  border: 1px solid $pink;
+  color: $white;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
@@ -17,8 +19,8 @@
 //Container with the properties about the register button
 .loginreg-white {
   background: transparent;
-  border: 2px solid white;
-  color: white;
+  border: 2px solid $white;
+  color: $white;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
@@ -26,8 +28,8 @@
   margin-right: 20px;
   font-weight: 600;
   &:hover {
-    background: white;
-    color: #ec008c;
+    background: $white;
+    color: $pink;
     transition: 0.2s;
     text-decoration: none;
   }
