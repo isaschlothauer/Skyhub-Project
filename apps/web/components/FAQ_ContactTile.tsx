@@ -3,7 +3,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 {/*STYLES*/}
-import styles from "./FAQ_Contact.module.scss";
+import styles from "./faq_contactTile.module.scss";
 
 
 export interface FAQContactProps {
@@ -23,6 +23,7 @@ export const FAQContact = ({
   picture,
   arrowbinfo
 }: FAQContactProps) => {
+  
   return (
     <>
       <div className={cTailwind}>

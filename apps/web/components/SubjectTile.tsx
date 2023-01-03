@@ -2,7 +2,7 @@ import * as React from "react";
 import Image, { StaticImageData } from "next/image";
 
 {/*STYLES*/}
-import styles from "./Tile.module.scss";
+import styles from "./subjectTile.module.scss";
 
 
 

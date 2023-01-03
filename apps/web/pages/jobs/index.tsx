@@ -5,17 +5,17 @@ import Link from "next/link";
   /* STYLES */
 }
 import styles from "./jobs.module.scss";
-import stylesB from "../../components/buttonCMP.module.scss";
+import stylesB from "../../components/generalButton.module.scss";
 
 {
   /* COMPONENTS */
 }
 import Mini_Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import GoBackHome from "../../components/GoBackHome";
+import GoBackHome from "../../components/GoBackContainer";
 import InsightsContainer from "../../components/AirlineContainer";
-import ContainerFAQContact from "../../components/containerFAQContact";
-import ButtonCMP from "../../components/ButtonCMP";
+import ContainerFAQContact from "../../components/FAQ_Contact_Container";
+import ButtonCMP from "../../components/GeneralButton";
 
 function Jobs() {
   return (

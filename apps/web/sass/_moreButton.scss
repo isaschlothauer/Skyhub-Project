@@ -1,7 +1,9 @@
+// REDO
+
 .see-more-btn {
-    background: white;
-    border: 1px solid #EC4899;
-    color: #EC4899;
+    background: $white;
+    border: 1px solid $pink;
+    color: $pink;
     -webkit-border-radius: 3rem;
     -moz-border-radius: 3rem;
     border-radius: 3rem;
@@ -10,7 +12,7 @@
     transition: all ease 0.15s;
     &:hover {
       text-decoration: none;
-      background: #EC4899;
-      color: white;
+      background: $pink;
+      color: $white;
     }
   }

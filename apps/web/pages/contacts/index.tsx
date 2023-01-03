@@ -7,7 +7,7 @@ import contactUsStyle from "./contactus.module.scss";
 // importing components
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
-import FAQTile from "../../components/FAQ_contact_tile"
+//import FAQTile from "../../components/FAQ_contact_tile"
 
 const ContactUs = () => {
     return (
