@@ -1,6 +1,6 @@
 .faq-page {
-  background: url("../assets/images/home/bg-pattern.jpg") repeat top center;
-  color: #727481;
+  //background: url("../assets/images/home/bg-pattern.jpg") repeat top center;
+  background: #FAFAFA;
   &:before {
     content: '';
     display: block;
@@ -10,7 +10,7 @@
     width: 100%;
     height: 100%;
     z-index: 0;
-    background: url("../assets/images/home/bg-faq.png") no-repeat top center;
+    background: url("../assets/images/header/bgHeaderBlue.png") no-repeat top center;
     background-size: 100% auto;
   }
   #page {
