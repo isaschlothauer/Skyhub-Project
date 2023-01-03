@@ -1,0 +1,218 @@
+//Main container common to all the static pages
+.staticpage{
+    position: relative;
+    z-index: 2;
+    min-height: calc(100vh - 212px);
+  }
+    
+
+
+//---SUBJECT/JOB TYPES PAGES----
+
+.staticpage-pilot{
+  background: url("../assets/images/header/subject-header-pilot.png") no-repeat top center;
+  background-size: 100% auto;
+}
+
+
+.staticpage-cabin{
+  background: url("../assets/images/header/subject-header-cabin.png") no-repeat top center;
+  background-size: 100% auto;
+}
+
+
+.staticpage-atc{
+  background: url("../assets/images/header/subject-header-atc.png") no-repeat top center;
+  background-size: 100% auto;
+}
+
+
+
+//---INSIGHTS PAGES----
+
+.staticpage-allinsights{
+  background: url("../assets/images/header/bg-yellow-2.jpg") no-repeat top center;
+  background-size: 100% auto;
+}
+
+.staticpage-airlineinsight{
+    background: url("../assets/images/header/bg-yellow-2.jpg") no-repeat top center;
+    background-size: 100% auto;
+}
+
+
+
+//---JOBS PAGES----
+
+.staticpage-alloffers{
+    background: url("../assets/images/header/bg-pink-1.jpg") no-repeat top center;
+    background-size: 100% auto;
+}
+
+.staticpage-joboffer{
+    background: url("../assets/images/header/bg-pink-1.jpg") no-repeat top center;
+    background-size: 100% auto;
+}
+
+
+
+//---STATIC PAGES----
+
+   //General
+  .staticpage-generalpilot{
+      background: url("../assets/images/header/bg-blue-5.png") no-repeat top center;
+      background-size: 100% auto;
+  }
+
+
+  .staticpage-generalcabin{
+      background: url("../assets/images/header/bg-blue-6.png") no-repeat top center;
+      background-size: 100% auto;
+  }
+
+
+  .staticpage-generalatc{
+      background: url("../assets/images/header/bg-blue-7.png") no-repeat top center;
+      background-size: 100% auto;
+  }
+
+
+
+  //Training
+  .staticpage-trainingpilot{
+      background: url("../assets/images/header/bg-red-4.png") no-repeat top center;
+      background-size: 100% auto;
+  }
+
+
+  .staticpage-trainingcabin{
+      background: url("../assets/images/header/bg-red-2.png") no-repeat top center;
+      background-size: 100% auto;
+  }
+
+
+  .staticpage-trainingatc{
+      background: url("../assets/images/header/bg-red-3.png") no-repeat top center;
+      background-size: 100% auto;
+  }
+
+
+
+  //Requirements
+  .staticpage-requirements{
+      background: url("../assets/images/header/bg-blue-light-9.png") no-repeat top center;
+      background-size: 100% auto;
+  }
+
+
+
+  //Costs
+  .staticpage-costs{
+      background: url("../assets/images/header/bg-yellow-3.png") no-repeat top center;
+      background-size: 100% auto;
+  }
+
+
+
+  //Application
+  .staticpage-application{
+      background: url("../assets/images/header/bg-blue-light-5.png") no-repeat top center;
+      background-size: 100% auto;
+  }
+
+
+
+//---FAQ PAGE----
+
+  .staticpage-faq{
+    background: url("../assets/images/home/bg-faq.png") no-repeat top center;
+    background-size: 100% auto;
+}
+
+
+
+    //Container with the properties for the information/content retrieved from the database
+    .staticpage-content {
+      position: relative;
+      z-index: 2;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background: white;
+      margin-bottom: 60px;
+      -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  
+  
+      //Properties of the information/content retrieved from the database
+      .staticpage-databaseinfo {
+        padding: 40px 25px;
+        color: #727481;
+        font-size: 16px;
+        line-height: 24px;
+        p {
+          margin-bottom: 20px;
+        }
+        hr {
+          border: none;
+          height: 1px;
+          width: 100%;
+          background: #e8e9eb;
+          margin: 15px 0;
+        }
+        h2 {
+          font-size: 20px;
+          line-height: 28px;
+          color: #727481;
+          font-weight: normal;
+          margin-bottom: 30px;
+        }
+        h3 {
+          font-size: 16px;
+          line-height: 24px;
+          color: #ec008c;
+          font-weight: bold;
+          margin-bottom: 25px;
+        }
+        ul {
+          padding-left: 25px;
+          margin-bottom: 25px;
+          li {
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+    
+  
+    //(Not sure if its necessary)
+    .staticpage-company {
+      position: relative;
+      color: #727481;
+      .staticpage-companytext {
+        font-size: 12px;
+        line-height: 18px;
+      }
+      .staticpage-companylink {
+        a {
+          font-size: 16px;
+          font-weight: bold;
+          line-height: 24px;
+          color: #727481;
+          text-decoration: none;
+        }
+      }
+      .staticpage-companyarrow {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        a {
+          display: block;
+          width: 16px;
+          height: 14px;
+          background: url("../assets/images/icons/arrow-right.png") no-repeat center
+            center;
+        }
+      }
+    }

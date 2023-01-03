@@ -12,8 +12,9 @@ import styles from "./jobs.module.scss";
 import Mini_Header from "../../components/Mini_Header";
 import Footer from "../../components/Footer";
 import GoBackHome from "../../components/GoBackHome";
-import InsightsContainer from "../../components/InsightsContainer";
+import InsightsContainer from "../../components/AirlineContainer";
 import ContainerFAQContact from "../../components/containerFAQContact";
+import SeeMoreButton from "../../components/SeeMoreButton";
 
 function Jobs() {
   return (
@@ -163,6 +164,7 @@ function Jobs() {
           </div>
         </div>
         <InsightsContainer />
+        <SeeMoreButton />
         {/* FAQ & CONTACT US COMPONENT*/}
         <div
           className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}

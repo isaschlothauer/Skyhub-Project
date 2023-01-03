@@ -1,8 +1,9 @@
+import * as React from "react";
+
 import Router from "next/router";
 import { LearnMoreArrow } from "./LearnMoreArrow";
-{
-  /*STYLES*/
-}
+
+{/*STYLES*/}
 import styles from "./go_back_home.module.scss";
 import stylesArrow from "../components/LearnMoreArrow.module.scss";
 
@@ -19,6 +20,7 @@ export default function GoBackHome() {
         >
           <div
             className={styles["goback-textcontainer"]}
+
 
             /* style="cursor:pointer;" */
           >
@@ -39,6 +41,7 @@ export default function GoBackHome() {
               >
                 Start again from the <span>beginning</span>...
               </div>
+
             </div>
             <LearnMoreArrow
               cSass={stylesArrow["arrow-gobackhome"]}

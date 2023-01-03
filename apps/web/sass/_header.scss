@@ -1,7 +1,10 @@
-#mini-header {
+//Main container for the header
+.header-container {
   position: relative;
   z-index: 2;
-  .logo {
+
+  //Container for the header's logo
+  .header-logo {
     display: block;
     background: url("../assets/images/home/logo-white.png") no-repeat center center;
     width: 69px;
