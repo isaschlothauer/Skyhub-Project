@@ -1,6 +1,4 @@
-// LEGACY
-
-.faq-page {
+.login-page {
   //background: url("../assets/images/home/bg-pattern.jpg") repeat top center;
   background: #FAFAFA;
   &:before {
@@ -12,21 +10,27 @@
     width: 100%;
     height: 100%;
     z-index: 0;
-    background: url("../assets/images/header/bgHeaderBlue.png") no-repeat top center;
+    background: url("../assets/images/header/bg-blue-5.png") no-repeat top center;
     background-size: 100% auto;
+    opacity: 0.5;
   }
   #page {
     position: relative;
     z-index: 1;
     min-height: calc(100vh - 212px);
   }
-  .faq-search {
+  // .login-box {
+  //   width: 600px;
+  //   margin: 0 auto;
+  // }
+  .login-input {
     background: white;
     border-radius: 50px;
     position: relative;
-    padding: 20px 70px;
+    margin: 0 auto;
+    padding: 0 1rem;
     margin-bottom: 48px;
-    .faq-search-input {
+    .account-input-box {
       display: block;
       margin: 0;
       outline: none;
@@ -37,39 +41,30 @@
       width: 100%;
       background: transparent;
     }
-    &:before {
-      content: '';
+    .password-input-box {
       display: block;
-      position: absolute;
-      width: 19px;
-      height: 19px;
-      top: 27px;
-      left: 33px;
-      background: url("../assets/images/icons/search.png") no-repeat center center;
-    }
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 85px;
-      height: 63px;
-      top: 30px;
-      right: -32px;
-      background: url("../assets/images/home/brand-faq-search.png") no-repeat center center;
+      margin: 0;
+      outline: none;
+      border: none;
+      font-size: 16px;
+      line-height: 32px;
+      height: 32px;
+      width: 100%;
+      background: transparent;
     }
   }
-  .faq-questions-container {
+  .login-questions-container {
     margin-bottom: 70px;
   }
-  .faq-questions {
+  .login-questions {
     background: white;
     padding: 60px 15px;
     border-radius: 35px;
     position: relative;
-    .faq-question-box {
+    .login-question-box {
       padding: 0 25px;
     }
-    .faq-question {
+    .login-question {
       font-size: 16px;
       line-height: 24px;
       color: #ec008c;
@@ -77,7 +72,7 @@
       margin-bottom: 8px;
       padding-top: 35px;
     }
-    .faq-answer {
+    .login-answer {
       font-size: 13px;
       line-height: 18px;
       color: #727481;
@@ -90,27 +85,27 @@
       }
     }
     .row:last-child {
-      .faq-answer {
+      .login-answer {
         border-bottom: none;
       }
     }
     .row:first-child {
-      .faq-question {
+      .login-question {
         padding-top: 0;
       }
     }
-    &:before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 85px;
-      height: 63px;
-      top: -3px;
-      left: -7px;
-      background: url("../assets/images/home/brand-faq-answer.png") no-repeat center center;
-    }
+    // &:before {
+    //   content: '';
+    //   display: block;
+    //   position: absolute;
+    //   width: 85px;
+    //   height: 63px;
+    //   top: -3px;
+    //   left: -7px;
+    //   background: url("../assets/images/home/brand-faq-answer.png") no-repeat center center;
+    // }
   }
-  .faq-question-no-row {
+  .login-question-no-row {
     display: none;
     font-size: 16px;
     line-height: 18px;

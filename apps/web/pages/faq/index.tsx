@@ -10,7 +10,7 @@ import styles from "./faq.module.scss";
 }
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
-import ContainerFAQContact from "../../components/containerFAQContact";
+import ContainerFAQContact from "../../components/FAQ_Contact_Container";
 
 function FAQ() {
   return (

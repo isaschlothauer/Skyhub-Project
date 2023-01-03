@@ -1,17 +1,17 @@
 import * as React from "react";
-import FAQContact from "../components/FAQ_contact_tile";
+import FAQContact from "./FAQ_ContactTile";
 
 {
   /*STYLES*/
 }
-import styles from "../components/containerFAQContact.module.scss";
-import stylesFC from "../components/FAQ_Contact.module.scss";
-import stylesArrow from "../components/LearnMoreArrow.module.scss";
+import styles from "../components/faq_contactContainer.module.scss";
+import stylesFC from "../components/faq_contactTile.module.scss";
+import stylesArrow from "../components/arrowButton.module.scss";
 
 {
   /*COMPONENTS*/
 }
-import { LearnMoreArrow } from "../components/LearnMoreArrow";
+import { LearnMoreArrow } from "./ArrowButton";
 
 {
   /*IMAGES*/
