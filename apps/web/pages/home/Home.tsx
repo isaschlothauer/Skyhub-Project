@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import styles from "./home.module.scss";
 import stylesJobs from "../../components/Tile.module.scss";
-import styleslrButton from "../../components/LoginRegisterButton.module.scss";
+import styleslrButton from "../../components/buttonCMP.module.scss";
 import stylesArrow from "../../components/LearnMoreArrow.module.scss";
 
 {
@@ -16,7 +16,7 @@ import stylesArrow from "../../components/LearnMoreArrow.module.scss";
 import Tile from "../../components/Tile";
 import Footer from "../../components/Footer";
 import { LearnMoreArrow } from "../../components/LearnMoreArrow";
-import LoginButton from "../../components/LoginRegisterButton";
+import LoginButton from "../../components/ButtonCMP";
 import ContainerFAQContact from "../../components/containerFAQContact";
 
 {
@@ -145,7 +145,7 @@ const Home = () => {
 
       {/*PILOT TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
-        {/* <div className={"flex flex-wrap"}> */}
+        
           {jobTiles.slice(0, 1).map((pilottile) => (
             <Tile
               tilename={pilottile.tilename}
@@ -155,23 +155,23 @@ const Home = () => {
               arrowbmap={pilottile.arrowbmap}
             />
           ))}
-        {/* </div> */}
+        
       </div>
 
       {/* FIRST TEXT MAIN PAGE*/}
       <div className={"container mx-auto sm:px-0"}>
-        <div className={"flex flex-wrap"}>
+        
           <div className={"md:w-full pr-0 pl-0"}>
             <div className={styles["mainpage-firsttext"]}>
               Not enough? We&apos;ve got <span>more</span>!
             </div>
           </div>
-        </div>
+        
       </div>
 
       {/*CABIN TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
-        {/* <div className={"flex flex-wrap"}> */}
+        
           {jobTiles.slice(1, 2).map((cabintile) => (
             <Tile
               tilename={cabintile.tilename}
@@ -181,7 +181,7 @@ const Home = () => {
               arrowbmap={cabintile.arrowbmap}
             />
           ))}
-        {/* </div> */}
+        
       </div>
 
       {/* SECOND TEXT MAIN PAGE*/}
@@ -199,7 +199,7 @@ const Home = () => {
       <div
         className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
       >
-        {/* <div className={"flex flex-wrap"}> */}
+        
           {jobTiles.slice(2, 3).map((atctile) => (
             <Tile
               tilename={atctile.tilename}
@@ -209,7 +209,7 @@ const Home = () => {
               arrowbmap={atctile.arrowbmap}
             />
           ))}
-        {/* </div> */}
+        
       </div>
 
       {/*CROSSES AND SQAURES IMAGE*/}
