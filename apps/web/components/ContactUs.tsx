@@ -1,3 +1,5 @@
+{/*THIS COMES FROM THE LEGACY FILE*/}
+
 import React from "react";
 import styles from "./contact_us.module.scss";
 import Image from "next/image";
