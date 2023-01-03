@@ -5,6 +5,7 @@ import Link from "next/link";
   /* STYLES */
 }
 import styles from "./jobs.module.scss";
+import stylesB from "../../components/buttonCMP.module.scss";
 
 {
   /* COMPONENTS */
@@ -14,7 +15,7 @@ import Footer from "../../components/Footer";
 import GoBackHome from "../../components/GoBackHome";
 import InsightsContainer from "../../components/AirlineContainer";
 import ContainerFAQContact from "../../components/containerFAQContact";
-import SeeMoreButton from "../../components/SeeMoreButton";
+import ButtonCMP from "../../components/ButtonCMP";
 
 function Jobs() {
   return (
@@ -164,7 +165,11 @@ function Jobs() {
           </div>
         </div>
         <InsightsContainer />
-        <SeeMoreButton />
+        <ButtonCMP
+          route={"/"}
+          buttontext={"SEE MORE OFFERS"}
+          cSass={`${stylesB["see-more-btn"]}`}
+        />
         {/* FAQ & CONTACT US COMPONENT*/}
         <div
           className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}

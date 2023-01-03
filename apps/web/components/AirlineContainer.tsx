@@ -19,7 +19,7 @@ function InsightsContainer() {
               </div>
               <div className={styles["widget-subtitle"]}>
                 We prepared a comprehensive list of information about different
-                airline companies worldwide. Check out... Some more text here to
+                airline companies worldwide. Check out...Some more text here to
                 what to expect
               </div>
             </div>

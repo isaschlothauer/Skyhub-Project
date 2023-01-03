@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import styles from "./home.module.scss";
 import stylesJobs from "../../components/Tile.module.scss";
-import styleslrButton from "../../components/LoginRegisterButton.module.scss";
+import styleslrButton from "../../components/buttonCMP.module.scss";
 import stylesArrow from "../../components/LearnMoreArrow.module.scss";
 
 {
@@ -16,7 +16,7 @@ import stylesArrow from "../../components/LearnMoreArrow.module.scss";
 import Tile from "../../components/Tile";
 import Footer from "../../components/Footer";
 import { LearnMoreArrow } from "../../components/LearnMoreArrow";
-import LoginButton from "../../components/LoginRegisterButton";
+import LoginButton from "../../components/ButtonCMP";
 import ContainerFAQContact from "../../components/containerFAQContact";
 
 {
