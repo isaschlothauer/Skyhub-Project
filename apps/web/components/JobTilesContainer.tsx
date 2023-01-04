@@ -1,131 +1,96 @@
 import React from "react";
-import Link from "next/link";
-import styles from "../pages/jobs/jobs.module.scss";
-import { LearnMoreArrow } from "./ArrowButton";
-import Image from "next/image";
+
+{ /* STYLES */ }
+
+import styles from "./jobTilesContainer.module.scss";
+
+{ /* COMPONENTS */ }
+
+import JobTiles from "./JobTiles";
+
+{ /* IMAGES */ }
+
+import general from "../assets/images/icons/general-icon.png";
+import training from "../assets/images/icons/training-icon.png";
+import requirements from "../assets/images/icons/requirements-icon.png";
+import costs from "../assets/images/icons/costs-icon.png";
+import application from "../assets/images/icons/application-icon.png";
+
+const jobTiles = [
+  {
+    tile_id: 1,
+    image: general,
+    title: "General",
+    subtitle: "All you need to know",
+    sass: "",
+    link: "",
+  },
+  {
+    tile_id: 2,
+    image: training,
+    title: "Training",
+    subtitle: "All you need to know",
+    sass: "",
+    link: "",
+  },
+  {
+    tile_id: 3,
+    image: requirements,
+    title: "Requirements",
+    subtitle: "All you need to know",
+    sass: "",
+    link: "",
+  },
+  {
+    tile_id: 4,
+    image: costs,
+    title: "Costs",
+    subtitle: "All you need to know",
+    sass: "",
+    link: "",
+  },
+  {
+    tile_id: 5,
+    image: application,
+    title: "Application",
+    subtitle: "How, where, why",
+    sass: "",
+    link: "",
+  },
+];
 
 function JobTilesContainer() {
   return (
     <div>
-      <div className={"container mx-auto sm:px-0"}>
+      <div className={`${"container"}`}>
         {/* All containers CONTAINER */}
-        <div className={`${"flex"}`}>
-          {/* first container line */}
-          <div className={`${"md:w-1/3 pr-5 pl-5"} ${"md:px-2"}`}>
-            {/* Individual tile */}
-            <div className={`${styles.widget} ${styles["widget-general"]}`}>
-              <div className={styles["widget-overlay"]}>
-                <div
-                /*  onclick="window.open('/general', '_self')"  style="cursor:pointer;" */
-                >
-                  <div className={styles["widget-title"]}>General</div>
-                  <div className={styles["widget-subtitle"]}>
-                    All you need to know
-                  </div>
-
-                  <Link href="/jobs/general" className={styles["widget-link"]}>
-                    learn more
-                  </Link>
-                </div>
-              </div>
-            </div>
+        <div className={styles.containerTitle}>Find more information about the process</div>
+          <div className={`${"flex flex-row justify-around"}`}>
+            {jobTiles.slice(0, 3).map((firstcontainer) => (
+              <JobTiles
+                key={firstcontainer.tile_id}
+                image={firstcontainer.image}
+                title={firstcontainer.title}
+                subtitle={firstcontainer.subtitle}
+                sass={firstcontainer.sass}
+                link={firstcontainer.link}
+              />
+            ))}
           </div>
-          <div className={`${"md:w-1/3 pr-5 pl-5"} ${"md:px-2"}`}>
-            <div
-              className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-requirements"]}`}
-            >
-              <div className={styles["widget-overlay"]}>
-                <div
-                /*  onclick="window.open('/requirements', '_self')"  style="cursor:pointer;" */
-                >
-                  <div className={styles["widget-title"]}>Requirements</div>
-                  <div className={styles["widget-subtitle"]}>
-                    Do you have what it takes?
-                  </div>
+        
 
-                  <Link
-                    href="/jobs/requirements"
-                    className={styles["widget-link"]}
-                  >
-                    learn more
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={`${"md:w-1/3 pr-5 pl-5"} ${"md:px-2"}`}>
-            <div
-              className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-apply"]}`}
-            >
-              <div className={styles["widget-overlay"]}>
-                <div
-                /* onclick="window.open('/apply', '_self')" style="cursor:pointer;" */
-                >
-                  <div className={styles["widget-title"]}>Application</div>
-                  <div className={styles["widget-subtitle"]}>
-                    How, where, why?
-                  </div>
-
-                  <Link href="/jobs/apply" className={styles["widget-link"]}>
-                    learn more
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={`${"flex justify-center"}`}>
-          <div className={`${"md:w-1/3 pr-5 pl-5"} ${"md:px-2"}`}>
-            <div
-              className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-training"]}`}
-            >
-              {" "}
-              {/* -{{ $type }} */}
-              <div className={styles["widget-overlay"]}>
-                <div
-                /*  onclick="window.open('/training', '_self')"  style="cursor:pointer;" */
-                >
-                  <div className={styles["widget-title"]}>Training</div>
-                  <div className={styles["widget-subtitle"]}>
-                    Learning by doing
-                  </div>
-
-                  <Link href="/jobs/training" className={styles["widget-link"]}>
-                    learn more
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className={`${"md:w-1/3 pr-5 pl-5"} ${"md:px-2"}`}>
-            <div
-              className={`${styles.mainContainer} ${styles["insight"]}      `}
-            >
-              <div className={styles["overlay"]}>
-                <div className={styles["infoContainer"]}>
-                  <div className={styles["textContainer"]}>
-                    <div className={styles["title"]}>
-                      Get to know your future employer
-                    </div>
-                    <div className={styles["subtitle"]}>
-                      We prepared a comprehensive list of information about
-                      different airline companies worldwide. Check out...Some
-                      more text here to what to expect
-                    </div>
-                  </div>
-                  <div className={styles["imageContainer"]}>
-                    <Image src={""} alt={"airlines"} />
-                  </div>
-                </div>
-                <LearnMoreArrow
-                  cSass={``}
-                  arrowtext={"Learn more here"}
-                  link={"/jobs/insights"}
-                />
-              </div>
-            </div>
-          </div>
+          <div className={`${"flex flex-row justify-around"}`}>
+            {jobTiles.slice(3, 5).map((firstcontainer) => (
+              <JobTiles
+                key={firstcontainer.tile_id}
+                image={firstcontainer.image}
+                title={firstcontainer.title}
+                subtitle={firstcontainer.subtitle}
+                sass={firstcontainer.sass}
+                link={firstcontainer.link}
+              />
+            ))}
+          
         </div>
       </div>
     </div>
