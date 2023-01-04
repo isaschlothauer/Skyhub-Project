@@ -22,18 +22,20 @@ import ContainerFAQContact from "../../components/FAQ_Contact_Container";
 {
   /*IMAGES*/
 }
-import PilotTile from "../../assets/images/home/summary-1.png";
-import CabinTile from "../../assets/images/home/summary-2.png";
-import ATCTile from "../../assets/images/home/summary-3.png";
+import PilotTile from "../../assets/images/widget/PilotWidgetMainPage.jpg";
+import CabinTile from "../../assets/images/widget/CabinWidgetMainPage.jpg";
+import ATCTile from "../../assets/images/widget/ATCWidgetMainPage.jpg";
 import CrossandSquare from "../../assets/images/branding/branding-3.png";
 
 const loginregButtons = [
   {
+    id: 1,
     route: "/login",
     cSass: styleslrButton["loginreg-white"],
     buttontext: "Log In",
   },
   {
+    id: 2,
     route: "/login",
     cSass: styleslrButton["loginreg-pink"],
     buttontext: "Register",
@@ -42,6 +44,7 @@ const loginregButtons = [
 
 const jobTiles = [
   {
+    id: 1,
     picture: PilotTile,
     tilename: "Pilot",
     cSass: stylesJobs["tile-main-container"],
@@ -56,6 +59,7 @@ const jobTiles = [
   },
 
   {
+    id: 2,
     picture: CabinTile,
     tilename: "Cabin",
     cSass: stylesJobs["tile-main-container"],
@@ -70,6 +74,7 @@ const jobTiles = [
   },
 
   {
+    id: 3,
     picture: ATCTile,
     tilename: "Air Traffic Control",
     cSass: stylesJobs["tile-main-container"],
@@ -90,11 +95,11 @@ const Home = () => {
       <div className={`${styles["mainpage-header"]} ${styles["header-homepage"]}`}>
         <div className={"flex flex-wrap"}>
           <div className={`container mx-auto sm:px-0`}>
-            <div className={"flex flex-wrap"}>
-              <div className={"md:w-2/5 pr-0 pl-0"}></div>
+            <div className={"flex flex-wrap justify-end"}>
+              <div className={"md:w-1/3 pr-0 pl-0"}></div>
 
               {/*SKYHUB LOGO*/}
-              <div className={"md:w-1/5 pr-4 pl-4"}>
+              <div className={"md:w-1/4 pr-4 pl-4"}>
                 <div className={styles["mainpage-logocontainer"]}>
                   <div className={styles["mainpage-logo"]}></div>
                 </div>
@@ -102,20 +107,21 @@ const Home = () => {
 
               {/*LOGIN/REGISTER BUTTON*/}
               <div
-                className={`${"md:w-2/5 pr-1 pl-4"} ${"text-right"} ${
+                className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
                   styles["mainpage-logincontainer"]
-                }`}
+                }`} 
               >
                 <div
                   className={`${
                     styles["mainpage-logincontainer2nd"]
                   } ${"hidden"} ${"md:block"}`}
                 >
-                  {loginregButtons.map((test) => (
+                  {loginregButtons.map((gbutton) => (
                     <LoginButton
-                      route={test.route}
-                      cSass={test.cSass}
-                      buttontext={test.buttontext}
+                      key={gbutton.id}
+                      route={gbutton.route}
+                      cSass={gbutton.cSass}
+                      buttontext={gbutton.buttontext}
                     />
                   ))}
                 </div>
@@ -147,6 +153,7 @@ const Home = () => {
       <div className={`container mx-auto sm:px-0`}>
         {jobTiles.slice(0, 1).map((pilottile) => (
           <Tile
+            key={pilottile.id}
             tilename={pilottile.tilename}
             cSass={pilottile.cSass}
             picture={pilottile.picture}
@@ -169,6 +176,7 @@ const Home = () => {
       <div className={`container mx-auto sm:px-0`}>
         {jobTiles.slice(1, 2).map((cabintile) => (
           <Tile
+            key={cabintile.id}
             tilename={cabintile.tilename}
             cSass={cabintile.cSass}
             picture={cabintile.picture}
@@ -195,6 +203,7 @@ const Home = () => {
       >
         {jobTiles.slice(2, 3).map((atctile) => (
           <Tile
+          key={atctile.id}
             tilename={atctile.tilename}
             cSass={atctile.cSass}
             picture={atctile.picture}
