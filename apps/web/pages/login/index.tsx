@@ -100,7 +100,7 @@ function Login() {
           </div>
         </div>
       </div>
-      <div className={"sticky sm:fixed sm:left-0 sm:bottom-0 md:right-0"}>      
+      <div className={"sticky sm:fixed sm:left-0 sm:bottom-0 sm:right-0"}>      
         <Footer />
       </div>
     </div>
