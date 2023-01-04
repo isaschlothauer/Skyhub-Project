@@ -41,15 +41,18 @@ export default function Insights() {
   };
 
   return (
-    <div className={"flex flex-row "}>
-      {" "}
+    <div
+      className={
+        "flex flex-row w-full space-x-4 justify-around items-center container mx-auto h-32 rounded-[33px] p-[25px] mb-[60px] mt-[20px] shadow-main"
+      }
+    >
       <Select
         label="Search Region"
         options={optionsRegion}
         onSelect={handleRegionChange}
       />
       <Select
-        label="Airline Type"
+        label="Type of Airline"
         options={optionsAirlineType}
         onSelect={handleAirlineTypeChange}
       />
