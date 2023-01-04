@@ -32,11 +32,11 @@ function Login() {
     <div className={styles["login-page"]}>
       {/* Mini Header CMP */}
       
-      <Mini_Header title={"Sign in"} />
+      <Mini_Header title={"Sign in"}/>;
 
       <div className={"container mx-auto z-10 px-2"}>
         <div className={"flex flex-wrap"}>
-          <div className={"mx-auto md:w-full max-w-xl z-10 drop-shadow-2xl"}>
+          <div className={"mx-auto w-full max-w-xl z-10 drop-shadow-2xl"}>
             <div className={`pt-7 mx-2 pb-7 px-4 ${styles["data-input-field"]}`}>
               <div className={"mb-4"}>
                 <p className={"mb-1"}>Username</p>
@@ -46,7 +46,7 @@ function Login() {
                     type="text"
                     name="login_username"
                     className={styles["account-input-box"]}
-                    placeholder="User name or email address..."
+                    placeholder="Username or email address..."
                   />
                 </div>
               </div>
@@ -65,6 +65,7 @@ function Login() {
 
               {/* Login save checkbox */}
               <div className={"mt-3 flex"}>
+                {/* <input type="checkbox" className={"ml-3"} checked={isChecked} onChange={handleOnChange} /> */}
                 <input
                   type="checkbox"
                   checked={isChecked}
@@ -83,6 +84,7 @@ function Login() {
                 />
               </div>
               <div className={`mx-auto w-max mt-3`}>
+                {/* <a href="/passRecovery" className={`${styles["check-box"]}`}>Forgot your user name or password?</a> */}
                 <Link
                     href="/recover"
                     className={`${styles["check-box"]}`}
