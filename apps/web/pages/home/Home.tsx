@@ -22,9 +22,9 @@ import ContainerFAQContact from "../../components/FAQ_Contact_Container";
 {
   /*IMAGES*/
 }
-import PilotTile from "../../assets/images/home/summary-1.png";
-import CabinTile from "../../assets/images/home/summary-2.png";
-import ATCTile from "../../assets/images/home/summary-3.png";
+import PilotTile from "../../assets/images/widget/PilotWidgetMainPage.jpg";
+import CabinTile from "../../assets/images/widget/CabinWidgetMainPage.jpg";
+import ATCTile from "../../assets/images/widget/ATCWidgetMainPage.jpg";
 import CrossandSquare from "../../assets/images/branding/branding-3.png";
 
 const loginregButtons = [
@@ -91,10 +91,10 @@ const Home = () => {
         <div className={"flex flex-wrap"}>
           <div className={`container mx-auto sm:px-0`}>
             <div className={"flex flex-wrap"}>
-              <div className={"md:w-2/5 pr-0 pl-0"}></div>
+              <div className={"md:w-1/3 pr-0 pl-0"}></div>
 
               {/*SKYHUB LOGO*/}
-              <div className={"md:w-1/5 pr-4 pl-4"}>
+              <div className={"md:w-1/4 pr-4 pl-4"}>
                 <div className={styles["mainpage-logocontainer"]}>
                   <div className={styles["mainpage-logo"]}></div>
                 </div>
@@ -102,9 +102,9 @@ const Home = () => {
 
               {/*LOGIN/REGISTER BUTTON*/}
               <div
-                className={`${"md:w-2/5 pr-1 pl-4"} ${"text-right"} ${
+                className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
                   styles["mainpage-logincontainer"]
-                }`}
+                }`} 
               >
                 <div
                   className={`${
