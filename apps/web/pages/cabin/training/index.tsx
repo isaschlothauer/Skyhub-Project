@@ -15,7 +15,7 @@ export default function Static() {
   return (
     <div>
       <StaticPage
-        cSass={`${styles["staticpage"]} ${styles["staticpage-trainingcabin"]}`}
+        cSass={`${styles["staticpage"]} ${styles["header-cabin"]}`}
         miniheader={<Mini_Header title={"Training"} />}
       />
     </div>

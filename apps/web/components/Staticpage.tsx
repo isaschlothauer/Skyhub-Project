@@ -9,6 +9,7 @@ import styles from "./staticpage.module.scss";
 
 {/*COMPONENTS*/}
 import Footer from "../components/Footer";
+import ContainerFAQContact from "./FAQ_Contact_Container";
 
 
 
@@ -21,7 +22,7 @@ export interface StaticProps {
 {/*UseEffect Implementation Test*/}
 const StaticPage = ({ cSass, miniheader }: StaticProps) => {
 
-  const [contents, setContents] = useState([]);
+  /*const [contents, setContents] = useState([]);
 
   const backendURL = "http://localhost:5000";
 
@@ -30,7 +31,7 @@ const StaticPage = ({ cSass, miniheader }: StaticProps) => {
       .get(`${backendURL}/pilot/general`) 
       .then((response) => response.data)
       .then((data) => setContents(data));
-  }, []);
+  }, []);*/
 
   return (
     <div className={cSass}>
@@ -66,7 +67,9 @@ const StaticPage = ({ cSass, miniheader }: StaticProps) => {
             </div>
           </div>
         </div>
+        <ContainerFAQContact/>
       </div>
+        
          <Footer />
     </div>
   );
