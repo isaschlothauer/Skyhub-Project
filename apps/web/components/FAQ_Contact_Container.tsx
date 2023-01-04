@@ -16,8 +16,8 @@ import { LearnMoreArrow } from "./ArrowButton";
 {
   /*IMAGES*/
 }
-import FAQTile from "../assets/images/widget/bg-widget-check.png";
-import ContactTile from "../assets/images/widget/bg-widget-contact.png";
+import FAQTile from "../assets/images/widget/FAQWidget.jpg";
+import ContactTile from "../assets/images/widget/ContactUsWidget.jpg";
 
 const arrowButtons = [
   {
