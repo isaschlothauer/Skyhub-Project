@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./insights.module.scss";
-import ContactUs from "../../../components/ContactUs";
-import JobsBtn from "../../../components/JobsBtn";
+import ContainerFAQContact from "../../../components/FAQ_Contact_Container";
 import Mini_Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 
@@ -148,8 +147,7 @@ export default function Insights() {
         <div
           className={`${"row"} ${"align-items-end"} ${styles["row-widgets"]}}`}
         >
-          <JobsBtn />
-          <ContactUs />
+          <ContainerFAQContact />
         </div>
       </div>
       <Footer />

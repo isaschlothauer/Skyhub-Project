@@ -1,15 +1,17 @@
 import express from "express";
 import database from "./database";
 import MainRouter from "./mainrouter";
+import cors from "cors";
 
 const app = express();
+app.use(cors())
 
 app.get("/", (req, res) => {
   res.send("Hello there!");
 });
 
 //Main Router Usage
-app.use("/", MainRouter);
+
 
 // Database Connection Test
 app.listen(5000, () => {
@@ -21,3 +23,6 @@ app.listen(5000, () => {
     "DATABASE CONNECTED: check the backend info on http://localhost:5000"
   );
 });
+
+
+app.use("/", MainRouter);
