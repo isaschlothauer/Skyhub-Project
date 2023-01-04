@@ -13,7 +13,6 @@ import styles from "./login.module.scss";
 }
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
-// import ContainerFAQContact from "../../components/containerFAQContact";
 
 const loginButton = {
     route: "/",
@@ -31,7 +30,7 @@ function Login() {
   return (
     <div className={styles["login-page"]}>
       
-      {/* Temporary text color change */}
+      {/* Temporary text color change. Revise text color for mobile design */}
       <div className={"md:text-neutral-50 "} >
         <Mini_Header title={"Sign in"} />
       </div>
