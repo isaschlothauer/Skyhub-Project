@@ -19,19 +19,23 @@ import ButtonCMP from "../../components/GeneralButton";
   /* IMAGES */
 }
 import JobTilesContainer from "../../components/JobTilesContainer";
+import JobOffersContainer from "../../components/JobOffersContainer";
 
 function Jobs() {
   return (
     <div id={"page"}>
       <Mini_Header title={"Available Jobs"} />
+
       <div className={"container mx-auto sm:px-0"}>
-        <JobTilesContainer />
-        <InsightsContainer />
+        <JobOffersContainer />
         <ButtonCMP
           route={"/"}
           buttontext={"SEE MORE OFFERS"}
           cSass={`${stylesB["see-more-btn"]}`}
         />
+        <JobTilesContainer />
+        <InsightsContainer />
+
         {/* FAQ & CONTACT US COMPONENT*/}
         <div
           className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}
