@@ -31,8 +31,8 @@ function Login() {
   return (
     <div className={styles["login-page"]}>
       
-      {/* Temporary font color change */}
-      <div className={styles["mini-head"]} >
+      {/* Temporary text color change */}
+      <div className={"border-2 md:text-neutral-50 "} >
         <Mini_Header title={"Sign in"} />
       </div>
 
