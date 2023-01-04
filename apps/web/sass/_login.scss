@@ -1,6 +1,7 @@
 .login-page {
   background: var(--light);
   height: 100vh;
+  min-height: 900px;
   min-width: 250px;
   &:before {
     content: '';
