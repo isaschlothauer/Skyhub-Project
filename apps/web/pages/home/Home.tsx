@@ -87,7 +87,7 @@ const jobTiles = [
 const Home = () => {
   return (
     <div className={styles["mainpage"]}>
-      <div className={styles["mainpage-header"]}>
+      <div className={`${styles["mainpage-header"]} ${styles["header-homepage"]}`}>
         <div className={"flex flex-wrap"}>
           <div className={`container mx-auto sm:px-0`}>
             <div className={"flex flex-wrap"}>

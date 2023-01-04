@@ -5,6 +5,7 @@ import * as React from "react";
 }
 import styles from "../../../components/staticpage.module.scss";
 
+
 {
   /*COMPONENTS*/
 }
@@ -15,7 +16,7 @@ export default function Static() {
   return (
     <div>
       <StaticPage
-        cSass={`${styles["staticpage"]} ${styles["staticpage-application"]}`}
+        cSass={`${styles["staticpage"]} ${styles["header-atc"]}`}
         miniheader={<Mini_Header title={"Application"} />}
       />
     </div>
