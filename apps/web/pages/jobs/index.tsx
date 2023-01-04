@@ -17,18 +17,69 @@ import InsightsContainer from "../../components/AirlineContainer";
 import ContainerFAQContact from "../../components/FAQ_Contact_Container";
 import ButtonCMP from "../../components/GeneralButton";
 
+{
+  /* IMAGES */
+}
+
+import general from "../../assets/images/icons/general-icon.png";
+import training from "../../assets/images/icons/training-icon.png";
+import requirements from "../../assets/images/icons/requirements-icon.png";
+import costs from "../../assets/images/icons/costs-icon.png";
+import application from "../../assets/images/icons/application-icon.png";
+import JobTilesContainer from "../../components/JobTilesContainer";
+
+const jobTiles = [
+  {
+    tile_id: 1,
+    image: general,
+    title: "General",
+    subtitle: "All you need to know",
+    sass: "",
+    link: "",
+  },
+  {
+    tile_id: 2,
+    image: training,
+    title: "Training",
+    subtitle: "All you need to know",
+    sass: "",
+    link: "",
+  },
+  {
+    tile_id: 3,
+    image: requirements,
+    title: "Requirements",
+    subtitle: "All you need to know",
+    sass: "",
+    link: "",
+  },
+  {
+    tile_id: 4,
+    image: costs,
+    title: "Costs",
+    subtitle: "All you need to know",
+    sass: "",
+    link: "",
+  },
+  {
+    tile_id: 5,
+    image: application,
+    title: "Application",
+    subtitle: "How, where, why",
+    sass: "",
+    link: "",
+  },
+];
+
 function Jobs() {
   return (
     <div id={"page"}>
       <Mini_Header title={"Available Jobs"} />
       <div className={"container mx-auto sm:px-0"}>
-        {" "}
         {/* All containers CONTAINER */}
         <div className={`${"flex flex-wrap"} ${styles["subject-branding"]}`}>
-          {" "}
           {/* first container line */}
           <div className={`${"md:w-1/3 pr-4 pl-4"} ${"md:px-2"}`}>
-            {" "}
             {/* Individual tile */}
             <div
               className={`${styles.widget} ${styles["widget-2"]} ${styles["widget-general"]} ${styles["branding-1"]} ${styles["branding-left-80"]} ${styles["branding-top-45"]}`}
@@ -164,6 +215,14 @@ function Jobs() {
             </div>
           </div>
         </div>
+        <JobTilesContainer
+          tile_id={jobTiles.title_id}
+          image={jobTiles.image}
+          title={jobTiles.title}
+          subtitle={jobTiles.subtitle}
+          sass={jobTiles.sass}
+          link={jobTiles.link}
+        />
         <InsightsContainer />
         <ButtonCMP
           route={"/"}
