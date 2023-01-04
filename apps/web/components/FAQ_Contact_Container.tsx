@@ -21,14 +21,17 @@ import ContactTile from "../assets/images/widget/bg-widget-contact.png";
 
 const arrowButtons = [
   {
+    id: 1,
     arrowtext: "Open a Ticket",
     cSass: stylesArrow["arrow-faqcontact"],
   },
   {
+    id: 2,
     arrowtext: "Check Now",
     cSass: stylesArrow["arrow-faqcontact"],
   },
   {
+    id: 3,
     arrowtext: "Learn More",
     cSass: stylesArrow["arrow-jobs"],
   },
@@ -36,6 +39,7 @@ const arrowButtons = [
 
 const fcTiles = [
   {
+    id: 1,
     tilename: "FAQ",
     subtilename: "How can we help you?",
     cSass: stylesFC["contactus-container"],
@@ -45,6 +49,7 @@ const fcTiles = [
       .slice(1, 2)
       .map((arrowbutton) => (
         <LearnMoreArrow
+          key={arrowbutton.id}
           arrowtext={arrowbutton.arrowtext}
           cSass={arrowbutton.cSass}
           link={"/faq"}
@@ -53,6 +58,7 @@ const fcTiles = [
   },
 
   {
+    id: 2,
     tilename: "Contact Us",
     subtilename: "Do you have questions?",
     cSass: stylesFC["faq-container"],
@@ -62,6 +68,7 @@ const fcTiles = [
       .slice(1, 2)
       .map((arrowbutton) => (
         <LearnMoreArrow
+          key={arrowbutton.id}
           arrowtext={arrowbutton.arrowtext}
           cSass={arrowbutton.cSass}
           link={"/contacts"}
@@ -78,6 +85,7 @@ const ContainerFAQContact = () => {
       <div className={`${"flex flex-wrap"} ${"items-end"}`}>
         {fcTiles.map((fctile) => (
           <FAQContact
+            key={fctile.id}
             tilename={fctile.tilename}
             cSass={fctile.cSass}
             subtilename={fctile.subtilename}
