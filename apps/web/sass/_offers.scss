@@ -1,13 +1,11 @@
-// LEGACY
+// REDO
 
 #offers {
   position: relative;
-  z-index: 2;
 }
 
 #offers-filter {
   position: relative;
-  z-index: 2;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
@@ -17,24 +15,6 @@
   -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   padding: 25px;
-  .btn {
-    margin-top: 11px;
-    text-align: left;
-    padding-right: 100px;
-    padding-left: 25px;
-    position: relative;
-    &:before {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 70px;
-      height: 21px;
-      right: 16px;
-      top: 13px;
-      background: url("../assets/images/icons/arrow-right-long-white.png")
-        no-repeat center center;
-    }
-  }
 }
 
 #offers {
@@ -123,50 +103,6 @@
           left: 0;
           background: url("../assets/images/icons/date.png") no-repeat center
             center;
-        }
-      }
-    }
-    .job-offer-list-item-more {
-      position: relative;
-      z-index: 0;
-      .btn {
-        margin-top: 25px;
-        text-align: left;
-        padding-right: 100px;
-        padding-left: 25px;
-        position: relative;
-        &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          width: 70px;
-          height: 21px;
-          right: 16px;
-          top: 13px;
-          background: url("../assets/images/icons/arrow-right-long-pink.png")
-            no-repeat center center;
-        }
-        &:after {
-          content: "";
-          display: none;
-          position: absolute;
-          z-index: -1;
-          pointer-events: none;
-          background: url("../assets/images/branding/branding-1.png") no-repeat
-            center center;
-          width: 142px;
-          height: 105px;
-          right: -70px;
-          top: -25px;
-        }
-        &:hover {
-          &:after {
-            display: block;
-          }
-          &:before {
-            background: url("../assets/images/icons/arrow-right-long-white.png")
-              no-repeat center center;
-          }
         }
       }
     }
