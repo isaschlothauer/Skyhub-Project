@@ -11,9 +11,12 @@ import Mini_Header from "../../components/Header";
 
 const ContactUs = () => {
     return (
-        <div>
-        <Mini_Header title={"Contact Us"} />
+    <div className={`${contactUsStyle["all-container"]} ${contactUsStyle["header-otherpages"]}`}>
+     <Mini_Header title={"Contact Us"} />
+        <div className={`block rounded-lg shadow-lg py-10 md:py-12 px-4 md:px-6 ${contactUsStyle["contact-form"]}`}>
         </div>
+     <Footer />
+    </div>
     )
 }
 
