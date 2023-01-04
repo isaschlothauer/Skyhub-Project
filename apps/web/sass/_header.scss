@@ -8,13 +8,12 @@
   //Container for the header's logo
   .header-logo {
     display: block;
-    background: url("../assets/images/home/logo-white.png") no-repeat center center;
-    width: 69px;
-    height: 89px;
+    background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
+    width: 100%;
+    height: 90px;
     margin: 40px auto;
   }
   h1 {
-    color: white;
     font-size: 48px;
     line-height: 56px;
     font-weight: 900;
@@ -25,3 +24,41 @@
     }
   }
 }
+
+//Classes for the Different Headers
+
+//Home page Header
+.header-homepage{
+  background: url("../assets/images/header/bgHeaderMainPage.png") no-repeat center center;
+  background-size: cover;
+}
+
+//Headers for independent pages (FAQ, Contact Us, Login, etc)
+.header-otherpages{
+  background: url("../assets/images/header/bgHeaderForOtherPages.png") no-repeat top center;
+  background-size: 100% auto;
+  color: $letter-header-white;
+}
+
+//Every Pilot Subject Header
+.header-pilot{
+  background: url("../assets/images/header/bgHeaderBlue.png") no-repeat top center;
+  background-size: 100% auto;
+  color: $letter-header-white;
+}
+
+//Every Cabin Subject Header
+.header-cabin{
+  background: url("../assets/images/header/bgHeaderYellow.png") no-repeat top center;
+  background-size: 100% auto;
+  color: $letter-header-black;
+}
+
+//Every ATC Subject Header
+.header-atc{
+  background: url("../assets/images/header/bgHeaderTurquoise.png") no-repeat top center;
+  background-size: 100% auto;
+  color: $letter-header-black;
+}
+
+

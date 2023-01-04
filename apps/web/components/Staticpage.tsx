@@ -1,6 +1,7 @@
 import * as React from "react";
 import { ReactElement } from "react";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import axios from "axios";
 
 
@@ -9,6 +10,7 @@ import styles from "./staticpage.module.scss";
 
 {/*COMPONENTS*/}
 import Footer from "../components/Footer";
+import ContainerFAQContact from "./FAQ_Contact_Container";
 
 
 
@@ -22,12 +24,12 @@ export interface StaticProps {
 const StaticPage = ({ cSass, miniheader }: StaticProps) => {
 
   const [contents, setContents] = useState([]);
-
-  const backendURL = "http://localhost:5000";
+  const router = useRouter()
+  const { domain, slug } = router.query
 
   useEffect(() => {
     axios
-      .get(`${backendURL}/pilot/general`) 
+      .get(`http://localhost:5000/${domain}/${slug}`) 
       .then((response) => response.data)
       .then((data) => setContents(data));
   }, []);
@@ -66,7 +68,9 @@ const StaticPage = ({ cSass, miniheader }: StaticProps) => {
             </div>
           </div>
         </div>
+        <ContainerFAQContact/>
       </div>
+        
          <Footer />
     </div>
   );
