@@ -29,11 +29,13 @@ import CrossandSquare from "../../assets/images/branding/branding-3.png";
 
 const loginregButtons = [
   {
+    id: 1,
     route: "/login",
     cSass: styleslrButton["loginreg-white"],
     buttontext: "Log In",
   },
   {
+    id: 2,
     route: "/login",
     cSass: styleslrButton["loginreg-pink"],
     buttontext: "Register",
@@ -42,6 +44,7 @@ const loginregButtons = [
 
 const jobTiles = [
   {
+    id: 1,
     picture: PilotTile,
     tilename: "Pilot",
     cSass: stylesJobs["tile-main-container"],
@@ -56,6 +59,7 @@ const jobTiles = [
   },
 
   {
+    id: 2,
     picture: CabinTile,
     tilename: "Cabin",
     cSass: stylesJobs["tile-main-container"],
@@ -70,6 +74,7 @@ const jobTiles = [
   },
 
   {
+    id: 3,
     picture: ATCTile,
     tilename: "Air Traffic Control",
     cSass: stylesJobs["tile-main-container"],
@@ -111,11 +116,12 @@ const Home = () => {
                     styles["mainpage-logincontainer2nd"]
                   } ${"hidden"} ${"md:block"}`}
                 >
-                  {loginregButtons.map((test) => (
+                  {loginregButtons.map((gbutton) => (
                     <LoginButton
-                      route={test.route}
-                      cSass={test.cSass}
-                      buttontext={test.buttontext}
+                      key={gbutton.id}
+                      route={gbutton.route}
+                      cSass={gbutton.cSass}
+                      buttontext={gbutton.buttontext}
                     />
                   ))}
                 </div>
@@ -147,6 +153,7 @@ const Home = () => {
       <div className={`container mx-auto sm:px-0`}>
         {jobTiles.slice(0, 1).map((pilottile) => (
           <Tile
+            key={pilottile.id}
             tilename={pilottile.tilename}
             cSass={pilottile.cSass}
             picture={pilottile.picture}
@@ -169,6 +176,7 @@ const Home = () => {
       <div className={`container mx-auto sm:px-0`}>
         {jobTiles.slice(1, 2).map((cabintile) => (
           <Tile
+            key={cabintile.id}
             tilename={cabintile.tilename}
             cSass={cabintile.cSass}
             picture={cabintile.picture}
@@ -195,6 +203,7 @@ const Home = () => {
       >
         {jobTiles.slice(2, 3).map((atctile) => (
           <Tile
+          key={atctile.id}
             tilename={atctile.tilename}
             cSass={atctile.cSass}
             picture={atctile.picture}
