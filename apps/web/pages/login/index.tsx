@@ -39,6 +39,7 @@ function Login() {
             <div className={`pt-7 mx-2 pb-7 px-4 ${styles["data-input-field"]}`}>
               <div className={"mb-4"}>
                 <p className={"mb-1"}>Username</p>
+                {/* TO DO: Implement input validation */}
                 <div className={styles["login-input"]}>
 
                   <input
@@ -51,6 +52,7 @@ function Login() {
               </div>
 
               <div className={""}>
+              {/* TO DO: Implement input validation and hashing */}
                 <p className={"mb-1"}>Password</p>
                 <div className={styles["login-input"]}>
                   <input
@@ -63,6 +65,7 @@ function Login() {
               </div>
 
               {/* Login save checkbox */}
+              {/* TO DO: Login info save. Implement cookie geration */}
               <div className={"mt-3 flex"}>
                 <input
                   type="checkbox"
@@ -75,6 +78,7 @@ function Login() {
 
               {/* Login Submission button */}
               <div className={"w-min mr-0 mx-auto mt-4"}>
+                {/* TO DO: Implement authentication process */}
                 <LoginButton
                   route={loginButton.route}
                   cSass={loginButton.cSass}
@@ -82,6 +86,7 @@ function Login() {
                 />
               </div>
               <div className={`mx-auto w-max mt-3`}>
+                {/* TO DO: Connect link to recovery page */}
                 <Link
                     href="/loginRecover"
                     className={`${styles["check-box"]}`}
