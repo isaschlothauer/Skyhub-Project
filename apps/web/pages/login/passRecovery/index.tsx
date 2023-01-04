@@ -26,6 +26,7 @@ function Login() {
   const handleOnChange = () => {
       setIsChecked(!isChecked);
   }
+  
 
   return (
     <div className={styles["login-page"]}>
@@ -39,7 +40,7 @@ function Login() {
           <div className={"mx-auto z-10"}>
             <div className={`pt-7 pb-7 ${styles["data-input-field"]}`}>
               <div className={"mb-4"}>
-                <p className={"mb-1"}>User name</p>
+                <p className={"mb-1"}>Account name</p>
                 <div className={styles["login-input"]}>
 
                   <input
@@ -83,10 +84,6 @@ function Login() {
                   buttontext={loginButton.buttontext}
                 />
               </div>
-              <div className={`mx-auto w-max mt-3`}>
-                <a href="/passRecovery" className={styles["check-box"]}>Forgot user name or password?</a>
-              </div>
-
               
             </div>
           </div>
