@@ -36,7 +36,7 @@ function Login() {
 
       <div className={"container mx-auto z-10 sm:px-4"}>
         <div className={"flex flex-wrap"}>
-          <div className={"mx-auto z-10"}>
+          <div className={"mx-auto z-10 drop-shadow-2xl"}>
             <div className={`pt-7 pb-7 ${styles["data-input-field"]}`}>
               <div className={"mb-4"}>
                 <p className={"mb-1"}>User name</p>
@@ -56,7 +56,7 @@ function Login() {
                 <div className={styles["login-input"]}>
                   <input
                     type="text"
-                    name="login_search"
+                    name="login_input"
                     className={styles["password-input-box"]}
                     placeholder="Password"
                   />
@@ -72,7 +72,7 @@ function Login() {
                   onChange={handleOnChange}
                   className={"ml-3 z-10"}
                 />
-                <span className={styles["check-box"]}>Remember login</span>
+                <span className={`ml-2 ${styles["check-box"]}`}>Remember login</span>
               </div>
 
               {/* Login Submission button */}
@@ -84,7 +84,7 @@ function Login() {
                 />
               </div>
               <div className={`mx-auto w-max mt-3`}>
-                <a href="/passRecovery" className={styles["check-box"]}>Forgot user name or password?</a>
+                <a href="/passRecovery" className={`${styles["check-box"]}`}>Forgot your user name or password?</a>
               </div>
 
               
