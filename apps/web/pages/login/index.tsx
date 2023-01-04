@@ -18,7 +18,7 @@ import Mini_Header from "../../components/Header";
 const loginButton = {
     route: "/",
     cSass: styleslrButton["loginreg-pink"],
-    buttontext: "Login",
+    buttontext: "Submit",
   }
 
 function Login() {
@@ -30,11 +30,10 @@ function Login() {
 
   return (
     <div className={styles["login-page"]}>
-      {/* Mini Header CMP */}
       
       <Mini_Header title={"Sign in"} />
 
-      <div className={"container mx-auto z-10 px-2"}>
+      <div className={`ontainer mx-auto z-10 px-2 ${styles["page"]}`}>
         <div className={"flex flex-wrap"}>
           <div className={"mx-auto md:w-full max-w-xl z-10 drop-shadow-2xl"}>
             <div className={`pt-7 mx-2 pb-7 px-4 ${styles["data-input-field"]}`}>
@@ -84,21 +83,19 @@ function Login() {
               </div>
               <div className={`mx-auto w-max mt-3`}>
                 <Link
-                    href="/recover"
+                    href="/loginRecover"
                     className={`${styles["check-box"]}`}
                   >
                     Forgot login?
                   </Link> 
               </div>
-
-              
             </div>
           </div>
         </div>
       </div>
-
-      
-      <Footer />
+      <div className={"fixed left-0 right-0 bottom-0 w-100"}>      
+        <Footer />
+      </div>
     </div>
   );
 }
