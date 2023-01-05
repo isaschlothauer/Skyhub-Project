@@ -50,6 +50,8 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  //  background: linear-gradient(to bottom, #FAFAFA 80%,#FFFFFF 20%);
+  background: linear-gradient(#fafafa, #ffffff);
 }
 
 [tabindex="-1"]:focus {
@@ -546,30 +548,30 @@ pre code {
 }
 
 .container {
-    max-width: calc(100vw - 40px); 
+  max-width: 80%;
 }
 
 @media (min-width: 576px) {
   .container {
-    max-width: calc(100vw - 60px);
+    max-width: 500px;
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: calc(100vw - 60px);
+    max-width: 700px;
   }
 }
 
 @media (min-width: 992px) {
   .container {
-    max-width: calc(100vw - 60px);
+    max-width: 900px;
   }
 }
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1140px;
+    max-width: 1100px;
   }
 }
 
@@ -8456,10 +8458,9 @@ button.bg-dark:focus {
   padding-left: 0.5rem !important;
 }
 
-// unused style that overwrites tailwind utility classes!!
-//  .p-3 {
-//    padding: 1rem !important;
-//  }
+.p-3 {
+  padding: 1rem !important;
+}
 
 .pt-3,
 .py-3 {

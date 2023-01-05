@@ -48,7 +48,7 @@ function Login() {
                     type="text"
                     name="login_username"
                     className={styles["account-input-box"]}
-                    placeholder="User name or email address..."
+                    placeholder="Enter username or email address..."
                   />
                 </div>
               </div>
@@ -61,7 +61,7 @@ function Login() {
                     type="text"
                     name="login_password"
                     className={styles["password-input-box"]}
-                    placeholder="Password"
+                    placeholder="Enter password"
                   />
                 </div>
               </div>
@@ -90,7 +90,7 @@ function Login() {
               <div className={`mx-auto w-max mt-3`}>
                 {/* TO DO: Connect link to recovery page */}
                 <Link
-                    href="/loginRecover"
+                    href="/login/loginRecovery"
                     className={`${styles["check-box"]}`}
                   >
                     Forgot login?

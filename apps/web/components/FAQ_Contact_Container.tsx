@@ -65,7 +65,7 @@ const fcTiles = [
     cTailwind: "w-full md:w-[calc(66.66%-0.5rem)]",
     picture: ContactTile,
     arrowbmap: arrowButtons
-      .slice(1, 2)
+      .slice(0, 1)
       .map((arrowbutton) => (
         <LearnMoreArrow
           key={arrowbutton.id}
