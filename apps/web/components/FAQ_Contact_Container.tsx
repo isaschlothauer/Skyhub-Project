@@ -65,7 +65,7 @@ const fcTiles = [
     cTailwind: "md:w-2/3 pr-2 pl-2",
     picture: ContactTile,
     arrowbmap: arrowButtons
-      .slice(1, 2)
+      .slice(0, 1)
       .map((arrowbutton) => (
         <LearnMoreArrow
           key={arrowbutton.id}
