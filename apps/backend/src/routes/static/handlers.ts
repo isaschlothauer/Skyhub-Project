@@ -13,9 +13,12 @@ export const getStaticPage: RequestHandler<{
 }> = (req, res) => {
 
   const { domain, slug } = req.params;
+
+  console.log("Static page requested:", domain, slug);
+
   database
     .query<StaticPage[]>(
-      "select content from static_page where domain=? and slug=?",
+      "select title, content, css_class from static_page where domain=? and slug=?",
       [domain, slug]
     )
     .then(([result]) => {
