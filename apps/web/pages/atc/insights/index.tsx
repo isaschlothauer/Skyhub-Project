@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import AirlineTile from "../../../components/AirlineTile";
 import Select from "../../../components/Select";
-import LogoLufthansa from "../../../assets/images/miscellaneous/logo-lufthansa-blue.png";
+import Logo from "../../../assets/images/airlines/germanairways.jpg";
 
 const optionsRegion = [
   "---",
@@ -25,33 +25,45 @@ const optionsAirlineType = [
 
 const airlineCompanies = [
   {
-    logo: LogoLufthansa,
+    logo: Logo,
     title: "Lufthansa",
     slug: "Lufthansa",
   },
   {
-    logo: LogoLufthansa,
+    logo: Logo,
     title: "Lufthansa2",
     slug: "Lufthansa2",
+  },
+  {
+    logo: Logo,
+    title: "Lufthansa3",
+    slug: "Lufthansa3",
+  },
+  {
+    logo: Logo,
+    title: "Lufthansa4",
+    slug: "Lufthansa4",
   },
 ];
 
 export default function Insights() {
   const router = useRouter();
 
-  const handleRegionChange = (region: string) => {
-    const { region: prevRegion, ...prevQuerywithoutRegion } = router.query;
+  const handleRegionChange = (selectedRegion: string) => {
+    const { region: prevRegion, ...prevQuerywithoutRegion } = router.query; // extract the query object from router, but without region
     const newQuery =
-      region === "---"
-        ? prevQuerywithoutRegion
-        : { ...prevQuerywithoutRegion, region };
-    router.push({ query: newQuery });
+      selectedRegion === "---" // check if selected region is empty
+        ? prevQuerywithoutRegion //if so set query as the query object without region
+        : { ...prevQuerywithoutRegion, region: selectedRegion }; //else add the new selected region to query
+    router.push({ query: newQuery }); //updates the query part of the url
   };
 
-  const handleAirlineTypeChange = (type: string) => {
+  const handleAirlineTypeChange = (selectedType: string) => {
     const { type: prevType, ...prevQuerywithoutType } = router.query;
     const newQuery =
-      type === "---" ? prevQuerywithoutType : { ...prevQuerywithoutType, type };
+      selectedType === "---"
+        ? prevQuerywithoutType
+        : { ...prevQuerywithoutType, type: selectedType };
     router.push({ query: newQuery });
   };
 
@@ -73,7 +85,7 @@ export default function Insights() {
           onSelect={handleAirlineTypeChange}
         />
       </div>
-      <div>
+      <div className="grid grid-cols-2 gap-8 px-10 mx-auto md:grid-cols-3 lg:grid-cols-4 ">
         {airlineCompanies.map((airline) => {
           return (
             <AirlineTile
