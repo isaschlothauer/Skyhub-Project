@@ -14,21 +14,21 @@ export default function Footer() {
           className="container mx-auto sm:px-0" /* style="position: relative" */
         >
           <div
-            className={` flex flex-wrap items-end justify-between ${styles["linkswithlogo"]}`}
+            className={` flex flex-wrap items-end justify-between ${styles["footer-linkswithlogo"]}`}
           >
             <div className="md:w-1/3 pr-3 pl-3">
-              <Link href="/" className={styles.skyhublogo} />
+              <Link href="/" className={styles["footer-skyhublogo"]} />
             </div>
             <div className="md:w-1/3 pr-3 pl-3">
-              <div className={`text-right ${styles["links"]}`}>
+              <div className={`text-right ${styles["footer-links"]}`}>
                 <a href="{{ url('privacy-policy') }}">Privacy Policy</a>
                 <a href="{{ url('terms-of-service') }}">Terms of Service</a>
               </div>
             </div>
           </div>
-          <div className={`flex flex-wrap  ${styles["copyrightbox"]}`}>
+          <div className={`flex flex-wrap  ${styles["footer-copyrightbox"]}`}>
             <div className="md:w-1/2 pr-3 pl-3">
-              <div className={styles.copyrightinfo}>
+              <div className={styles["footer-copyrightinfo"]}>
                 <span>
                   Copyright {/*&copy;{{ date('Y') }}*/}. All rights reserved.
                 </span>
@@ -40,7 +40,7 @@ export default function Footer() {
             <div className="md:w-1/2 pr-3 pl-3">
               <div className="text-right">
                 {/* TODO: LINKEDIN */}
-                <a className={styles["linkedin"]} href="#">
+                <a className={styles["footer-linkedin"]} href="#">
                   Follow us on
                   <strong>LinkedIn</strong>
                 </a>
