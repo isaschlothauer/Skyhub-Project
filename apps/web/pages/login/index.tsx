@@ -20,7 +20,7 @@ const loginButton = {
     buttontext: "Submit",
   }
 
-export default function Login() {
+function Login() {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleOnChange = () => {
@@ -37,7 +37,6 @@ export default function Login() {
 
       <div className={`container mx-auto z-10 px-2 ${styles["page"]}`}>
         <div className={"flex flex-wrap"}>
-          {/* DROP SHADOW TO BE CHANGED LATER */}
           <div className={"mx-auto sm:w-full max-w-xl z-10 drop-shadow-2xl"}>
             <div className={`pt-7 mx-2 pb-7 px-4 ${styles["data-input-field"]}`}>
               <div className={"mb-4"}>
@@ -108,4 +107,4 @@ export default function Login() {
   );
 }
 
-
+export default Login;
