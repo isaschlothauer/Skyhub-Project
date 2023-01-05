@@ -37,7 +37,7 @@ function Login() {
 
       <div className={`container mx-auto z-10 px-2 ${styles["page"]}`}>
         <div className={"flex flex-wrap"}>
-          <div className={"mx-auto sm:w-full max-w-xl z-10 drop-shadow-2xl"}>
+          <div className={"mx-auto sm:w-full max-w-xl z-10"}>
             <div className={`pt-7 mx-2 pb-7 px-4 ${styles["data-input-field"]}`}>
               <div className={"mb-4"}>
                 <p className={"mb-1"}>Username</p>
