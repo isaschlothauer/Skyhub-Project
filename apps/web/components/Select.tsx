@@ -26,7 +26,7 @@ export default function Select({
     <div className="w-full">
       <Listbox value={selected} onChange={handleChange}>
         <div className="relative mt-1">
-          <Listbox.Button className="relative grow w-full h-[3.875rem] cursor-default rounded-full bg-white py-2 pl-3 pr-10 text-left border-solid border border-light-gray focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+          <Listbox.Button className="relative grow w-full h-[3.875rem] cursor-default rounded-full bg-white py-2 pl-3 pr-10 text-left border-solid border border-light-gray focus:outline-none sm:text-sm ">
             <div className="flex flex-col pl-2">
               <span className="nunito text-[#727481] text-xs md:text-sm ">
                 {label}
@@ -46,7 +46,7 @@ export default function Select({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md  z-10 bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md z-10 bg-white py-1 text-base shadow-lg focus:outline-none">
               {options.map((option) => (
                 <Listbox.Option
                   key={option}
