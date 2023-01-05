@@ -2,9 +2,10 @@ import * as React from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
-{/*STYLES*/}
+{
+  /*STYLES*/
+}
 import styles from "./faq_contactTile.module.scss";
-
 
 export interface FAQContactProps {
   tilename: string;
@@ -21,14 +22,13 @@ export const FAQContact = ({
   cSass,
   cTailwind,
   picture,
-  arrowbinfo
+  arrowbinfo,
 }: FAQContactProps) => {
-  
   return (
     <>
       <div className={cTailwind}>
-        <div className={`${styles.faqcontact} ${cSass}`}>
-          <Image src={picture}  alt="widgetcheck" />
+        <div className={` ${styles.faqcontact} ${cSass}`}>
+          <Image src={picture} alt="widgetcheck" />
           <div className={styles["faqcontact-textoverlay"]}>
             <div>
               <Link href="/faq" />
