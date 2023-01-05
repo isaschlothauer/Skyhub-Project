@@ -1,15 +1,54 @@
 // styles for contact us page
 
-// contact us container
-.contact-form {
-    margin-top: -120px; 
-    background: white; 
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
- .all-container {
+.all-container {
     position: relative;
     z-index: 2;
     min-height: calc(100vh - 212px);
  }
+
+// contact us container with all content
+.contact-form {
+      position: relative;
+      z-index: 2;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #FFFFFF;
+      -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.25);
+
+      .submit-button {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+        margin-top: 3rem;
+      }
+}
+ // style for got a question
+.header {
+    color: #222351;
+    text-align: center;
+}
+
+// style for input fields for contact form
+.form-input-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    
+      label {
+        color: #EC4899;
+      }
+
+      input {
+        border: 1px solid #727481;
+        border-radius: 50px;
+      }
+    
+      .message-box {
+        border-radius: 30px;
+      }
+}
