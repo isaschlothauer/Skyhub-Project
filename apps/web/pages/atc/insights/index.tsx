@@ -3,6 +3,7 @@ import AirlineTile from "../../../components/AirlineTile";
 import Select from "../../../components/Select";
 import Logo from "../../../assets/images/airlines/germanairways.jpg";
 import Mini_Header from "../../../components/Header";
+import FAQ_Contact_Container from "../../../components/FAQ_Contact_Container";
 import Footer from "../../../components/Footer";
 import styles from "./insights.module.scss";
 
@@ -74,34 +75,38 @@ export default function Insights() {
     <>
       <div className={styles["header-atc"]}>
         <Mini_Header title="Airline Insights" />
-        <div
-          className={
-            "flex flex-row space-x-4 justify-around items-center px-10 mx-auto h-32 rounded-[33px] mb-[60px] mt-[20px] shadow-main"
-          }
-        >
-          <Select
-            label="Search Region"
-            options={optionsRegion}
-            onSelect={handleRegionChange}
-          />
-          <Select
-            label="Type of Airline"
-            options={optionsAirlineType}
-            onSelect={handleAirlineTypeChange}
-          />
+        <div className="mx-auto container ">
+          <div
+            className={
+              "flex flex-row space-x-4 justify-around items-center px-10 mx-auto h-32 rounded-[33px] bg-white mb-[60px] mt-[20px] shadow-main"
+            }
+          >
+            <Select
+              label="Search Region"
+              options={optionsRegion}
+              onSelect={handleRegionChange}
+            />
+            <Select
+              label="Type of Airline"
+              options={optionsAirlineType}
+              onSelect={handleAirlineTypeChange}
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-8 pb-12 mx-auto md:grid-cols-3 lg:grid-cols-4 ">
+            {airlineCompanies.map((airline) => {
+              return (
+                <AirlineTile
+                  key={airline.title}
+                  logo={airline.logo}
+                  title={airline.title}
+                  slug={airline.slug}
+                />
+              );
+            })}
+          </div>
         </div>
-        <div className="grid grid-cols-2 gap-8 px-10 mx-auto md:grid-cols-3 lg:grid-cols-4 ">
-          {airlineCompanies.map((airline) => {
-            return (
-              <AirlineTile
-                key={airline.title}
-                logo={airline.logo}
-                title={airline.title}
-                slug={airline.slug}
-              />
-            );
-          })}
-        </div>
+
+        <FAQ_Contact_Container />
         <Footer />
       </div>
     </>
