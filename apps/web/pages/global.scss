@@ -548,24 +548,24 @@ pre code {
 }
 
 .container {
-  max-width: 80%;
+  max-width: calc(100vw - 40px);
 }
 
 @media (min-width: 576px) {
   .container {
-    max-width: 500px;
+    max-width: calc(100vw - 60px);
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 700px;
+    max-width: calc(100vw - 60px);
   }
 }
 
 @media (min-width: 992px) {
   .container {
-    max-width: 900px;
+    max-width: calc(100vw - 60px);
   }
 }
 
