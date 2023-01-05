@@ -51,7 +51,7 @@ const jobTiles = [
     subtilename: "Enter Your Office Above the Clouds",
     arrowbmap: (
       <LearnMoreArrow
-        arrowtext={"Check Now"}
+        arrowtext={"Learn More"}
         cSass={stylesArrow["arrow-faqcontact"]}
         link={"/jobs"}
       />
@@ -66,7 +66,7 @@ const jobTiles = [
     subtilename: "Travel Around the World",
     arrowbmap: (
       <LearnMoreArrow
-        arrowtext={"Check Now"}
+        arrowtext={"Learn More"}
         cSass={stylesArrow["arrow-faqcontact"]}
         link={"/jobs"}
       />
@@ -81,7 +81,7 @@ const jobTiles = [
     subtilename: "Manage the Sky",
     arrowbmap: (
       <LearnMoreArrow
-        arrowtext={"Check Now"}
+        arrowtext={"Learn More"}
         cSass={stylesArrow["arrow-faqcontact"]}
         link={"/jobs"}
       />
