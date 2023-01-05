@@ -545,21 +545,25 @@ pre code {
   background: url("../assets/images/home/bg-faq.png") no-repeat top center;
 }
 
+.container {
+    max-width: calc(100vw - 40px); 
+}
+
 @media (min-width: 576px) {
   .container {
-    max-width: 540px;
+    max-width: calc(100vw - 60px);
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 720px;
+    max-width: calc(100vw - 60px);
   }
 }
 
 @media (min-width: 992px) {
   .container {
-    max-width: 960px;
+    max-width: calc(100vw - 60px);
   }
 }
 
