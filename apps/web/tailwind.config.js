@@ -27,6 +27,9 @@ module.exports = {
       boxShadow: {
         main: "0 0 30px rgb(0 0 0 / 10%)",
       },
+      screens: {
+        test: { raw: "(max-width: 268px)" },
+      },
     },
   },
   plugins: [],

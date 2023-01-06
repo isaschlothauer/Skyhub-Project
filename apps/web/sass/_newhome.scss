@@ -119,12 +119,105 @@
   
 }
 
-/* Example of Media Query for the CrossImage
-.crossimage1{
-  position: absolute;
+@media only screen and (max-width: 768px) {
+
+  .mainpage-header {
+    width: 100%;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2rem;
+    position: absolute; //This property affects the slightlt difference in the line-height of footer
+    
+
+
+    //Logo container and properties
+    .mainpage-logocontainer {
+        padding-top: 39.5px;
+        text-align: center;
+        padding-bottom: 100px;
+  
+
+        .mainpage-logo {
+          background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
+          width: 100%;
+          height: 90px;
+          margin-left: 40px;
+
+        }
+      }
+  }
+ //Container of the first text on the main page
+ .mainpage-firsttext {
+  font-size: 15px;
+  font-weight: 900;
+  color: #000e95;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top:30px;
+  span {
+    color: #1aebcf;
+  }
+}
+
+
+
+//Container of the second text on the main page
+.mainpage-secondtext {
+  font-size: 15px;
+  font-weight: 900;
+  color: #000e95;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  span {
+    color: #1aebcf;
+  }
+}
+
+.mainpage-robotcontainer{
+  z-index:998;
+
+  .maingpage-robottext {
+    font-size: 30px;
+    line-height: 52px;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    margin-top: 15rem;
+    margin-bottom: 100px;
+    z-index:999;
+    strong {
+      color: #1aebcf;
+    }
+  }
+
+}
+
+
+.crossimage2{
+  display: none;
+  position: relative;
   z-index: 800;
-  width: 8rem;
-  height: 6rem;;
+  width: 3rem;
+  height: 2rem;;
   right:1rem;
 }
-*/
+
+.crossimage1{
+  display: none;
+  position: relative;
+  z-index: 800;
+  width: 3rem;
+  height: 2rem;;
+  right:1rem;
+}
+
+.mainpage-atctile{
+  margin-bottom: 100px;
+}
+
+
+
+}
