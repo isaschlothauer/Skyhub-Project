@@ -9,9 +9,6 @@ module.exports = {
       nunito: ["Nunito", "sans-serif"],
     },
     fontSize: {
-      xs: "0.75rem",
-      sm: "0.875rem",
-      base: "1rem",
       xl: "1.125rem",
     },
     borderWidth: {
