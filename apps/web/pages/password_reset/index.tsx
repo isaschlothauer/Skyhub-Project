@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import styleslrButton from "../../../components/generalButton.module.scss";
-import LoginButton from "../../../components/GeneralButton";
+import styleslrButton from "../../components/generalButton.module.scss";
+import LoginButton from "../../components/GeneralButton";
 import Link from "next/link";
 
 {
@@ -11,8 +11,8 @@ import styles from "./loginRecovery.module.scss";
 {
   /* COMPONENTS */
 }
-import Footer from "../../../components/Footer";
-import Mini_Header from "../../../components/Header";
+import Footer from "../../components/Footer";
+import Mini_Header from "../../components/Header";
 
 const loginSubmit = {
     route: "/",
@@ -28,7 +28,7 @@ function LoginRecovery() {
       
       {/* Temporary text color change. Revise text color for mobile design */}
       <div className={"md:text-neutral-50 "} >
-        <Mini_Header title={"Account Recovery"} />
+        <Mini_Header title={"Reset password"} />
       </div>
 
       <div className={`container mx-auto z-10 px-2 ${styles["page"]}`}>
