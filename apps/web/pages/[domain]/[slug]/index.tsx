@@ -5,6 +5,7 @@ import StaticPageComponent from "../../../components/Staticpage";
 export default function StaticPage() {
   const router = useRouter();
   const { domain, slug } = router.query;
+  
   if(domain == null || slug == null) return <p>Loading...</p>;
 
   return (

@@ -38,10 +38,8 @@ const StaticPage = ({ cSass, miniheader, domain, slug }: StaticProps) => {
       .then(({ content, title, css_class }) => {
         setTitle(title);
         setCssClass(css_class);
-        console.log("Sanizizing:", content);
         const clean = DOMPurify.sanitize(content);
         setContents(clean);
-        console.log("Result:", clean);
       });
   }, []);
 
