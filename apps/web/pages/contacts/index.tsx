@@ -22,9 +22,9 @@ const ContactUs = () => {
        <div className={"mx-auto sm:px-4"}>
          <div className={"flex flex-wrap mb-24"}>
           <div className={`container mx-autosm:px-4 ${contactUsStyle["contact-form"]}`}>
-            <p className={`my-12 sm:text-lg md:text-xl  xl:text-3xl ${contactUsStyle["header"]}`}>
+            <h2 className={`my-12 sm:text-xl md:text-2xl xl:text-3xl ${contactUsStyle["header"]}`}>
                 Got a question?
-            </p>
+            </h2>
           <form className={`ml-10 mr-10 md:px-16 ${contactUsStyle["form-input-fields"]}`}>
             <div className={contactUsStyle["fullname-container"]}>
              <label htmlFor="first-name">First name</label>
