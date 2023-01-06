@@ -38,14 +38,16 @@ export default function Login() {
       <div className={`container mx-auto z-10 px-2 ${styles["page"]}`}>
         <div className={"flex flex-wrap"}>
           <div className={"mx-auto max-w-xl w-full z-10"}>
-            <div className={`pt-7  pb-7 px-4 ${styles["data-input-field"]}`}>
+            {/* <div className={`pt-7  pb-7 px-4 ${styles["data-input-field"]}`}> */}
+            <div className={`pt-7  pb-7 px-4 bg-white shadow-main rounded-[24px]`}>
+
               <form className={`${styles["login-input"]} `}>
 
                 {/* Username input field */}
-                <label htmlFor="username" className={"block"}>Username</label>
+                <label htmlFor="username" className={"block text-pink-primary"}>Username</label>
                   <input
                     type="text"
-                    className={"border-2 w-full rounded-3xl pl-3"}
+                    className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
                     name="username"
                     id="username"
                     placeholder="Enter username or email address"
@@ -53,10 +55,10 @@ export default function Login() {
                   />
                 
                 {/* Password input field */}
-                <label htmlFor="password" className={"block mt-4"}>Password</label>
+                <label htmlFor="password" className={"block mt-4 text-pink-primary"}>Password</label>
                   <input
                     type="password"
-                    className={"border-2 w-full rounded-3xl pl-3"}
+                    className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
                     name="username"
                     id="username"
                     placeholder="Enter password"
@@ -69,12 +71,12 @@ export default function Login() {
                     onChange={handleOnChange}
                     className={"ml-3 z-10"}
                   />
-                  <span className={`ml-2 ${styles["check-box"]}`}>Remember me</span>
+                  <span className={`ml-2 text-pink-primary`}>Remember me</span>
                 </div>
               </form>
 
               {/* Login Submission button */}
-              <div className={"w-min mr-0 mx-auto mt-4"}>
+              <div className={"w-min mx-auto mt-4"}>
                 {/* TO DO: Implement authentication process */}
                 <LoginButton
                   route={loginButton.route}
@@ -86,7 +88,7 @@ export default function Login() {
                 {/* TO DO: Connect link to recovery page */}
                 <Link
                     href="/login/loginRecovery"
-                    className={`${styles["check-box"]}`}
+                    className={`text-pink-primary`}
                   >
                     Forgot login?
                   </Link> 
