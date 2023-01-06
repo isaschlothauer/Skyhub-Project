@@ -30,11 +30,18 @@ export default function Registration() {
   return (
     <div className={styles["registration-page"]}>
       {/* Temporary text color change. Revise text color for mobile design */}
-      <div className={"md:text-neutral-50 "} >
+      <div className={`md:text-neutral-50 `} >
         <Mini_Header title={"Account Registration"} />
       </div>
-      
-      <div className={"sticky sm:fixed sm:left-0 sm:bottom-0 sm:right-0"}>      
+
+      {/* Account data fields */}
+      {/* Border to be deleted once done */}
+      <div className={`${styles["datafields"]} rounded-3xl py-3`}>
+          <div className={"text-center"}>New account data</div>
+          
+
+      </div>
+      <div className={"fixed left-0 bottom-0 right-0"}>      
         <Footer />
       </div>
     </div>
