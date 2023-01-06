@@ -4,7 +4,7 @@ import Image from "next/image";
 {
   /* STYLES */
 }
-import styles from "./airlineContainer.module.scss";
+import styles from "./domain_airlineContainer.module.scss";
 import stylesArrow from "../components/arrowButton.module.scss";
 
 {

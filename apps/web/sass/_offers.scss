@@ -1,22 +1,3 @@
-// REDO
-
-#offers {
-  position: relative;
-}
-
-#offers-filter {
-  position: relative;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
-  background: white;
-  margin-bottom: 60px;
-  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-  padding: 25px;
-}
-
 #offers {
   margin-bottom: 100px;
   .job-offer-list-item {
@@ -30,11 +11,11 @@
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     padding: 45px;
     .job-offer-list-item-image {
-      margin-bottom: 50px;
       img {
-        display: block;
         margin: 0;
+        min-width: 10rem;
         max-width: 100%;
+        max-height: 100%;
       }
     }
     .job-offer-list-item-role {
@@ -49,7 +30,7 @@
       line-height: 28px;
       color: #727481;
       text-transform: uppercase;
-      margin-bottom: 40px;
+      margin-bottom: 1rem;
     }
     .job-offer-list-item-details {
       line-height: 24px;
@@ -106,5 +87,10 @@
         }
       }
     }
+  }
+  .job-image-and-arrow {
+    padding-top: 2.5rem;
+    gap: 2.5rem;
+    align-self: center;
   }
 }

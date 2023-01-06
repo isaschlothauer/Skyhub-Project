@@ -17,7 +17,7 @@ import Mini_Header from "../../components/Header";
 const loginButton = {
     route: "/",
     cSass: styleslrButton["loginreg-pink"],
-    buttontext: "Submit",
+    buttontext: "Sign in",
   }
 
 export default function Login() {
@@ -87,10 +87,10 @@ export default function Login() {
               <div className={`mx-auto w-max mt-3`}>
                 {/* TO DO: Connect link to recovery page */}
                 <Link
-                    href="/login/loginRecovery"
+                    href="/password_reset"
                     className={`text-pink-primary`}
                   >
-                    Forgot login?
+                    Forgot password?
                   </Link> 
               </div>
             </div>
