@@ -11,15 +11,15 @@ import stylesB from "../../components/generalButton.module.scss";
 import Mini_Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import GoBackHome from "../../components/GoBackContainer";
-import InsightsContainer from "../../components/AirlineContainer";
+import InsightsContainer from "../../components/Domain_AirlineContainer";
 import ContainerFAQContact from "../../components/FAQ_Contact_Container";
 import ButtonCMP from "../../components/GeneralButton";
 
 {
   /* IMAGES */
 }
-import JobTilesContainer from "../../components/JobTilesContainer";
-import JobOffersContainer from "../../components/JobOffersContainer";
+import JobTilesContainer from "../../components/Domain_JobTilesContainer";
+import JobOffersContainer from "../../components/Domain_JobOffersContainer";
 
 function Jobs() {
   return (

@@ -109,7 +109,7 @@ const Home = () => {
               <div
                 className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
                   styles["mainpage-logincontainer"]
-                }`} 
+                }`}
               >
                 <div
                   className={`${
@@ -203,7 +203,7 @@ const Home = () => {
       >
         {jobTiles.slice(2, 3).map((atctile) => (
           <Tile
-          key={atctile.id}
+            key={atctile.id}
             tilename={atctile.tilename}
             cSass={atctile.cSass}
             picture={atctile.picture}

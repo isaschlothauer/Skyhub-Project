@@ -1,7 +1,13 @@
 import React from "react";
-import stylesJobTiles from "./jobTilesContainer.module.scss";
-import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+
+{ /* STYLES */ }
+
+import stylesJobTiles from "./domain_jobTilesContainer.module.scss";
+
+{ /* COMPONENTS */ }
+import Image, { StaticImageData } from "next/image";
+
 
 export interface JobTilesContainerProps {
   image: StaticImageData;

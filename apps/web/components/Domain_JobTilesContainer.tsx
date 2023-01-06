@@ -2,11 +2,11 @@ import React from "react";
 
 { /* STYLES */ }
 
-import styles from "./jobTilesContainer.module.scss";
+import styles from "./domain_jobTilesContainer.module.scss";
 
 { /* COMPONENTS */ }
 
-import JobTiles from "./JobTiles";
+import JobTiles from "./Domain_JobTiles";
 
 { /* IMAGES */ }
 
