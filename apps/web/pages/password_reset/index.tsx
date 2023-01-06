@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import styleslrButton from "../../../components/generalButton.module.scss";
-import LoginButton from "../../../components/GeneralButton";
+import styleslrButton from "../../components/generalButton.module.scss";
+import LoginButton from "../../components/GeneralButton";
 import Link from "next/link";
 
 {
@@ -11,8 +11,8 @@ import styles from "./loginRecovery.module.scss";
 {
   /* COMPONENTS */
 }
-import Footer from "../../../components/Footer";
-import Mini_Header from "../../../components/Header";
+import Footer from "../../components/Footer";
+import Mini_Header from "../../components/Header";
 
 const loginSubmit = {
     route: "/",
@@ -28,21 +28,21 @@ function LoginRecovery() {
       
       {/* Temporary text color change. Revise text color for mobile design */}
       <div className={"md:text-neutral-50 "} >
-        <Mini_Header title={"Account Recovery"} />
+        <Mini_Header title={"Reset password"} />
       </div>
 
       <div className={`container mx-auto z-10 px-2 ${styles["page"]}`}>
       <div className={"flex flex-wrap"}>
           <div className={"mx-auto max-w-xl w-full z-10"}>
-            <div className={`pt-7  pb-7 px-4 ${styles["data-input-field"]}`}>
+            <div className={`pt-7  pb-7 px-4 bg-white shadow-main rounded-[24px]`}>
               
               <form className={`${styles["login-input"]} `}>
 
               {/* Username input field */}
-              <label htmlFor="username" className={"block"}>Username</label>
+              <label htmlFor="username" className={"block mt-4 text-pink-primary"}>Username</label>
                 <input
                   type="text"
-                  className={"border-2 w-full rounded-3xl pl-3"}
+                  className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
                   name="username"
                   id="username"
                   placeholder="Enter username or email address"
@@ -51,7 +51,7 @@ function LoginRecovery() {
               </form>
               
               {/* Login Info Submission button */}
-              <div className={"w-min mt-12 mr-0 mx-auto"}>
+              <div className={"w-min mt-12 mx-auto"}>
                 {/* TO DO: Email the account holder with password reset link */}
                 <LoginButton
                   route={loginSubmit.route}
@@ -63,7 +63,7 @@ function LoginRecovery() {
                 {/* Return to landing page */}
                 <Link
                     href="/"
-                    className={`${styles["check-box"]}`}
+                    className={`text-pink-primary`}
                   >
                     Return to landing page
                   </Link> 
