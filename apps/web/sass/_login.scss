@@ -25,37 +25,9 @@
     -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.25);
     
-
     .login-input {
       background: white;
       border-radius: 50px;
-      border: 1px solid grey;
-      position: relative;
-      margin: 0 auto;
-      padding: 0 1rem;
-      width: 100%;
-      .account-input-box {
-        display: block;
-        margin: 0;
-        outline: none;
-        border: none;
-        font-size: 16px;
-        line-height: 32px;
-        height: 32px;
-        width: 100%;
-        background: transparent;
-      }
-      .password-input-box {
-        display: block;
-        margin: 0;
-        outline: none;
-        border: none;
-        font-size: 16px;
-        line-height: 32px;
-        height: 32px;
-        width: 100%;
-        background: transparent;
-      }
     }
   }
   .submitButton {
