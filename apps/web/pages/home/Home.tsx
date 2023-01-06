@@ -188,7 +188,7 @@ const Home = () => {
 
       {/* SECOND TEXT MAIN PAGE*/}
       <div className={`${"container mx-auto sm:px-0"}`}>
-        <div className={"flex flex-wrap"}>
+        <div>
           <div className={"md:w-full pr-4 pl-4"}>
             <div className={styles["mainpage-secondtext"]}>
               ...and even <span>more</span>!

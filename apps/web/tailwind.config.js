@@ -5,7 +5,32 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      nunito: ["Nunito", "sans-serif"],
+    },
+    fontSize: {
+      xs: "0.75rem",
+      sm: "0.875rem",
+      base: "1rem",
+      xl: "1.125rem",
+    },
+    borderWidth: {
+      DEFAULT: "1px",
+      0: "0",
+      2: "2px",
+      3: "3px",
+      4: "4px",
+      6: "6px",
+    },
+    extend: {
+      colors: {
+        "pink-primary": "#ec008c",
+        "light-gray": "#eaeaea",
+      },
+      boxShadow: {
+        main: "0 0 30px rgb(0 0 0 / 10%)",
+      },
+    },
   },
   plugins: [],
 };
