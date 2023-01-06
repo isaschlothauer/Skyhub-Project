@@ -36,7 +36,7 @@ const loginregButtons = [
   },
   {
     id: 2,
-    route: "/login",
+    route: "/registration",
     cSass: styleslrButton["loginreg-pink"],
     buttontext: "Register",
   },
