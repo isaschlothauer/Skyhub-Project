@@ -1,11 +1,15 @@
 import React from "react";
 import Image from "next/image";
 
-import styles from "../pages/jobs/offers/offers.module.scss";
+{/* STYLES */ }
+
+import styles from "./domain_jobOffersContainer.module.scss";
 import stylesArrow from "./arrowButton.module.scss";
 
+{ /* COMPOENTS */ }
 import { LearnMoreArrow } from "./ArrowButton";
 
+{/* IMG */ }
 import jobImg from "../../web/assets/images/widget/bg-widget-1.jpg";
 
 function JobOffersContainer() {
