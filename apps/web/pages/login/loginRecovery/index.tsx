@@ -23,10 +23,6 @@ const loginSubmit = {
 function LoginRecovery() {
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleOnChange = () => {
-      setIsChecked(!isChecked);
-  }
-
   return (
     <div className={styles["login-page"]}>
       
@@ -39,18 +35,21 @@ function LoginRecovery() {
         <div className={"flex flex-wrap"}>
           <div className={"mx-auto sm:w-full max-w-xl z-10"}>
             <div className={`pt-7 mx-2 pb-7 px-4 ${styles["data-input-field"]}`}>
-              <div className={"mb-4"}>
-                <p className={"mb-1"}>Username</p>
-                {/* TO DO: Implement input validation, also verify that account exists, return message if not */}
-                <div className={styles["login-input"]}>
-                  <input
-                    type="text"
-                    name="login_username"
-                    className={styles["account-input-box"]}
-                    placeholder="Enter username or email address..."
-                  />
-                </div>
-              </div>
+              
+              <form className={`${styles["login-input"]} `}>
+
+              {/* Username input field */}
+              <label htmlFor="username" className={"block"}>Username</label>
+                <input
+                  type="text"
+                  className={"border-2 w-full rounded-3xl pl-3"}
+                  name="username"
+                  id="username"
+                  placeholder="Enter username or email address"
+                  required
+                />
+              </form>
+              
               {/* Login Info Submission button */}
               <div className={"w-min mt-12 mr-0 mx-auto"}>
                 {/* TO DO: Email the account holder with password reset link */}
@@ -61,7 +60,7 @@ function LoginRecovery() {
                 />
               </div>
               <div className={`mx-auto w-max mt-5`}>
-                {/* TO DO: Connect link to recovery page */}
+                {/* Return to landing page */}
                 <Link
                     href="/"
                     className={`${styles["check-box"]}`}

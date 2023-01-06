@@ -20,7 +20,7 @@ const loginButton = {
     buttontext: "Submit",
   }
 
-function Login() {
+export default function Login() {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleOnChange = () => {
@@ -53,9 +53,9 @@ function Login() {
                   />
                 
                 {/* Password input field */}
-                <label htmlFor="password" className={"block mt-4"}>Username</label>
+                <label htmlFor="password" className={"block mt-4"}>Password</label>
                   <input
-                    type="text"
+                    type="password"
                     className={"border-2 w-full rounded-3xl pl-3"}
                     name="username"
                     id="username"
@@ -102,4 +102,3 @@ function Login() {
   );
 }
 
-export default Login;
