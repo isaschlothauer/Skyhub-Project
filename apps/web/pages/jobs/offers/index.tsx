@@ -1,24 +1,24 @@
 import React from "react";
 import styles from "./offers.module.scss";
+
 import Mini_Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import ContactUs from "../../../components/ContactUs";
-import JobsBtn from "../../../components/JobsBtn";
+import Domain_jobOffersTile from "../../../components/Domain_jobOffersTile";
 
 export default function Offers() {
   return (
     <div id={"page"}>
       <Mini_Header title={"Job Offers"} />
-      <div className="container">
+      <div className="container mx-auto sm:px-4">
         <div
           className={
-            "row"
+            "flex flex-wrap"
           } /* style="position: relative; z-index: 5; display: none;" */
         >
-          <div className={"col-md-12"}>
+          <div className={"md:w-full pr-4 pl-4"}>
             <div id={styles["offers-filter"]}>
-              <div className={"row"}>
-                <div className={"col-md-9"}>
+              <div className={"flex flex-wrap"}>
+                <div className={"md:w-3/4 pr-4 pl-4"}>
                   <div className={styles["sky-select"]}>
                     <div className={styles["sky-select-content"]}>
                       <label className={styles["sky-select-label"]}>
@@ -35,7 +35,7 @@ export default function Offers() {
                     </div>
                   </div>
                 </div>
-                <div className={"col-md-3"}>
+                <div className={"md:w-1/4 pr-4 pl-4"}>
                   <button
                     type="submit"
                     className={`${"btn"} ${"btn-lg"} ${"btn-pink"} ${"btn-full-width"} ${"btn-rounded"}`}
@@ -47,44 +47,12 @@ export default function Offers() {
             </div>
           </div>
         </div>
-
         <div id={styles.offers} className={styles["offers-branding"]}>
-          <div className={"row"}>
-            {/* @foreach ($offers as $offer) */}
-            <div className={"col-md-4"}>
-              <div className={styles["job-offer-list-item"]}>
-                <div className={styles["job-offer-list-item-image"]}></div>
-                <div className={styles["job-offer-list-item-role"]}>
-                  {/* {{ $offer->title }} */}
-                </div>
-                <div className={styles["job-offer-list-item-company"]}>
-                  {/* {{ $insights[$offer->insight_id]->name }} */}
-                </div>
-                <div className={styles["job-offer-list-item-details"]}>
-                  <div className={styles["job-offer-list-item-contract"]}>
-                    Contract
-                  </div>
-                  <div className={styles["job-offer-list-item-location"]}>
-                    {/* {{ $offer->base }} */}
-                  </div>
-                  <div className={styles["job-offer-list-item-date"]}>
-                    {/* {{ $offer->created_at->diffForHumans() }} */}
-                  </div>
-                </div>
-                <div className={styles["job-offer-list-item-more"]}>
-                  {/* <a href="{{ route('front.offers.single', ['id' => $offer->id]) }}" className="btn btn-lg btn-outline-pink btn-full-width btn-rounded"></a> */}
-                  Read more
-                </div>
-              </div>
-            </div>
-          </div>
+          <Domain_jobOffersTile />
         </div>
         <div
-          className={`${"row"} ${"align-items-end"} ${styles["row-widgets"]}}`}
-        >
-          <JobsBtn />
-          <ContactUs />
-        </div>
+          className={`${"flex flex-wrap items-end"} ${styles["row-widgets"]}}`}
+        ></div>
       </div>
       <Footer />
     </div>

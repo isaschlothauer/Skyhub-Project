@@ -43,7 +43,7 @@ const fcTiles = [
     tilename: "FAQ",
     subtilename: "How can we help you?",
     cSass: stylesFC["contactus-container"],
-    cTailwind: "md:w-1/3 pr-2 pl-2",
+    cTailwind: "w-full md:w-[calc(33.33%-0.5rem)]",
     picture: FAQTile,
     arrowbmap: arrowButtons
       .slice(1, 2)
@@ -62,7 +62,7 @@ const fcTiles = [
     tilename: "Contact Us",
     subtilename: "Do you have questions?",
     cSass: stylesFC["faq-container"],
-    cTailwind: "md:w-2/3 pr-2 pl-2",
+    cTailwind: "w-full md:w-[calc(66.66%-0.5rem)]",
     picture: ContactTile,
     arrowbmap: arrowButtons
       .slice(0, 1)
@@ -82,7 +82,7 @@ const ContainerFAQContact = () => {
     <div
       className={`container mx-auto sm:px-0 ${styles["containerfaqcontact"]}`}
     >
-      <div className={`${"flex flex-wrap"} ${"items-end"}`}>
+      <div className={"flex items-end gap-4 flex-nowrap"}>
         {fcTiles.map((fctile) => (
           <FAQContact
             key={fctile.id}
