@@ -119,9 +119,10 @@
   
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
 
   .mainpage-header {
+    height: calc(140vh/3);
     width: 100%;
     padding-left: 0rem;
     padding-right: 0rem;
@@ -134,16 +135,17 @@
 
     //Logo container and properties
     .mainpage-logocontainer {
-        padding-top: 39.5px;
-        text-align: center;
-        padding-bottom: 100px;
-  
+        padding-top: 9.5px;
+        width: 100px;
+       
 
         .mainpage-logo {
           background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
-          width: 100%;
-          height: 90px;
-          margin-left: 40px;
+          background-size: contain;
+          width: 100px;
+          height: 150px;
+          margin-left: 0px;
+          
 
         }
       }
@@ -180,13 +182,13 @@
   z-index:998;
 
   .maingpage-robottext {
-    font-size: 30px;
+    font-size: 20px;
     line-height: 52px;
     font-weight: 800;
     color: white;
     text-align: center;
-    margin-top: 15rem;
-    margin-bottom: 100px;
+    margin-top: 12rem;
+    margin-bottom: 25px;
     z-index:999;
     strong {
       color: #1aebcf;
@@ -215,9 +217,30 @@
 }
 
 .mainpage-atctile{
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
+.mainpage-logincontainer{
+  z-index:999;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0px;
+  font-size: 10px;
+  align-self: flex-end;
+ 
+ }
+ 
+ 
+.mainpage-logincontainer2nd {
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0px;
+  align-self: flex-end;
+
+
+  font-size: 10px;
+ }
 
 
 }

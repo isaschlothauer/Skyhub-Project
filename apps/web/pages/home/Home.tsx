@@ -93,10 +93,10 @@ const Home = () => {
   return (
     <div className={styles["mainpage"]}>
       <div className={`${styles["mainpage-header"]} ${styles["header-homepage"]}`}>
-        <div className={"flex flex-wrap justify-around"}>
+        <div className={"flex flex-wrap"}>
           <div className={`container mx-auto sm:px-0`}>
-            <div className={"flex flex-wrap justify-end"}>
-              <div className={"md:w-1/3 pr-0 pl-0"}></div>
+            <div className={`flex flex-col-reverse items-center md:flex justify-end`}>
+              
 
               {/*SKYHUB LOGO*/}
               <div className={"md:w-1/4 pr-4 pl-4"}>
@@ -107,14 +107,14 @@ const Home = () => {
 
               {/*LOGIN/REGISTER BUTTON*/}
               <div
-                className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
+                className={`${" md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
                   styles["mainpage-logincontainer"]
                 }`}
               >
                 <div
                   className={`${
                     styles["mainpage-logincontainer2nd"]
-                  } ${"hidden"} ${"md:block"}`}
+                  }  ${"md:block"}`}
                 >
                   {loginregButtons.map((gbutton) => (
                     <LoginButton
@@ -132,7 +132,7 @@ const Home = () => {
       </div>
 
       {/*PHRASE GENERATOR - ROBOT */}
-      <div className={"flex flex-wrap"}>
+      <div className={"flex flex-wrap justify-around"}>
         <div
           className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}
         >
