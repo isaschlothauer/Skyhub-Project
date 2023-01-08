@@ -6,27 +6,13 @@
  
 }
 
-@media screen and (max-width: 501px) {
+@media screen and (max-width: 769px) {
 
   .containerfaqcontact {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     padding-right: 10px;
     padding: 10px;
     
   }
   
   }
-
-  @media only screen and (min-width: 501px) and (max-width:769px) {
-    
-    
-    .containerfaqcontact {
-    margin-bottom: 0px;
-    padding-right: 10px;
-    padding: 10px;
-    height: 200px;
-    
-  }
-
-
-}

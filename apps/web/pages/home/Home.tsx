@@ -95,7 +95,7 @@ const Home = () => {
       <div className={`${styles["mainpage-header"]} ${styles["header-homepage"]}`}>
         <div className={"flex flex-wrap"}>
           <div className={`container mx-auto sm:px-0`}>
-            <div className={`flex flex-col-reverse items-center md:flex justify-end`}>
+            <div className={`flex md:flex justify-end ${styles["mainpage-testtest2"]}`}>
               
 
               {/*SKYHUB LOGO*/}
@@ -107,7 +107,7 @@ const Home = () => {
 
               {/*LOGIN/REGISTER BUTTON*/}
               <div
-                className={`${" md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
+                className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
                   styles["mainpage-logincontainer"]
                 }`}
               >
@@ -197,6 +197,8 @@ const Home = () => {
         </div>
       </div>
 
+  
+
       {/* ATC TILE COMPONENT*/}
       <div
         className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
@@ -214,12 +216,13 @@ const Home = () => {
       </div>
 
       {/*CROSSES AND SQAURES IMAGE*/}
-      <Image
+      <div className={styles["mainpage-testimg"]}>
+       <Image
         className={styles.crossimage2}
         src={CrossandSquare}
         alt="CrossandSquare"
-      />
-
+       />
+      </div>
       {/* FAQ & CONTACT US COMPONENT*/}
       <div
         className={`container mx-auto sm:px-0}`}
