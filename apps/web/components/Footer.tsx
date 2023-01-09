@@ -14,7 +14,7 @@ export default function Footer() {
           className="container mx-auto sm:px-0" /* style="position: relative" */
         >
           <div
-            className={` flex flex-wrap items-end justify-between ${styles["footer-linkswithlogo"]}`}
+            className={` flex items-end justify-between ${styles["footer-linkswithlogo"]}`}
           >
             <div className="md:w-1/3 pr-2 pl-2">
               <Link href="/" className={styles["footer-skyhublogo"]} />
