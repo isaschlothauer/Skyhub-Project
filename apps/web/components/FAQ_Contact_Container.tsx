@@ -82,7 +82,7 @@ const ContainerFAQContact = () => {
     <div
       className={`container mx-auto sm:px-0 ${styles["containerfaqcontact"]}`}
     >
-      <div className={"flex flex-wrap items-end gap-4"}>
+      <div className={"flex items-end gap-4 flex-nowrap"}>
         {fcTiles.map((fctile) => (
           <FAQContact
             key={fctile.id}

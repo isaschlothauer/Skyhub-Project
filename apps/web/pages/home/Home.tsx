@@ -52,7 +52,7 @@ const jobTiles = [
     arrowbmap: (
       <LearnMoreArrow
         arrowtext={"Learn More"}
-        cSass={stylesArrow["arrow-faqcontact"]}
+        cSass={stylesArrow["arrow-jobs"]}
         link={"/jobs"}
       />
     ),
@@ -67,7 +67,7 @@ const jobTiles = [
     arrowbmap: (
       <LearnMoreArrow
         arrowtext={"Learn More"}
-        cSass={stylesArrow["arrow-faqcontact"]}
+        cSass={stylesArrow["arrow-jobs"]}
         link={"/jobs"}
       />
     ),
@@ -82,7 +82,7 @@ const jobTiles = [
     arrowbmap: (
       <LearnMoreArrow
         arrowtext={"Learn More"}
-        cSass={stylesArrow["arrow-faqcontact"]}
+        cSass={stylesArrow["arrow-jobs"]}
         link={"/jobs"}
       />
     ),
@@ -93,7 +93,7 @@ const Home = () => {
   return (
     <div className={styles["mainpage"]}>
       <div className={`${styles["mainpage-header"]} ${styles["header-homepage"]}`}>
-        <div className={"flex flex-wrap"}>
+        <div className={"flex flex-wrap justify-around"}>
           <div className={`container mx-auto sm:px-0`}>
             <div className={"flex flex-wrap justify-end"}>
               <div className={"md:w-1/3 pr-0 pl-0"}></div>
@@ -109,7 +109,7 @@ const Home = () => {
               <div
                 className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
                   styles["mainpage-logincontainer"]
-                }`} 
+                }`}
               >
                 <div
                   className={`${
@@ -203,7 +203,7 @@ const Home = () => {
       >
         {jobTiles.slice(2, 3).map((atctile) => (
           <Tile
-          key={atctile.id}
+            key={atctile.id}
             tilename={atctile.tilename}
             cSass={atctile.cSass}
             picture={atctile.picture}
@@ -222,7 +222,7 @@ const Home = () => {
 
       {/* FAQ & CONTACT US COMPONENT*/}
       <div
-        className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}
+        className={`container mx-auto sm:px-0}`}
       >
         <ContainerFAQContact />
       </div>

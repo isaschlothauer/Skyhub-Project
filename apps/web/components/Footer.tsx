@@ -16,7 +16,7 @@ export default function Footer() {
           <div
             className={` flex flex-wrap items-end justify-between ${styles["footer-linkswithlogo"]}`}
           >
-            <div className="md:w-1/3 pr-3 pl-3">
+            <div className="md:w-1/3 pr-2 pl-2">
               <Link href="/" className={styles["footer-skyhublogo"]} />
             </div>
             <div className="md:w-1/3 pr-3 pl-3">
@@ -27,7 +27,7 @@ export default function Footer() {
             </div>
           </div>
           <div className={`flex flex-wrap  ${styles["footer-copyrightbox"]}`}>
-            <div className="md:w-1/2 pr-3 pl-3">
+            <div className="w-1/2 pr-3 pl-3">
               <div className={styles["footer-copyrightinfo"]}>
                 <span>
                   Copyright {/*&copy;{{ date('Y') }}*/}. All rights reserved.
@@ -37,7 +37,7 @@ export default function Footer() {
                 </Link>
               </div>
             </div>
-            <div className="md:w-1/2 pr-3 pl-3">
+            <div className="w-1/2 pr-3 pl-3">
               <div className="text-right">
                 {/* TODO: LINKEDIN */}
                 <a className={styles["footer-linkedin"]} href="#">

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import AirlineTile from "../../../components/AirlineTile";
+import AirlineTile from "../../../components/Domain_AirlineTile";
 import Select from "../../../components/Select";
 import Logo from "../../../assets/images/airlines/germanairways.jpg";
 import Mini_Header from "../../../components/Header";
