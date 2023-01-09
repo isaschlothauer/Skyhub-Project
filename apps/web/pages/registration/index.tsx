@@ -26,7 +26,7 @@ const inputFieldData = [
   {
     htmlFor: "first name",
     classNameLabel: labelStyling,
-    value: "Firstname",
+    labelValue: "Firstname",
     name: "lastname", 
     id: "lastname",
     classNameInput: inputFieldStyling,
@@ -35,7 +35,7 @@ const inputFieldData = [
   {
     htmlFor: "last name",
     classNameLabel: labelStyling,
-    value: "Lastname",
+    labelValue: "Lastname",
     name: "lastname", 
     id: "lastname",
     classNameInput: inputFieldStyling,
@@ -44,7 +44,7 @@ const inputFieldData = [
   {
     htmlFor: "email",
     classNameLabel: labelStyling,
-    value: "Email",
+    labelValue: "Email",
     name: "email", 
     id: "email",
     classNameInput: inputFieldStyling,
@@ -53,7 +53,7 @@ const inputFieldData = [
   {
     htmlFor: "phonenumber",
     classNameLabel: labelStyling,
-    value: "Phone Number",
+    labelValue: "Phone Number",
     name: "phonenumber", 
     id: "phonenumber",
     classNameInput: inputFieldStyling,
@@ -62,7 +62,7 @@ const inputFieldData = [
   {
     htmlFor: "department",
     classNameLabel: labelStyling,
-    value: "Department",
+    labelValue: "Department",
     name: "department", 
     id: "department",
     classNameInput: inputFieldStyling,
@@ -71,7 +71,7 @@ const inputFieldData = [
   {
     htmlFor: "company",
     classNameLabel: labelStyling,
-    value: "Company",
+    labelValue: "Company",
     name: "company", 
     id: "company",
     classNameInput: inputFieldStyling,
@@ -80,7 +80,7 @@ const inputFieldData = [
   {
     htmlFor: "address",
     classNameLabel: labelStyling,
-    value: "Address",
+    labelValue: "Address",
     name: "address", 
     id: "address",
     classNameInput: inputFieldStyling,
@@ -89,7 +89,7 @@ const inputFieldData = [
   {
     htmlFor: "city",
     classNameLabel: labelStyling,
-    value: "City",
+    labelValue: "City",
     name: "city", 
     id: "city",
     classNameInput: inputFieldStyling,
@@ -98,7 +98,7 @@ const inputFieldData = [
   {
     htmlFor: "postalcode",
     classNameLabel: labelStyling,
-    value: "Postal Code",
+    labelValue: "Postal Code",
     name: "postalcode", 
     id: "postalcode",
     classNameInput: inputFieldStyling,
@@ -107,7 +107,7 @@ const inputFieldData = [
   {
     htmlFor: "country",
     classNameLabel: labelStyling,
-    value: "Country",
+    labelValue: "Country",
     name: "country", 
     id: "country",
     classNameInput: inputFieldStyling,
@@ -173,7 +173,7 @@ export default function Registration() {
             <InputField 
               htmlFor={data.htmlFor} 
               classNameLabel={data.classNameLabel} 
-              value={data.value} 
+              labelValue={data.labelValue} 
               placeholder={data.placeholder} 
               id={data.id} 
               classNameInput={data.classNameInput} 

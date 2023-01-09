@@ -3,7 +3,7 @@ import * as React from 'react';
 interface InputProps {
   htmlFor: string,
   classNameLabel: string,
-  value: string;
+  labelValue: string;
   name: string,
   id: string,
   classNameInput: string;
@@ -13,7 +13,7 @@ interface InputProps {
 export default function DataInputField({
   htmlFor,
   classNameLabel,
-  value,
+  labelValue,
   name,
   id,
   classNameInput,
@@ -21,7 +21,7 @@ export default function DataInputField({
 }: InputProps) {
   return (
     <div className={`w-full`}>
-      <label htmlFor={htmlFor} className={classNameLabel}>{value}</label>
+      <label htmlFor={htmlFor} className={classNameLabel}>{labelValue}</label>
       <input
         type="text"
         className={classNameInput}
