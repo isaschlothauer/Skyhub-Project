@@ -270,88 +270,10 @@
 }
 
 
-
-@media only screen and (min-width:426px) and (max-width: 501px) {
-
-.mainpage-header {
-    height: calc(180vh/3);
-
-    .mainpage-logocontainer {
-        padding-top: 25.5px;
-        width: 150px;
-       
-        .mainpage-logo {
-          background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
-          background-size: contain;
-          width: auto;
-          height: 70px;
-        margin-left: 0px;
-        }
-      }
-}
-
-.mainpage-logincontainer{
-    display: flex;
-    flex-direction: column;
-    margin-left: 0px;
-    font-size: 10px;
-    align-self: flex-end;
- }
-    
-.mainpage-logincontainer2nd {
-    display: flex;
-    flex-direction: column;
-    margin-left: 0px;
-    align-self: flex-end;
-    font-size: 10px;
- }
-
-.mainpage-robotcontainer{
-    .maingpage-robottext {
-      font-size: 24px;
-      line-height: 52px;
-      margin-bottom: 30px;
-    }
- } 
-
-.mainpage-firsttext {
-   font-size: 20px;
-   margin-bottom: 30px;
-   margin-top:30px;
- } 
-
-.mainpage-secondtext {
-   font-size: 20px;
-   margin-top: 20px;
-   margin-bottom: 20px;
- }
-
-.mainpage-atctile{
-   margin-bottom: 50px;
- }
-
-.crossimage2{
-  display: none;
- }
-
-.crossimage1{
-   display: none;
- }
-
-.mainpage-testtest2{
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
- }
-
-}
-
-
-
-@media only screen and (min-width:501px) and (max-width: 769px) {
+@media only screen and (min-width:426px) and (max-width: 769px) {
 
 .mainpage-header {
-    height: calc(220vh/3);
+    height: calc(200vh/3);
 
     .mainpage-logocontainer {
         padding-top: 40.5px;
@@ -485,17 +407,6 @@
 
 
 @media only screen and (min-width: 1025px) and (max-width:1540px) { 
-
-.mainpage-header {
-    .mainpage-logocontainer {
-        width: 200px;
-  
-        .mainpage-logo {
-          background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
-          margin-left: 22.5px;
-        }
-      }
-  }
 
 .mainpage-testimg{
     position: relative;
