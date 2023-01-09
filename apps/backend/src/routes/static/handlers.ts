@@ -1,11 +1,3 @@
-export interface IsReadyProps {
-  muchStudying: string;
-  suchHardWork: string;
-  mcLuck: string;
-}
-
-
-
 import { RequestHandler, Response } from "express";
 import { RowDataPacket } from "mysql2";
 import database from "../../database";
@@ -23,9 +15,10 @@ export const getStaticPage: RequestHandler<{
   slug: string;
 }> = (req, res) => {
   const { domain, slug } = req.params;
+
   database
-    .query<StaticPage[]>(
-      "select content from static_page where domain=? and slug=?",
+    .query<StaticPage[]>( //Row Data Packet info, we define the type of query cause its general too
+      "select title, content, css_class from static_page where domain=? and slug=?",
       [domain, slug]
     )
     .then(([result]) => {

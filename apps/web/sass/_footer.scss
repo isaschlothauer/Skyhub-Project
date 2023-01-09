@@ -83,30 +83,134 @@
   }
 }
 
-//LinkedIn Container (with link to LinkedIn)
-.linkedin {
-  display: inline-block;
-  position: relative;
-  color: #727481;
-  font-size: 12px;
-  line-height: 18px;
-  padding-right: 110px;
-  text-align: left;
-  text-decoration: none;
-  strong {
-    font-size: 16px;
-    display: block;
+
+
+@media screen and (max-width:400px) {
+  #footer {
+    .footer-linkswithlogo {
+      padding-bottom: 7px;
+
+      .footer-skyhublogo {
+        padding-left: 1000000000px;
+        height:45px;
+        background: url("../assets/images/miscellaneous/NewLogoFooter.png") no-repeat center
+          center;
+          background-size: cover;
+      }
+
+
+      .footer-links {
+        a {
+          font-size: 0.6rem;
+          margin-left: 12px;
+        }
+      }
+    }
+    .footer-copyrightbox {
+      justify-content: space-between;
+      padding-bottom: 5px;
+    
+      .footer-copyrightinfo {
+        font-size: 0.4rem;
+        line-height: 3px;
+        a {
+          font-size: 0.6rem;
+        }
+      }
+
+      .footer-linkedin {
+        font-size: 0.4rem;
+        padding-right: 20000px;
+        strong {
+          font-size: 0.6rem;
+          line-height: 3px;
+        }
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 4px;
+          right: 0;
+          width: 50px;
+          height: 20px;
+          background: url("../assets/images/home/footer-linkedin.png") no-repeat
+            center center;
+          background-size: contain;
+        }
+      }
+    }
   }
-  &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 4px;
-    right: 0;
-    width: 81px;
-    height: 32px;
-    background: url("../assets/images/home/footer-linkedin.png") no-repeat
-      center center;
-    background-size: contain;
+}
+
+
+@media screen and (max-width: 768px) {
+
+  #footer {
+    .footer-linkswithlogo {
+      padding-bottom: 7px;
+
+      .footer-skyhublogo {
+        padding-left: 100px;
+        height:45px;
+        background: url("../assets/images/miscellaneous/NewLogoFooter.png") no-repeat center
+          center;
+          background-size: 85%;
+      }
+
+
+      .footer-links {
+        a {
+          font-size: 0.6rem;
+          margin-left: 12px;
+        }
+      }
+    }
+    .footer-copyrightbox {
+      justify-content: space-between;
+      padding-bottom: 5px;
+    
+      .footer-copyrightinfo {
+        font-size: 0.4rem;
+        line-height: 3px;
+        a {
+          font-size: 0.6rem;
+        }
+      }
+
+      .footer-linkedin {
+        font-size: 0.4rem;
+        padding-right: 70px;
+        strong {
+          font-size: 0.6rem;
+          line-height: 3px;
+        }
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 4px;
+          right: 0;
+          width: 50px;
+          height: 20px;
+          background: url("../assets/images/home/footer-linkedin.png") no-repeat
+            center center;
+          background-size: contain;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width:769px) and (max-width: 1024px) {
+  #footer {
+    .footer-linkswithlogo {
+      padding-bottom: 5px;
+      .footer-links {
+        a {
+          font-size: 12px;
+          margin-left: 12px;
+        }
+      }
+    }
   }
 }
