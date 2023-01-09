@@ -27,7 +27,7 @@ export const submitContactForm: RequestHandler<{
             res.status(400).send("Message was not submitted.");
         }   else {
             const newMessage = result.insertId;
-            res.json(newMessage.toString()).sendStatus(201);
+            res.status(201).json(newMessage.toString());
         } 
     })
     .catch((err) => {
