@@ -1,4 +1,12 @@
-import { RequestHandler } from "express";
+export interface IsReadyProps {
+  muchStudying: string;
+  suchHardWork: string;
+  mcLuck: string;
+}
+
+
+
+import { RequestHandler, Response } from "express";
 import { RowDataPacket } from "mysql2";
 import database from "../../database";
 
@@ -6,12 +14,14 @@ export interface StaticPage extends RowDataPacket {
   [field: string]: any;
 }
 
+export interface JobContainer extends RowDataPacket {
+  [field: string]: any;
+}
+
 export const getStaticPage: RequestHandler<{
   domain: string;
   slug: string;
-
 }> = (req, res) => {
-
   const { domain, slug } = req.params;
   database
     .query<StaticPage[]>(
@@ -20,5 +30,21 @@ export const getStaticPage: RequestHandler<{
     )
     .then(([result]) => {
       res.json(result[0]);
+    });
+};
+
+export const getJobsContainer = (
+  req: TypedRequestQuery<{ domain: string }>,
+  res: Response
+) => {
+  const { domain } = req.query;
+  database
+    .query<JobContainer[]>(
+      "SELECT j.job_type as job_type, j.title AS title, j.content AS content FROM job AS j WHERE j.job_type=?",
+      [domain]
+    )
+    .then((result) => {
+      // res.json(result[0]);
+      res.status(200).json(result[0]);
     });
 };

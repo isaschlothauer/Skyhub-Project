@@ -4,6 +4,7 @@ import styles from "./offers.module.scss";
 import Mini_Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import Domain_jobOffersTile from "../../../components/Domain_jobOffersTile";
+import GoBackContainer from "../../../components/GoBackContainer";
 
 export default function Offers() {
   return (
@@ -53,6 +54,7 @@ export default function Offers() {
         <div
           className={`${"flex flex-wrap items-end"} ${styles["row-widgets"]}}`}
         ></div>
+        <GoBackContainer arrowTitle={"Go Back to 'Domain' Page"} link={"/jobs"}/>
       </div>
       <Footer />
     </div>

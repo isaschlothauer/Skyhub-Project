@@ -10,7 +10,7 @@ import stylesB from "../../components/generalButton.module.scss";
 }
 import Mini_Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import GoBackHome from "../../components/GoBackContainer";
+import GoBackContainer from "../../components/GoBackContainer";
 import InsightsContainer from "../../components/Domain_AirlineContainer";
 import ContainerFAQContact from "../../components/FAQ_Contact_Container";
 import ButtonCMP from "../../components/GeneralButton";
@@ -28,11 +28,13 @@ function Jobs() {
 
       <div className={"container mx-auto sm:px-0"}>
         <JobOffersContainer />
-        <ButtonCMP
-          route={"/"}
-          buttontext={"SEE MORE OFFERS"}
-          cSass={`${stylesB["see-more-btn"]}`}
-        />
+        <div className="flex flex-row justify-center mb-5">
+          <ButtonCMP
+            route={"/jobs/offers"}
+            buttontext={"SEE MORE OFFERS"}
+            cSass={`${stylesB["see-more-btn"]}`}
+          />
+        </div>
         <JobTilesContainer />
         <InsightsContainer />
 
@@ -57,7 +59,7 @@ function Jobs() {
   @widget('GoHomepage')
 
 */}
-        <GoBackHome />
+        <GoBackContainer arrowTitle={"Go Back to Home"} link={"/"} />
       </div>
 
       <Footer />
