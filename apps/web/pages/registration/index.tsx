@@ -2,25 +2,15 @@ import React, { useState } from "react";
 import InputField from "../../components/DataInputFIeld"
 import RegistrationButton from "../../components/GeneralButton";
 import styleslrButton from "../../components/generalButton.module.scss";
-// import LoginButton from "../../components/GeneralButton";
 // import Link from "next/link";
+import ReturnHomeContainer from "../../components/GoBackContainer";
 
-{
-  /* STYLES */
-}
+/* STYLES */
 import styles from "./registration.module.scss";
 
-{
-  /* COMPONENTS */
-}
+/* COMPONENTS */
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
-
-// const loginButton = {
-//     route: "/",
-//     cSass: styleslrButton["loginreg-pink"],
-//     buttontext: "Submit",
-//   }
 
 const registrationButton = {
   route: "/",
@@ -28,29 +18,28 @@ const registrationButton = {
   buttontext: "Submit",
 }
 
-
 // Styling options for InputFIeldData
-const labelStyling = "block text-pink-primary mt-4";  //For label
+const labelStyling = "block font-thin text-pink-primary mt-4 ";  //For label
 const inputFieldStyling = "border-2 mt-1 w-full rounded-3xl pl-3 h-9";  // For input field
 
 const inputFieldData = [
   {
-    htmlFor: "firstname",
+    htmlFor: "first name",
     classNameLabel: labelStyling,
     value: "Firstname",
     name: "lastname", 
     id: "lastname",
     classNameInput: inputFieldStyling,
-    placeholder: "Firstname"
+    placeholder: "First name"
   },
   {
-    htmlFor: "lastname",
+    htmlFor: "last name",
     classNameLabel: labelStyling,
     value: "Lastname",
     name: "lastname", 
     id: "lastname",
     classNameInput: inputFieldStyling,
-    placeholder: "Lastname"
+    placeholder: "Last name"
   },
   {
     htmlFor: "email",
@@ -126,10 +115,9 @@ const inputFieldData = [
   }, 
 ]
 
-
 export default function Registration() {
   const [tos, setTOS] = useState(false);
-  const [airlineRep, setAirLineRep] = useState(false);
+  const [airlineRep, setAirlineRep] = useState(false);
   const [recruitmentRep, setRecruitmentRep] = useState(false);
   // Need to set state for all fields
 
@@ -138,7 +126,7 @@ export default function Registration() {
   }
 
   const airlineHandler = () => {
-    setAirLineRep(!airlineRep);
+    setAirlineRep(!airlineRep);
   }
   
   const recruitmentHandler = () => {
@@ -148,21 +136,21 @@ export default function Registration() {
   const inputFieldStyles = "border-2 mt-1 w-full rounded-3xl pl-3 h-9"
 
   return (
-    <div className={styles["registration-page"]}>
+    <div className={`${styles["registration-page"]}`}>
       {/* Temporary text color change. Wait for header component to be fixed. Revise text color for mobile design */}
-      <div className={`md:text-neutral-50 `} >
+      <div className={`md:text-neutral-50`} >
         <Mini_Header title={"Account Registration"} />
       </div>
 
       {/* Account data fields */}
-      <div className={`pt-7 px-4 mx-8 rounded-3xl py-3 shadow-main`}>
+      <div className={`container bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-xl`}>
         <div className={"mt-3"}>
           <p className={"text-center"}>Account type</p>
         <input
             type="checkbox"
             checked={airlineRep}
             onChange={airlineHandler}
-            className={"ml-3 z-10 mt-5"}
+            className={"ml-3 z-10 mt-8"}
           />
           <span className={"ml-2"}>Airline representative</span>
 
@@ -177,7 +165,7 @@ export default function Registration() {
           </div>
 
         </div>
-        <div className={"text-center"}>New account data</div>
+        <div className={"text-center mt-8"}>New account data</div>
           
           {/* Data Input Field */}
           {inputFieldData.map((data) => {
@@ -193,7 +181,7 @@ export default function Registration() {
             />
           )})}
 
-          <div className={"mt-5 mx-2"}>Upon submission, account validation email will be sent to the email address specified. Please follow the link to complete the registration.</div>
+          <div className={"mt-5 mx-2 "}>Upon submission, account validation email will be sent to the email address specified. Please follow the link to complete the registration.</div>
           
           {/* TOS checkbox */}
           <input
@@ -202,18 +190,20 @@ export default function Registration() {
             onChange={tosHandler}
             className={"ml-3 z-10 mt-5"}
           />
-          <span className={"ml-2 text-pink-primary"}>Agree to the terms of service</span>
+          <span className={"ml-2 text-pink-primary"}>Agree to <a href="{{ url('terms-of-service') }}" className={"underline"}>the Terms of Service</a></span>
           
           {/* Account data submission button */}
-          <div className={"mt-5 mx-auto w-max mb-5"}>
+          <div className={"mt-8 mx-auto w-max mb-5"}>
             <RegistrationButton
               route={registrationButton.route}
               cSass={registrationButton.cSass}
               buttontext={registrationButton.buttontext}
             />
-          </div>
-          
+          </div>    
       </div>
+
+      {/* <ReturnHomeContainer /> */}
+
       <div className={"mt-10"}>      
         <Footer />
       </div>

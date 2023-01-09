@@ -35,7 +35,7 @@ export default function Login() {
         <Mini_Header title={"Sign in"} />
       </div>
 
-      <div className={`container mx-auto z-10 px-2 ${styles["page"]}`}>
+      <div className={`container mx-auto px-2 ${styles["page"]}`}>
         <div className={"flex flex-wrap"}>
           <div className={"mx-auto max-w-xl w-full z-10"}>
             <div className={`pt-7  pb-7 px-4 bg-white shadow-main rounded-[24px]`}>
