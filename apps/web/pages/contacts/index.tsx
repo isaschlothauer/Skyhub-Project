@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import axios from "axios";
 
 // importing styles
@@ -49,12 +48,16 @@ const ContactUs = () => {
     })
     .then((res) => {
       console.log('Response received')
-      if (res.status === 200) {
+      if (res.status === 201) {
         console.log('Response succeeded!')
         setIsSubmitted(true)
-        setInputFields({...inputFields })
+        setInputFields({ first_name: '', last_name: '', email: '', message: '' })
       }
     })
+    .catch((err) => {
+      console.error(err);
+      alert('An error occurred while sending your message. Please try again later.');
+    });
     
   };
 
@@ -104,7 +107,14 @@ const ContactUs = () => {
                   cSass={submitButton.cSass}
                   buttontext={submitButton.buttontext}
                 />
-             </div>
+              </div>
+              {isSubmitted && (
+               <div className={"container mb-16 -mt-6 py-6 px-4 rounded-3xl bg-slate-700"}>
+                <p className={"text-white text-center sm:text-xl md:text-2xl xl:text-2xl"}>
+                  Thank you. Your message was submitted ✔
+                </p>
+               </div>
+               )}
            </form>
          </div>
        </div>
