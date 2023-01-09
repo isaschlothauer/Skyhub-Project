@@ -1,6 +1,8 @@
 // REDO
 
 //Container with the properties about the login button
+
+
 .loginreg-pink {
   background: $pink;
   border: 1px solid $pink;
@@ -8,7 +10,7 @@
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
-  padding: 11px 45px;
+  padding: 11px 40px;
   white-space: nowrap; 
   min-width: auto;
   // margin-right: 15px;
@@ -65,7 +67,7 @@
 
 
 
-@media only screen and (min-width: 769px) and (max-width:1051px) {
+@media only screen and (min-width: 769px) and (max-width:1024px) {
 
 .loginreg-pink {
     padding: 11px 30px;
