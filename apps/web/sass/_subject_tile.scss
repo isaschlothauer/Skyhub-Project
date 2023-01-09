@@ -168,7 +168,7 @@
 
 
 
-@media only screen and (min-width: 376px) and (max-width:501px) {
+@media only screen and (min-width: 377px) and (max-width:426px) {
 
 .tile-offers {
     .tile-offerscount {
@@ -203,44 +203,47 @@
 }
 
 
+@media only screen and (min-width: 426px) and (max-width:501px) {
 
-@media only screen and (min-width: 501px) and (max-width:575px) { 
-
-.tile-offers {
-  .tile-offerscount {
-    font-size: 15px;
-    top: 20px;
-    left: 45px;
-    strong {
-      font-size: 10px;
+  .tile-offers {
+      .tile-offerscount {
+        font-size: 12px;
+        top: 20px;
+        left: 40px;
+        strong {
+          font-size: 10px;
+        }
+      }
     }
-   }
+    
+  .tile-traveltheworld {
+      top:60%;
+      padding:25px 10px 10px 20px;
+  
+      .tile-traveltheworld-subtitle {
+        display: none;
+      }
+  
+      .tile-traveltheworld-title {
+        font-size:25px;
+        margin-bottom: 0px;
+      }
+    }
+    
+  .tile-leftline {
+      left: 27px;
+      top: 25%;
+      height: 45%;
+    }
   }
-
-.tile-traveltheworld {
-  top:60%;
-  padding:25px 10px 10px 20px;
-
-.tile-traveltheworld-subtitle {
-    display: none;
-  }
-
-.tile-traveltheworld-title {
-    font-size:38px;
-    margin-bottom: 0px;
-  }
-}
-
-.tile-leftline {
-  left: 27px;
-  top: 22%;
-  height: 47%;
- }
-}
+  
 
 
 
-@media only screen and (min-width: 575px) and (max-width:701px) { 
+
+
+
+@media only screen and (min-width: 501px) and (max-width:769px) { 
 
 .tile-offers {
   .tile-offerscount {
@@ -255,7 +258,7 @@
 
 .tile-traveltheworld {
  top:60%;
- padding:37px 10px 10px 30px;
+ padding: 37px 10px 10px 30px;
 
 .tile-traveltheworld-subtitle {
    display: none;
@@ -276,43 +279,9 @@
 
 
 
-@media only screen and (min-width: 701px) and (max-width:769px) { 
-
-.tile-offers {
- .tile-offerscount {
-   font-size: 15px;
-   top: 30px;
-   left: 65px;
-   strong {
-     font-size: 10px;
-   }
-  }
- }
-
-.tile-traveltheworld {
- top:60%;
- padding:60px 10px 10px 40px;
-
-.tile-traveltheworld-subtitle {
-   display: none;
- }
-
-.tile-traveltheworld-title {
-   font-size:38px;
-   margin-bottom: 0px;
- }
-}
-
-.tile-leftline {
- left: 45px;
- top: 20%;
- height: 55%;
- }
-}
 
 
-
-@media only screen and (min-width: 769px) and (max-width:1024px) { 
+@media only screen and (min-width: 769px) and (max-width:1025px) { 
 
 .tile-offers {
  .tile-offerscount {

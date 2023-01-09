@@ -85,7 +85,7 @@
 
 
 
-@media only screen and (max-width: 396px) {
+@media only screen and (max-width: 376px) {
 
 .arrow-jobs {
     a {
@@ -134,7 +134,7 @@
 
 
 
-@media only screen and (min-width: 397px) and (max-width:501px) {
+@media only screen and (min-width: 377px) and (max-width:426px) {
 
 .arrow-jobs {
     a {
@@ -143,15 +143,15 @@
       padding-right: 0px;
       position: absolute;
       padding-bottom: 100px;
-      right: 5%;
-      top: 45%;
+      right: 0%;
+      top: 58%;
       &:after {
         position: relative;
-        bottom: 50%;
+        bottom: 0%;
         top: 0%;
         left: 0%;
-        height: 35px;
-        width: 45px;
+        height: 27px;
+        width: 37px;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -166,14 +166,14 @@
       position: absolute;
       padding-bottom: 100px;
       right: 0%;
-      top: 20%;
+      top: 30%;
       &:after {
         position: relative;
         bottom: 50%;
         top: 0%;
-        left: 0%;
-        height: 30px;
-        width: 40px;
+        left: 10%;
+        height: 22px;
+        width: 32px;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -183,7 +183,9 @@
   
 
 
-@media only screen and (min-width: 501px) and (max-width: 575px) {
+
+
+@media only screen and (min-width: 426px) and (max-width: 501px) {
 
 .arrow-jobs {
     a {
@@ -193,14 +195,14 @@
       position: absolute;
       padding-bottom: 100px;
       right: 5%;
-      top: 45%;
+      top: 52%;
       &:after {
         position: relative;
         bottom: 50%;
         top: 0%;
         left: 0%;
-        height: 35px;
-        width: 45px;
+        height: 29px;
+        width: 39px;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -215,14 +217,14 @@
       position: absolute;
       padding-bottom: 100px;
       right: 5%;
-      top: 15%;
+      top: 28%;
       &:after {
         position: relative;
         bottom: 50%;
         top: 0%;
         left: 0%;
-        height: 35px;
-        width: 45px;
+        height: 24px;
+        width: 34px;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -232,7 +234,7 @@
 
 
 
-@media only screen and (min-width: 575px) and (max-width: 701px) {
+@media only screen and (min-width: 501px) and (max-width: 769px) {
 
 .arrow-jobs {
     a {
@@ -242,14 +244,14 @@
       position: absolute;
       padding-bottom: 100px;
       right: 5%;
-      top: 45%;
+      top: 63%;
       &:after {
         position: relative;
         bottom: 50%;
         top: 0%;
         left: 0%;
-        height: 35px;
-        width: 45px;
+        height: 31px;
+        width: 41px;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -264,63 +266,14 @@
       position: absolute;
       padding-bottom: 100px;
       right: 5%;
-      top: 15%;
+      top: 20%;
       &:after {
         position: relative;
         bottom: 50%;
         top: 0%;
         left: 0%;
-        height: 35px;
-        width: 45px;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
-        background-size: contain;
-      }
-    }
-  }
-}
-
-
-
-@media only screen and (min-width: 701px) and (max-width: 769px) {
-
-.arrow-jobs {
-    a {
-      color: transparent;
-      font-size: 10px;
-      padding-right: 0px;
-      position: absolute;
-      padding-bottom: 100px;
-      right: 5%;
-      top: 55%;
-      &:after {
-        position: relative;
-        bottom: 50%;
-        top: 0%;
-        left: 0%;
-        height: 45px;
-        width: 55px;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
-        background-size: contain;
-      }
-    }
-  }
-
-.arrow-faqcontact {
-    a {
-      color: transparent;
-      font-size: 10px;
-      padding-right: 0px;
-      position: absolute;
-      padding-bottom: 100px;
-      right: 5%;
-      top: 5%;
-      &:after {
-        position: relative;
-        bottom: 50%;
-        top: 0%;
-        left: 0%;
-        height: 45px;
-        width: 55px;
+        height: 31px;
+        width: 41px;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -330,7 +283,7 @@
 
 
 
-@media only screen and (min-width: 769px) and (max-width:1024px) { 
+@media only screen and (min-width: 769px) and (max-width:1025px) { 
 
 .arrow-jobs {
     a {
@@ -341,10 +294,10 @@
       top: 55%;
       &:after {
         bottom: 50%;
-        top: 10%;
+        top: 14%;
         left: 95%;
-        height: 45px;
-        width: 55px;
+        height: 33px;
+        width: 43px;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -354,10 +307,10 @@
   .arrow-faqcontact {
     a {
       &:after {
-        top: 35%;
+        top: 68%;
         left: 65%;
-        height: 45px;
-        width: 55px;
+        height: 33px;
+        width: 43px;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
