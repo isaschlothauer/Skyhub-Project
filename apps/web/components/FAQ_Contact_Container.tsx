@@ -43,7 +43,8 @@ const fcTiles = [
     tilename: "FAQ",
     subtilename: "How can we help you?",
     cSass: stylesFC["contactus-container"],
-    cTailwind: "w-full md:w-[calc(33.33%-0.5rem)]",
+    cSassTest: stylesFC["faqcontact-maintextfaq"],
+    cTailwind: `w-full w-[calc(33.33%-0.5rem)] ${stylesFC["contactus-testtest"]}`,
     picture: FAQTile,
     arrowbmap: arrowButtons
       .slice(1, 2)
@@ -62,7 +63,8 @@ const fcTiles = [
     tilename: "Contact Us",
     subtilename: "Do you have questions?",
     cSass: stylesFC["faq-container"],
-    cTailwind: "w-full md:w-[calc(66.66%-0.5rem)]",
+    cSassTest: stylesFC["faqcontact-maintextcontact"],
+    cTailwind: `w-full w-[calc(66.66%-0.5rem)] ${stylesFC["contactus-testtest"]}`,
     picture: ContactTile,
     arrowbmap: arrowButtons
       .slice(0, 1)
@@ -88,6 +90,7 @@ const ContainerFAQContact = () => {
             key={fctile.id}
             tilename={fctile.tilename}
             cSass={fctile.cSass}
+            cSassTest={fctile.cSassTest}
             subtilename={fctile.subtilename}
             cTailwind={fctile.cTailwind}
             picture={fctile.picture}
