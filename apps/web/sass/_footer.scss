@@ -86,19 +86,16 @@
 
 
 @media screen and (max-width:400px) {
-  #footer {
-    .footer-linkswithlogo {
+
+#footer {
+ .footer-linkswithlogo {
       padding-bottom: 7px;
       
-
       .footer-skyhublogo {
         padding-left: 100px;
         height:45px;
-        background: url("../assets/images/miscellaneous/NewLogoFooter.png") no-repeat center
-          center;
-          background-size: 85%;
+        background-size: 85%;
       }
-
 
       .footer-links {
         a {
@@ -107,8 +104,9 @@
         }
       }
     }
-    .footer-copyrightbox {
-      
+
+
+ .footer-copyrightbox {
       padding-bottom: 5px;
     
       .footer-copyrightinfo {
@@ -126,17 +124,10 @@
           font-size: 0.6rem;
           line-height: 3px;
         }
+
         &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          top: 4px;
-          right: 0;
           width: 50px;
           height: 20px;
-          background: url("../assets/images/home/footer-linkedin.png") no-repeat
-            center center;
-          background-size: contain;
         }
       }
     }
@@ -144,20 +135,18 @@
 }
 
 
+
 @media screen and (min-width: 401px) and (max-width: 768px) {
 
-  #footer {
-    .footer-linkswithlogo {
+#footer {
+  .footer-linkswithlogo {
       padding-bottom: 7px;
 
       .footer-skyhublogo {
         padding-left: 100px;
         height:45px;
-        background: url("../assets/images/miscellaneous/NewLogoFooter.png") no-repeat center
-          center;
-          background-size: 85%;
+        background-size: 85%;
       }
-
 
       .footer-links {
         a {
@@ -166,7 +155,8 @@
         }
       }
     }
-    .footer-copyrightbox {
+
+  .footer-copyrightbox {
       justify-content: space-between;
       padding-bottom: 5px;
     
@@ -186,25 +176,20 @@
           line-height: 3px;
         }
         &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          top: 4px;
-          right: 0;
           width: 50px;
           height: 20px;
-          background: url("../assets/images/home/footer-linkedin.png") no-repeat
-            center center;
-          background-size: contain;
         }
       }
     }
   }
 }
 
+
+
 @media screen and (min-width:769px) and (max-width: 1024px) {
-  #footer {
-    .footer-linkswithlogo {
+
+#footer {
+  .footer-linkswithlogo {
       padding-bottom: 5px;
       .footer-links {
         a {

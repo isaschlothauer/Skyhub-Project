@@ -26,20 +26,20 @@
           margin-left: 18px;
 
         }
-      }
-  }
+    }
+}
 
 
 //Containeirs of the Login/Register buttons
 .mainpage-logincontainer{
    z-index:999;
-  }
+}
   
   
 .mainpage-logincontainer2nd {
    padding-top: 40px;
    z-index: 999;
-  }
+}
 
 
 //Container of the phrase generator component
@@ -133,12 +133,10 @@
     }
 */
   }
-
-
 }
 
  //Container of the first text on the main page
-  .mainpage-firsttext {
+.mainpage-firsttext {
     font-size: 48px;
     font-weight: 900;
     color: #000e95;
@@ -148,12 +146,12 @@
     span {
       color: #1aebcf;
     }
-  }
+}
 
 
 
   //Container of the second text on the main page
-  .mainpage-secondtext {
+.mainpage-secondtext {
     font-size: 48px;
     font-weight: 900;
     color: #000e95;
@@ -163,7 +161,7 @@
     span {
       color: #1aebcf;
     }
-  }
+}
 
   
 //Container of the ATC Tile
@@ -197,609 +195,332 @@
 
 @media only screen and (max-width: 426px) {
 
-  .mainpage-header {
+.mainpage-header {
     height: calc(140vh/3);
-    width: 100%;
-    padding-left: 0rem;
-    padding-right: 0rem;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 2rem;
-    position: absolute; //This property affects the slightlt difference in the line-height of footer
-    
 
-
-    //Logo container and properties
     .mainpage-logocontainer {
         padding-top: 15.5px;
         width: 120px;
        
-  
         .mainpage-logo {
           background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
           background-size: contain;
           width: auto;
           height: 70px;
-        margin-left: 0px;
-  
+          margin-left: 0px;
         }
       }
-  }
+ }
 
-
-  .mainpage-firsttext {
-    font-size: 15px;
-    font-weight: 900;
-    color: #000e95;
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top:30px;
-    span {
-      color: #1aebcf;
-    }
-  }
-  
-  
-  
-  //Container of the second text on the main page
-  .mainpage-secondtext {
-    font-size: 15px;
-    font-weight: 900;
-    color: #000e95;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    span {
-      color: #1aebcf;
-    }
-  }
-  
-  .mainpage-robotcontainer{
-    z-index:998;
-  
-    .maingpage-robottext {
-      font-size: 20px;
-      line-height: 52px;
-      font-weight: 800;
-      color: white;
-      text-align: center;
-      margin-top: 10rem;
-      margin-bottom: 25px;
-      z-index:999;
-      strong {
-        color: #1aebcf;
-      }
-    }
-  
-  }
-  
-  
-  .crossimage2{
-    display: none;
-    position: relative;
-    z-index: 800;
-    width: 3rem;
-    height: 2rem;;
-    right:1rem;
-  }
-  
-  .crossimage1{
-    display: none;
-    position: relative;
-    z-index: 800;
-    width: 3rem;
-    height: 2rem;;
-    right:1rem;
-  }
-  
-  .mainpage-atctile{
-    margin-bottom: 50px;
-  }
-  
-  .mainpage-logincontainer{
-    z-index:999;
+.mainpage-logincontainer{
     display: flex;
     flex-direction: column;
     margin-left: 0px;
     font-size: 10px;
     align-self: flex-end;
+ }
    
-   }
-   
-   
-  .mainpage-logincontainer2nd {
-    z-index: 999;
+.mainpage-logincontainer2nd {
     display: flex;
     flex-direction: column;
     margin-left: 0px;
     align-self: flex-end;
     padding-top: 20px;
-  
-  
     font-size: 10px;
-   }
+ }
 
-   
-   .mainpage-testtest2{
-display: flex;
-flex-direction: column-reverse;
-align-items: center;
+.mainpage-robotcontainer{
+    .maingpage-robottext {
+      font-size: 20px;
+      line-height: 52px;
+      margin-top: 10rem;
+      margin-bottom: 25px;
+    }
+ }
 
-   }
-
-
-
+.mainpage-firsttext {
+    font-size: 15px;
+    margin-bottom: 30px;
+    margin-top:30px;
+ }
+  
+.mainpage-secondtext {
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+ }
+  
+.crossimage2{
+    display: none;
+ }
+  
+.crossimage1{
+    display: none;
+ }
+  
+.mainpage-atctile{
+    margin-bottom: 50px;
+ }
+  
+.mainpage-testtest2 {
+     display: flex;
+     flex-direction: column-reverse;
+     align-items: center
+ }
 }
 
 
 
 @media only screen and (min-width:426px) and (max-width: 501px) {
 
-  .mainpage-header {
+.mainpage-header {
     height: calc(180vh/3);
-    width: 100%;
-    padding-left: 0rem;
-    padding-right: 0rem;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 2rem;
-    position: absolute; //This property affects the slightlt difference in the line-height of footer
-    
 
-
-    //Logo container and properties
     .mainpage-logocontainer {
         padding-top: 25.5px;
         width: 150px;
        
-  
         .mainpage-logo {
           background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
           background-size: contain;
           width: auto;
           height: 70px;
         margin-left: 0px;
-  
         }
       }
-  
-  }
- //Container of the first text on the main page
- .mainpage-firsttext {
-  font-size: 20px;
-  font-weight: 900;
-  color: #000e95;
-  text-align: center;
-  margin-bottom: 30px;
-  margin-top:30px;
-  span {
-    color: #1aebcf;
-  }
-}
-
-
-
-//Container of the second text on the main page
-.mainpage-secondtext {
-  font-size: 20px;
-  font-weight: 900;
-  color: #000e95;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  span {
-    color: #1aebcf;
-  }
-}
-
-.mainpage-robotcontainer{
-  z-index:998;
-
-  .maingpage-robottext {
-    font-size: 24px;
-    line-height: 52px;
-    font-weight: 800;
-    color: white;
-    text-align: center;
-    margin-top: 15rem;
-    margin-bottom: 30px;
-    z-index:999;
-    strong {
-      color: #1aebcf;
-    }
-  }
-
-}
-
-
-.crossimage2{
-  display: none;
-  position: relative;
-  z-index: 800;
-  width: 3rem;
-  height: 2rem;;
-  right:1rem;
-}
-
-.crossimage1{
-  display: none;
-  position: relative;
-  z-index: 800;
-  width: 3rem;
-  height: 2rem;;
-  right:1rem;
-}
-
-.mainpage-atctile{
-  margin-bottom: 50px;
 }
 
 .mainpage-logincontainer{
-  z-index:999;
-  display: flex;
-  flex-direction: column;
-  margin-left: 0px;
-  font-size: 10px;
-  align-self: flex-end;
- 
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+    font-size: 10px;
+    align-self: flex-end;
  }
- 
- 
+    
 .mainpage-logincontainer2nd {
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  margin-left: 0px;
-  align-self: flex-end;
-
-
-  font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+    align-self: flex-end;
+    font-size: 10px;
  }
 
- .mainpage-testtest2{
+.mainpage-robotcontainer{
+    .maingpage-robottext {
+      font-size: 24px;
+      line-height: 52px;
+      margin-bottom: 30px;
+    }
+ } 
+
+.mainpage-firsttext {
+   font-size: 20px;
+   margin-bottom: 30px;
+   margin-top:30px;
+ } 
+
+.mainpage-secondtext {
+   font-size: 20px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+ }
+
+.mainpage-atctile{
+   margin-bottom: 50px;
+ }
+
+.crossimage2{
+  display: none;
+ }
+
+.crossimage1{
+   display: none;
+ }
+
+.mainpage-testtest2{
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  
-     }
-
+ }
 
 }
 
+
+
 @media only screen and (min-width:501px) and (max-width: 769px) {
 
-  .mainpage-header {
+.mainpage-header {
     height: calc(220vh/3);
-    width: 100%;
-    padding-left: 0rem;
-    padding-right: 0rem;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 2rem;
-    position: absolute; //This property affects the slightlt difference in the line-height of footer
-    
 
-
-    //Logo container and properties
     .mainpage-logocontainer {
         padding-top: 40.5px;
         width: 180px;
        
-  
         .mainpage-logo {
           background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
           background-size: contain;
           width: auto;
           height: 70px;
-        margin-left: 0px;
-  
+          margin-left: 0px;
         }
       }
-  
-  }
- //Container of the first text on the main page
- .mainpage-firsttext {
-  font-size: 24px;
-  font-weight: 900;
-  color: #000e95;
-  text-align: center;
-  margin-bottom: 50px;
-  margin-top:50px;
-  span {
-    color: #1aebcf;
-  }
-}
+ }
 
-
-
-//Container of the second text on the main page
-.mainpage-secondtext {
-  font-size: 24px;
-  font-weight: 900;
-  color: #000e95;
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  span {
-    color: #1aebcf;
-  }
-}
+.mainpage-logincontainer{
+  display: flex;
+  flex-direction: column;
+  margin-left: 0px;
+  font-size: 10px;
+  align-self: flex-end;
+ }
+ 
+.mainpage-logincontainer2nd {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0px;
+  align-self: flex-end;
+  font-size: 10px;
+ }
 
 .mainpage-robotcontainer{
-  z-index:998;
-
   .maingpage-robottext {
     font-size: 28px;
-    line-height: 52px;
-    font-weight: 800;
-    color: white;
-    text-align: center;
     margin-top: 17rem;
     margin-bottom: 30px;
-    z-index:999;
-    strong {
-      color: #1aebcf;
-    }
   }
+ }
 
-}
+ .mainpage-firsttext {
+  font-size: 24px;
+  margin-bottom: 50px;
+  margin-top:50px;
+ }
 
-
-.crossimage2{
-  display: none;
-  position: relative;
-  z-index: 800;
-  width: 3rem;
-  height: 2rem;;
-  right:1rem;
-}
-
-.crossimage1{
-  display: none;
-  position: relative;
-  z-index: 800;
-  width: 3rem;
-  height: 2rem;;
-  right:1rem;
-}
+.mainpage-secondtext {
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+ }
 
 .mainpage-atctile{
   margin-bottom: 50px;
-}
-
-.mainpage-logincontainer{
-  z-index:999;
-  display: flex;
-  flex-direction: column;
-  margin-left: 0px;
-  font-size: 10px;
-  align-self: flex-end;
- 
- }
- 
- 
-.mainpage-logincontainer2nd {
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  margin-left: 0px;
-  align-self: flex-end;
-
-
-  font-size: 10px;
  }
 
- .mainpage-testtest2{
+.crossimage2{
+  display: none;
+ }
+
+.crossimage1{
+  display: none;
+ }
+
+.mainpage-testtest2{
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  
-     }
+  }
+}
 
-    }
 
 
 @media only screen and (min-width: 769px) and (max-width:1025px) { 
-  .mainpage-header {
-    width: 100%;
+
+.mainpage-header {
     height: calc(200vh/3);
-    padding-left: 0rem;
-    padding-right: 0rem;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 2rem;
-    position: absolute; //This property affects the slightlt difference in the line-height of footer
-    
 
-
-    //Logo container and properties
     .mainpage-logocontainer {
-        padding-top: 40px;
-        text-align: center;
-        padding-bottom: 100px;
         width: 200px;
   
-
         .mainpage-logo {
           background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
-          width: 100%;
-          height: 90px;
           margin-left: 22.5px;
-
         }
       }
   }
 
-
-  .mainpage-firsttext {
-    font-size: 30px;
-    font-weight: 900;
-    color: #000e95;
-    text-align: center;
-    margin-bottom: 70px;
-    margin-top:70px;
-    span {
-      color: #1aebcf;
-    }
-  }
-  
-  
-  
-  //Container of the second text on the main page
-  .mainpage-secondtext {
-    font-size: 30px;
-    font-weight: 900;
-    color: #000e95;
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    span {
-      color: #1aebcf;
-    }
-  }
-  
-  .mainpage-robotcontainer{
-    z-index:998;
-  
+.mainpage-robotcontainer{
     .maingpage-robottext {
       font-size: 35px;
-      line-height: 52px;
-      font-weight: 800;
-      color: white;
-      text-align: center;
-      margin-top: 15rem;
       margin-bottom: 100px;
-      z-index:999;
-      strong {
-        color: #1aebcf;
-      }
     }
   
   }
 
-  .mainpage-atctile{
+.mainpage-firsttext {
+    font-size: 30px;
+    margin-bottom: 70px;
+    margin-top:70px;
+  }
+  
+.mainpage-secondtext {
+    font-size: 30px;
+  }
+  
+.mainpage-atctile{
     margin-bottom: 140px;
   }
 
-  .mainpage-testimg{
+.mainpage-testimg{
     position: relative;
     
-    
-     .crossimage2{
-      
-      z-index: 999;
+    .crossimage2{
       width: 150px;
       height: 100px;
       right: 20px;
       top: -10rem;
         }
-      }
+  }
     
-  
-  .crossimage1{
-   
+.crossimage1{
     position: absolute;
     z-index: 999;
     width: 150px;
     height: 100px;
     top:320px;
     left:30px;
-    
   }
- 
 }
+
+
 
 @media only screen and (min-width: 1025px) and (max-width:1540px) { 
 
-  .mainpage-header {
-    width: 100%;
-    height: calc(250vh/3);
-    padding-left: 0rem;
-    padding-right: 0rem;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 2rem;
-    position: absolute; //This property affects the slightlt difference in the line-height of footer
-    
-
-
-    //Logo container and properties
+.mainpage-header {
     .mainpage-logocontainer {
-        padding-top: 40px;
-        text-align: center;
-        padding-bottom: 100px;
         width: 200px;
   
-
         .mainpage-logo {
           background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
-          width: 100%;
-          height: 90px;
           margin-left: 22.5px;
-
         }
       }
   }
 
-  .mainpage-atctile{
-    margin-bottom: 200px;
-  }
-
-
-  .mainpage-testimg{
+.mainpage-testimg{
     position: relative;
-    
-    
+  
     .crossimage2{
-      z-index: 999;
-      width: 200px;
-      height: 150px;
       right:120px;
       top:-15rem;
         }
-      }
+  }
     
-  .crossimage1{
-   
-    position: absolute;
-    z-index: 999;
-    width: 200px;
-    height: 150px;
+.crossimage1{
     top:330px;
     left:90px;
-    
   }
-
-
 }
-
-
 
 
 
 @media only screen and (min-width: 1540px) and (max-width:2561px) {
 
-
-  .crossimage2{
+.crossimage2{
     display: none;
-    position: absolute;
-    z-index: 999;
-    width: 200px;
-    height: 150px;
-    right:200px;
-    top:155rem;
-  
   }
   
-  .crossimage1{
+.crossimage1{
     display: none;
-    position: absolute;
-    z-index: 999;
-    width: 200px;
-    height: 150px;
-    top:350px;
-    left:90px;
-    
   }
-
 } 

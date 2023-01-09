@@ -39,179 +39,58 @@
 
 @media only screen and (max-width: 426px) {
 
-//Container with the properties about the login button
 .loginreg-pink {
-  background: $pink;
-  border: 1px solid $pink;
-  color: $white;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
   padding: 2px 10px;
-  white-space: nowrap; 
-  min-width: auto;
-  font-weight: 600;
-  &:hover {
-    text-decoration: none;
-  }
-}
+ }
 
-//Container with the properties about the register button
 .loginreg-white {
-  background: transparent;
-  border: 2px solid $white;
-  color: $white;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
   padding: 2px 14px;
-  font-weight: 600;
   margin-right:0px;
   margin-bottom: 0.5rem;
-  
-  &:hover {
-    background: $white;
-    color: $pink;
-    transition: 0.2s;
-    text-decoration: none;
-  }
-}
-
-
+ }
 }
 
 @media only screen and (min-width: 426px) and (max-width:769px) {
-  .loginreg-pink {
-    background: $pink;
-    border: 1px solid $pink;
-    color: $white;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
+
+.loginreg-pink {
     padding: 11px 30px;
-    white-space: nowrap; 
-    min-width: auto;
     margin-left: 5rem;
-    
-    // margin-right: 15px;
-    font-weight: 600;
-    &:hover {
-      text-decoration: none;
-    }
   }
   
-  //Container with the properties about the register button
-  .loginreg-white {
-    background: transparent;
-    border: 1px solid $white;
-    color: $white;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
+.loginreg-white {
     padding: 11px 36px;
-    font-weight: 600;
     margin-bottom: 0.5rem;
     margin-right: 0px;
-    &:hover {
-      background: $white;
-      color: $pink;
-      transition: 0.2s;
-      text-decoration: none;
-    }
   }
-  
-  
-  }
-
+}
 
 
 
 @media only screen and (min-width: 769px) and (max-width:1024px) {
 
-  .loginreg-pink {
-    background: $pink;
-    border: 1px solid $pink;
-    color: $white;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
+.loginreg-pink {
     padding: 11px 30px;
-    white-space: nowrap; 
-    min-width: auto;
     margin-left: 5rem;
-    
-    // margin-right: 15px;
-    font-weight: 600;
-    &:hover {
-      text-decoration: none;
-    }
   }
   
-  //Container with the properties about the register button
-  .loginreg-white {
-    background: transparent;
-    border: 1px solid $white;
-    color: $white;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
+.loginreg-white {
     padding: 11px 39px;
-    font-weight: 600;
     margin-bottom: 0.5rem;
     margin-right: 0px;
-    &:hover {
-      background: $white;
-      color: $pink;
-      transition: 0.2s;
-      text-decoration: none;
-    }
   }
-  
-  
-  }
+}
 
 
 
 @media only screen and (min-width: 1025px) and (max-width:1050px) {
 
-  .loginreg-pink {
-    background: $pink;
-    border: 1px solid $pink;
-    color: $white;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-    padding: 11px 45px;
-    white-space: nowrap; 
-    min-width: auto;
+.loginreg-pink {
     margin-left: 2rem;
-    
-    // margin-right: 15px;
-    font-weight: 600;
-    &:hover {
-      text-decoration: none;
-    }
   }
   
-  //Container with the properties about the register button
-  .loginreg-white {
-    background: transparent;
-    border: 1px solid $white;
-    color: $white;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-    padding: 11px 54px;
-    font-weight: 600;
+.loginreg-white {
+    padding: 11px 54px;;
     margin-bottom: 0.5rem;
     margin-right: 0px;
-    &:hover {
-      background: $white;
-      color: $pink;
-      transition: 0.2s;
-      text-decoration: none;
-    }
   }
-  
-  
-  }
+}
