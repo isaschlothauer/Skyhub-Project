@@ -1,6 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 
+
 {
   /*STYLES*/
 }
@@ -95,6 +96,7 @@ const Home = () => {
       <div className={`${styles["mainpage-header"]} ${styles["header-homepage"]}`}>
         <div className={"flex flex-wrap"}>
           <div className={`container mx-auto sm:px-0`}>
+
             <div className={`flex md:flex justify-end ${styles["mainpage-testtest2"]}`}>
               
 
@@ -137,7 +139,16 @@ const Home = () => {
           className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}
         >
           <h1 className={styles["maingpage-robottext"]}>
-            Find your <strong data-find-text></strong> {/*!!! Database Info*/}
+            Find your
+            <strong>
+             {/*<div className="message">
+              <div className="word1">dream</div>
+              <div className="word2">job</div>
+              <div className="word3">passion</div>
+              <div className="word4">airline</div>
+              <div className="word5">salary</div>
+                  </div>*/}
+             </strong>
           </h1>
         </div>
       </div>
