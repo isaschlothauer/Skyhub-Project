@@ -1,32 +1,34 @@
 import * as React from 'react';
 
 interface InputProps {
-  label: string;
-  input: string;
+  htmlFor: string,
+  classNameLabel: string,
+  value: string;
+  name: string,
+  id: string,
+  classNameInput: string;
+  placeholder: string;
 }
 
-// let fields: InputProps[];
-
-// console.log(fields);
-
 export default function DataInputField({
-  label,
-  input,
+  htmlFor,
+  classNameLabel,
+  value,
+  name,
+  id,
+  classNameInput,
+  placeholder
 }: InputProps) {
-  const { value } = label;
-  const { placeholder, id, className } = input; 
-  console.log(typeof fields)
-
   return (
     <div className={`w-full`}>
-      <label htmlFor="username" className={"block text-pink-primary"}>{value}</label>
+      <label htmlFor={htmlFor} className={classNameLabel}>{value}</label>
       <input
         type="text"
-        className={className}
-        name="username"
-        id="username"
+        className={classNameInput}
+        name={name}
+        id={id}
         placeholder={placeholder}
-        required
+        required 
       />
     </div>
   )

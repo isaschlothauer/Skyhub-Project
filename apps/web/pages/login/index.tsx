@@ -38,7 +38,6 @@ export default function Login() {
       <div className={`container mx-auto z-10 px-2 ${styles["page"]}`}>
         <div className={"flex flex-wrap"}>
           <div className={"mx-auto max-w-xl w-full z-10"}>
-            {/* <div className={`pt-7  pb-7 px-4 ${styles["data-input-field"]}`}> */}
             <div className={`pt-7  pb-7 px-4 bg-white shadow-main rounded-[24px]`}>
 
               <form className={`${styles["login-input"]} `}>
