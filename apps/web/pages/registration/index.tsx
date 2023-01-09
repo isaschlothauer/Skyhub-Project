@@ -12,6 +12,18 @@ import styles from "./registration.module.scss";
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 
+// TO DO
+// 1. Setup state for all input fields and check boxes
+// 2. Decide if input field div should be wider and name fields should be inline for wider screen
+// 3. Implement Term of Service check. If not checked, disable submit buttom
+// 4. Submit button should show validation message and link to login page
+// 5. 
+
+
+
+
+
+
 const registrationButton = {
   route: "/",
   cSass: styleslrButton["loginreg-pink"],
@@ -57,7 +69,7 @@ const inputFieldData = [
     name: "phonenumber", 
     id: "phonenumber",
     classNameInput: inputFieldStyling,
-    placeholder: "Phone number"
+    placeholder: "+country-code phone-number"
   },
   {
     htmlFor: "department",
