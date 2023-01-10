@@ -3,7 +3,7 @@
 .all-container {
     position: relative;
     z-index: 2;
-    min-height: calc(100vh - 212px);
+    min-height: calc(100vh - 13.25rem);
  }
 
 // contact us container with all content
@@ -55,13 +55,13 @@
 
       input, textarea {
         border: 1px solid #727481;
-        border-radius: 50px;
+        border-radius: 3.125rem;
         color: #222351;
         resize: none;
       }
     
       .message-box {
-        border-radius: 30px;
+        border-radius: 1.875rem;
       }
 }
 
