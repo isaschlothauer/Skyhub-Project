@@ -76,6 +76,9 @@
 
 }
 
+
+
+//MOBILE SIZE (S and M)
 @media screen and (max-width: 376px) {
 
   .faqcontact {
@@ -111,12 +114,17 @@
     height: 6.25rem;
   }
  }
-  
-.contactus-testtest{
+
+
+//This class was built to handle the size of the container FAQ and Contact Us, for just this specific query
+.faqcontact-generalcontainer{
   width:50%;
  }
 }
 
+
+
+//MOBILE SIZE (L)
 @media only screen and (min-width: 377px) and (max-width:426px) {
 
   .faqcontact {
@@ -155,6 +163,7 @@
   
 
 
+//TABLET SIZE (THIS SIZE WAS DIVIDED SO THE CONTENT COULD RESPOND PROPERLY TO DIFFERENT SIZES OF SCREEN)
 @media only screen and (min-width: 426px) and (max-width:501px) {
 
     .faqcontact {
@@ -193,6 +202,7 @@
 
 
 
+//TABLET SIZE (THIS SIZE WAS DIVIDED SO THE CONTENT COULD RESPOND PROPERLY TO DIFFERENT SIZES OF SCREEN)
 @media only screen and (min-width: 501px) and (max-width:769px) {
 
     .faqcontact {
@@ -232,6 +242,7 @@
 
 
 
+//SMALL COMPUTER SIZE
 @media only screen and (min-width: 769px) and (max-width:1025px) {
 
 .faqcontact {
