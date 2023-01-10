@@ -4,7 +4,7 @@
 .staticpage{
     position: relative;
     z-index: 2;
-    min-height: calc(100vh - 212px);
+    min-height: calc(100vh - 13.25rem);
   }
     
 
@@ -14,9 +14,9 @@
       z-index: 2;
       -webkit-border-radius: 25px;
       -moz-border-radius: 25px;
-      border-radius: 25px;
+      border-radius: 1.563rem;
       background: white;
-      margin-bottom: 60px;
+      margin-bottom: 3.75rem;
       -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
       -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
@@ -24,39 +24,39 @@
   
       //Properties of the information/content retrieved from the database
       .staticpage-databaseinfo {
-        padding: 40px 25px;
+        padding: 2.5rem 1.563rem;
         color: #727481;
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 1rem;
+        line-height: 1.5rem;
         p {
-          margin-bottom: 20px;
+          margin-bottom: 1.25rem;
         }
         hr {
           border: none;
-          height: 1px;
+          height: 0.063rem;
           width: 100%;
           background: #e8e9eb;
-          margin: 15px 0;
+          margin: 0.938rem 0;
         }
         h2 {
-          font-size: 20px;
-          line-height: 28px;
+          font-size: 1.25rem;
+          line-height: 1.75rem;
           color: #727481;
           font-weight: normal;
-          margin-bottom: 30px;
+          margin-bottom: 1.875rem;
         }
         h3 {
-          font-size: 16px;
-          line-height: 24px;
+          font-size: 1rem;
+          line-height: 1.5rem;
           color: #ec008c;
           font-weight: bold;
-          margin-bottom: 25px;
+          margin-bottom: 1.563rem;
         }
         ul {
-          padding-left: 25px;
-          margin-bottom: 25px;
+          padding-left: 1.563rem;
+          margin-bottom: 1.563rem;
           li {
-            margin-bottom: 15px;
+            margin-bottom: 0.938rem;
           }
         }
       }
@@ -68,26 +68,26 @@
       position: relative;
       color: #727481;
       .staticpage-companytext {
-        font-size: 12px;
-        line-height: 18px;
+        font-size: 0.75rem;
+        line-height: 1.125rem;
       }
       .staticpage-companylink {
         a {
-          font-size: 16px;
+          font-size: 1rem;
           font-weight: bold;
-          line-height: 24px;
+          line-height: 1.5rem;
           color: #727481;
           text-decoration: none;
         }
       }
       .staticpage-companyarrow {
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 0.625rem;
+        right: 0.625rem;
         a {
           display: block;
-          width: 16px;
-          height: 14px;
+          width: 1rem;
+          height: 0.875rem;
           background: url("../assets/images/icons/arrow-right.png") no-repeat center
             center;
         }

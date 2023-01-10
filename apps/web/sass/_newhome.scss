@@ -15,16 +15,16 @@
 
     //Logo container and properties
     .mainpage-logocontainer {
-        padding-top: 40px;
+        padding-top: 2.5rem;
         text-align: center;
-        padding-bottom: 100px;
+        padding-bottom: 6.25rem;
   
 
         .mainpage-logo {
           background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
           width: 100%;
-          height: 90px;
-          margin-left: 18px;
+          height: 5.625rem;
+          margin-left: 1.125rem;
 
         }
     }
@@ -39,7 +39,7 @@
   
   
 .mainpage-logincontainer2nd {
-   padding-top: 40px;
+   padding-top: 2.5rem;
    z-index: 999;
 }
 
@@ -49,13 +49,13 @@
   z-index:998;
 
   .maingpage-robottext {
-    font-size: 48px;
-    line-height: 52px;
+    font-size: 3rem;
+    line-height: 3.25rem;
     font-weight: 800;
     color: white;
     text-align: center;
     margin-top: 15rem;
-    margin-bottom:150px;
+    margin-bottom: 9.375rem;
     z-index:999;
     /*strong {
       color: #1aebcf;
@@ -139,12 +139,12 @@
 
  //Container of the first text on the main page
 .mainpage-firsttext {
-    font-size: 46px;
+    font-size: 2.875rem;
     font-weight: 900;
     color: #000e95;
     text-align: center;
-    margin-bottom: 120px;
-    margin-top:120px;
+    margin-bottom: 7.5rem;
+    margin-top:7.5rem;
     span {
       color: #1aebcf;
     }
@@ -154,12 +154,12 @@
 
   //Container of the second text on the main page
 .mainpage-secondtext {
-    font-size: 46px;
+    font-size: 2.875rem;
     font-weight: 900;
     color: #000e95;
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 3.125rem;
+    margin-bottom: 3.125rem;
     span {
       color: #1aebcf;
     }
@@ -168,7 +168,7 @@
   
 //Container of the ATC Tile
 .mainpage-atctile{
-  margin-bottom: 200px;
+  margin-bottom: 12.5rem;
 }
 
 
@@ -177,9 +177,9 @@
 .crossimage2{
   position: absolute;
   z-index: 999;
-  width: 200px;
-  height: 150px;
-  right:200px;
+  width: 12.5rem;
+  height: 9.375rem;
+  right:12.5rem;
   top:155rem;
 
 }
@@ -187,10 +187,10 @@
 .crossimage1{
   position: absolute;
   z-index: 999;
-  width: 200px;
-  height: 150px;
-  top:290px;
-  left:150px;
+  width: 12.5rem;
+  height: 9.375rem;
+  top:18.125rem;
+  left:9.375rem;
   
 }
 
@@ -204,15 +204,15 @@
       @apply w-0 pr-28 pl-0;
 
     .mainpage-logocontainer {
-        padding-top: 15.5px;
-        width: 120px;
+        padding-top: 0.969rem;
+        width: 7.5rem;
        
         .mainpage-logo {
           background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
           background-size: contain;
           width: auto;
-          height: 70px;
-          margin-left: 0px;
+          height: 4.375rem;
+          margin-left: 0rem;
         }
       }
     }
@@ -221,39 +221,39 @@
 .mainpage-logincontainer{
     display: flex;
     flex-direction: column;
-    margin-left: 0px;
-    font-size: 10px;
+    margin-left: 0rem;
+    font-size: 0.625rem;
     align-self: flex-end;
  }
    
 .mainpage-logincontainer2nd {
     display: flex;
     flex-direction: column;
-    margin-left: 0px;
+    margin-left: 0rem;
     align-self: flex-end;
-    padding-top: 20px;
-    font-size: 10px;
+    padding-top: 1.25rem;
+    font-size: 0.625rem;
  }
 
 .mainpage-robotcontainer{
     .maingpage-robottext {
-      font-size: 17px;
-      line-height: 52px;
+      font-size: 1.063rem;
+      line-height: 3.25rem;
       margin-top: 10rem;
-      margin-bottom: 25px;
+      margin-bottom: 1.563rem;
     }
  }
 
 .mainpage-firsttext {
-    font-size: 15px;
-    margin-bottom: 30px;
-    margin-top:30px;
+    font-size: 0.938rem;
+    margin-bottom: 1.875rem;
+    margin-top:1.875rem;
  }
   
 .mainpage-secondtext {
-    font-size: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    font-size: 0.938rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
  }
   
 .crossimage2{
@@ -265,7 +265,7 @@
  }
   
 .mainpage-atctile{
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
  }
   
 .mainpage-testtest2 {
@@ -285,15 +285,15 @@
   @apply w-0 pr-48;
 
     .mainpage-logocontainer {
-        padding-top: 40.5px;
-        width: 200px;
+        padding-top: 2.531rem;
+        width: 12.5rem;
        
         .mainpage-logo {
           background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
           background-size: contain;
           width: auto;
-          height: 70px;
-          margin-left: 0px;
+          height: 4.375rem;
+          margin-left: 0rem;
         }
     }
     }
@@ -302,41 +302,41 @@
 .mainpage-logincontainer{
   display: flex;
   flex-direction: column;
-  margin-left: 0px;
-  font-size: 10px;
+  margin-left: 0rem;
+  font-size: 0.625rem;
   align-self: flex-end;
  }
  
 .mainpage-logincontainer2nd {
   display: flex;
   flex-direction: column;
-  margin-left: 0px;
+  margin-left: 0rem;
   align-self: flex-end;
-  font-size: 10px;
+  font-size: 0.625rem;
  }
 
 .mainpage-robotcontainer{
   .maingpage-robottext {
-    font-size: 30px;
+    font-size: 1.875rem;
     margin-top: 17rem;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
   }
  }
 
  .mainpage-firsttext {
-  font-size: 26px;
-  margin-bottom: 50px;
-  margin-top:50px;
+  font-size: 1.625rem;
+  margin-bottom: 3.125rem;
+  margin-top:3.125rem;
  }
 
 .mainpage-secondtext {
-  font-size: 26px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  font-size: 1.625rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
  }
 
 .mainpage-atctile{
-  margin-bottom: 50px;
+  margin-bottom: 3.125rem;
  }
 
 .crossimage2{
@@ -363,44 +363,44 @@
 
 
     .mainpage-logocontainer {
-        width: 200px;
+        width: 12.5rem;
   
         .mainpage-logo {
           background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
-          margin-left: 22.5px;
+          margin-left: 1.406rem;
         }
       }
   }
 
 .mainpage-robotcontainer{
     .maingpage-robottext {
-      font-size: 35px;
-      margin-bottom: 100px;
+      font-size: 2.188rem;
+      margin-bottom: 6.25rem;
     }
   
   }
 
 .mainpage-firsttext {
-    font-size: 30px;
-    margin-bottom: 70px;
-    margin-top:70px;
+    font-size: 1.875rem;
+    margin-bottom: 4.375rem;
+    margin-top:4.375rem;
   }
   
 .mainpage-secondtext {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
   
 .mainpage-atctile{
-    margin-bottom: 140px;
+    margin-bottom: 8.75rem;
   }
 
 .mainpage-testimg{
     position: relative;
     
     .crossimage2{
-      width: 150px;
-      height: 100px;
-      right: 20px;
+      width: 9.375rem;
+      height: 6.25rem;
+      right: 1.25rem;
       top: -10rem;
         }
   }
@@ -408,10 +408,10 @@
 .crossimage1{
     position: absolute;
     z-index: 999;
-    width: 150px;
-    height: 100px;
-    top:320px;
-    left:30px;
+    width: 9.375rem;
+    height: 6.25rem;
+    top:20rem;
+    left:1.875rem;
   }
 }
 
@@ -423,14 +423,14 @@
     position: relative;
   
     .crossimage2{
-      right:120px;
+      right:7.5rem;
       top:-15rem;
         }
   }
     
 .crossimage1{
-    top:330px;
-    left:90px;
+    top:20.625rem;
+    left:5.625rem;
   }
 }
 
