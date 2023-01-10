@@ -58,8 +58,8 @@ export default function Login() {
                   <input
                     type="password"
                     className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
-                    name="username"
-                    id="username"
+                    name="password"
+                    id="password"
                     placeholder="Enter password"
                     required
                   />
