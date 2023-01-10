@@ -6,6 +6,7 @@ import Mini_Header from "../../../components/Header";
 import FAQ_Contact_Container from "../../../components/FAQ_Contact_Container";
 import Footer from "../../../components/Footer";
 import styles from "./insights.module.scss";
+import Pagination from "../../../components/Pagination";
 
 const optionsRegion = [
   "---",
@@ -105,7 +106,7 @@ export default function Insights() {
             })}
           </div>
         </div>
-
+        <Pagination CurrentPage={1} />
         <FAQ_Contact_Container />
         <Footer />
       </div>
