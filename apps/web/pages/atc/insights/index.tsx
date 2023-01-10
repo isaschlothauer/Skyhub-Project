@@ -59,7 +59,7 @@ export default function Insights() {
     const newQuery =
       selectedRegion === "---" // check if selected region is empty
         ? prevQuerywithoutRegion //if so set query as the query object without region
-        : { ...prevQuerywithoutRegion, region: selectedRegion }; //else add the new selected region to query
+        : { ...prevQuerywithoutRegion, region: selectedRegion, page: 1 }; //else add the new selected region to query
     router.push({ query: newQuery }); //updates the query part of the url
   };
 
@@ -68,7 +68,7 @@ export default function Insights() {
     const newQuery =
       selectedType === "---"
         ? prevQuerywithoutType
-        : { ...prevQuerywithoutType, type: selectedType };
+        : { ...prevQuerywithoutType, type: selectedType, page: 1 };
     router.push({ query: newQuery });
   };
 
@@ -106,7 +106,7 @@ export default function Insights() {
             })}
           </div>
         </div>
-        <Pagination CurrentPage={1} />
+        <Pagination totalPage={3} />
         <FAQ_Contact_Container />
         <Footer />
       </div>

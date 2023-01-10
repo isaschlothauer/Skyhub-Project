@@ -3,22 +3,31 @@ import { useState } from "react";
 import ArrowRight from "../assets/images/icons/arrow-right-pink.png";
 import ArrowLeft from "../assets/images/icons/arrow-left-pink.png";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 interface PaginationProps {
-  CurrentPage: number;
+  totalPage: number;
 }
 
-export default function Pagination({ CurrentPage }: PaginationProps) {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPage, setTotalPage] = useState(3);
-
+export default function Pagination({ totalPage }: PaginationProps) {
+  const router = useRouter();
+  const currentPage = router.query.page
+    ? parseInt(router.query.page as string)
+    : 1;
   const handleNextPage = () => {
-    setCurrentPage(currentPage + 1);
+    handlePageChange(currentPage + 1);
+  };
+
+  const handlePageChange = (selectedPage: number) => {
+    const newQuery = { ...router.query, page: selectedPage };
+    console.log(newQuery);
+    router.push({ query: newQuery });
   };
 
   const handlePrevPage = () => {
-    setCurrentPage(currentPage - 1);
+    handlePageChange(currentPage - 1);
   };
+
   return (
     <div className="container flex flex-row flex-wrap justify-center items-center gap-2 ">
       {currentPage > 1 && (
