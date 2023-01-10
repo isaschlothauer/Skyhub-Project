@@ -7,7 +7,7 @@
     display: block;
     width: 100%;
     margin: 0;
-    border-radius: 25px;
+    border-radius: 1.563rem;
     -webkit-box-shadow:  0px 16px 40px rgba(112, 144, 176, 0.25);
     -moz-box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.25);
     box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.25);
@@ -21,30 +21,30 @@
       left: 0;
       width: 100%;
       color: white;
-      padding-bottom: 30px;
-      padding-left: 30px;
+      padding-bottom: 1.875rem;
+      padding-left: 1.875rem;
     
       //Sub text properties
       .faqcontact-subtext {
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 600;
-        line-height: 24px;
-        margin-bottom: 5px;
+        line-height: 1.5rem;
+        margin-bottom: 0.313rem;
       }
     
       //Main text properties
       .faqcontact-maintextfaq {
-        font-size: 32px;
+        font-size: 2rem;
         font-weight: 900;
-        line-height: 38px;
-        margin-bottom: 25px;
+        line-height: 2.375rem;
+        margin-bottom: 1.563rem;
       }
 
       .faqcontact-maintextcontact {
-        font-size: 32px;
+        font-size: 2rem;
         font-weight: 900;
-        line-height: 38px;
-        margin-bottom: 25px;
+        line-height: 2.375rem;
+        margin-bottom: 1.563rem;
       }
 }
 
@@ -53,10 +53,10 @@
   content: "";
   display: block;
   position: absolute;
-  bottom: -68px;
-  right: -8px;
-  width: 101px;
-  height: 136px;
+  bottom: -4.25rem;
+  right: -0.5rem;
+  width: 6.313rem;
+  height: 8.5rem;
   background: url("../assets/images/widget/bg-widget-contact-brand.png")
     no-repeat center center;
 }
@@ -66,10 +66,10 @@
   content: "";
   display: block;
   position: absolute;
-  bottom: -12px;
-  right: -20px;
-  width: 213px;
-  height: 158px;
+  bottom: -0.75rem;
+  right: -1.25rem;
+  width: 13.313rem;
+  height: 9.875rem;
   background: url("../assets/images/widget/bg-widget-contact-brand.png")
     no-repeat center center;
 }
@@ -80,35 +80,35 @@
 
   .faqcontact {
       img {
-          height: 86px;    
+          height: 5.375rem;    
         }
   
       .faqcontact-textoverlay {
           top:30%;
           width: 100%;
-          padding-left: 0px;
+          padding-left: 0rem;
         
         .faqcontact-subtext {
           display: none;
         }
       
         .faqcontact-maintextfaq {
-          font-size: 11px;
-          margin-left: 50px;
+          font-size: 0.688rem;
+          margin-left: 3.125rem;
         }
 
         .faqcontact-maintextcontact {
-          font-size: 11px;
-          margin-left: 27px;
+          font-size: 0.688rem;
+          margin-left: 1.688rem;
         }
   }
   
   .faq-container {
-    height: 100px;
+    height: 6.25rem;
   }
   
   .contactus-container {
-    height: 100px;
+    height: 6.25rem;
   }
  }
   
@@ -121,34 +121,34 @@
 
   .faqcontact {
       img {
-          height: 86px;
+          height: 5.375rem;
        }
   
       .faqcontact-textoverlay {
           top:35%;
-          padding-left: 20px;
+          padding-left: 1.25rem;
         
         .faqcontact-subtext {
           display: none;
         }
       
         .faqcontact-maintextfaq {
-          font-size: 15px;
-          margin-bottom: 0px;
+          font-size: 0.938rem;
+          margin-bottom: 0rem;
         }
 
         .faqcontact-maintextcontact {
-          font-size: 15px;
-          margin-bottom: 0px;
+          font-size: 0.938rem;
+          margin-bottom: 0rem;
         }
   }
   
   .faq-container {
-    height: 100px;
+    height: 6.25rem;
   }
   
   .contactus-container {
-    height: 100px;
+    height: 6.25rem;
   }
 }
 }
@@ -159,34 +159,34 @@
 
     .faqcontact {
         img {
-            height: 86px;
+            height: 5.375rem;
          }
     
         .faqcontact-textoverlay {
             top:35%;
-            padding-left: 20px;
+            padding-left: 1.25rem;
           
           .faqcontact-subtext {
             display: none;
           }
         
           .faqcontact-maintextfaq {
-            font-size: 15px;
-            margin-bottom: 0px;
+            font-size: 1.063rem;
+            margin-bottom: 0rem;
           }
 
           .faqcontact-maintextcontact {
-            font-size: 15px;
-            margin-bottom: 0px;
+            font-size: 1.063rem;
+            margin-bottom: 0rem;
           }
     }
     
     .faq-container {
-      height: 100px;
+      height: 6.25rem;
     }
     
     .contactus-container {
-      height: 100px;
+      height: 6.25rem;
     }
   }
 }
@@ -197,35 +197,35 @@
 
     .faqcontact {
          img {
-            height: 100px;
+            height: 6.25rem;
           }
         .faqcontact-textoverlay {
             top:35%;
-            padding-left: 0px;
+            padding-left: 0rem;
 
           .faqcontact-subtext {
             display: none;
           }
         
           .faqcontact-maintextfaq {
-            font-size: 20px;
-            margin-bottom: 0px;
-            padding-left: 30px;
+            font-size: 1.563rem;
+            margin-bottom: 0rem;
+            padding-left: 1.875rem;
           }
 
           .faqcontact-maintextcontact {
-            font-size: 20px;
-            margin-bottom: 0px;
-            padding-left: 30px;
+            font-size: 1.563rem;
+            margin-bottom: 0rem;
+            padding-left: 1.875rem;
           }
     }
     
     .faq-container {
-      height: 100px;
+      height: 6.25rem;
     }
     
     .contactus-container {
-      height: 100px;
+      height: 6.25rem;
     }
   }
 }
@@ -236,14 +236,14 @@
 
 .faqcontact {
         .faqcontact-textoverlay {
-          padding-bottom: 25px;
+          padding-bottom: 1.563rem;
         
           .faqcontact-maintextfaq {
-            font-size: 25px;
+            font-size: 1.688rem;
           }
 
           .faqcontact-maintextcontact {
-            font-size: 25px;
+            font-size: 1.688rem;
           }
     }
   }

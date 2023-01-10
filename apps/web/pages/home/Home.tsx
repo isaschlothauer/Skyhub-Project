@@ -99,9 +99,9 @@ const Home = () => {
 
             <div className={`flex md:flex justify-end ${styles["mainpage-testtest2"]}`}>
               
-
+            
               {/*SKYHUB LOGO*/}
-              <div className={"md:w-1/4 pr-4 pl-4"}>
+              <div className={styles["mainpage-testcontainer"]}>
                 <div className={styles["mainpage-logocontainer"]}>
                   <div className={styles["mainpage-logo"]}></div>
                 </div>
@@ -120,6 +120,7 @@ const Home = () => {
                 >
                   {loginregButtons.map((gbutton) => (
                     <LoginButton
+                      className={"ml-8 lg:ml-0"}
                       key={gbutton.id}
                       route={gbutton.route}
                       cSass={gbutton.cSass}
