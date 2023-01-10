@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useDebugValue, useState } from "react";
 import styleslrButton from "../../components/generalButton.module.scss";
 import LoginButton from "../../components/GeneralButton";
 import Link from "next/link";
@@ -14,6 +14,16 @@ import styles from "./login.module.scss";
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 
+// TO DO
+// 1.User login status implement
+//    1.1 Should user status be lifted to bypass login page, change landing page login button to log off?
+//    1.2 Landing page should have if (user).... to check for login status of user
+
+// 2. Implement persistent login via cookie?
+//    2.1 Should this also be lifted?
+
+// 3. DO something about the password state. It should not store plain password
+
 const loginButton = {
     route: "/",
     cSass: styleslrButton["loginreg-pink"],
@@ -21,11 +31,25 @@ const loginButton = {
   }
 
 export default function Login() {
-  const [isChecked, setIsChecked] = useState(false);
+  const [user, setUser] = useState(false);  // User login status. 
+  const [remember, setRemember] = useState(false);  // Login status to be kept persistent or not
+  
+  const [login, setLogin] = useState({
+    username: "",
+    password: ""
+  });
 
-  const handleOnChange = () => {
-      setIsChecked(!isChecked);
+  function loginHandler(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement >) {
+    setLogin({...login,
+      [event.target.name]: event.target.value})
   }
+
+  function submitBehavior (event: React.MouseEvent<HTMLButtonElement>): void {
+    event.preventDefault();
+    console.log(login.password);
+  }
+
+  console.log(login.username);
 
   return (
     <div className={styles["login-page"]}>
@@ -50,6 +74,8 @@ export default function Login() {
                     name="username"
                     id="username"
                     placeholder="Enter username or email address"
+                    value={login.username}
+                    onChange={loginHandler}
                     required
                   />
                 
@@ -61,13 +87,15 @@ export default function Login() {
                     name="password"
                     id="password"
                     placeholder="Enter password"
+                    value={login.password}
+                    onChange={loginHandler}
                     required
                   />
                   <div className={"mt-3 flex"}>
                   <input
                     type="checkbox"
-                    checked={isChecked}
-                    onChange={handleOnChange}
+                    checked={remember}
+                    onChange={() => setRemember(!remember)}
                     className={"ml-3 z-10"}
                   />
                   <span className={`ml-2 text-pink-primary`}>Remember me</span>
@@ -78,6 +106,7 @@ export default function Login() {
               <div className={"w-min mx-auto mt-4"}>
                 {/* TO DO: Implement authentication process */}
                 <LoginButton
+                  onClick={submitBehavior}
                   route={loginButton.route}
                   cSass={loginButton.cSass}
                   buttontext={loginButton.buttontext}
