@@ -14,7 +14,7 @@ export const validateInput: RequestHandler<{
     const nameRegex = /^[a-zA-Z\s-']+$/;
 
     // first name validation
-    if(first_name == ' ') {
+    if(first_name == null || first_name.trim() === '') {
         errors.push({ field: "first_name", message: "⚠ this field is required"})
     } else if (first_name.length >= 255) {
         errors.push({ field: "first_name", message: "⚠ this field should contain less than 255 characters"})
@@ -23,7 +23,7 @@ export const validateInput: RequestHandler<{
     }
     
     // last name validation
-    if(last_name == ' ') {
+    if(last_name == null || last_name.trim() === '') {
         errors.push({ field: "last_name", message: "⚠ this field is required"})
     } else if (last_name.length >= 255) {
         errors.push({ field: "last_name", message: "⚠ this field should contain less than 255 characters"})
@@ -31,13 +31,13 @@ export const validateInput: RequestHandler<{
         errors.push({ field: "last_name", message: "⚠ this field should contain only letters, spaces, hyphens, and apostrophes"})
     }
     // email validation
-    if (email == ' ') {
+    if (email == null || email.trim() === '') {
         errors.push({ field: "email", message: "⚠ this field is required"})
     } else if  (!emailRegex.test(email)) {
         errors.push({ field: 'email', message: '⚠ Invalid email' });
     }
     // message validation
-    if(message == ' ') {
+    if(message == null || message.trim() === '') {
         errors.push({ field: "message", message: "⚠ this field is required"})
     }
     // if there are erorrs send 422 status, if not - proceed to next step

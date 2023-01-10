@@ -72,7 +72,6 @@ const ContactUs = () => {
         serverErrors.forEach((error: { field: string; message: string; }) => {
           errors[error.field] = error.message;
         });
-        setIsSubmitted(true)
         setErrors(errors);
       }
 
@@ -98,7 +97,7 @@ const ContactUs = () => {
                type="text"  
                value={inputFields.first_name} 
                />
-                {errors.first_name && <p className={contactUsStyle["validation-errors"]}>{errors.first_name}</p>}
+                {errors.first_name && !isSubmitted && <p className={contactUsStyle["validation-errors"]}>{errors.first_name}</p>}
              <label htmlFor="last-name">Last name*</label>
                <input onChange={handleInputFields} className={"h-12 p-8"} 
                id="last_name"
@@ -106,7 +105,7 @@ const ContactUs = () => {
                type="text" 
                value={inputFields.last_name} 
                />
-               {errors.last_name && <p className={contactUsStyle["validation-errors"]}>{errors.last_name}</p>}
+               {errors.last_name && !isSubmitted && <p className={contactUsStyle["validation-errors"]}>{errors.last_name}</p>}
             </div>
              <label htmlFor="email">Email*</label>
                <input onChange={handleInputFields} className={"h-12 p-8"} 
@@ -115,14 +114,14 @@ const ContactUs = () => {
                type="text"  
                value={inputFields.email} 
                 />
-                {errors.email && <p className={contactUsStyle["validation-errors"]}>{errors.email}</p>}
+                {errors.email && !isSubmitted && <p className={contactUsStyle["validation-errors"]}>{errors.email}</p>}
              <label htmlFor="message">Your message*</label>
                <textarea onChange={handleInputFields} className={`h-32 p-8 ${contactUsStyle["message-box"]}`} 
                id="message" 
                name="message"
                value={inputFields.message} 
                />
-                {errors.message && <p className={contactUsStyle["validation-errors"]}>{errors.message}</p>}
+                {errors.message && !isSubmitted && <p className={contactUsStyle["validation-errors"]}>{errors.message}</p>}
                <div className={contactUsStyle["submit-button"]} >
               <Button
                   onClick={handleSubmit}
