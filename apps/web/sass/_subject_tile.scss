@@ -131,7 +131,7 @@
 }
 
 
-
+//MOBILE SIZE (S and M)
 @media only screen and (max-width: 376px) {
 
 .tile-offers {
@@ -168,6 +168,7 @@
 
 
 
+//MOBILE SIZE (L)
 @media only screen and (min-width: 377px) and (max-width:426px) {
 
 .tile-offers {
@@ -203,6 +204,8 @@
 }
 
 
+
+//TABLET SIZE (THIS SIZE WAS DIVIDED SO THE CONTENT COULD RESPOND PROPERLY TO DIFFERENT SIZES OF SCREEN)
 @media only screen and (min-width: 426px) and (max-width:501px) {
 
   .tile-offers {
@@ -238,11 +241,9 @@
   }
   
 
+  
 
-
-
-
-
+//TABLET SIZE (THIS SIZE WAS DIVIDED SO THE CONTENT COULD RESPOND PROPERLY TO DIFFERENT SIZES OF SCREEN)
 @media only screen and (min-width: 501px) and (max-width:769px) { 
 
 .tile-offers {
@@ -279,8 +280,7 @@
 
 
 
-
-
+//SMALL COMPUTER SIZE
 @media only screen and (min-width: 769px) and (max-width:1025px) { 
 
 .tile-offers {

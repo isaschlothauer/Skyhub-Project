@@ -195,6 +195,8 @@
 }
 
 
+
+//MOBILE SIZE (ALL SIZES)
 @media only screen and (max-width: 426px) {
 
 .mainpage-header {
@@ -276,6 +278,8 @@
 }
 
 
+
+//TABLET SIZE (ALL SIZES)
 @media only screen and (min-width:426px) and (max-width: 769px) {
 
 .mainpage-header {
@@ -356,6 +360,7 @@
 
 
 
+//SMALL COMPUTER SIZE
 @media only screen and (min-width: 769px) and (max-width:1025px) { 
 
 .mainpage-header {
@@ -417,6 +422,7 @@
 
 
 
+//NOTE: THE TWO FOLLOWING QUERIES ARE SIMPLY USED TO ADJUST THE IMAGE CROSSES AND SQUARES TO THE BIG SCREEN SIZES
 @media only screen and (min-width: 1025px) and (max-width:1540px) { 
 
 .mainpage-testimg{
