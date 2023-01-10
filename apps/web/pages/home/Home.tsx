@@ -1,5 +1,6 @@
 import * as React from "react";
 import Image from "next/image";
+import { useState } from "react";
 
 
 {
@@ -91,6 +92,11 @@ const jobTiles = [
 ];
 
 const Home = () => {
+  // From Login page. This should change button render according to login state
+  // Once logged in, Login button should change to Log Out
+  // Register to Admin (or Admin Panel or Page) 
+  const [userLogin, setUserLogin] = useState(false); 
+
   return (
     <div className={styles["mainpage"]}>
       <div className={`${styles["mainpage-header"]} ${styles["header-homepage"]}`}>

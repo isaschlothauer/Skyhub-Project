@@ -1,16 +1,14 @@
 import React, { useDebugValue, useState } from "react";
-import styleslrButton from "../../components/generalButton.module.scss";
-import LoginButton from "../../components/GeneralButton";
 import Link from "next/link";
+import axios from "axios";
 
-{
+
   /* STYLES */
-}
 import styles from "./login.module.scss";
+import styleslrButton from "../../components/generalButton.module.scss";
 
-{
   /* COMPONENTS */
-}
+import LoginButton from "../../components/GeneralButton";
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 
@@ -18,11 +16,14 @@ import Mini_Header from "../../components/Header";
 // 1.User login status implement
 //    1.1 Should user status be lifted to bypass login page, change landing page login button to log off?
 //    1.2 Landing page should have if (user).... to check for login status of user
-
+//      1.2.1 if (user), then Login button should be Log Off
+//      1.2.2 If (user), a button to admin panel should appear instead of register button
 // 2. Implement persistent login via cookie?
 //    2.1 Should this also be lifted?
 
-// 3. DO something about the password state. It should not store plain password
+// 3. Do something about the password state. It should not store plain password
+//     3.1 Server should just ok or not
+// 4. Login.password must not store password or hash. It should not be visible or retrievable.
 
 const loginButton = {
     route: "/",
@@ -31,25 +32,27 @@ const loginButton = {
   }
 
 export default function Login() {
-  const [user, setUser] = useState(false);  // User login status. 
+  // const [user, setUser] = useState(false);  // User login status. Moved to home
   const [remember, setRemember] = useState(false);  // Login status to be kept persistent or not
   
   const [login, setLogin] = useState({
     username: "",
-    password: ""
+    password: ""  // Should take care not to make it visible or accessible
   });
 
-  function loginHandler(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement >) {
+// Input field handling definition
+  function loginHandler(event: React.ChangeEvent<HTMLInputElement>) {
     setLogin({...login,
       [event.target.name]: event.target.value})
   }
 
+// Submit button behavior definition
   function submitBehavior (event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
     console.log(login.password);
   }
 
-  console.log(login.username);
+  console.log(login.password);  // KEEP THIS ONE TO CHECK AND TEST PASSWORD VISIBILITY. IT MUST NOT BE VISIBLE
 
   return (
     <div className={styles["login-page"]}>
