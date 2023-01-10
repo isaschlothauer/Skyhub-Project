@@ -26,6 +26,14 @@
         margin-top: 3rem;
         margin-bottom: 4rem;
       }
+
+      .validation-errors {
+        color: #EC4B1E;
+        margin-left: 1.5rem;
+        margin-top: -1rem;
+        font-size: small;
+        font-style: italic;
+      }
 }
  // style for got a question
 .header {
@@ -68,5 +76,11 @@
       grid-row: 1;
       margin: 0;
     }
-  }
+  
+    .validation-errors {
+      grid-row: 3;
+     }
+
+   }
+
   }
