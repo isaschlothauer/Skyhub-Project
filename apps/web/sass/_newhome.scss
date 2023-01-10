@@ -10,7 +10,9 @@
     margin-bottom: 2rem;
     position: absolute; //This property affects the slightlt difference in the line-height of footer
     
-    .mainpage-testcontainer{
+
+    //This class deals with the flex in the logo container and was created to handle some queries
+    .mainpage-logoflex{
       @apply md:w-1/4 pr-4 pl-4;
 
     //Logo container and properties
@@ -202,7 +204,7 @@
 .mainpage-header {
     height: calc(140vh/3);
 
-  .mainpage-testcontainer{
+  .mainpage-logoflex{
       @apply w-0 pr-28 pl-0;
 
     .mainpage-logocontainer {
@@ -270,7 +272,9 @@
     margin-bottom: 3.125rem;
  }
   
-.mainpage-testtest2 {
+
+ //This class deals specifically with the flexes around the header for some queries
+ .mainpage-headerflex {
      display: flex;
      flex-direction: column-reverse;
      align-items: center
@@ -285,7 +289,7 @@
 .mainpage-header {
     height: calc(200vh/3);
 
-.mainpage-testcontainer{
+.mainpage-logoflex{
   @apply w-0 pr-48;
 
     .mainpage-logocontainer {
@@ -351,7 +355,8 @@
   display: none;
  }
 
-.mainpage-testtest2{
+ //This class deals specifically with the flexes around the header for some queries
+ .mainpage-headerflex{
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
@@ -399,7 +404,9 @@
     margin-bottom: 8.75rem;
   }
 
-.mainpage-testimg{
+
+//This class was created to deal better with the crossimage2 placement in some queries
+.mainpage-crossimage2container{
     position: relative;
     
     .crossimage2{
@@ -425,7 +432,9 @@
 //NOTE: THE TWO FOLLOWING QUERIES ARE SIMPLY USED TO ADJUST THE IMAGE CROSSES AND SQUARES TO THE BIG SCREEN SIZES
 @media only screen and (min-width: 1025px) and (max-width:1540px) { 
 
-.mainpage-testimg{
+
+//This class was created to deal better with the crossimage2 placement in some queries  
+.mainpage-crossimage2container{
     position: relative;
   
     .crossimage2{
