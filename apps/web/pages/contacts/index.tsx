@@ -72,6 +72,7 @@ const ContactUs = () => {
         serverErrors.forEach((error: { field: string; message: string; }) => {
           errors[error.field] = error.message;
         });
+        setIsSubmitted(true)
         setErrors(errors);
       }
 
