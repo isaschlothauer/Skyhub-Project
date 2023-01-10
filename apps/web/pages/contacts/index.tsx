@@ -73,6 +73,7 @@ const ContactUs = () => {
           errors[error.field] = error.message;
         });
         setErrors(errors);
+        setIsSubmitted(false);
       }
 
     })
