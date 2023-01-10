@@ -106,7 +106,7 @@ export default function Insights() {
             })}
           </div>
         </div>
-        <Pagination totalPage={3} />
+        <Pagination totalPage={5} />
         <FAQ_Contact_Container />
         <Footer />
       </div>
