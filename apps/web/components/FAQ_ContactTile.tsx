@@ -11,6 +11,7 @@ export interface FAQContactProps {
   tilename: string;
   subtilename?: string;
   cSass: string;
+  cSassTest: string,
   cTailwind: string;
   picture: StaticImageData;
   arrowbinfo: any;
@@ -20,6 +21,7 @@ export const FAQContact = ({
   tilename,
   subtilename,
   cSass,
+  cSassTest,
   cTailwind,
   picture,
   arrowbinfo,
@@ -33,7 +35,7 @@ export const FAQContact = ({
             <div>
               <Link href="/faq" />
               <div className={styles["faqcontact-subtext"]}>{subtilename}</div>
-              <div className={styles["faqcontact-maintext"]}>{tilename}</div>
+              <div className={`${cSassTest}`}>{tilename}</div>
               {arrowbinfo}
             </div>
           </div>

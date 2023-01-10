@@ -83,53 +83,237 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .arrow-jobs {
-    text-align: right;
+
+
+@media only screen and (max-width: 376px) {
+
+.arrow-jobs {
     a {
-      display: inline-block;
       color: transparent;
-      font-size: 18px;
-      font-weight: 800;
-      padding-right: 70px;
-      position: relative;
+      font-size: 10px;
+      padding-right: 0px;
+      position: absolute;
+      padding-bottom: 100px;
+      right: 2%;
+      top: 45%;
       &:after {
-        content: "";
-        display: block;
-        position: absolute;
+        position: relative;
+        bottom: 50%;
         top: 0%;
-        right: 0;
-        margin-top: -20000px;
-        height: 10px;
-        width: 10px;
-        background: url("../assets/images/icons/arrow-right-pink.png") no-repeat
-          center center;
+        left: 0%;
+        height: 25px;
+        width: 35px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background-size: contain;
       }
     }
   }
   
+.arrow-faqcontact {
+    a {
+      color: transparent;
+      font-size: 0px;
+      padding-right: 0px;
+      position: absolute;
+      padding-bottom: 100px;
+      right: 5%;
+      top: 50%;
+      &:after {
+        position: relative;
+        bottom: 30%;
+        top: 0%;
+        left: 0%;
+        height: 20px;
+        width: 30px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+}
+
+
+
+@media only screen and (min-width: 377px) and (max-width:426px) {
+
+.arrow-jobs {
+    a {
+      color: transparent;
+      font-size: 10px;
+      padding-right: 0px;
+      position: absolute;
+      padding-bottom: 100px;
+      right: 0%;
+      top: 58%;
+      &:after {
+        position: relative;
+        bottom: 0%;
+        top: 0%;
+        left: 0%;
+        height: 27px;
+        width: 37px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+
+.arrow-faqcontact {
+    a {
+      color: transparent;
+      font-size: 10px;
+      padding-right: 0px;
+      position: absolute;
+      padding-bottom: 100px;
+      right: 0%;
+      top: 30%;
+      &:after {
+        position: relative;
+        bottom: 50%;
+        top: 0%;
+        left: 10%;
+        height: 22px;
+        width: 32px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+}
+  
+
+
+
+
+@media only screen and (min-width: 426px) and (max-width: 501px) {
+
+.arrow-jobs {
+    a {
+      color: transparent;
+      font-size: 10px;
+      padding-right: 0px;
+      position: absolute;
+      padding-bottom: 100px;
+      right: 5%;
+      top: 52%;
+      &:after {
+        position: relative;
+        bottom: 50%;
+        top: 0%;
+        left: 0%;
+        height: 29px;
+        width: 39px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+
+.arrow-faqcontact {
+    a {
+      color: transparent;
+      font-size: 10px;
+      padding-right: 0px;
+      position: absolute;
+      padding-bottom: 100px;
+      right: 5%;
+      top: 28%;
+      &:after {
+        position: relative;
+        bottom: 50%;
+        top: 0%;
+        left: 10%;
+        height: 24px;
+        width: 34px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+}
+
+
+
+@media only screen and (min-width: 501px) and (max-width: 769px) {
+
+.arrow-jobs {
+    a {
+      color: transparent;
+      font-size: 10px;
+      padding-right: 0px;
+      position: absolute;
+      padding-bottom: 100px;
+      right: 5%;
+      top: 63%;
+      &:after {
+        position: relative;
+        bottom: 50%;
+        top: 0%;
+        left: 0%;
+        height: 31px;
+        width: 41px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+
+.arrow-faqcontact {
+    a {
+      color: transparent;
+      font-size: 10px;
+      padding-right: 0px;
+      position: absolute;
+      padding-bottom: 100px;
+      right: 5%;
+      top: 20%;
+      &:after {
+        position: relative;
+        bottom: 50%;
+        top: 0%;
+        left: 10%;
+        height: 31px;
+        width: 41px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background-size: contain;
+      }
+    }  
+  }
+}
+
+
+
+@media only screen and (min-width: 769px) and (max-width:1025px) { 
+
+.arrow-jobs {
+    a {
+      padding-right: 20px;
+      position: absolute;
+      padding-bottom: 80px;
+      right: 10%;
+      top: 55%;
+      &:after {
+        bottom: 50%;
+        top: 14%;
+        left: 95%;
+        height: 33px;
+        width: 43px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
 
   .arrow-faqcontact {
     a {
-      display: inline-block;
-      color: transparent;
-      font-size: 18px;
-      font-weight: 800;
-      padding-right: 20px;
-      position: relative;
       &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0%;
-        right: 0;
-        margin-top: -20px;
-        height: 80px;
-        width: 90px;
-        background: url("../assets/images/icons/arrow-right-pink.png") no-repeat
-          center center;
+        top: 68%;
+        left: 65%;
+        height: 33px;
+        width: 43px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background-size: contain;
       }
     }
   }
-  
 }

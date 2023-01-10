@@ -3,13 +3,11 @@
 //Container for the FAQ and Contact us tiles
 .containerfaqcontact {
   margin-bottom: 110px;
- 
 }
 
-@media screen and (max-width: 768px) {
-
+@media screen and (max-width: 769px) {
   .containerfaqcontact {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    padding: 10px;
   }
-  
-  }
+}

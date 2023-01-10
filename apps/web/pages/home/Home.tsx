@@ -1,6 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 
+
 {
   /*STYLES*/
 }
@@ -93,13 +94,14 @@ const Home = () => {
   return (
     <div className={styles["mainpage"]}>
       <div className={`${styles["mainpage-header"]} ${styles["header-homepage"]}`}>
-        <div className={"flex flex-wrap justify-around"}>
+        <div className={"flex flex-wrap"}>
           <div className={`container mx-auto sm:px-0`}>
-            <div className={"flex flex-wrap justify-end"}>
-              <div className={"md:w-1/3 pr-0 pl-0"}></div>
 
+            <div className={`flex md:flex justify-end ${styles["mainpage-testtest2"]}`}>
+              
+            
               {/*SKYHUB LOGO*/}
-              <div className={"md:w-1/4 pr-4 pl-4"}>
+              <div className={styles["mainpage-testcontainer"]}>
                 <div className={styles["mainpage-logocontainer"]}>
                   <div className={styles["mainpage-logo"]}></div>
                 </div>
@@ -114,10 +116,11 @@ const Home = () => {
                 <div
                   className={`${
                     styles["mainpage-logincontainer2nd"]
-                  } ${"hidden"} ${"md:block"}`}
+                  }  ${"md:block"}`}
                 >
                   {loginregButtons.map((gbutton) => (
                     <LoginButton
+                      className={"ml-8 lg:ml-0"}
                       key={gbutton.id}
                       route={gbutton.route}
                       cSass={gbutton.cSass}
@@ -132,12 +135,21 @@ const Home = () => {
       </div>
 
       {/*PHRASE GENERATOR - ROBOT */}
-      <div className={"flex flex-wrap"}>
+      <div className={"flex flex-wrap justify-around"}>
         <div
           className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}
         >
           <h1 className={styles["maingpage-robottext"]}>
-            Find your <strong data-find-text></strong> {/*!!! Database Info*/}
+            Find your
+            <strong>
+             {/*<div className="message">
+              <div className="word1">dream</div>
+              <div className="word2">job</div>
+              <div className="word3">passion</div>
+              <div className="word4">airline</div>
+              <div className="word5">salary</div>
+                  </div>*/}
+             </strong>
           </h1>
         </div>
       </div>
@@ -197,6 +209,8 @@ const Home = () => {
         </div>
       </div>
 
+  
+
       {/* ATC TILE COMPONENT*/}
       <div
         className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
@@ -214,12 +228,13 @@ const Home = () => {
       </div>
 
       {/*CROSSES AND SQAURES IMAGE*/}
-      <Image
+      <div className={styles["mainpage-testimg"]}>
+       <Image
         className={styles.crossimage2}
         src={CrossandSquare}
         alt="CrossandSquare"
-      />
-
+       />
+      </div>
       {/* FAQ & CONTACT US COMPONENT*/}
       <div
         className={`container mx-auto sm:px-0}`}
