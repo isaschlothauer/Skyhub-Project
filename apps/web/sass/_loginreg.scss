@@ -1,14 +1,16 @@
 // REDO
 
 //Container with the properties about the login button
+
+
 .loginreg-pink {
   background: $pink;
-  border: 1px solid $pink;
+  border: 0.063rem solid $pink;
   color: $white;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
-  border-radius: 50px;
-  padding: 11px 45px;
+  border-radius: 3.125rem;
+  padding: 0.688rem 2.5rem;
   white-space: nowrap; 
   min-width: auto;
   // margin-right: 15px;
@@ -21,13 +23,13 @@
 //Container with the properties about the register button
 .loginreg-white {
   background: transparent;
-  border: 1px solid $white;
+  border: 0.063rem solid $white;
   color: $white;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
-  border-radius: 50px;
-  padding: 11px 45px;
-  margin-right: 20px;
+  border-radius: 3.125rem;
+  padding: 0.688rem 2.813rem;
+  margin-right: 1.25rem;
   font-weight: 600;
   &:hover {
     background: $white;
@@ -37,60 +39,53 @@
   }
 }
 
+
+
+//MOBILE SIZE (ALL SIZES)
 @media only screen and (max-width: 426px) {
 
 .loginreg-pink {
-  padding: 2px 10px;
+  padding: 0.125rem 0.625rem;
  }
 
 .loginreg-white {
-  padding: 2px 14px;
-  margin-right:0px;
+  padding: 0.125rem 0.875rem;
+  margin-right:0rem;
   margin-bottom: 0.5rem;
  }
 }
 
+
+
+//TABLET SIZE (ALL SIZES)
 @media only screen and (min-width: 426px) and (max-width:769px) {
 
 .loginreg-pink {
-    padding: 11px 30px;
-    margin-left: 5rem;
+    padding: 0.688rem 1.875rem;
   }
   
 .loginreg-white {
-    padding: 11px 36px;
+    padding: 0.688rem 2.25rem;
     margin-bottom: 0.5rem;
-    margin-right: 0px;
+    margin-right: 0rem;
   }
 }
 
 
 
-@media only screen and (min-width: 769px) and (max-width:1024px) {
+//SMALL COMPUTER SIZE
+@media only screen and (min-width: 769px) and (max-width:1025px) {
 
 .loginreg-pink {
-    padding: 11px 30px;
-    margin-left: 5rem;
+    padding: 0.688rem 1.875rem;
   }
   
 .loginreg-white {
-    padding: 11px 39px;
+    padding: 0.688rem 2.438rem;
     margin-bottom: 0.5rem;
-    margin-right: 0px;
+    margin-right: 0rem;
   }
 }
 
 
 
-@media only screen and (min-width: 1025px) and (max-width:1050px) {
-
-.loginreg-pink {
-    margin-left: 2rem;
-  }
-  
-.loginreg-white {
-    padding: 11px 54px;;
-    margin-bottom: 0.5rem;
-    margin-right: 0px;
-  }
-}

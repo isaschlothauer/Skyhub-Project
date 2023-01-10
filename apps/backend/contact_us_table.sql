@@ -9,5 +9,3 @@ CREATE TABLE
         `message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
         `time_submitted` timestamp DEFAULT CURRENT_TIMESTAMP
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
-
-select * from contact_us;

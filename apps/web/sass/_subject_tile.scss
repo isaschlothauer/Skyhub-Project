@@ -11,7 +11,7 @@
       max-width: 100%;
       width: 100%;
       display: block;
-      border-radius: 25px;
+      border-radius: 1.563rem;
       -webkit-box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.25);
       -moz-box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.25);
       box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.25);
@@ -30,14 +30,14 @@
   width: 100%;
   height: 100%;
   .tile-offerscount {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     color: white;
     position: absolute;
-    top: 40px;
-    left: 60px;
+    top: 2.5rem;
+    left: 3.75rem;
     strong {
-      font-size: 30px;
+      font-size: 1.875rem;
       color: #1aebcf;
       font-weight: 800;
     }
@@ -54,17 +54,17 @@
   left: 0;
   right: 0;
   width: 100%;
-  padding: 0 60px 40px 60px;
+  padding: 0 3.75rem 2.5rem 3.75rem;
   .tile-traveltheworld-subtitle {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     color: white;
   }
   .tile-traveltheworld-title {
-    font-size: 60px;
+    font-size: 3.75rem;
     font-weight: 900;
     color: white;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
   }
 }
 
@@ -74,9 +74,9 @@
   a {
     display: inline-block;
     color: white;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 800;
-    padding-right: 80px;
+    padding-right: 5rem;
     position: relative;
     &:after {
       content: "";
@@ -84,9 +84,9 @@
       position: absolute;
       top: 50%;
       right: 0;
-      margin-top: -11px;
-      height: 21px;
-      width: 70px;
+      margin-top: -0.688rem;
+      height: 1.313rem;
+      width: 4.375rem;
       background: url("../assets/images/miscellaneous/summary-arrow.png")
         no-repeat center center;
     }
@@ -97,20 +97,20 @@
 .tile-leftline {
   display: block;
   position: absolute;
-  left: 60px;
+  left: 3.75rem;
   top: 20%;
   height: 40%;
-  width: 1px;
+  width: 0.063rem;
   background: white;
   &:before {
     content: "";
     display: block;
     position: absolute;
-    width: 7px;
-    height: 7px;
+    width: 0.438rem;
+    height: 0.438rem;
     background: white;
     top: 0;
-    left: -3px;
+    left: -0.188rem;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
@@ -119,11 +119,11 @@
     content: "";
     display: block;
     position: absolute;
-    width: 7px;
-    height: 7px;
+    width: 0.438rem;
+    height: 0.438rem;
     background: white;
     bottom: 0;
-    left: -3px;
+    left: -0.188rem;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
@@ -131,36 +131,36 @@
 }
 
 
-
+//MOBILE SIZE (S and M)
 @media only screen and (max-width: 376px) {
 
 .tile-offers {
     .tile-offerscount {
-      font-size: 8px;
-      top: 20px;
-      left: 40px;
+      font-size: 0.5rem;
+      top: 1.25rem;
+      left: 2.5rem;
       strong {
-        font-size: 10px;
+        font-size: 0.625rem;
       }
     }
   }
   
 .tile-traveltheworld {
     top:60%;
-    padding:15px 10px 10px 20px;
+    padding:0.938rem 0.625rem 0.625rem 1.25rem;
 
     .tile-traveltheworld-subtitle {
       display: none;
     }
 
     .tile-traveltheworld-title {
-      font-size: 19px;
-      margin-bottom: 0px;
+      font-size: 1.188rem;
+      margin-bottom: 0rem;
     }
   }
   
 .tile-leftline {
-    left: 25px;
+    left: 1.563rem;
     top: 35%;
     height: 30%;
   }
@@ -168,35 +168,36 @@
 
 
 
-@media only screen and (min-width: 376px) and (max-width:501px) {
+//MOBILE SIZE (L)
+@media only screen and (min-width: 377px) and (max-width:426px) {
 
 .tile-offers {
     .tile-offerscount {
-      font-size: 12px;
-      top: 20px;
-      left: 40px;
+      font-size: 0.75rem;
+      top: 1.25rem;
+      left: 2.5rem;
       strong {
-        font-size: 10px;
+        font-size: 0.625rem;
       }
     }
   }
   
 .tile-traveltheworld {
     top:60%;
-    padding:25px 10px 10px 20px;
+    padding:1.563rem 0.625rem 0.625rem 1.25rem;
 
     .tile-traveltheworld-subtitle {
       display: none;
     }
 
     .tile-traveltheworld-title {
-      font-size:25px;
-      margin-bottom: 0px;
+      font-size:1.563rem;
+      margin-bottom: 0rem;
     }
   }
   
 .tile-leftline {
-    left: 27px;
+    left: 1.688rem;
     top: 25%;
     height: 45%;
   }
@@ -204,143 +205,111 @@
 
 
 
-@media only screen and (min-width: 501px) and (max-width:575px) { 
+//TABLET SIZE (THIS SIZE WAS DIVIDED SO THE CONTENT COULD RESPOND PROPERLY TO DIFFERENT SIZES OF SCREEN)
+@media only screen and (min-width: 426px) and (max-width:501px) {
 
-.tile-offers {
-  .tile-offerscount {
-    font-size: 15px;
-    top: 20px;
-    left: 45px;
-    strong {
-      font-size: 10px;
+  .tile-offers {
+      .tile-offerscount {
+        font-size: 0.875rem;
+        top: 1.25rem;
+        left: 2.5rem;
+        strong {
+          font-size: 0.75rem;
+        }
+      }
     }
-   }
+    
+  .tile-traveltheworld {
+      top:60%;
+      padding:1.563rem 0.625rem 0.625rem 1.25rem;
+  
+      .tile-traveltheworld-subtitle {
+        display: none;
+      }
+  
+      .tile-traveltheworld-title {
+        font-size:1.688rem;
+        margin-bottom: 0rem;
+      }
+    }
+    
+  .tile-leftline {
+      left: 1.688rem;
+      top: 25%;
+      height: 45%;
+    }
   }
+  
 
-.tile-traveltheworld {
-  top:60%;
-  padding:25px 10px 10px 20px;
+  
 
-.tile-traveltheworld-subtitle {
-    display: none;
-  }
-
-.tile-traveltheworld-title {
-    font-size:38px;
-    margin-bottom: 0px;
-  }
-}
-
-.tile-leftline {
-  left: 27px;
-  top: 22%;
-  height: 47%;
- }
-}
-
-
-
-@media only screen and (min-width: 575px) and (max-width:701px) { 
+//TABLET SIZE (THIS SIZE WAS DIVIDED SO THE CONTENT COULD RESPOND PROPERLY TO DIFFERENT SIZES OF SCREEN)
+@media only screen and (min-width: 501px) and (max-width:769px) { 
 
 .tile-offers {
   .tile-offerscount {
-      font-size: 15px;
-      top: 30px;
-      left: 55px;
+      font-size: 1rem;
+      top: 1.875rem;
+      left: 3.438rem;
       strong {
-        font-size: 10px;
+        font-size: 0.875rem;
       }
     }
  }
 
 .tile-traveltheworld {
  top:60%;
- padding:37px 10px 10px 30px;
+ padding: 2.313rem 0.625rem 0.625rem 1.875rem;
 
 .tile-traveltheworld-subtitle {
    display: none;
   }
 
 .tile-traveltheworld-title {
-   font-size:38px;
-   margin-bottom: 0px;
+   font-size:2.375rem;
+   margin-bottom: 0rem;
   }
  }
 
 .tile-leftline {
-  left: 40px;
-  top: 22%;
-  height: 47%;
+  left: 2.5rem;
+  top: 25%;
+  height: 45%;
  }
 }
 
 
 
-@media only screen and (min-width: 701px) and (max-width:769px) { 
+//SMALL COMPUTER SIZE
+@media only screen and (min-width: 769px) and (max-width:1025px) { 
 
 .tile-offers {
  .tile-offerscount {
-   font-size: 15px;
-   top: 30px;
-   left: 65px;
+   font-size: 1.063rem;
+   top: 1.875rem;
+   left: 4.063rem;
    strong {
-     font-size: 10px;
+     font-size: 0.625rem;
    }
   }
  }
 
 .tile-traveltheworld {
  top:60%;
- padding:60px 10px 10px 40px;
-
-.tile-traveltheworld-subtitle {
-   display: none;
- }
-
-.tile-traveltheworld-title {
-   font-size:38px;
-   margin-bottom: 0px;
- }
-}
-
-.tile-leftline {
- left: 45px;
- top: 20%;
- height: 55%;
- }
-}
-
-
-
-@media only screen and (min-width: 769px) and (max-width:1024px) { 
-
-.tile-offers {
- .tile-offerscount {
-   font-size: 15px;
-   top: 30px;
-   left: 65px;
-   strong {
-     font-size: 10px;
-   }
-  }
- }
-
-.tile-traveltheworld {
- top:60%;
- padding:40px 10px 10px 40px;
+ padding:2.5rem 0.625rem 0.625rem 2.5rem;
 
  .tile-traveltheworld-subtitle {
-  font-size: 15px;
+  font-size: 1.063rem;
   }
 
 .tile-traveltheworld-title {
-   font-size:38px;
-   margin-bottom: 0px;
+   font-size:2.5rem;
+   margin-bottom: 0rem;
   }
  } 
 
 .tile-leftline {
- left: 45px;
+ left: 2.813rem;
  top: 20%;
  height: 45%;
  }
