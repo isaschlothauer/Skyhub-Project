@@ -49,10 +49,14 @@ export default function Login() {
 // Submit button behavior definition
   function submitBehavior (event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
-    console.log(login.password);
-  }
 
-  console.log(login.password);  // KEEP THIS ONE TO CHECK AND TEST PASSWORD VISIBILITY. IT MUST NOT BE VISIBLE
+    // axios
+    
+
+
+    console.log(login.password); // KEEP THIS ONE TO CHECK AND TEST PASSWORD VISIBILITY. IT MUST NOT BE VISIBLE
+
+  }
 
   return (
     <div className={styles["login-page"]}>
