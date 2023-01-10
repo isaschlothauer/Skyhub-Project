@@ -19,11 +19,6 @@ import Mini_Header from "../../components/Header";
 // 4. Submit button should show validation message and link to login page
 // 5. 
 
-
-
-
-
-
 const registrationButton = {
   route: "/",
   cSass: styleslrButton["loginreg-pink"],
@@ -36,7 +31,7 @@ const inputFieldStyling = "border-2 mt-1 w-full rounded-3xl pl-3 h-9";  // For i
 
 const inputFieldData = [
   {
-    htmlFor: "first name",
+    htmlFor: "firstname",
     classNameLabel: labelStyling,
     labelValue: "Firstname",
     name: "lastname", 
@@ -45,7 +40,7 @@ const inputFieldData = [
     placeholder: "First name"
   },
   {
-    htmlFor: "last name",
+    htmlFor: "lastname",
     classNameLabel: labelStyling,
     labelValue: "Lastname",
     name: "lastname", 
@@ -133,15 +128,21 @@ export default function Registration() {
   const [recruitmentRep, setRecruitmentRep] = useState(false);
   // Need to set state for all fields
 
-  const tosHandler = () => {
-    setTOS(!tos);
-  }
+  // const tosHandler = () => {
+  //   setTOS(!tos);
+  // }
 
   const airlineHandler = () => {
+    if (recruitmentRep) {
+      setRecruitmentRep(!recruitmentRep);
+    }
     setAirlineRep(!airlineRep);
   }
   
   const recruitmentHandler = () => {
+    if (airlineRep) {
+      setAirlineRep(!airlineRep);
+    }
     setRecruitmentRep(!recruitmentRep);
   }
 
@@ -199,8 +200,9 @@ export default function Registration() {
           <input
             type="checkbox"
             checked={tos}
-            onChange={tosHandler}
+            // onChange={tosHandler}
             className={"ml-3 z-10 mt-5"}
+            onClick={() => setTOS(!tos)}
           />
           <span className={"ml-2 text-pink-primary"}>Agree to <a href="{{ url('terms-of-service') }}" className={"underline"}>the Terms of Service</a></span>
           
