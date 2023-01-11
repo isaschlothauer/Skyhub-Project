@@ -59,13 +59,21 @@
     margin-top: 15rem;
     margin-bottom: 9.375rem;
     z-index:999;
-    /*strong {
+
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    width: 900px;
+    
+    strong {
       color: #1aebcf;
       overflow: hidden;
-      animation: openclose 5s ease-in-out infinite;
-      background-color: yellow;
+      animation: openclose 10s ease-in-out infinite;
+      background-color: transparent;
       font-weight: 900;
       position: absolute;
+      left: 62%;
     }
     
     .word1, .word2, .word3, .word4, .word5 {
@@ -74,7 +82,7 @@
     
     @keyframes openclose {
       0% {
-  
+        top: 0.2rem;
         width: 0;
       }
       5% {
@@ -84,58 +92,58 @@
         width: 230px;
       }
       30% {
-
+        top: 0.2rem;
         width: 230px;
       }
       33% {
-
+        top: 0.2rem;
         width: 0;
       }
       35% {
-
+        top: 0.2rem;
         width: 0;
       }
       38% {
- 
+        top: -4.5rem;
+        
       }
       48% {
-
+        top: -4.5rem;
         width: 190px;
       }
       62% {
-
+        top: -4.5rem;
         width: 190px;
       }
       66% {
-
+        top: -4.5rem;
         width: 0;
         text-indent: 0;
       }
       71% {
- 
+        top: -9rem;
         width: 0;
         text-indent: 5px;
       }
       86% {
-  
+        top: -9rem;
         width: 285px;
       }
       95% {
-
+        top: -9rem;
         width: 285px;
       }
       98% {
-
+        top: -9rem;
         width: 0;
         text-indent: 5px;
       }
       100% {
-     
+        top: 0;
         width: 0;
         text-indent: 0;
       }
     }
-*/
   }
 }
 

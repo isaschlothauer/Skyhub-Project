@@ -148,13 +148,13 @@ const Home = () => {
           <h1 className={styles["maingpage-robottext"]}>
             Find your
             <strong>
-             {/*<div className="message">
+             <div className="message">
               <div className="word1">dream</div>
               <div className="word2">job</div>
               <div className="word3">passion</div>
               <div className="word4">airline</div>
               <div className="word5">salary</div>
-                  </div>*/}
+            </div>
              </strong>
           </h1>
         </div>
