@@ -95,7 +95,7 @@ const Home = () => {
   // From Login page. This should change button render according to login state
   // Once logged in, Login button should change to Log Out
   // Register to Admin (or Admin Panel or Page) 
-  const [userLogin, setUserLogin] = useState(false); 
+  const [userLogin, setUserLogin] = useState(false);
 
   return (
     <div className={styles["mainpage"]}>
@@ -103,9 +103,9 @@ const Home = () => {
         <div className={"flex flex-wrap"}>
           <div className={`container mx-auto sm:px-0`}>
 
-            <div className={`flex md:flex justify-end ${styles["mainpage-headerflex"]}`}> 
-              
-            
+            <div className={`flex md:flex justify-end ${styles["mainpage-headerflex"]}`}>
+
+
               {/*SKYHUB LOGO*/}
               <div className={styles["mainpage-logoflex"]}>
                 <div className={styles["mainpage-logocontainer"]}>
@@ -115,14 +115,12 @@ const Home = () => {
 
               {/*LOGIN/REGISTER BUTTON*/}
               <div
-                className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
-                  styles["mainpage-logincontainer"]
-                }`}
+                className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${styles["mainpage-logincontainer"]
+                  }`}
               >
                 <div
-                  className={`${
-                    styles["mainpage-logincontainer2nd"]
-                  }  ${"md:block"}`}
+                  className={`${styles["mainpage-logincontainer2nd"]
+                    }  ${"md:block"}`}
                 >
                   {loginregButtons.map((gbutton) => (
                     <LoginButton
@@ -148,14 +146,14 @@ const Home = () => {
           <h1 className={styles["maingpage-robottext"]}>
             Find your
             <strong>
-             {/*<div className="message">
+              {/*<div className="message">
               <div className="word1">dream</div>
               <div className="word2">job</div>
               <div className="word3">passion</div>
               <div className="word4">airline</div>
               <div className="word5">salary</div>
                   </div>*/}
-             </strong>
+            </strong>
           </h1>
         </div>
       </div>
@@ -215,7 +213,7 @@ const Home = () => {
         </div>
       </div>
 
-  
+
 
       {/* ATC TILE COMPONENT*/}
       <div
@@ -235,11 +233,11 @@ const Home = () => {
 
       {/*CROSSES AND SQAURES IMAGE*/}
       <div className={styles["mainpage-crossimage2container"]}>
-       <Image
-        className={styles.crossimage2}
-        src={CrossandSquare}
-        alt="CrossandSquare"
-       />
+        <Image
+          className={styles.crossimage2}
+          src={CrossandSquare}
+          alt="CrossandSquare"
+        />
       </div>
       {/* FAQ & CONTACT US COMPONENT*/}
       <div
