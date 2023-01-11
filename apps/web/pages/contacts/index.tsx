@@ -73,6 +73,7 @@ const ContactUs = () => {
           errors[error.field] = error.message;
         });
         setErrors(errors);
+        setIsSubmitted(false);
       }
 
     })
@@ -90,6 +91,7 @@ const ContactUs = () => {
             </h2>
           <form className={`ml-10 mr-10 md:px-16 ${contactUsStyle["form-input-fields"]}`}>
             <div className={contactUsStyle["fullname-container"]}>
+             <div className={contactUsStyle["first-name"]}>
              <label htmlFor="first-name">First name*</label>
                <input onChange={handleInputFields} className={"h-12 p-8"} 
                id="first_name"
@@ -98,7 +100,9 @@ const ContactUs = () => {
                value={inputFields.first_name} 
                />
                 {errors.first_name && !isSubmitted && <p className={contactUsStyle["validation-errors"]}>{errors.first_name}</p>}
-             <label htmlFor="last-name">Last name*</label>
+              </div>
+              <div className={contactUsStyle["last-name"]}>
+              <label htmlFor="last-name">Last name*</label>
                <input onChange={handleInputFields} className={"h-12 p-8"} 
                id="last_name"
                name="last_name"
@@ -106,6 +110,7 @@ const ContactUs = () => {
                value={inputFields.last_name} 
                />
                {errors.last_name && !isSubmitted && <p className={contactUsStyle["validation-errors"]}>{errors.last_name}</p>}
+              </div>
             </div>
              <label htmlFor="email">Email*</label>
                <input onChange={handleInputFields} className={"h-12 p-8"} 
@@ -143,8 +148,8 @@ const ContactUs = () => {
       </div>
      <GoHomeContainer />
     <Footer />
-  </div>
-    )
+   </div>
+  )
 }
 
 export default ContactUs;

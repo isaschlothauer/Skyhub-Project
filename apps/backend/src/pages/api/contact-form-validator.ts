@@ -16,8 +16,8 @@ export const validateInput: RequestHandler<{
     // first name validation
     if(first_name == null || first_name.trim() === '') {
         errors.push({ field: "first_name", message: "⚠ this field is required"})
-    } else if (first_name.length >= 255) {
-        errors.push({ field: "first_name", message: "⚠ this field should contain less than 255 characters"})
+    } else if (first_name.length >= 50) {
+        errors.push({ field: "first_name", message: "⚠ this field should contain less than 50 characters"})
     } else if (!nameRegex.test(first_name)) {
         errors.push({ field: "first_name", message: "⚠ this field should contain only letters, spaces, hyphens, and apostrophes"})
     }
@@ -25,8 +25,8 @@ export const validateInput: RequestHandler<{
     // last name validation
     if(last_name == null || last_name.trim() === '') {
         errors.push({ field: "last_name", message: "⚠ this field is required"})
-    } else if (last_name.length >= 255) {
-        errors.push({ field: "last_name", message: "⚠ this field should contain less than 255 characters"})
+    } else if (last_name.length >= 50) {
+        errors.push({ field: "last_name", message: "⚠ this field should contain less than 50 characters"})
     } else if (!nameRegex.test(last_name)) {
         errors.push({ field: "last_name", message: "⚠ this field should contain only letters, spaces, hyphens, and apostrophes"})
     }

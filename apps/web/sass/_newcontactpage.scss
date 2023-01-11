@@ -51,6 +51,8 @@
   
       label {
         color: #EC4899;
+        font-size: medium;
+      
       }
 
       input, textarea {
@@ -63,13 +65,18 @@
       .message-box {
         border-radius: 1.875rem;
       }
+
+      .first-name, .last-name {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
 }
 
 // media query to adjust input boxes for first name and last name to place them in one line
 @media (min-width: 1200px) {
   .fullname-container {
     display: grid;
-    grid-template-rows: repeat(2, 0.5fr);
     grid-template-columns: repeat(2, 1fr);
 
     label {
@@ -80,7 +87,12 @@
     .validation-errors {
       grid-row: 3;
      }
+   }
 
+   .form-input-fields {
+    label {
+      font-size: large;
+    }
    }
 
   }
