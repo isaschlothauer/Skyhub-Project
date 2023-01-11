@@ -35,15 +35,16 @@ function Jobs() {
             cSass={`${stylesB["see-more-btn"]}`}
           />
         </div>
-        <JobTilesContainer />
+      
+          <JobTilesContainer />
+      
         <InsightsContainer />
 
         {/* FAQ & CONTACT US COMPONENT*/}
-        <div
-          className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}
-        >
+        <div className={`container mx-auto sm:px-0`}>
           <ContainerFAQContact />
         </div>
+
         {/* 
 
   @widget('GoBack', [

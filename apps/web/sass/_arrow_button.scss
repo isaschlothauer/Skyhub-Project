@@ -83,7 +83,9 @@
   }
 }
 
-
+.onlyButton {
+  display: none;
+}
 
 @media only screen and (max-width: 396px) {
   .arrow-jobs {
@@ -100,19 +102,19 @@
       top: 45%;
       &:after {
         content: "";
-    display: block;
-    position: relative;
-    bottom: 50%;
-    top: 0%;
-    left: 0%;
-    height: 25px;
-    width: 35px;
-    background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
-    background-size: contain;
+        display: block;
+        position: relative;
+        bottom: 50%;
+        top: 0%;
+        left: 0%;
+        height: 25px;
+        width: 35px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
+        background-size: contain;
       }
     }
   }
-  
 
   .arrow-faqcontact {
     a {
@@ -124,26 +126,62 @@
       position: absolute;
       padding-bottom: 100px;
       right: 5%;
-    top: 50%;
+      top: 50%;
       &:after {
         content: "";
-    display: block;
-    position: relative;
-    bottom: 30%;
-    top: 0%;
-    left: 0%;
-    height: 20px;
-    width: 30px;
-    background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
-    background-size: contain;
-      
+        display: block;
+        position: relative;
+        bottom: 30%;
+        top: 0%;
+        left: 0%;
+        height: 20px;
+        width: 30px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
+        background-size: contain;
       }
     }
   }
-
 }
 
-@media only screen and (min-width: 397px) and (max-width:501px) {
+@media only screen and (max-width: 500px) {
+  .arrow-domain {
+    display: none;
+  }
+
+  .onlyButton {
+    display: initial;
+  }
+}
+
+@media only screen and (min-width: 501px) {
+  .arrow-domain {
+    // Set alignment in container
+    display: contents;
+    text-align: right;
+    a {
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 800;
+      padding-right: 70px;
+      position: relative;
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -20px;
+        height: 40px;
+        width: 70px;
+        background: url("../assets/images/icons/arrow-right-pink.png") no-repeat
+          center center;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 397px) and (max-width: 501px) {
   .arrow-jobs {
     text-align: right;
     a {
@@ -165,7 +203,8 @@
         left: 0%;
         height: 35px;
         width: 45px;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
@@ -181,7 +220,7 @@
       position: absolute;
       padding-bottom: 100px;
       right: 0%;
-    top: 20%;
+      top: 20%;
       &:after {
         content: "";
         display: block;
@@ -191,15 +230,14 @@
         left: 0%;
         height: 30px;
         width: 40px;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
+  }
+}
 
-  
-}
-}
-  
 @media only screen and (min-width: 501px) and (max-width: 575px) {
   .arrow-jobs {
     text-align: right;
@@ -222,7 +260,8 @@
         left: 0%;
         height: 35px;
         width: 45px;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
@@ -238,7 +277,7 @@
       position: absolute;
       padding-bottom: 100px;
       right: 5%;
-    top: 15%;
+      top: 15%;
       &:after {
         content: "";
         display: block;
@@ -248,14 +287,12 @@
         left: 0%;
         height: 35px;
         width: 45px;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
-
-  
-}
-
+  }
 }
 @media only screen and (min-width: 575px) and (max-width: 701px) {
   .arrow-jobs {
@@ -279,7 +316,8 @@
         left: 0%;
         height: 35px;
         width: 45px;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
@@ -295,7 +333,7 @@
       position: absolute;
       padding-bottom: 100px;
       right: 5%;
-    top: 15%;
+      top: 15%;
       &:after {
         content: "";
         display: block;
@@ -305,13 +343,12 @@
         left: 0%;
         height: 35px;
         width: 45px;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
-
-  
-}
+  }
 }
 
 @media only screen and (min-width: 701px) and (max-width: 769px) {
@@ -336,7 +373,8 @@
         left: 0%;
         height: 45px;
         width: 55px;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
@@ -352,7 +390,7 @@
       position: absolute;
       padding-bottom: 100px;
       right: 5%;
-    top: 5%;
+      top: 5%;
       &:after {
         content: "";
         display: block;
@@ -362,22 +400,20 @@
         left: 0%;
         height: 45px;
         width: 55px;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
-
-  
-}
+  }
 }
 
-
-@media only screen and (min-width: 769px) and (max-width:1024px) { 
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
   .arrow-jobs {
     text-align: right;
     a {
       display: inline-block;
-      color:white;
+      color: white;
       font-size: 18px;
       font-weight: 800;
       padding-right: 20px;
@@ -394,7 +430,8 @@
         left: 95%;
         height: 45px;
         width: 55px;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
@@ -408,7 +445,7 @@
       font-weight: 800;
       padding-right: 70px;
       position: relative;
-     
+
       &:after {
         content: "";
         display: block;
@@ -417,11 +454,10 @@
         left: 65%;
         height: 45px;
         width: 55px;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
-
-  
-}
+  }
 }
