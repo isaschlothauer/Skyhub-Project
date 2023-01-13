@@ -7,7 +7,9 @@ import database from "../../../src/database";
 const LoginRouter = Router();
 
 LoginRouter.post("/", (req, res) => {
-  console.log(req.body);
+
+  
 })
+
 
 export default LoginRouter;

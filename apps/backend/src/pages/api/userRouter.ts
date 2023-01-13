@@ -23,4 +23,18 @@ UserRouter.get("/", (req, res) => {
     })
 })
 
+UserRouter.post("/", (req, res) => {
+  const { name, email, password } = req.body;
+    database
+    .query("INSERT INTO users(name, email, password) VALUES(?, ?, ?)", [name, email, password])
+    .then(([result]) => {
+        res.location(`/${result.insertId}`).sendStatus(201);
+    })
+    .catch((err) => {
+        console.error(err);
+        res.status(500).send("Server error");
+    })
+  }
+)
+
 export default UserRouter;
