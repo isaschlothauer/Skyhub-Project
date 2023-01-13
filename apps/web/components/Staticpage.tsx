@@ -44,38 +44,15 @@ const StaticPage = ({ cSass, miniheader, domain, slug }: StaticProps) => {
   }, []);
 
   return (
-    <div
-      className={`${cSass} ${cssClass} ${styles["staticpage"]} ${
-        styles[`header-${domain}`]
-      }`}
-    >
-      {miniheader ?? <Mini_Header title={title} />}
-      <div className={`container mx-auto sm:pl-0 pr-0`}>
+    <div className={`${cSass} ${cssClass} ${styles["staticpage"]}`}>
+      {miniheader ?? <Mini_Header title={title} Scssdomain={domain} />}
+      <div className={`container mx-auto pt-[320px] sm:pl-0 pr-0`}>
         <div className={"flex flex-wrap"}>
           <div
             className={`md:w-full pr-3.5 pl-3.5 ${styles["staticpage-content"]}`}
           >
             <div className={styles["staticpage-databaseinfo"]}>
               <div dangerouslySetInnerHTML={{ __html: contents }} />
-
-              {/*Beggining of the Database Info*/}
-              <h2> </h2>
-              {/*Ending of the Database Info*/}
-
-              {/* ---> Do we need this info????
-              <hr />
-
-              <div className={styles["staticpage-company"]}>
-                <div className={styles["staticpage-companytext"]}>
-                  Company who employing
-                </div>
-                <div className={styles["staticpage-companylink"]}>
-                  <a href="#">www.lufthansa.com</a>
-                </div>
-                <div className={styles["staticpage-companyarrow"]}>
-                  <a href="#"></a>
-                </div>
-  </div>*/}
             </div>
           </div>
         </div>
