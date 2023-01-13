@@ -12,9 +12,9 @@ import Domain_jobOffersTile from "./Domain_jobOffersTile";
 
 function JobOffersContainer() {
   return (
-    <>
+    <div className={"mb-10"}>
       <Domain_jobOffersTile />
-    </>
+    </div>
   );
 }
 

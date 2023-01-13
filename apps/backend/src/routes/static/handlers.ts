@@ -26,6 +26,10 @@ export const getStaticPage: RequestHandler<{
     });
 };
 
+
+
+
+
 export const getJobsContainer = (
   req: TypedRequestQuery<{ domain: string }>,
   res: Response

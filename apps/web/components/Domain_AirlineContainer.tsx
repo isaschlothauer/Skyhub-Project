@@ -17,12 +17,10 @@ import airlineImg from "../assets/images/widget/InsightsPicJobPage.png";
 }
 import { LearnMoreArrow } from "./ArrowButton";
 
-function InsightsContainer() {
+function AirLineContainer({ domain }) {
   return (
-    <div className={"container mx-auto sm:px-1"}>
-      <div
-        className={`${styles.mainContainer} ${styles["insight"]}      `}
-      >
+    <div className={"container mx-auto sm:px-1 mb-10"}>
+      <div className={`${styles.mainContainer} ${styles["insight"]}      `}>
         <div className={styles["overlay"]}>
           <div className={styles["infoContainer"]}>
             <div className={styles["textContainer"]}>
@@ -42,7 +40,7 @@ function InsightsContainer() {
           <LearnMoreArrow
             cSass={`${stylesArrow["arrow-faqcontact"]} ${stylesArrow["dark-text"]}`}
             arrowtext={"Learn more here"}
-            link={"/jobs/insights"}
+            link={`/${domain}/insights`}
           />
         </div>
       </div>
@@ -50,4 +48,4 @@ function InsightsContainer() {
   );
 }
 
-export default InsightsContainer;
+export default AirLineContainer;

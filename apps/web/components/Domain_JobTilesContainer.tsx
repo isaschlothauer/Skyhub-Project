@@ -22,59 +22,56 @@ import requirements from "../assets/images/icons/requirements-icon.png";
 import costs from "../assets/images/icons/costs-icon.png";
 import application from "../assets/images/icons/application-icon.png";
 
-const jobTiles = [
-  {
-    tile_id: 1,
-    image: general,
-    title: "General",
-    subtitle: "All you need to know",
-    sass: "",
-    link: "",
-  },
-  {
-    tile_id: 2,
-    image: training,
-    title: "Training",
-    subtitle: "All you need to know",
-    sass: "",
-    link: "",
-  },
-  {
-    tile_id: 3,
-    image: requirements,
-    title: "Must-have",
-    subtitle: "All you need to know",
-    sass: "",
-    link: "",
-  },
-  {
-    tile_id: 4,
-    image: costs,
-    title: "Costs",
-    subtitle: "All you need to know",
-    sass: "",
-    link: "",
-  },
-  {
-    tile_id: 5,
-    image: application,
-    title: "Application",
-    subtitle: "How, where, why",
-    sass: "",
-    link: "",
-  },
-];
-
-function JobTilesContainer() {
+function JobTilesContainer({ domain }) {
+  const jobTiles = [
+    {
+      tile_id: 1,
+      image: general,
+      title: "General",
+      subtitle: "All you need to know",
+      sass: "",
+      link: `${domain}/general`,
+    },
+    {
+      tile_id: 2,
+      image: training,
+      title: "Training",
+      subtitle: "All you need to know",
+      sass: "",
+      link: `${domain}/training`,
+    },
+    {
+      tile_id: 3,
+      image: requirements,
+      title: "Must-have",
+      subtitle: "All you need to know",
+      sass: "",
+      link: `${domain}/requirements`,
+    },
+    {
+      tile_id: 4,
+      image: costs,
+      title: "Costs",
+      subtitle: "All you need to know",
+      sass: "",
+      link: `${domain}/costs`,
+    },
+    {
+      tile_id: 5,
+      image: application,
+      title: "Application",
+      subtitle: "How, where, why",
+      sass: "",
+      link: `${domain}/application`,
+    },
+  ];
   return (
     <div className={`${"container sm:px-0"}`}>
       {/* All containers CONTAINER */}
       <div className={styles.containerTitle}>
         Find more information about the process
       </div>
-      <div
-        className={`${styles.line}`}
-      >
+      <div className={`${styles.line} ${"mb-10"}`}>
         {jobTiles.map((firstcontainer) => (
           <JobTiles
             key={firstcontainer.tile_id}
