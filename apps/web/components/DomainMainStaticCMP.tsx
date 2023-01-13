@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useAxios from "../hooks/useAxios";
 /* STYLES */
+import styles from "../components/staticpage.module.scss"
 import stylesB from "../components/generalButton.module.scss";
 
 {
@@ -36,7 +37,7 @@ export default function MainStaticCMP({ domain }: { domain: string }) {
   });
 
   return (
-    <div id={"page"}>
+    <div id={"page"} className={styles[`header-${domain}`]}>
       <Mini_Header title={"Available Jobs"} />
 
       <div className={"container mx-auto sm:px-0"}>
