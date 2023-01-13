@@ -3,9 +3,15 @@ import StaticPageRouter from "./routes/static/router";
 import ContactFormRouter from "./pages/api/router";
 import {validateInput} from "./pages/api/contact-form-validator"
 
+import LoginRouter  from "./pages/api/loginRouter";
+import UserRouter from "./pages/api/userRouter";
+
 const MainRouter = Router();
 
 MainRouter.use("/static", StaticPageRouter);
 MainRouter.use("/contact-form", validateInput, ContactFormRouter);
+
+MainRouter.use("/auth", LoginRouter);
+MainRouter.use("/users", UserRouter);
 
 export default MainRouter;

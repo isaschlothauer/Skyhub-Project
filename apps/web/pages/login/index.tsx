@@ -24,6 +24,9 @@ import Mini_Header from "../../components/Header";
 // 3. Do something about the password state. It should not store plain password
 //     3.1 Server should just ok or not
 // 4. Login.password must not store password or hash. It should not be visible or retrievable.
+// 5. Add a simple field input checker not to allow empty fields. No point using express-validator. 
+// LINE 58, Axios needs to be completed
+
 
 const loginButton = {
     route: "/",
@@ -50,12 +53,13 @@ export default function Login() {
   function submitBehavior (event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
 
-    // axios
-    
+    // console.log(login);  // Returning login state. OK
 
+    axios
+    .post('http://localhost:5000/auth', login)
+    // TO BE TAKEN CARE OF
 
-    console.log(login.password); // KEEP THIS ONE TO CHECK AND TEST PASSWORD VISIBILITY. IT MUST NOT BE VISIBLE
-
+    console.log(`Test console (to be removed): ${login.password}`); // KEEP THIS ONE TO CHECK AND TEST PASSWORD VISIBILITY. IT MUST NOT BE VISIBLE
   }
 
   return (
@@ -83,7 +87,6 @@ export default function Login() {
                     placeholder="Enter username or email address"
                     value={login.username}
                     onChange={loginHandler}
-                    required
                   />
                 
                 {/* Password input field */}
@@ -96,7 +99,6 @@ export default function Login() {
                     placeholder="Enter password"
                     value={login.password}
                     onChange={loginHandler}
-                    required
                   />
                   <div className={"mt-3 flex"}>
                   <input
@@ -120,7 +122,6 @@ export default function Login() {
                 />
               </div>
               <div className={`mx-auto w-max mt-3`}>
-                {/* TO DO: Connect link to recovery page */}
                 <Link
                     href="/password_reset"
                     className={`text-pink-primary`}
