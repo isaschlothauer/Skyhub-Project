@@ -37,7 +37,7 @@ export const getJobsContainer = (
   const { domain } = req.query;
   database
     .query<JobContainer[]>(
-      "SELECT j.job_type as job_type, j.title AS title, j.content AS content FROM job AS j WHERE j.job_type=?",
+      "SELECT j.id AS id, j.title AS title, j.job_type as job_type, j.content AS description, j.base AS base, j.airline AS company, j.salary AS salary FROM job AS j WHERE j.job_type=?",
       [domain]
     )
     .then((result) => {

@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
+
+{
+  /* STYLES */
+}
 import styles from "./offers.module.scss";
 
+{
+  /* COMPONENTS */
+}
 import Mini_Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import Domain_jobOffersTile from "../../../components/Domain_jobOffersTile";
+import JobTilesContainer from "../../../components/Domain_JobOffersContainer";
 import GoBackContainer from "../../../components/GoBackContainer";
 
+{
+  /* CONTEXT */
+}
+import JobOffersContainerContext from "../../../contexts/JobOffersContainerContext";
+
+import useAxios from "../../../hooks/useAxios";
+import { JobOffer } from "../../../components/DomainMainStaticCMP";
+import { useRouter } from "next/router";
+
 export default function Offers() {
+  const router = useRouter();
+  const { domain } = router.query;
+
+  const jobs = useAxios<JobOffer[]>({
+    url: `http://localhost:5000/static/jobs?domain=${domain}`,
+    initialValue: [],
+  });
+
   return (
     <div id={"page"}>
       <Mini_Header title={"Job Offers"} />
@@ -49,12 +73,22 @@ export default function Offers() {
           </div>
         </div>
         <div id={styles.offers} className={styles["offers-branding"]}>
-          <Domain_jobOffersTile />
+          {jobs.slice(/* TODO */).map((job) => (
+            <JobTilesContainer
+              position={job.title}
+              company={job.company}
+              base={job.base}
+              link={"#"}
+            />
+          ))}
         </div>
         <div
           className={`${"flex flex-wrap items-end"} ${styles["row-widgets"]}}`}
         ></div>
-        <GoBackContainer arrowTitle={"Go Back to 'Domain' Page"} link={"/jobs"}/>
+        <GoBackContainer
+          arrowTitle={"Go Back to 'Domain' Page"}
+          link={"/jobs"}
+        />
       </div>
       <Footer />
     </div>

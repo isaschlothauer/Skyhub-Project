@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import DOMPurify from "dompurify";
 
+import { domainToLongName } from "../utils/domainToLongName";
+
 {
   /*STYLES*/
 }
@@ -15,6 +17,7 @@ import styles from "./staticpage.module.scss";
 import Footer from "../components/Footer";
 import ContainerFAQContact from "./FAQ_Contact_Container";
 import Mini_Header from "./Header";
+import GoBackContainer from "./GoBackContainer";
 
 export interface StaticProps {
   cSass?: string;
@@ -42,7 +45,7 @@ const StaticPage = ({ cSass, miniheader, domain, slug }: StaticProps) => {
         setContents(clean);
       });
   }, []);
-
+  
   return (
     <div
       className={`${cSass} ${cssClass} ${styles["staticpage"]} ${
@@ -79,6 +82,10 @@ const StaticPage = ({ cSass, miniheader, domain, slug }: StaticProps) => {
             </div>
           </div>
         </div>
+        <GoBackContainer
+          arrowTitle={`Back to ${domainToLongName(domain)} page`}
+          link={`/${domain}`}
+        />
         <ContainerFAQContact />
       </div>
 
