@@ -22,7 +22,7 @@ import requirements from "../assets/images/icons/requirements-icon.png";
 import costs from "../assets/images/icons/costs-icon.png";
 import application from "../assets/images/icons/application-icon.png";
 
-function JobTilesContainer({ domain }) {
+function JobTilesContainer({ domain } : { domain: string }) {
   const jobTiles = [
     {
       tile_id: 1,

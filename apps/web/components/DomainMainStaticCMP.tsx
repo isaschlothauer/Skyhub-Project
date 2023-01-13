@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import useAxios from "../hooks/useAxios";
 /* STYLES */
+import styles from "../components/staticpage.module.scss"
 import stylesB from "../components/generalButton.module.scss";
 
 {
@@ -17,14 +19,39 @@ import ButtonCMP from "./GeneralButton";
 }
 import JobTilesContainer from "./Domain_JobTilesContainer";
 import JobOffersContainer from "./Domain_JobOffersContainer";
+import axios from "axios";
+import JobOffersContainerContext from "../contexts/JobOffersContainerContext";
 
-export default function MainStaticCMP({ domain }) {
+export interface JobOffer {
+  id: number;
+  title: string;
+  company: string;
+  base: string;
+  link: string;
+}
+
+export default function MainStaticCMP({ domain }: { domain: string }) {
+  const jobs = useAxios<JobOffer[]>({
+    url: `http://localhost:5000/static/jobs?domain=${domain}`,
+    initialValue: [],
+  });
+
   return (
-    <div id={"page"}>
+    <div id={"page"} className={styles[`header-${domain}`]}>
       <Mini_Header title={"Available Jobs"} />
 
       <div className={"container mx-auto sm:px-0"}>
-        <JobOffersContainer />
+        {jobs.slice(0, 3).map((job) => (
+          <div className="jobOffersContainer" key={job.id}>
+            <JobOffersContainer
+              position={job.title}
+              company={job.company}
+              base={job.base}
+              link={domain}
+            />
+          </div>
+        ))}
+
         <div className="flex flex-row justify-center mb-10">
           <ButtonCMP
             route={`/${domain}/offers`}
@@ -33,7 +60,7 @@ export default function MainStaticCMP({ domain }) {
           />
         </div>
 
-        <JobTilesContainer domain={domain}/>
+        <JobTilesContainer domain={domain} />
 
         <AirLineContainer domain={domain} />
 

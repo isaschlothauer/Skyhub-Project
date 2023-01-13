@@ -22,6 +22,7 @@ export default function GoBackContainer({
   arrowTitle,
   link,
 }: GoBackContainerProps) {
+
   return (
     <div className="container mx-auto sm:px-0">
       <div
@@ -39,7 +40,7 @@ export default function GoBackContainer({
               <div
                 className={styles["goback-subtext"]}
                 onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-                  Router.push("/");
+                  Router.push(link);
                 }}
               >
                 Didn&apos;t find what you were looking for?
@@ -47,7 +48,7 @@ export default function GoBackContainer({
               <div
                 className={styles["goback-maintext"]}
                 onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-                  Router.push("/");
+                  Router.push(link);
                 }}
               >
                 Start again from the <span>beginning</span>...
@@ -55,8 +56,8 @@ export default function GoBackContainer({
             </div>
             <LearnMoreArrow
               cSass={stylesArrow["arrow-gobackhome"]}
-              arrowtext={arrowTitle}
               link={link}
+              arrowtext={arrowTitle}
             />
           </div>
         </div>
