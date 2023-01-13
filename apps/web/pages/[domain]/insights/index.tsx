@@ -53,6 +53,7 @@ const airlineCompanies = [
 
 export default function Insights() {
   const router = useRouter();
+  const { domain } = router.query;
 
   const handleRegionChange = (selectedRegion: string) => {
     const { region: prevRegion, ...prevQuerywithoutRegion } = router.query; // extract the query object from router, but without region
@@ -74,7 +75,7 @@ export default function Insights() {
 
   return (
     <>
-      <div className={styles["header-atc"]}>
+      <div className={styles[`header-${domain}`]}>
         <Mini_Header title="Airline Insights" />
         <div className="mx-auto container ">
           <div
