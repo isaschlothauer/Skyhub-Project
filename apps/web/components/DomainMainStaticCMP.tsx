@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useAxios from "../hooks/useAxios";
 /* STYLES */
-import styles from "../components/staticpage.module.scss"
+import styles from "../components/staticpage.module.scss";
 import stylesB from "../components/generalButton.module.scss";
 
 {
@@ -37,8 +37,8 @@ export default function MainStaticCMP({ domain }: { domain: string }) {
   });
 
   return (
-    <div id={"page"} className={styles[`header-${domain}`]}>
-      <Mini_Header title={"Available Jobs"} />
+    <div id={"page"}>
+      <Mini_Header title={"Available Jobs"} Scssdomain={domain} />
 
       <div className={"container mx-auto sm:px-0"}>
         {jobs.slice(0, 3).map((job) => (
@@ -52,7 +52,8 @@ export default function MainStaticCMP({ domain }: { domain: string }) {
           </div>
         ))}
 
-        <div className="flex flex-row justify-center mb-10">
+        <div className="flex flex-row justify-center mb-10 pt-[1000px]">
+          {/*Changed by Diogo: Muda o padding top para ajustar ao que pretendes*/}
           <ButtonCMP
             route={`/${domain}/offers`}
             buttontext={"SEE MORE OFFERS"}

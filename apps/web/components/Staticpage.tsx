@@ -45,7 +45,7 @@ const StaticPage = ({ cSass, miniheader, domain, slug }: StaticProps) => {
         setContents(clean);
       });
   }, []);
-  
+
   return (
     <div className={`${cSass} ${cssClass} ${styles["staticpage"]}`}>
       {miniheader ?? <Mini_Header title={title} Scssdomain={domain} />}
@@ -59,11 +59,11 @@ const StaticPage = ({ cSass, miniheader, domain, slug }: StaticProps) => {
             </div>
           </div>
         </div>
+        <ContainerFAQContact />
         <GoBackContainer
           arrowTitle={`Back to ${domainToLongName(domain)} page`}
           link={`/${domain}`}
         />
-        <ContainerFAQContact />
       </div>
 
       <Footer />
