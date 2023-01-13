@@ -13,10 +13,20 @@ import stylesArrow from "../components/arrowButton.module.scss";
   /*COMPONENTS*/
 }
 
-export default function GoBackHome() {
+export interface GoBackContainerProps {
+  arrowTitle: string;
+  link: string;
+}
+
+export default function GoBackContainer({
+  arrowTitle,
+  link,
+}: GoBackContainerProps) {
   return (
     <div className="container mx-auto sm:px-0">
-      <div className={`flex flex-wrap flex-col ${styles["goback-maincontainer"]}`}>
+      <div
+        className={`flex flex-wrap flex-col ${styles["goback-maincontainer"]}`}
+      >
         <div
           className={`md:w-full pr-2 pl-2 ${styles["goback-componentcontainer"]}`}
         >
@@ -45,8 +55,8 @@ export default function GoBackHome() {
             </div>
             <LearnMoreArrow
               cSass={stylesArrow["arrow-gobackhome"]}
-              arrowtext="Go to Homepage"
-              link="/"
+              arrowtext={arrowTitle}
+              link={link}
             />
           </div>
         </div>

@@ -1,13 +1,16 @@
 import React from "react";
 import Link from "next/link";
 
-{ /* STYLES */ }
+{
+  /* STYLES */
+}
 
 import stylesJobTiles from "./domain_jobTilesContainer.module.scss";
 
-{ /* COMPONENTS */ }
+{
+  /* COMPONENTS */
+}
 import Image, { StaticImageData } from "next/image";
-
 
 export interface JobTilesContainerProps {
   image: StaticImageData;
@@ -26,18 +29,14 @@ function JobTiles({
 }: JobTilesContainerProps) {
   return (
     <>
-      <Link href={link}>
-        <div className={`${stylesJobTiles.mainContainer}`}>
-          <div className={stylesJobTiles["overlay"]}>
-            <div className={stylesJobTiles["infoContainer"]}>
-              <div className={stylesJobTiles["imageContainer"]}>
-                <Image src={image} alt={"airlines"} />
-              </div>
-              <div className={stylesJobTiles["textContainer"]}>
-                <div className={stylesJobTiles["title"]}>{title}</div>
-                <div className={stylesJobTiles["subtitle"]}>{subtitle}</div>
-              </div>
-            </div>
+      <Link href={link} className={`${stylesJobTiles.singleContainer}`}>
+        <div className={stylesJobTiles["infoContainer"]}>
+          <div className={stylesJobTiles["imageContainer"]}>
+            <Image src={image} alt={"airlines"} />
+          </div>
+          <div className={stylesJobTiles["textContainer"]}>
+            <div className={stylesJobTiles["title"]}>{title}</div>
+            <div className={stylesJobTiles["subtitle"]}>{subtitle}</div>
           </div>
         </div>
       </Link>

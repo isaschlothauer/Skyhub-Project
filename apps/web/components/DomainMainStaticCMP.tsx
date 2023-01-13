@@ -1,26 +1,24 @@
 import React from "react";
-{
-  /* STYLES */
-}
-import stylesB from "../../components/generalButton.module.scss";
+/* STYLES */
+import stylesB from "../components/generalButton.module.scss";
 
 {
   /* COMPONENTS */
 }
-import Mini_Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import GoBackContainer from "../../components/GoBackContainer";
-import AirLineContainer from "../../components/Domain_AirlineContainer";
-import ContainerFAQContact from "../../components/FAQ_Contact_Container";
-import ButtonCMP from "../../components/GeneralButton";
+import Mini_Header from "./Header";
+import Footer from "./Footer";
+import GoBackContainer from "./GoBackContainer";
+import AirLineContainer from "./Domain_AirlineContainer";
+import ContainerFAQContact from "./FAQ_Contact_Container";
+import ButtonCMP from "./GeneralButton";
 
 {
   /* IMAGES */
 }
-import JobTilesContainer from "../../components/Domain_JobTilesContainer";
-import JobOffersContainer from "../../components/Domain_JobOffersContainer";
+import JobTilesContainer from "./Domain_JobTilesContainer";
+import JobOffersContainer from "./Domain_JobOffersContainer";
 
-function Jobs() {
+export default function MainStaticCMP({ domain }) {
   return (
     <div id={"page"}>
       <Mini_Header title={"Available Jobs"} />
@@ -29,15 +27,15 @@ function Jobs() {
         <JobOffersContainer />
         <div className="flex flex-row justify-center mb-10">
           <ButtonCMP
-            route={"/jobs/offers"}
+            route={`/${domain}/offers`}
             buttontext={"SEE MORE OFFERS"}
             cSass={`${stylesB["see-more-btn"]}`}
           />
         </div>
 
-        <JobTilesContainer />
+        <JobTilesContainer domain={domain}/>
 
-        <AirLineContainer />
+        <AirLineContainer domain={domain} />
 
         {/* FAQ & CONTACT US COMPONENT*/}
         <div className={`container mx-auto sm:px-0`}>
@@ -66,5 +64,3 @@ function Jobs() {
     </div>
   );
 }
-
-export default Jobs;

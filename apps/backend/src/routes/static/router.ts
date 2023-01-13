@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { getStaticPage } from "./handlers";
+import { getJobsContainer, getStaticPage } from "./handlers";
 
 const StaticPageRouter = Router();
 
 StaticPageRouter.get("/:domain/:slug", getStaticPage);
+StaticPageRouter.get("/:test", getJobsContainer);
 
 export default StaticPageRouter;

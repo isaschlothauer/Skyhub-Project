@@ -54,7 +54,7 @@ const jobTiles = [
       <LearnMoreArrow
         arrowtext={"Learn More"}
         cSass={stylesArrow["arrow-jobs"]}
-        link={"/jobs"}
+        link={"/pilot"}
       />
     ),
   },
@@ -69,7 +69,7 @@ const jobTiles = [
       <LearnMoreArrow
         arrowtext={"Learn More"}
         cSass={stylesArrow["arrow-jobs"]}
-        link={"/jobs"}
+        link={"/cabin"}
       />
     ),
   },
@@ -84,7 +84,7 @@ const jobTiles = [
       <LearnMoreArrow
         arrowtext={"Learn More"}
         cSass={stylesArrow["arrow-jobs"]}
-        link={"/jobs"}
+        link={"/atc"}
       />
     ),
   },

@@ -1,5 +1,4 @@
 #offers {
-  margin-bottom: 100px;
   .job-offer-list-item {
     margin-bottom: 30px;
     -webkit-border-radius: 25px;
@@ -36,6 +35,11 @@
       line-height: 24px;
       font-size: 16px;
       color: #727481;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      padding-top: 1rem;
+      justify-content: space-between;
       .job-offer-list-item-contract {
         position: relative;
         padding-left: 30px;
@@ -89,8 +93,34 @@
     }
   }
   .job-image-and-arrow {
-    padding-top: 2.5rem;
-    gap: 2.5rem;
     align-self: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+@media only screen and (max-width: 500px) {
+  .job-image-and-arrow {
+    flex-direction: row !important;
+    align-items: center;
+  }
+
+  .job-offer-item-and-images {
+    flex-direction: column-reverse;
+  }
+  
+  .job-offer-list-item-details {
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    padding-top: 3rem !important;
+  }
+  .job-offer-list-item-contract p,
+  .job-offer-list-item-location p,
+  .job-offer-list-item-date p {
+    display: none;
   }
 }
