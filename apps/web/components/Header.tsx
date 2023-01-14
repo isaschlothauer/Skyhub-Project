@@ -19,7 +19,7 @@ const Mini_Header = ({ title, Scssdomain }: HeaderProps) => {
       }`}
     >
       <div className={"container mx-auto sm:px-0"}>
-        <div className={"flex flex-wrap "}>
+        <div>
           <div className={"md:w-full pr-0 pl-0"}>
             <Link href="/" className={styles["header-logo"]} />
 

@@ -28,6 +28,13 @@
         color: #727481;
         font-size: 1rem;
         line-height: 1.5rem;
+
+        h1{
+          font-size: 1.5rem;
+          text-align: center;
+          font-weight: 900;
+          color: #ec008c;
+        }
         p {
           margin-bottom: 1.25rem;
         }
@@ -97,43 +104,146 @@
 
     @media only screen and (max-width: 426px) {
 
-      .staticpage-databaseinfo {
-        padding: 2.5rem 1.563rem;
-        color: #727481;
-        font-size: 0.3rem;
-        line-height: 0.5rem;
-        p {
-          margin-bottom: 1.25rem;
-        }
-        hr {
-          border: none;
-          height: 0.063rem;
-          width: 100%;
-          background: #e8e9eb;
-          margin: 0.938rem 0;
-        }
-        h2 {
-          font-size: 1.25rem;
-          line-height: 1.75rem;
+
+      .staticpage-padding{
+        padding-top: 250px;
+      }
+
+      .staticpage-content {
+        position: relative;
+        z-index: 2;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 1.563rem;
+        background: white;
+        margin-bottom: 2rem;
+        -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        padding-left: 0px;
+        padding-right: 0px;
+        
+    
+        //Properties of the information/content retrieved from the database
+        .staticpage-databaseinfo {
+          padding: 0;
+          padding: 1.5rem;
           color: #727481;
-          font-weight: normal;
-          margin-bottom: 1.875rem;
-        }
-        h3 {
-          font-size: 1rem;
-          line-height: 1.5rem;
-          color: #ec008c;
-          font-weight: bold;
-          margin-bottom: 1.563rem;
-        }
-        ul {
-          padding-left: 1.563rem;
-          margin-bottom: 1.563rem;
-          li {
-            margin-bottom: 0.938rem;
+          font-size: 0.85rem;
+          line-height: 1.3rem;
+          
+          h1{
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #ec008c;
+          }
+          p {
+            margin-bottom: 1rem;
+          }
+          hr {
+            border: none;
+            height: 0.063rem;
+            width: 100%;
+            background: #e8e9eb;
+            margin: 0.938rem 0;
+          }
+          h2 {
+            font-size: 0.825rem;
+            line-height: 1.75rem;
+            color: #727481;
+            font-weight: normal;
+            margin-bottom: 1.875rem;
+          }
+          h3 {
+            font-size: 0.9rem;
+            line-height: 1.5rem;
+            color: #ec008c;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+          }
+          ul {
+            padding-left: 0rem;
+            margin-bottom: 0rem;
+            li {
+              margin-bottom: 2.5rem;
+            }
           }
         }
       }
+      
     }
 
+    
+
+    @media only screen and (min-width:426px) and (max-width: 769px) {
+
+      .staticpage-padding{
+        padding-top: 250px;
+      }
+
+
+      .staticpage-content {
+        position: relative;
+        z-index: 2;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 1.563rem;
+        background: white;
+        margin-bottom: 2rem;
+        -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        padding-left: 0px;
+        padding-right: 0px;
+        
+    
+        //Properties of the information/content retrieved from the database
+        .staticpage-databaseinfo {
+          padding: 0;
+          padding:1.5rem;
+          color: #727481;
+          font-size: 0.9rem;
+          line-height: 1.4rem;
+          
+          h1{
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: #ec008c;
+          }
+          p {
+            margin-bottom: 1rem;
+          }
+          hr {
+            border: none;
+            height: 0.063rem;
+            width: 100%;
+            background: #e8e9eb;
+            margin: 0.938rem 0;
+          }
+          h2 {
+            font-size: 0.825rem;
+            line-height: 1.75rem;
+            color: #727481;
+            font-weight: normal;
+            margin-bottom: 1.875rem;
+          }
+          h3 {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            color: #ec008c;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+          }
+          ul {
+            padding-left: 0rem;
+            margin-bottom: 0rem;
+            li {
+              margin-bottom: 2.5rem;
+            }
+          }
+        }
+      }
+      
+    }
     
