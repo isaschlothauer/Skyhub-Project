@@ -50,7 +50,7 @@ const StaticPage = ({ cSass, miniheader, domain, slug }: StaticProps) => {
     <div className={`${cSass} ${cssClass} ${styles["staticpage"]}`}>
       {miniheader ?? <Mini_Header title={title} Scssdomain={domain} />}
       <div
-        className={`container mx-auto pt-[320px] sm:pl-0 pr-0 ${styles["staticpage-padding"]}`}
+        className={`container mx-auto pt-[20rem] sm:pl-0 pr-0 ${styles["staticpage-padding"]}`}
       >
         <div className={"flex flex-wrap"}>
           <div

@@ -3,7 +3,7 @@
 //Main container common to all the static pages
 .staticpage{
     position: relative;
-    z-index: 999; //PROPERTY TO CHANGE
+    z-index: 999; 
     min-height: calc(100vh - 13.25rem);
   }
     
@@ -16,15 +16,17 @@
       -moz-border-radius: 25px;
       border-radius: 1.563rem;
       background: white;
-      margin-bottom: 3.75rem;
+      margin-bottom: 4rem;
       -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
       -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-      
+      padding-left: 0rem;
+      padding-right: 0rem;
+
   
       //Properties of the information/content retrieved from the database
       .staticpage-databaseinfo {
-        padding: 2.5rem 1.563rem;
+        padding: 3rem;
         color: #727481;
         font-size: 1rem;
         line-height: 1.5rem;
@@ -38,32 +40,27 @@
         p {
           margin-bottom: 1.25rem;
         }
-        hr {
-          border: none;
-          height: 0.063rem;
-          width: 100%;
-          background: #e8e9eb;
-          margin: 0.938rem 0;
-        }
+
         h2 {
           font-size: 1.25rem;
           line-height: 1.75rem;
-          color: #727481;
-          font-weight: normal;
-          margin-bottom: 1.875rem;
+          font-weight: bold;
+          color: #ec008c;
+          margin-bottom: 3rem;
+          text-align: center;
         }
         h3 {
-          font-size: 1rem;
+          font-size: 1.2rem;
           line-height: 1.5rem;
           color: #ec008c;
           font-weight: bold;
-          margin-bottom: 1.563rem;
+          margin-bottom: 0.7rem;
         }
         ul {
-          padding-left: 1.563rem;
-          margin-bottom: 1.563rem;
+          padding-left: 0rem;
+          margin-bottom: 0rem;
           li {
-            margin-bottom: 0.938rem;
+            margin-bottom: 3.5rem;
           }
         }
       }
@@ -106,64 +103,37 @@
 
 
       .staticpage-padding{
-        padding-top: 250px;
+        padding-top: 15.625rem;
       }
 
       .staticpage-content {
-        position: relative;
-        z-index: 2;
-        -webkit-border-radius: 25px;
-        -moz-border-radius: 25px;
-        border-radius: 1.563rem;
-        background: white;
         margin-bottom: 2rem;
-        -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-        -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-        padding-left: 0px;
-        padding-right: 0px;
+
         
     
-        //Properties of the information/content retrieved from the database
         .staticpage-databaseinfo {
-          padding: 0;
-          padding: 1.5rem;
+          padding: 1.75rem;
           color: #727481;
-          font-size: 0.85rem;
+          font-size: 0.8rem;
           line-height: 1.3rem;
           
           h1{
             font-size: 1.1rem;
-            font-weight: 900;
-            color: #ec008c;
           }
           p {
             margin-bottom: 1rem;
           }
-          hr {
-            border: none;
-            height: 0.063rem;
-            width: 100%;
-            background: #e8e9eb;
-            margin: 0.938rem 0;
-          }
+
           h2 {
-            font-size: 0.825rem;
-            line-height: 1.75rem;
-            color: #727481;
-            font-weight: normal;
-            margin-bottom: 1.875rem;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+
           }
           h3 {
             font-size: 0.9rem;
-            line-height: 1.5rem;
-            color: #ec008c;
             margin-bottom: 0.5rem;
-            font-weight: bold;
           }
           ul {
-            padding-left: 0rem;
-            margin-bottom: 0rem;
             li {
               margin-bottom: 2.5rem;
             }
@@ -178,68 +148,37 @@
     @media only screen and (min-width:426px) and (max-width: 769px) {
 
       .staticpage-padding{
-        padding-top: 250px;
+        padding-top: 16.25rem;
       }
 
-
       .staticpage-content {
-        position: relative;
-        z-index: 2;
-        -webkit-border-radius: 25px;
-        -moz-border-radius: 25px;
-        border-radius: 1.563rem;
-        background: white;
-        margin-bottom: 2rem;
-        -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-        -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-        padding-left: 0px;
-        padding-right: 0px;
+        margin-bottom: 3rem;
         
     
-        //Properties of the information/content retrieved from the database
         .staticpage-databaseinfo {
-          padding: 0;
-          padding:1.5rem;
-          color: #727481;
+          padding:2.5rem;
           font-size: 0.9rem;
           line-height: 1.4rem;
           
           h1{
             font-size: 1.2rem;
-            font-weight: 900;
-            color: #ec008c;
           }
+
           p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.1rem;
           }
-          hr {
-            border: none;
-            height: 0.063rem;
-            width: 100%;
-            background: #e8e9eb;
-            margin: 0.938rem 0;
-          }
+
           h2 {
-            font-size: 0.825rem;
-            line-height: 1.75rem;
-            color: #727481;
-            font-weight: normal;
-            margin-bottom: 1.875rem;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
           }
           h3 {
             font-size: 1rem;
-            line-height: 1.5rem;
-            color: #ec008c;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
           }
+
           ul {
-            padding-left: 0rem;
-            margin-bottom: 0rem;
             li {
-              margin-bottom: 2.5rem;
+              margin-bottom: 3rem;
             }
           }
         }
