@@ -15,8 +15,8 @@ const Mini_Header = ({ title, Scssdomain }: HeaderProps) => {
   return (
     <div
       className={`${styles["header-container"]} ${
-        styles[`header-${Scssdomain}`]
-      }`}
+        styles["header-otherpages"]
+      } ${styles[`header-${Scssdomain}`]}`}
     >
       <div className={"container mx-auto sm:px-0"}>
         <div>

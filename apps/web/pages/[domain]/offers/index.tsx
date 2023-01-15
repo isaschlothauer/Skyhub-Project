@@ -22,9 +22,12 @@ import useAxios from "../../../hooks/useAxios";
 import { JobOffer } from "../../../components/DomainMainStaticCMP";
 import { useRouter } from "next/router";
 
-export default function Offers() {
+export interface OffersProps {
+  domain: any;
+}
+const Offers = ({}: OffersProps) => {
   const router = useRouter();
-  const { domain } = router.query;
+  const { domain } = router.query; //REVIEW THIS - It was giving a duplication problem with the interface.
 
   const jobs = useAxios<JobOffer[]>({
     url: `http://localhost:5000/static/jobs?domain=${domain}`,
@@ -33,7 +36,7 @@ export default function Offers() {
 
   return (
     <div id={"page"}>
-      <Mini_Header title={"Job Offers"} />
+      <Mini_Header title={"Job Offers"} Scssdomain={domain} />
       <div className="container mx-auto sm:px-4">
         <div
           className={
@@ -93,4 +96,6 @@ export default function Offers() {
       <Footer />
     </div>
   );
-}
+};
+
+export default Offers;
