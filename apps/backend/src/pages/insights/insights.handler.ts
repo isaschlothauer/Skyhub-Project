@@ -9,6 +9,7 @@ interface GetInsightsParams {
 interface GetInsightsQuery {
   region?: string;
   type?: string;
+  page?: string;
 }
 
 interface InsightsIndexItem extends RowDataPacket {
@@ -32,21 +33,30 @@ export const GetInsights: RequestHandler<
   GetInsightsQuery
 > = async (req, res) => {
   const { domain } = req.params;
+  const page = req.query.page ? parseInt(req.query.page) : 1;
+
+  const itemsPerPage = 16;
+  const offSet = (page - 1) * itemsPerPage;
 
   let sqlQueryString = `SELECT airlines.name, airlines.slug, images.src FROM airlines JOIN images ON image_id = images.id WHERE airlines.job_type = ?`;
   let sqlQueryValues: (string | number)[] = [domain];
+  let sqlCountQueryString = `SELECT COUNT(*) AS count FROM airlines WHERE airlines.job_type = ?`;
+  let sqlCountQueryValues: (string | number)[] = [domain];
 
   if (req.query.region) {
     sqlQueryString = sqlQueryString + " AND airlines.region = ?";
     sqlQueryValues = [...sqlQueryValues, req.query.region];
+    sqlCountQueryString = sqlCountQueryString + " AND airlines.region = ?";
+    sqlCountQueryValues = [...sqlCountQueryValues, req.query.region];
   }
   if (req.query.type) {
     sqlQueryString = sqlQueryString + " AND airlines.type = ?";
     sqlQueryValues = [...sqlQueryValues, req.query.type];
+    sqlCountQueryString = sqlCountQueryString + " AND airlines.type = ?";
+    sqlCountQueryValues = [...sqlCountQueryValues, req.query.type];
   }
-
-  //   res.json({ sql: sqlQueryString, sqlValues: sqlQueryValues });
-  //   return;
+  sqlQueryString = sqlQueryString + " LIMIT ?, ?";
+  sqlQueryValues = [...sqlQueryValues, offSet, itemsPerPage];
 
   try {
     const [regions] = await database.query<Regions[]>(
@@ -59,14 +69,23 @@ export const GetInsights: RequestHandler<
     );
     const optionsAirlineType = types.map(({ type }) => type);
 
-    const [filteredInsights] = await database.query<InsightsIndexItem[]>(
+    const [airlines] = await database.query<InsightsIndexItem[]>(
       sqlQueryString,
       sqlQueryValues
     );
+
+    const [count] = await database.query<any>(
+      sqlCountQueryString,
+      sqlCountQueryValues
+    );
+
+    const totalPages = Math.ceil(parseInt(count[0].count) / itemsPerPage);
+
     res.status(200).json({
       optionsRegion,
       optionsAirlineType,
-      filteredInsights,
+      airlines,
+      totalPages,
     });
   } catch (err) {
     console.log(err);
