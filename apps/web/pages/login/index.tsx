@@ -53,11 +53,6 @@ export default function Login() {
       [event.target.name]: event.target.value})
   }
 
-  function loginStateClear(event: React.ChangeEvent<HTMLInputElement>) {
-    setLogin({...login,
-      password: ""})
-  }
-
 // Submit button behavior definition
   function submitBehavior (event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
