@@ -29,104 +29,75 @@ const registrationButton = {
 const labelStyling = "block font-thin text-pink-primary mt-4 ";  //For label
 const inputFieldStyling = "border-2 mt-1 w-full rounded-3xl pl-3 h-9";  // For input field
 
-const inputFieldData = [
-  {
-    htmlFor: "firstname",
-    classNameLabel: labelStyling,
-    labelValue: "Firstname",
-    name: "lastname", 
-    id: "lastname",
-    classNameInput: inputFieldStyling,
-    placeholder: "First name"
-  },
-  {
-    htmlFor: "lastname",
-    classNameLabel: labelStyling,
-    labelValue: "Lastname",
-    name: "lastname", 
-    id: "lastname",
-    classNameInput: inputFieldStyling,
-    placeholder: "Last name"
-  },
-  {
-    htmlFor: "email",
-    classNameLabel: labelStyling,
-    labelValue: "Email",
-    name: "email", 
-    id: "email",
-    classNameInput: inputFieldStyling,
-    placeholder: "Email"
-  },
-  {
-    htmlFor: "phonenumber",
-    classNameLabel: labelStyling,
-    labelValue: "Phone Number",
-    name: "phonenumber", 
-    id: "phonenumber",
-    classNameInput: inputFieldStyling,
-    placeholder: "+country-code phone-number"
-  },
-  {
-    htmlFor: "department",
-    classNameLabel: labelStyling,
-    labelValue: "Department",
-    name: "department", 
-    id: "department",
-    classNameInput: inputFieldStyling,
-    placeholder: "Department"
-  },
-  {
-    htmlFor: "company",
-    classNameLabel: labelStyling,
-    labelValue: "Company",
-    name: "company", 
-    id: "company",
-    classNameInput: inputFieldStyling,
-    placeholder: "Company"
-  },
-  {
-    htmlFor: "address",
-    classNameLabel: labelStyling,
-    labelValue: "Address",
-    name: "address", 
-    id: "address",
-    classNameInput: inputFieldStyling,
-    placeholder: "Street, street number"
-  },
-  {
-    htmlFor: "city",
-    classNameLabel: labelStyling,
-    labelValue: "City",
-    name: "city", 
-    id: "city",
-    classNameInput: inputFieldStyling,
-    placeholder: "City"
-  },
-  {
-    htmlFor: "postalcode",
-    classNameLabel: labelStyling,
-    labelValue: "Postal Code",
-    name: "postalcode", 
-    id: "postalcode",
-    classNameInput: inputFieldStyling,
-    placeholder: "Postal code"
-  },
-  {
-    htmlFor: "country",
-    classNameLabel: labelStyling,
-    labelValue: "Country",
-    name: "country", 
-    id: "country",
-    classNameInput: inputFieldStyling,
-    placeholder: "Country"
-  }, 
-]
+// const inputFieldData = [
+//   {
+//     htmlFor: "firstname",
+//     classNameLabel: labelStyling,
+//     labelValue: "Firstname",
+//     name: "lastname", 
+//     id: "lastname",
+//     classNameInput: inputFieldStyling,
+//     placeholder: "First name"
+//   },
+//   {
+//     htmlFor: "lastname",
+//     classNameLabel: labelStyling,
+//     labelValue: "Lastname",
+//     name: "lastname", 
+//     id: "lastname",
+//     classNameInput: inputFieldStyling,
+//     placeholder: "Last name"
+//   },
+//   {
+//     htmlFor: "email",
+//     classNameLabel: labelStyling,
+//     labelValue: "Email",
+//     name: "email", 
+//     id: "email",
+//     classNameInput: inputFieldStyling,
+//     placeholder: "Email"
+//   },
+//   {
+//     htmlFor: "phonenumber",
+//     classNameLabel: labelStyling,
+//     labelValue: "Phone Number",
+//     name: "phonenumber", 
+//     id: "phonenumber",
+//     classNameInput: inputFieldStyling,
+//     placeholder: "+country-code phone-number"
+//   },
+//   {
+//     htmlFor: "company",
+//     classNameLabel: labelStyling,
+//     labelValue: "Company",
+//     name: "company", 
+//     id: "company",
+//     classNameInput: inputFieldStyling,
+//     placeholder: "Company"
+//   },
+// ]
+
+type User =  {
+  firstname: string;
+  lastname: string;
+  email: string;
+  phone: string;
+  company: string;
+}
 
 export default function Registration() {
   const [tos, setTOS] = useState(false);
   const [airlineRep, setAirlineRep] = useState(false);
   const [recruitmentRep, setRecruitmentRep] = useState(false);
   // Need to set state for all fields
+  const [registration, setRegistration] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    company: "",
+    // contact: "" //Nore sure what it ia
+  })
 
   // const tosHandler = () => {
   //   setTOS(!tos);
@@ -146,7 +117,13 @@ export default function Registration() {
     setRecruitmentRep(!recruitmentRep);
   }
 
-  const inputFieldStyles = "border-2 mt-1 w-full rounded-3xl pl-3 h-9"
+  function inputFieldData(event: React.ChangeEvent<HTMLInputElement>) {
+    setRegistration(() => ({
+      ...registration,
+      [event.target.name]: event.target.value,
+    }))
+
+  }
 
   return (
     <div className={`${styles["registration-page"]}`}>
@@ -164,6 +141,7 @@ export default function Registration() {
             checked={airlineRep}
             onChange={airlineHandler}
             className={"ml-3 z-10 mt-8"}
+            onChange={inputFieldData}
           />
           <span className={"ml-2"}>Airline representative</span>
 
@@ -181,7 +159,72 @@ export default function Registration() {
         <div className={"text-center mt-8"}>New account data</div>
           
           {/* Data Input Field */}
-          {inputFieldData.map((data) => {
+          <form>
+            <label htmlFor="firstname" className={labelStyling}>Firstname
+              <input 
+                id="firstname"
+                name="firstname"
+                value={registration.firstname}
+                className={inputFieldStyling}
+                placeholder="firstname"
+                />
+            </label>
+
+            <label htmlFor="lastname" className={labelStyling}>Lastname
+              <input 
+                id="lastname"
+                name="lastname"
+                value={registration.lastname}
+                className={inputFieldStyling}
+                placeholder="Lastname"
+                />
+            </label>
+
+            <label htmlFor="email" className={labelStyling}>Email
+              <input 
+                id="email"
+                name="email"
+                value={registration.email}
+                className={inputFieldStyling}
+                placeholder="email"
+                />
+            </label>
+            
+            <label htmlFor="company" className={labelStyling}>Company
+              <input 
+                id="company"
+                name="ecompanymail"
+                value={registration.company}
+                className={inputFieldStyling}
+                placeholder="company"
+                />
+            </label>
+            
+            <label htmlFor="phone" className={labelStyling}>Phone number
+              <input 
+                id="phone"
+                name="phone"
+                value={registration.phone}
+                className={inputFieldStyling}
+                placeholder="phone"
+                />
+            </label>
+            
+            <label>
+              <input 
+                />
+            </label>
+            
+            <label>
+              <input 
+                />
+            </label>
+            
+
+          </form>          
+
+          
+          {/* {inputFieldData.map((data) => {
             return (
             <InputField 
               htmlFor={data.htmlFor} 
@@ -192,7 +235,7 @@ export default function Registration() {
               classNameInput={data.classNameInput} 
               name={data.name} 
             />
-          )})}
+          )})} */}
 
           <div className={"mt-5 mx-2 "}>Upon submission, account validation email will be sent to the email address specified. Please follow the link to complete the registration.</div>
           
