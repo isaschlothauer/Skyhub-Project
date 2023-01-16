@@ -12,12 +12,19 @@ import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 import ContainerFAQContact from "../../components/FAQ_Contact_Container";
 
-function FAQ() {
+export interface FAQProps {
+  domain: string;
+}
+
+{
+  /*UseEffect Implementation Test*/
+}
+const FAQ = ({ domain }: FAQProps) => {
   return (
     <div className={styles["faq-page"]}>
       {/* Mini Header CMP */}
 
-      <Mini_Header title={"Frequently Asked Questions"} />
+      <Mini_Header title={"Frequently Asked Questions"} Scssdomain={domain} />
 
       <div className={"container mx-auto sm:px-4"}>
         <div className={"flex flex-wrap"}>
@@ -85,6 +92,6 @@ function FAQ() {
       <Footer />
     </div>
   );
-}
+};
 
 export default FAQ;

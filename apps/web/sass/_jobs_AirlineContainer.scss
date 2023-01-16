@@ -7,6 +7,7 @@
     width: 100%;
 
     .subtitle {
+      color: $black;
       font-size: 16px;
       font-weight: 600;
       line-height: 24px;
@@ -14,6 +15,7 @@
     }
 
     .title {
+      color: $black;
       font-size: 32px;
       font-weight: 900;
       line-height: 38px;
@@ -22,9 +24,23 @@
   }
 }
 
-.insight {
+.insight-pilot {
   border-radius: 30px;
   background-color: $pilot-tile-airline;
+  background-size: cover;
+  padding: 30px; //5%;
+}
+
+.insight-cabin {
+  border-radius: 30px;
+  background-color: $cabin-tile-airline;
+  background-size: cover;
+  padding: 30px; //5%;
+}
+
+.insight-atc {
+  border-radius: 30px;
+  background-color: $atc-tile-airline;
   background-size: cover;
   padding: 30px; //5%;
 }
@@ -40,5 +56,9 @@
   width: 100%;
   & img {
     border-radius: 3rem;
+    transition: all ease 0.5s;
+  }
+  & img:hover {
+    opacity: 0.9;
   }
 }

@@ -27,10 +27,6 @@
   background-size: cover;
   padding: 2rem; //5%;
 
-  transition: all ease 0.15s;
-  &:hover {
-    color: $blue;
-  }
   .infoContainer {
     display: flex;
     flex-direction: column;
@@ -40,28 +36,38 @@
     margin-bottom: 1rem;
     width: 100%;
   }
-  .subtitle {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
-    margin-bottom: 5px;
-    text-align: center;
-  }
+}
 
-  .title {
-    font-size: 2rem;
-    font-weight: 900;
-    line-height: 2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
+.title {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: $black;
+}
+.subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  margin-bottom: 5px;
+  text-align: center;
+  color: $black;
+}
 
-  .imageContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
+.title,
+.subtitle {
+  transition: all ease 0.15s;
+  &:hover {
+    color: $blue;
   }
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 @media only screen and (min-width: 375px) and (max-width: 501px) {

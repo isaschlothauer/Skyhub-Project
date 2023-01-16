@@ -49,6 +49,7 @@
 //Container of the phrase generator component
 .mainpage-robotcontainer{
   z-index:998;
+  position: relative;
 
   .maingpage-robottext {
     font-size: 3rem;
@@ -73,6 +74,7 @@
       font-weight: 900;
       position: absolute;
       left: 57.9%;
+      text-align: left;
       background-color: transparent;
     }
     
@@ -90,7 +92,7 @@
         width: 0;
       }
       16% {
-        width: 144px;
+        width: 164px;
         top: 0rem;
       }
 
@@ -103,7 +105,7 @@
         top: -4.5rem;
       }
       36% {
-        width: 113px;
+        width: 123px;
         top: -4.5rem;
       }
 
@@ -119,7 +121,7 @@
       }
 
       56% {
-        width: 176px;
+        width: 196px;
         top: -9rem;
       }
 
@@ -134,7 +136,7 @@
     }
 
     76% {
-      width: 148px;
+      width: 168px;
       top: -13.5rem;
     }
 
@@ -149,7 +151,7 @@
     }
 
     96% {
-      width: 144px;
+      width: 164px;
       top: -18rem;
     }
 
