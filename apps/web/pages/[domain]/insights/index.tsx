@@ -78,48 +78,48 @@ export default function Insights() {
 
   return (
     <>
-      <div className={styles[`header-${domain}`]}>
-        <Mini_Header title="Airline Insights" />
-        <div className="mx-auto container ">
-          <div
-            className={
-              "flex flex-row space-x-4 justify-around items-center px-10 mx-auto h-32 rounded-[33px] bg-white mb-[60px] mt-[20px] shadow-main"
-            }
-          >
-            {router.isReady && (
+      {router.isReady && (
+        <div>
+          <Mini_Header title="Airline Insights" Scssdomain={domain as string} />
+
+          <div className="mx-auto container relative z-10 mobile:pt-[15.625rem] tablet:pt-[16.25rem] pc:pt-[20rem] ">
+            <div
+              className={
+                "flex flex-row space-x-4 justify-around items-center px-10 mx-auto h-32 rounded-[33px] bg-white mb-[60px] mt-[20px] shadow-main"
+              }
+            >
               <Select
                 label="Search Region"
                 options={optionsRegion}
                 onSelect={handleRegionChange}
                 initialSelected={router.query.region as string}
               />
-            )}
-            {router.isReady && (
+
               <Select
                 label="Type of Airline"
                 options={optionsAirlineType}
                 onSelect={handleAirlineTypeChange}
                 initialSelected={router.query.type as string}
               />
-            )}
+            </div>
+            <div className="grid grid-cols-2 gap-8 pb-12 mx-auto md:grid-cols-3 lg:grid-cols-4 ">
+              {airlineCompanies.map((airline) => {
+                return (
+                  <AirlineTile
+                    key={airline.name}
+                    logo={`https://pilot.skyhub.staging.d-a-pfeiffer.info/${airline.src}`}
+                    title={airline.name}
+                    slug={airline.slug}
+                  />
+                );
+              })}
+            </div>
           </div>
-          <div className="grid grid-cols-2 gap-8 pb-12 mx-auto md:grid-cols-3 lg:grid-cols-4 ">
-            {airlineCompanies.map((airline) => {
-              return (
-                <AirlineTile
-                  key={airline.name}
-                  logo={`https://pilot.skyhub.staging.d-a-pfeiffer.info/${airline.src}`}
-                  title={airline.name}
-                  slug={airline.slug}
-                />
-              );
-            })}
-          </div>
+          <Pagination totalPage={totalPage} />
+          <FAQ_Contact_Container />
+          <Footer />
         </div>
-        <Pagination totalPage={totalPage} />
-        <FAQ_Contact_Container />
-        <Footer />
-      </div>
+      )}
     </>
   );
 }
