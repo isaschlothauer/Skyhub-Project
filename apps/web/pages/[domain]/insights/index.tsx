@@ -12,51 +12,12 @@ import Pagination from "../../../components/Pagination";
 
 // importing styles
 import styles from "./insights.module.scss";
-// importing images
-import Logo from "../../../assets/images/airlines/germanairways.jpg";
 
-// const optionsRegion = [
-//   "---",
-//   "Asia",
-//   "Australia",
-//   "Europe",
-//   "North America",
-//   "Middle East",
-//   "South America",
-// ];
-// const optionsAirlineType = [
-//   "---",
-//   "Legacy",
-//   "National",
-//   "Charta",
-//   "Cargo",
-//   "Regional",
-//   "Corporate",
-//   "Helicopter",
-// ];
-
-const airlineCompanies = [
-  {
-    logo: Logo,
-    title: "Lufthansa",
-    slug: "Lufthansa",
-  },
-  {
-    logo: Logo,
-    title: "Lufthansa2",
-    slug: "Lufthansa2",
-  },
-  {
-    logo: Logo,
-    title: "Lufthansa3",
-    slug: "Lufthansa3",
-  },
-  {
-    logo: Logo,
-    title: "Lufthansa4",
-    slug: "Lufthansa4",
-  },
-];
+type Airline = {
+  name: string;
+  slug: string;
+  src?: string;
+};
 
 export default function Insights() {
   const router = useRouter();
@@ -65,6 +26,7 @@ export default function Insights() {
 
   const [optionsRegion, setOptionsRegion] = useState(["---"]);
   const [optionsAirlineType, setOptionsAirlineType] = useState(["---"]);
+  const [airlineCompanies, setAirlineCompanies] = useState<Airline[]>([]);
 
   let uri = `http://localhost:5000/${domain}/insights`;
 
@@ -83,9 +45,10 @@ export default function Insights() {
       .get(uri)
       .then((response) => response.data)
       .then((data) => {
-        // console.log(data);
+        console.log(data);
         setOptionsRegion(["---", ...data.optionsRegion]);
         setOptionsAirlineType(["---", ...data.optionsAirlineType]);
+        setAirlineCompanies(data.filteredInsights);
       });
   }, [uri]);
 
@@ -132,9 +95,9 @@ export default function Insights() {
             {airlineCompanies.map((airline) => {
               return (
                 <AirlineTile
-                  key={airline.title}
-                  logo={airline.logo}
-                  title={airline.title}
+                  key={airline.name}
+                  logo={`https://pilot.skyhub.staging.d-a-pfeiffer.info/${airline.src}`}
+                  title={airline.name}
                   slug={airline.slug}
                 />
               );
