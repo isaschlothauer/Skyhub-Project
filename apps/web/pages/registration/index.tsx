@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import InputField from "../../components/DataInputFIeld"
 import RegistrationButton from "../../components/GeneralButton";
 import styleslrButton from "../../components/generalButton.module.scss";
 import ReturnHomeContainer from "../../components/GoBackContainer";
@@ -54,7 +53,7 @@ export default function Registration() {
     password: "",
     passwordConfirm: "",
     accountType: ""
-    // contact: "" //Nore sure what it ia
+    // contact: "" //Nore sure what it is
   })
 
   // Password match/confirmation mechanism
@@ -235,7 +234,6 @@ export default function Registration() {
             <input
               type="checkbox"
               checked={tos}
-              // onChange={tosHandler}
               className={"ml-3 z-10 mt-5"}
               onChange={(event) => setTOS(event.target.checked)}
             />
