@@ -21,35 +21,37 @@ type Airline = {
 
 export default function Insights() {
   const router = useRouter();
-  //console.log(router.query);
-  const { domain } = router.query;
+  const { domain, ...searchQuery } = router.query;
 
   const [optionsRegion, setOptionsRegion] = useState(["---"]);
   const [optionsAirlineType, setOptionsAirlineType] = useState(["---"]);
   const [airlineCompanies, setAirlineCompanies] = useState<Airline[]>([]);
+  const [totalPage, setTotalPage] = useState(1);
 
-  let uri = `http://localhost:5000/${domain}/insights`;
+  const searchParams = new URLSearchParams(searchQuery as any).toString();
 
-  if (router.query.region && router.query.type) {
-    uri += `?region=${router.query.region}&type=${router.query.type}`;
-  } else if (router.query.region) {
-    uri += `?region=${router.query.region}`;
-  } else if (router.query.type) {
-    uri += `?type=${router.query.type}`;
-  }
-
-  console.log(uri);
+  let uri = searchParams
+    ? `http://localhost:5000/${domain}/insights?${searchParams}`
+    : `http://localhost:5000/${domain}/insights`;
 
   useEffect(() => {
     axios
       .get(uri)
       .then((response) => response.data)
-      .then((data) => {
-        console.log(data);
-        setOptionsRegion(["---", ...data.optionsRegion]);
-        setOptionsAirlineType(["---", ...data.optionsAirlineType]);
-        setAirlineCompanies(data.filteredInsights);
-      });
+      .then(
+        (data: {
+          totalPages: number;
+          airlines: Airline[];
+          optionsRegion: string[];
+          optionsAirlineType: string[];
+        }) => {
+          // console.log(data);
+          setOptionsRegion(["---", ...data.optionsRegion]);
+          setOptionsAirlineType(["---", ...data.optionsAirlineType]);
+          setAirlineCompanies(data.airlines);
+          setTotalPage(data.totalPages);
+        }
+      );
   }, [uri]);
 
   const handleRegionChange = (selectedRegion: string) => {
@@ -57,7 +59,11 @@ export default function Insights() {
     const newQuery =
       selectedRegion === "---" // check if selected region is empty
         ? prevQuerywithoutRegion //if so set query as the query object without region
-        : { ...prevQuerywithoutRegion, region: selectedRegion, page: 1 }; //else add the new selected region to query
+        : {
+            ...prevQuerywithoutRegion,
+            region: selectedRegion,
+            page: 1,
+          }; //else add the new selected region to query
     router.push({ query: newQuery }); //updates the query part of the url
   };
 
@@ -80,16 +86,22 @@ export default function Insights() {
               "flex flex-row space-x-4 justify-around items-center px-10 mx-auto h-32 rounded-[33px] bg-white mb-[60px] mt-[20px] shadow-main"
             }
           >
-            <Select
-              label="Search Region"
-              options={optionsRegion}
-              onSelect={handleRegionChange}
-            />
-            <Select
-              label="Type of Airline"
-              options={optionsAirlineType}
-              onSelect={handleAirlineTypeChange}
-            />
+            {router.isReady && (
+              <Select
+                label="Search Region"
+                options={optionsRegion}
+                onSelect={handleRegionChange}
+                initialSelected={router.query.region as string}
+              />
+            )}
+            {router.isReady && (
+              <Select
+                label="Type of Airline"
+                options={optionsAirlineType}
+                onSelect={handleAirlineTypeChange}
+                initialSelected={router.query.type as string}
+              />
+            )}
           </div>
           <div className="grid grid-cols-2 gap-8 pb-12 mx-auto md:grid-cols-3 lg:grid-cols-4 ">
             {airlineCompanies.map((airline) => {
@@ -104,7 +116,7 @@ export default function Insights() {
             })}
           </div>
         </div>
-        <Pagination totalPage={5} />
+        <Pagination totalPage={totalPage} />
         <FAQ_Contact_Container />
         <Footer />
       </div>
