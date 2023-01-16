@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import InputField from "../../components/DataInputFIeld"
 import RegistrationButton from "../../components/GeneralButton";
 import styleslrButton from "../../components/generalButton.module.scss";
-// import Link from "next/link";
 import ReturnHomeContainer from "../../components/GoBackContainer";
+import axios from "axios";
 
 /* STYLES */
 import styles from "./registration.module.scss";
@@ -11,12 +11,13 @@ import styles from "./registration.module.scss";
 /* COMPONENTS */
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
+import { userAgent } from "next/server";
 
 // TO DO
-// 1. Setup state for all input fields and check boxes
-// 2. Decide if input field div should be wider and name fields should be inline for wider screen
-// 3. Implement Term of Service check. If not checked, disable submit buttom
-// 4. Submit button should show validation message and link to login page
+// // 1. Setup state for all input fields and check boxes
+// // 2. Decide if input field div should be wider and name fields should be inline for wider screen
+// // 3. Implement Term of Service check. If not checked, disable submit buttom
+// 4. Submit button should show verification message and link to login page
 // 5. 
 
 const registrationButton = {
@@ -27,55 +28,7 @@ const registrationButton = {
 
 // Styling options for InputFIeldData
 const labelStyling = "block font-thin text-pink-primary mt-4 ";  //For label
-const inputFieldStyling = "border-2 mt-1 w-full rounded-3xl pl-3 h-9";  // For input field
-
-// const inputFieldData = [
-//   {
-//     htmlFor: "firstname",
-//     classNameLabel: labelStyling,
-//     labelValue: "Firstname",
-//     name: "lastname", 
-//     id: "lastname",
-//     classNameInput: inputFieldStyling,
-//     placeholder: "First name"
-//   },
-//   {
-//     htmlFor: "lastname",
-//     classNameLabel: labelStyling,
-//     labelValue: "Lastname",
-//     name: "lastname", 
-//     id: "lastname",
-//     classNameInput: inputFieldStyling,
-//     placeholder: "Last name"
-//   },
-//   {
-//     htmlFor: "email",
-//     classNameLabel: labelStyling,
-//     labelValue: "Email",
-//     name: "email", 
-//     id: "email",
-//     classNameInput: inputFieldStyling,
-//     placeholder: "Email"
-//   },
-//   {
-//     htmlFor: "phonenumber",
-//     classNameLabel: labelStyling,
-//     labelValue: "Phone Number",
-//     name: "phonenumber", 
-//     id: "phonenumber",
-//     classNameInput: inputFieldStyling,
-//     placeholder: "+country-code phone-number"
-//   },
-//   {
-//     htmlFor: "company",
-//     classNameLabel: labelStyling,
-//     labelValue: "Company",
-//     name: "company", 
-//     id: "company",
-//     classNameInput: inputFieldStyling,
-//     placeholder: "Company"
-//   },
-// ]
+const inputFieldStyling = "border-2 text-black mt-1 w-full rounded-3xl pl-3 h-9";  // For input field
 
 type User =  {
   firstname: string;
@@ -83,46 +36,78 @@ type User =  {
   email: string;
   phone: string;
   company: string;
+  newPassword: string;
+  tos: boolean;
+  accountType: string;
 }
 
 export default function Registration() {
   const [tos, setTOS] = useState(false);
   const [airlineRep, setAirlineRep] = useState(false);
   const [recruitmentRep, setRecruitmentRep] = useState(false);
-  // Need to set state for all fields
   const [registration, setRegistration] = useState({
     firstname: "",
     lastname: "",
     email: "",
     phone: "",
     company: "",
+    password: "",
+    passwordConfirm: "",
+    accountType: ""
     // contact: "" //Nore sure what it ia
   })
 
-  // const tosHandler = () => {
-  //   setTOS(!tos);
-  // }
+  // Password match/confirmation mechanism
+  const [matchedPassword, setMatchedPassword] = useState("");
 
-  const airlineHandler = () => {
-    if (recruitmentRep) {
-      setRecruitmentRep(!recruitmentRep);
-    }
+  // Account type category
+  // Airline = "1";
+  // Recruitor = "2";
+
+  // Account type checkbox behavior controller for Airline Representative
+  function airlineHandler(event: React.ChangeEvent<HTMLInputElement>) {
+    (recruitmentRep)? setRecruitmentRep(!recruitmentRep) : null;
     setAirlineRep(!airlineRep);
+    setRegistration({...registration,
+      accountType: "1" })
   }
-  
-  const recruitmentHandler = () => {
-    if (airlineRep) {
-      setAirlineRep(!airlineRep);
-    }
+
+  // Account type checkbox behavior controller for Recruitment Agency
+  function recruitmentHandler(event: React.ChangeEvent<HTMLInputElement>) {
+    (airlineRep)? setAirlineRep(!airlineRep) : null;
     setRecruitmentRep(!recruitmentRep);
+    setRegistration({...registration,
+      accountType: "2" })
   }
 
+  // Data input fields handler
   function inputFieldData(event: React.ChangeEvent<HTMLInputElement>) {
-    setRegistration(() => ({
-      ...registration,
-      [event.target.name]: event.target.value,
-    }))
+    setRegistration({...registration,
+      [event.target.name]: event.target.value});
+  }
 
+  // Password match/confirmation and submit button trigger 
+  function passwordMatch() {
+    if (registration.password !== null && registration.passwordConfirm && registration.password === registration.passwordConfirm && tos === true && registration.accountType !== "") {
+      return (
+        <div className={"mt-8 mx-auto w-max mb-5"}>
+          <RegistrationButton
+            route={registrationButton.route}
+            cSass={registrationButton.cSass}
+            buttontext={registrationButton.buttontext}
+          />
+        </div>
+      )
+    } else {
+      return;
+    }
+  }
+
+  console.log(registration);
+
+  // Submission button handler
+  function submitHandler(event: React.MouseEvent<HTMLButtonElement>): void {
+    event.preventDefault();
   }
 
   return (
@@ -141,7 +126,6 @@ export default function Registration() {
             checked={airlineRep}
             onChange={airlineHandler}
             className={"ml-3 z-10 mt-8"}
-            onChange={inputFieldData}
           />
           <span className={"ml-2"}>Airline representative</span>
 
@@ -167,6 +151,8 @@ export default function Registration() {
                 value={registration.firstname}
                 className={inputFieldStyling}
                 placeholder="firstname"
+                onChange={inputFieldData}
+                required
                 />
             </label>
 
@@ -177,6 +163,8 @@ export default function Registration() {
                 value={registration.lastname}
                 className={inputFieldStyling}
                 placeholder="Lastname"
+                onChange={inputFieldData}
+                required
                 />
             </label>
 
@@ -187,16 +175,19 @@ export default function Registration() {
                 value={registration.email}
                 className={inputFieldStyling}
                 placeholder="email"
+                onChange={inputFieldData}
+                required
                 />
             </label>
             
             <label htmlFor="company" className={labelStyling}>Company
               <input 
                 id="company"
-                name="ecompanymail"
+                name="company"
                 value={registration.company}
                 className={inputFieldStyling}
                 placeholder="company"
+                onChange={inputFieldData}
                 />
             </label>
             
@@ -207,61 +198,56 @@ export default function Registration() {
                 value={registration.phone}
                 className={inputFieldStyling}
                 placeholder="phone"
+                onChange={inputFieldData}
                 />
             </label>
-            
-            <label>
+
+            <label htmlFor="password" className={labelStyling}>Password
               <input 
+                id="password"
+                name="password"
+                value={registration.password}
+                className={inputFieldStyling}
+                placeholder="password"
+                onChange={inputFieldData}
+                required
                 />
-            </label>
-            
-            <label>
+            </label>            
+
+            <label htmlFor="passwordConfirm" className={labelStyling}>Password Confirmation
               <input 
+                id="passwordConfirm"
+                name="passwordConfirm"
+                value={registration.passwordConfirm}
+                className={inputFieldStyling}
+                placeholder="passwordConfirm"
+                onChange={inputFieldData}
+                required
                 />
             </label>
-            
+            {(registration.password !== "" && registration.passwordConfirm !=="")? registration.password !== registration.passwordConfirm? <p>Passwords mismatch</p>: <p>Password match</p>: null }
 
           </form>          
 
+            <div className={"mt-5 mx-2 "}>Upon submission, verification email will be sent to the email address specified. Please follow the link to complete the registration.</div>
           
-          {/* {inputFieldData.map((data) => {
-            return (
-            <InputField 
-              htmlFor={data.htmlFor} 
-              classNameLabel={data.classNameLabel} 
-              labelValue={data.labelValue} 
-              placeholder={data.placeholder} 
-              id={data.id} 
-              classNameInput={data.classNameInput} 
-              name={data.name} 
+            {/* TOS checkbox */}
+            <input
+              type="checkbox"
+              checked={tos}
+              // onChange={tosHandler}
+              className={"ml-3 z-10 mt-5"}
+              onChange={(event) => setTOS(event.target.checked)}
             />
-          )})} */}
+            <span className={"ml-2 text-pink-primary"}>Agree to <a href="{{ url('terms-of-service') }}" className={"underline"}>the Terms of Service</a></span>
+            
+            {/* Account data submission button */}
+            {passwordMatch()}
+        </div>
 
-          <div className={"mt-5 mx-2 "}>Upon submission, account validation email will be sent to the email address specified. Please follow the link to complete the registration.</div>
-          
-          {/* TOS checkbox */}
-          <input
-            type="checkbox"
-            checked={tos}
-            // onChange={tosHandler}
-            className={"ml-3 z-10 mt-5"}
-            onClick={() => setTOS(!tos)}
-          />
-          <span className={"ml-2 text-pink-primary"}>Agree to <a href="{{ url('terms-of-service') }}" className={"underline"}>the Terms of Service</a></span>
-          
-          {/* Account data submission button */}
-          <div className={"mt-8 mx-auto w-max mb-5"}>
-            <RegistrationButton
-              route={registrationButton.route}
-              cSass={registrationButton.cSass}
-              buttontext={registrationButton.buttontext}
-            />
-          </div>    
-      </div>
+        {/* <ReturnHomeContainer /> */}
 
-      {/* <ReturnHomeContainer /> */}
-
-      <div className={"mt-10"}>      
+        <div className={"mt-10"}>      
         <Footer />
       </div>
     </div>
