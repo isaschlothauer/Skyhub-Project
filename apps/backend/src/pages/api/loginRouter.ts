@@ -15,7 +15,8 @@ LoginRouter.post("/", (req, res) => {
   database
     .query("SELECT * FROM users WHERE email = ? AND password = ?", [email, password])
     .then(([result]) => {
-      // console.log(result);  //Check if user exists
+      result[0].password="";
+      console.log(result);  //Check if user exists
       if (result.length > 0) {  // If user exists, array.lenth is > 0
         res.send(result)  
       } else {

@@ -53,9 +53,9 @@ export default function Login() {
       [event.target.name]: event.target.value})
   }
 
-  // State data clearing mechanism
-  function loginCleaning(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    
+  function loginStateClear(event: React.ChangeEvent<HTMLInputElement>) {
+    setLogin({...login,
+      password: ""})
   }
 
 // Submit button behavior definition
@@ -66,11 +66,13 @@ export default function Login() {
     .post('http://localhost:5000/auth', login)
     // TO BE TAKEN CARE OF
     .then((result) => {
-      if (result.data.length === 1) 
-        setLoginStatus(true);
-      else 
-        setLoginStatus(false);
-      
+
+      // Clear login.password
+      setLogin({...login, username: "", password: ""});
+        
+      (result.data.length === 1)? setLoginStatus(true) : setLoginStatus(false);
+
+      console.log(login);
   })
   
   console.log(`Test console (to be removed): ${login.password}`); // KEEP THIS ONE TO CHECK AND TEST PASSWORD VISIBILITY. IT MUST NOT BE VISIBLE;
@@ -135,6 +137,12 @@ export default function Login() {
                   buttontext={loginButton.buttontext}
                 />
               </div>
+
+              {/* login password state checker. To be removed */}
+              <button onClick={() => console.log(login.password)}>
+                test
+              </button>
+
               <div className={`mx-auto w-max mt-3`}>
                 <Link
                     href="/password_reset"
