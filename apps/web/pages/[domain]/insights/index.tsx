@@ -1,32 +1,39 @@
 import { useRouter } from "next/router";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+// importing components
 import AirlineTile from "../../../components/Domain_AirlineTile";
 import Select from "../../../components/Select";
-import Logo from "../../../assets/images/airlines/germanairways.jpg";
 import Mini_Header from "../../../components/Header";
 import FAQ_Contact_Container from "../../../components/FAQ_Contact_Container";
 import Footer from "../../../components/Footer";
-import styles from "./insights.module.scss";
 import Pagination from "../../../components/Pagination";
 
-const optionsRegion = [
-  "---",
-  "Asia",
-  "Australia",
-  "Europe",
-  "North America",
-  "Middle East",
-  "South America",
-];
-const optionsAirlineType = [
-  "---",
-  "Legacy",
-  "National",
-  "Charta",
-  "Cargo",
-  "Regional",
-  "Corporate",
-  "Helicopter",
-];
+// importing styles
+import styles from "./insights.module.scss";
+// importing images
+import Logo from "../../../assets/images/airlines/germanairways.jpg";
+
+// const optionsRegion = [
+//   "---",
+//   "Asia",
+//   "Australia",
+//   "Europe",
+//   "North America",
+//   "Middle East",
+//   "South America",
+// ];
+// const optionsAirlineType = [
+//   "---",
+//   "Legacy",
+//   "National",
+//   "Charta",
+//   "Cargo",
+//   "Regional",
+//   "Corporate",
+//   "Helicopter",
+// ];
 
 const airlineCompanies = [
   {
@@ -53,7 +60,34 @@ const airlineCompanies = [
 
 export default function Insights() {
   const router = useRouter();
+  //console.log(router.query);
   const { domain } = router.query;
+
+  const [optionsRegion, setOptionsRegion] = useState(["---"]);
+  const [optionsAirlineType, setOptionsAirlineType] = useState(["---"]);
+
+  let uri = `http://localhost:5000/${domain}/insights`;
+
+  if (router.query.region && router.query.type) {
+    uri += `?region=${router.query.region}&type=${router.query.type}`;
+  } else if (router.query.region) {
+    uri += `?region=${router.query.region}`;
+  } else if (router.query.type) {
+    uri += `?type=${router.query.type}`;
+  }
+
+  console.log(uri);
+
+  useEffect(() => {
+    axios
+      .get(uri)
+      .then((response) => response.data)
+      .then((data) => {
+        // console.log(data);
+        setOptionsRegion(["---", ...data.optionsRegion]);
+        setOptionsAirlineType(["---", ...data.optionsAirlineType]);
+      });
+  }, [uri]);
 
   const handleRegionChange = (selectedRegion: string) => {
     const { region: prevRegion, ...prevQuerywithoutRegion } = router.query; // extract the query object from router, but without region
