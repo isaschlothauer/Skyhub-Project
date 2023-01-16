@@ -7,7 +7,24 @@ import database from "../../../src/database";
 const LoginRouter = Router();
 
 LoginRouter.post("/", (req, res) => {
+  const email = req.body.username;
+  const password = req.body.password;
 
+  // console.log(email, password);
+
+  database
+    .query("SELECT * FROM users WHERE email = ? AND password = ?", [email, password])
+    .then(([result]) => {
+      // console.log(result);  //Check if user exists
+      if (result.length > 0) {  // If user exists, array.lenth is > 0
+        res.send(result)  
+      } else {
+        res.send("Unrecognized credential");
+      };
+    })
+    .catch(() => {
+      {res.send("Error processing query")};
+    })
   
 })
 

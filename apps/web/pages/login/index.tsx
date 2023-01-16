@@ -2,7 +2,6 @@ import React, { useDebugValue, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 
-
   /* STYLES */
 import styles from "./login.module.scss";
 import styleslrButton from "../../components/generalButton.module.scss";
@@ -28,6 +27,9 @@ import Mini_Header from "../../components/Header";
 // LINE 58, Axios needs to be completed
 
 
+// 6. Figure out post login behavior. What should login button do other than changing state? Admin panel or back to front page?
+// reference video: https://www.youtube.com/watch?v=2lJuOh4YlGM
+
 const loginButton = {
     route: "/",
     cSass: styleslrButton["loginreg-pink"],
@@ -39,9 +41,11 @@ export default function Login() {
   const [remember, setRemember] = useState(false);  // Login status to be kept persistent or not
   
   const [login, setLogin] = useState({
-    username: "",
-    password: ""  // Should take care not to make it visible or accessible
+    username: "testemail@testtesttest.com",
+    password: "nothashedpassword"  // Should take care not to make it visible or accessible
   });
+
+  let [loginStatus, setLoginStatus] = useState(false);
 
 // Input field handling definition
   function loginHandler(event: React.ChangeEvent<HTMLInputElement>) {
@@ -49,17 +53,27 @@ export default function Login() {
       [event.target.name]: event.target.value})
   }
 
+  // State data clearing mechanism
+  function loginCleaning(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    
+  }
+
 // Submit button behavior definition
   function submitBehavior (event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
 
-    // console.log(login);  // Returning login state. OK
-
     axios
     .post('http://localhost:5000/auth', login)
     // TO BE TAKEN CARE OF
-
-    console.log(`Test console (to be removed): ${login.password}`); // KEEP THIS ONE TO CHECK AND TEST PASSWORD VISIBILITY. IT MUST NOT BE VISIBLE
+    .then((result) => {
+      if (result.data.length === 1) 
+        setLoginStatus(true);
+      else 
+        setLoginStatus(false);
+      
+  })
+  
+  console.log(`Test console (to be removed): ${login.password}`); // KEEP THIS ONE TO CHECK AND TEST PASSWORD VISIBILITY. IT MUST NOT BE VISIBLE;
   }
 
   return (
@@ -78,13 +92,13 @@ export default function Login() {
               <form className={`${styles["login-input"]} `}>
 
                 {/* Username input field */}
-                <label htmlFor="username" className={"block text-pink-primary"}>Username</label>
+                <label htmlFor="username" className={"block text-pink-primary"}>Email address</label>
                   <input
                     type="text"
                     className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
                     name="username"
                     id="username"
-                    placeholder="Enter username or email address"
+                    placeholder="sample@sample.com"
                     value={login.username}
                     onChange={loginHandler}
                   />
@@ -96,7 +110,7 @@ export default function Login() {
                     className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
                     name="password"
                     id="password"
-                    placeholder="Enter password"
+                    placeholder="p@s5w0rD"
                     value={login.password}
                     onChange={loginHandler}
                   />
