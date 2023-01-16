@@ -2,7 +2,6 @@ import * as React from "react";
 import Image from "next/image";
 import { useState } from "react";
 
-
 {
   /*STYLES*/
 }
@@ -55,7 +54,7 @@ const jobTiles = [
       <LearnMoreArrow
         arrowtext={"Learn More"}
         cSass={stylesArrow["arrow-jobs"]}
-        link={"/jobs"}
+        link={"/pilot"}
       />
     ),
   },
@@ -70,7 +69,7 @@ const jobTiles = [
       <LearnMoreArrow
         arrowtext={"Learn More"}
         cSass={stylesArrow["arrow-jobs"]}
-        link={"/jobs"}
+        link={"/cabin"}
       />
     ),
   },
@@ -85,7 +84,7 @@ const jobTiles = [
       <LearnMoreArrow
         arrowtext={"Learn More"}
         cSass={stylesArrow["arrow-jobs"]}
-        link={"/jobs"}
+        link={"/atc"}
       />
     ),
   },
@@ -94,18 +93,19 @@ const jobTiles = [
 const Home = () => {
   // From Login page. This should change button render according to login state
   // Once logged in, Login button should change to Log Out
-  // Register to Admin (or Admin Panel or Page) 
+  // Register to Admin (or Admin Panel or Page)
   const [userLogin, setUserLogin] = useState(false);
 
   return (
     <div className={styles["mainpage"]}>
-      <div className={`${styles["mainpage-header"]} ${styles["header-homepage"]}`}>
+      <div
+        className={`${styles["mainpage-header"]} ${styles["header-homepage"]}`}
+      >
         <div className={"flex flex-wrap"}>
           <div className={`container mx-auto sm:px-0`}>
-
-            <div className={`flex md:flex justify-end ${styles["mainpage-headerflex"]}`}>
-
-
+            <div
+              className={`flex md:flex justify-end ${styles["mainpage-headerflex"]}`}
+            >
               {/*SKYHUB LOGO*/}
               <div className={styles["mainpage-logoflex"]}>
                 <div className={styles["mainpage-logocontainer"]}>
@@ -115,12 +115,14 @@ const Home = () => {
 
               {/*LOGIN/REGISTER BUTTON*/}
               <div
-                className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${styles["mainpage-logincontainer"]
-                  }`}
+                className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
+                  styles["mainpage-logincontainer"]
+                }`}
               >
                 <div
-                  className={`${styles["mainpage-logincontainer2nd"]
-                    }  ${"md:block"}`}
+                  className={`${
+                    styles["mainpage-logincontainer2nd"]
+                  }  ${"md:block"}`}
                 >
                   {loginregButtons.map((gbutton) => (
                     <LoginButton
@@ -146,13 +148,13 @@ const Home = () => {
           <h1 className={styles["maingpage-robottext"]}>
             Find your
             <strong>
-              {/*<div className="message">
-              <div className="word1">dream</div>
-              <div className="word2">job</div>
-              <div className="word3">passion</div>
-              <div className="word4">airline</div>
-              <div className="word5">salary</div>
-                  </div>*/}
+              <div className="message">
+                <div className="word1">dream</div>
+                <div className="word2">offer</div>
+                <div className="word3">passion</div>
+                <div className="word4">airline</div>
+                <div className="word5">salary</div>
+              </div>
             </strong>
           </h1>
         </div>
@@ -213,8 +215,6 @@ const Home = () => {
         </div>
       </div>
 
-
-
       {/* ATC TILE COMPONENT*/}
       <div
         className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
@@ -240,9 +240,7 @@ const Home = () => {
         />
       </div>
       {/* FAQ & CONTACT US COMPONENT*/}
-      <div
-        className={`container mx-auto sm:px-0}`}
-      >
+      <div className={`container mx-auto sm:px-0}`}>
         <ContainerFAQContact />
       </div>
 

@@ -16,13 +16,12 @@ import airlineImg from "../assets/images/widget/InsightsPicJobPage.png";
   /* COMPONENTS */
 }
 import { LearnMoreArrow } from "./ArrowButton";
+import Link from "next/link";
 
-function InsightsContainer() {
+function AirLineContainer({ domain }) {
   return (
-    <div className={"container mx-auto sm:px-1"}>
-      <div
-        className={`${styles.mainContainer} ${styles["insight"]}      `}
-      >
+    <div className={"container mx-auto sm:px-1 mb-10"}>
+      <div className={`${styles.mainContainer} ${styles[`insight-${domain}`]}`}>
         <div className={styles["overlay"]}>
           <div className={styles["infoContainer"]}>
             <div className={styles["textContainer"]}>
@@ -36,13 +35,15 @@ function InsightsContainer() {
               </div>
             </div>
             <div className={styles["imageContainer"]}>
-              <Image src={airlineImg} alt={"airlines"} />
+              <Link href={`/${domain}/insights`}>
+                <Image src={airlineImg} alt={"airlines"} />
+              </Link>
             </div>
           </div>
           <LearnMoreArrow
             cSass={`${stylesArrow["arrow-faqcontact"]} ${stylesArrow["dark-text"]}`}
             arrowtext={"Learn more here"}
-            link={"/jobs/insights"}
+            link={`/${domain}/insights`}
           />
         </div>
       </div>
@@ -50,4 +51,4 @@ function InsightsContainer() {
   );
 }
 
-export default InsightsContainer;
+export default AirLineContainer;

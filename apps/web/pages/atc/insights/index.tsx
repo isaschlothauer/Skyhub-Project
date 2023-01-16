@@ -51,7 +51,10 @@ const airlineCompanies = [
   },
 ];
 
-export default function Insights() {
+export interface InsightsProps {
+  domain: string;
+}
+const Insights = ({ domain }: InsightsProps) => {
   const router = useRouter();
 
   const handleRegionChange = (selectedRegion: string) => {
@@ -74,8 +77,8 @@ export default function Insights() {
 
   return (
     <>
-      <div className={styles["header-atc"]}>
-        <Mini_Header title="Airline Insights" />
+      <div>
+        <Mini_Header title="Airline Insights" Scssdomain={domain} />
         <div className="mx-auto container ">
           <div
             className={
@@ -112,4 +115,6 @@ export default function Insights() {
       </div>
     </>
   );
-}
+};
+
+export default Insights;
