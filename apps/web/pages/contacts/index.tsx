@@ -92,7 +92,7 @@ const ContactUs = () => {
       <div className={"mx-auto sm:px-4"}>
         <div className={"flex flex-wrap mb-24"}>
           <div
-            className={`container mx-autosm:px-4 ${contactUsStyle["contact-form"]}`}
+            className={`container mx-auto sm:px-4 ${contactUsStyle["contact-form"]}`}
           >
             <h2
               className={`my-12 sm:text-xl md:text-2xl xl:text-3xl ${contactUsStyle["header"]}`}
