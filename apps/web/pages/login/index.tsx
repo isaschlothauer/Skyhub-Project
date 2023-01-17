@@ -59,9 +59,9 @@ const Login = ({ domain }: LoginProps) => {
   return (
     <div className={styles["login-page"]}>
       {/* Temporary text color change. Revise text color for mobile design */}
-      <div className={"md:text-neutral-50 "}>
+      {/* <div className={"md:text-neutral-50 "}> */}
         <Mini_Header title={"Sign in"} Scssdomain={domain} />
-      </div>
+      {/* </div> */}
 
       <div className={`container mx-auto px-2 ${styles["page"]}`}>
         <div className={"flex flex-wrap"}>
