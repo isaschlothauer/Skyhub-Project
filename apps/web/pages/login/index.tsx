@@ -132,9 +132,9 @@ const Login = ({ domain }: LoginProps) => {
             </div>
           </div>
         </div>
-        <div className={"fixed left-0 bottom-0 right-0"}>
+        {/* <div className={"fixed left-0 bottom-0 right-0"}> */}
           <Footer />
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );
