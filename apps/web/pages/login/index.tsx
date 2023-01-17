@@ -57,16 +57,15 @@ const Login = ({ domain }: LoginProps) => {
   }
 
   return (
-    <div className={styles["login-page"]}>
+    <div className={`${styles["login-page"]}`}>
       {/* Temporary text color change. Revise text color for mobile design */}
       <Mini_Header title={"Sign in"} Scssdomain={domain} />
 
-      <div className={"relative top-[220px] md:top-[300px] z-10"}>
         <div className={`container mx-auto px-2 ${styles["page"]} `}>
           <div className={"flex flex-wrap"}>
             <div className={"mx-auto max-w-xl w-full z-10"}>
               <div
-                className={`pt-7  pb-7 px-4 bg-white shadow-main rounded-[24px]`}
+                className={`pt-7 mt-[230px] md:mt-[300px] pb-7 px-4 bg-white shadow-main rounded-[24px]`}
               >
                 <form className={`${styles["login-input"]} `}>
                   {/* Username input field */}
@@ -132,11 +131,10 @@ const Login = ({ domain }: LoginProps) => {
             </div>
           </div>
         </div>
-        {/* <div className={"fixed left-0 bottom-0 right-0"}> */}
+        <div className={"fixed left-0 bottom-0 right-0"}>
           <Footer />
-        {/* </div> */}
+        </div>
       </div>
-    </div>
   );
 };
 

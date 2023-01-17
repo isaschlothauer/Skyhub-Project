@@ -108,6 +108,7 @@ const Registration = ({ domain }: RegistrationProps) => {
             route={registrationButton.route}
             cSass={registrationButton.cSass}
             buttontext={registrationButton.buttontext}
+            onChange={submitHandler}
           />
         </div>
       )
@@ -124,6 +125,7 @@ const Registration = ({ domain }: RegistrationProps) => {
 
     axios
       .post("http://localhost:5000/register", registration)
+      
   }
 
   return (
@@ -133,7 +135,7 @@ const Registration = ({ domain }: RegistrationProps) => {
 
       <div>
       {/* Account data fields */}
-      <div className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-xl max-w-[600px]`}>
+      <div className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px]`}>
         <div className={"mt-3"}>
           <p className={"text-center"}>Account type</p>
           <p className={"mt-5"} >* All fields required</p>

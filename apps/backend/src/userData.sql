@@ -11,6 +11,7 @@ CREATE TABLE
         `created_at` timestamp DEFAULT CURRENT_TIMESTAMP,
         `updated_at` timestamp NULL DEFAULT NULL,
         `contact_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+        `access` int(11) DEFAULT 0,
         `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
         `account_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
         `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
