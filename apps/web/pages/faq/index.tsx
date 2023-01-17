@@ -1,4 +1,5 @@
 import React from "react";
+import useAxios from "../../hooks/useAxios";
 
 {
   /* STYLES */
@@ -16,10 +17,18 @@ export interface FAQProps {
   domain: string;
 }
 
-{
-  /*UseEffect Implementation Test*/
+export interface AxiosDataProps {
+  question: string;
+  answer: string;
+  id: string | number;
 }
+
 const FAQ = ({ domain }: FAQProps) => {
+  // fetching the data from backend using useAxios context
+  const faqData = useAxios<AxiosDataProps[]>({
+    url: "http://localhost:5000/faq",
+  });
+
   return (
     <div className={styles["faq-page"]}>
       {/* Mini Header CMP */}
@@ -51,33 +60,35 @@ const FAQ = ({ domain }: FAQProps) => {
       >
         <div className={"flex flex-wrap"}>
           <div className={"w-full"}>
-            <div className={styles["faq-questions"]}>
-              {/* @foreach ($faq as $data) */}
-              <div className={`${"row"} ${styles["faq-question-row"]}`}>
-                <div className={"w-full"}>
-                  <div className={styles["faq-question-box"]}>
-                    <div className={styles["faq-question"]}>
-                      {" "}
-                      {/* {{ $data['question'] }} */}
+            {faqData && (
+              <div className={styles["faq-questions"]}>
+                {faqData.map((singleQNA, id) => (
+                  <div className={`${"row"} ${styles["faq-question-row"]}`}>
+                    <div className={"w-full"}>
+                      <div className={styles["faq-question-box"]} key={id}>
+                        <div className={styles["faq-question"]}>
+                          {" "}
+                          {singleQNA.question}
+                        </div>
+                        <div className={styles["faq-answer"]}>
+                          {singleQNA.answer}
+                        </div>
+                      </div>
                     </div>
-                    <div className={styles["faq-answer"]}>
-                      {/* {!! $data['answer'] !!} */}
-                    </div>
+                  </div>
+                ))}
+
+                <div
+                  className={`${"flex flex-wrap"} ${
+                    styles["faq-question-no-row"]
+                  }`}
+                >
+                  <div className={"w-full"}>
+                    Nothing found with phrase <strong></strong>
                   </div>
                 </div>
               </div>
-              {/* @endforeach */}
-
-              <div
-                className={`${"flex flex-wrap"} ${
-                  styles["faq-question-no-row"]
-                }`}
-              >
-                <div className={"w-full"}>
-                  Nothing found with phrase <strong></strong>
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         </div>
         {/* // BACK TO HOMEPAGE TILE */}
