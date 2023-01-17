@@ -127,39 +127,35 @@ const Registration = ({ domain }: RegistrationProps) => {
   }
 
   return (
-    <div className={`${styles["registration-page"]}`}>
-      {/* Temporary text color change. Wait for header component to be fixed. Revise text color for mobile design */}
-      <div className={`md:text-neutral-50`}>
-        <Mini_Header title={"Account Registration"} Scssdomain={domain} />
-      </div>
-
+    <div className={`${styles["registration-page"]} flow-root`}>
+      <Mini_Header title={"Account Registration"} Scssdomain={domain} />
+      
       {/* Account data fields */}
-      <div
-        className={`container bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-xl`}
-      >
-        <div className={"mt-3"}>
-          <p className={"text-center"}>Account type</p>
-          <p className={"mt-5"} >* All fields required</p>
-        <input
-            type="checkbox"
-            checked={airlineRep}
-            onChange={airlineHandler}
-            className={"ml-3 z-10 mt-8"}
-          />
-          <span className={"ml-2"}>Airline representative</span>
-
-          <div className={"block mb-5"}>
+      <div className={"relative top-[260px] md:top-[300px] z-10"}>
+        <div className={`container bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-xl max-w-[600px]`}>
+          <div className={"mt-3"}>
+            <p className={"text-center"}>Account type</p>
+            <p className={"mt-5"} >* All fields required</p>
             <input
               type="checkbox"
-              checked={recruitmentRep}
-              onChange={recruitmentHandler}
-              className={"ml-3 z-10 mt-5"}
+              checked={airlineRep}
+              onChange={airlineHandler}
+              className={"ml-3 z-10 mt-8"}
             />
-            <span className={"ml-2"}>Rectruitment agency</span>
+            <span className={"ml-2"}>Airline representative</span>
+
+            <div className={"block mb-5"}>
+              <input
+                type="checkbox"
+                checked={recruitmentRep}
+                onChange={recruitmentHandler}
+                className={"ml-3 z-10 mt-5"}
+              />
+              <span className={"ml-2"}>Rectruitment agency</span>
+            </div>
           </div>
-        </div>
-        <div className={"text-center mt-8"}>New account data</div>
-          
+          <div className={"text-center mt-8"}>New account data</div>
+            
           {/* Data Input Field */}
           <form>
             <label htmlFor="firstname" className={labelStyling}>Firstname
@@ -249,25 +245,26 @@ const Registration = ({ domain }: RegistrationProps) => {
 
           </form>          
 
-            <div className={"mt-5 mx-2 "}>Upon submission, verification email will be sent to the email address specified. Please follow the link to complete the registration.</div>
-          
-            {/* TOS checkbox */}
-            <input
-              type="checkbox"
-              checked={tos}
-              className={"ml-3 z-10 mt-5"}
-              onChange={(event) => setTOS(event.target.checked)}
-            />
-            <span className={"ml-2 text-pink-primary"}>Agree to <a href="{{ url('terms-of-service') }}" className={"underline"}>the Terms of Service</a></span>
+          <div className={"mt-5 mx-2 "}>Upon submission, verification email will be sent to the email address specified. Please follow the link to complete the registration.</div>
             
-            {/* Account data submission button */}
-            {passwordMatch()}
+          {/* TOS checkbox */}
+          <input
+            type="checkbox"
+            checked={tos}
+            className={"ml-3 z-10 mt-5"}
+            onChange={(event) => setTOS(event.target.checked)}
+          />
+          <span className={"ml-2 text-pink-primary"}>Agree to <a href="{{ url('terms-of-service') }}" className={"underline"}>the Terms of Service</a></span>
+          
+          {/* Account data submission button */}
+          {passwordMatch()}
         </div>
 
-        {/* <ReturnHomeContainer /> */}
+          {/* <ReturnHomeContainer /> */}
 
         <div className={"mt-10"}>      
-        <Footer />
+          <Footer />
+        </div>
       </div>
     </div>
   );
