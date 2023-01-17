@@ -95,7 +95,7 @@ const ContactUs = ({ domain }: ContactProps) => {
           className={`flex flex-wrap mb-24 ${contactUsStyle["contact-form-container"]}`}
         >
           <div
-            className={`container mx-autosm:px-4 ${contactUsStyle["contact-form"]}`}
+            className={`container mx-auto sm:px-0 ${contactUsStyle["contact-form"]}`}
           >
             <h2
               className={`my-12 sm:text-xl md:text-2xl xl:text-3xl ${contactUsStyle["header-form-text"]}`}

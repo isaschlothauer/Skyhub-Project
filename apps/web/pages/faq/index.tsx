@@ -10,7 +10,7 @@ import styles from "./faq.module.scss";
 }
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
-import ContainerFAQContact from "../../components/FAQ_Contact_Container";
+import GoHomeContainer from "../../components/GoBackContainer";
 
 export interface FAQProps {
   domain: string;
@@ -26,7 +26,9 @@ const FAQ = ({ domain }: FAQProps) => {
 
       <Mini_Header title={"Frequently Asked Questions"} Scssdomain={domain} />
 
-      <div className={"container mx-auto sm:px-4"}>
+      <div
+        className={`container mx-auto sm:px-0 ${styles["search-container"]}`}
+      >
         <div className={"flex flex-wrap"}>
           <div className={"w-full"}>
             <div className={styles["faq-search"]}>
@@ -43,7 +45,7 @@ const FAQ = ({ domain }: FAQProps) => {
 
       {/* RESEARCH RESULT */}
       <div
-        className={`${"container mx-auto sm:px-4"} ${
+        className={`${"container mx-auto sm:px-0"} ${
           styles["faq-questions-container"]
         }`}
       >
@@ -78,17 +80,9 @@ const FAQ = ({ domain }: FAQProps) => {
             </div>
           </div>
         </div>
-        <div className={"container mx-auto sm:px-4"}>
-          {/* // BACK TO HOMEPAGE TILE */}
-
-          {/* // CONTACTS TILE */}
-          <div
-            className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}
-          >
-            <ContainerFAQContact />
-          </div>
-        </div>
+        {/* // BACK TO HOMEPAGE TILE */}
       </div>
+      <GoHomeContainer arrowTitle={"Go Back to Home Page"} link={"/"} />
       <Footer />
     </div>
   );

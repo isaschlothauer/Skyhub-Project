@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { OkPacket } from "mysql2";
+import { OkPacket, RowDataPacket } from "mysql2";
 import database from "../../database";
 
 
@@ -36,3 +36,22 @@ export const submitContactForm: RequestHandler<{
         res.status(500).send("Internal Server Error");
     });
   };
+
+  // get handler for FAQ page
+  export interface FAQ extends RowDataPacket {
+    [field: string]: any;
+  }
+
+  export const GetAllFAQ: RequestHandler = (req, res) => {
+    database
+    .query<FAQ[]>
+    ( "select * from faq")
+    .then((result) => {
+      res.status(200).json(result[0]);
+    })
+    .catch((err) => {
+      console.log(err)
+      console.error(err);
+      res.status(500).send("Internal Server Error");
+  });
+  }
