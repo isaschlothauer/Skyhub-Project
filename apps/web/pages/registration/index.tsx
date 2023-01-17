@@ -17,28 +17,24 @@ import { userAgent } from "next/server";
 // // 2. Decide if input field div should be wider and name fields should be inline for wider screen
 // // 3. Implement Term of Service check. If not checked, disable submit buttom
 // 4. Submit button should show verification message and link to login page
-// 5. 
+// 5. Revise user type if it's necessary at all. I don't understand typescript. 
 
-const registrationButton = {
-  route: "/",
-  cSass: styleslrButton["loginreg-pink"],
-  buttontext: "Submit",
-}
+
 
 // Styling options for InputFIeldData
 const labelStyling = "block font-thin text-pink-primary mt-4 ";  //For label
 const inputFieldStyling = "border-2 text-black mt-1 w-full rounded-3xl pl-3 h-9";  // For input field
 
-type User =  {
-  firstname: string;
-  lastname: string;
-  email: string;
-  phone: string;
-  company: string;
-  newPassword: string;
-  tos: boolean;
-  accountType: string;
-}
+// type User =  {
+//   firstname: string;
+//   lastname: string;
+//   email: string;
+//   phone: string;
+//   company: string;
+//   newPassword: string;
+//   tos: boolean;
+//   accountType: string;
+// }
 
 export default function Registration() {
   const [tos, setTOS] = useState(false);
@@ -55,6 +51,16 @@ export default function Registration() {
     accountType: ""
     // contact: "" //Nore sure what it is
   })
+
+  function clearState() {
+    setRegistration({...registration})
+  }
+
+  const registrationButton = {
+    route: "/",
+    cSass: styleslrButton["loginreg-pink"],
+    buttontext: "Submit",
+  }
 
   // Password match/confirmation mechanism
   const [matchedPassword, setMatchedPassword] = useState("");
@@ -87,7 +93,7 @@ export default function Registration() {
 
   // Password match/confirmation and submit button trigger 
   function passwordMatch() {
-    if (registration.password !== null && registration.passwordConfirm && registration.password === registration.passwordConfirm && tos === true && registration.accountType !== "") {
+    if (registration.password !== null && registration.passwordConfirm && registration.password === registration.passwordConfirm && tos === true && registration.accountType !== "" && registration.firstname !== "" && registration.lastname !== "" && registration.email !== "" && registration.phone !== "") {
       return (
         <div className={"mt-8 mx-auto w-max mb-5"}>
           <RegistrationButton
@@ -98,7 +104,7 @@ export default function Registration() {
         </div>
       )
     } else {
-      return;
+      null
     }
   }
 
@@ -107,6 +113,9 @@ export default function Registration() {
   // Submission button handler
   function submitHandler(event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
+
+    axios
+      .post("http://localhost:5000/register", registration)
   }
 
   return (
@@ -120,6 +129,7 @@ export default function Registration() {
       <div className={`container bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-xl`}>
         <div className={"mt-3"}>
           <p className={"text-center"}>Account type</p>
+          <p className={"mt-5"} >* All fields required</p>
         <input
             type="checkbox"
             checked={airlineRep}
@@ -205,6 +215,7 @@ export default function Registration() {
               <input 
                 id="password"
                 name="password"
+                type="password"
                 value={registration.password}
                 className={inputFieldStyling}
                 placeholder="password"
@@ -217,6 +228,7 @@ export default function Registration() {
               <input 
                 id="passwordConfirm"
                 name="passwordConfirm"
+                type="password"
                 value={registration.passwordConfirm}
                 className={inputFieldStyling}
                 placeholder="passwordConfirm"
