@@ -5,7 +5,10 @@
     z-index: 2;
     min-height: calc(100vh - 13.25rem);
  }
-
+// padding adjustment for contact form for header
+.contact-form-container {
+  padding-top: 15.625rem;
+}
 // contact us container with all content
 .contact-form {
       position: relative;
@@ -35,8 +38,9 @@
         font-style: italic;
       }
 }
+
  // style for got a question
-.header {
+.header-form-text {
     color: #222351;
     text-align: center;
 }
@@ -71,6 +75,18 @@
         flex-direction: column;
         gap: 1.5rem;
       }
+}
+//media query for header adjustment
+@media only screen and (min-width:426px) and (max-width: 769px) {
+  .contact-form-container {
+    padding-top: 16.25rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .contact-form-container {
+    padding-top: 20rem;
+  }
 }
 
 // media query to adjust input boxes for first name and last name to place them in one line
