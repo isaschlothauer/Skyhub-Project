@@ -92,7 +92,7 @@ const ContactUs = ({ domain }: ContactProps) => {
       <Mini_Header title={"Contact Us"} Scssdomain={domain} />
       <div className={"mx-auto sm:px-4"}>
         <div
-          className={`flex flex-wrap mb-24 ${contactUsStyle["contact-form-container"]}`}
+          className={`flex flex-wrap ${contactUsStyle["contact-form-container"]}`}
         >
           <div
             className={`container mx-auto sm:px-0 ${contactUsStyle["contact-form"]}`}
