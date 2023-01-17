@@ -20,10 +20,15 @@ import { userAgent } from "next/server";
 // 5. Revise user type if it's necessary at all. I don't understand typescript. 
 
 
+const registrationButton = {
+  route: "/",
+  cSass: styleslrButton["loginreg-pink"],
+  buttontext: "Submit",
+};
 
 // Styling options for InputFIeldData
-const labelStyling = "block font-thin text-pink-primary mt-4 ";  //For label
-const inputFieldStyling = "border-2 text-black mt-1 w-full rounded-3xl pl-3 h-9";  // For input field
+const labelStyling = "block font-thin text-pink-primary mt-4 "; //For label
+const inputFieldStyling = "border-2 mt-1 w-full rounded-3xl pl-3 h-9"; // For input field
 
 // type User =  {
 //   firstname: string;
@@ -36,7 +41,10 @@ const inputFieldStyling = "border-2 text-black mt-1 w-full rounded-3xl pl-3 h-9"
 //   accountType: string;
 // }
 
-export default function Registration() {
+export interface RegistrationProps {
+  domain: string;
+}
+const Registration = ({ domain }: RegistrationProps) => {
   const [tos, setTOS] = useState(false);
   const [airlineRep, setAirlineRep] = useState(false);
   const [recruitmentRep, setRecruitmentRep] = useState(false);
@@ -121,12 +129,14 @@ export default function Registration() {
   return (
     <div className={`${styles["registration-page"]}`}>
       {/* Temporary text color change. Wait for header component to be fixed. Revise text color for mobile design */}
-      <div className={`md:text-neutral-50`} >
-        <Mini_Header title={"Account Registration"} />
+      <div className={`md:text-neutral-50`}>
+        <Mini_Header title={"Account Registration"} Scssdomain={domain} />
       </div>
 
       {/* Account data fields */}
-      <div className={`container bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-xl`}>
+      <div
+        className={`container bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-xl`}
+      >
         <div className={"mt-3"}>
           <p className={"text-center"}>Account type</p>
           <p className={"mt-5"} >* All fields required</p>
@@ -147,7 +157,6 @@ export default function Registration() {
             />
             <span className={"ml-2"}>Rectruitment agency</span>
           </div>
-
         </div>
         <div className={"text-center mt-8"}>New account data</div>
           
@@ -262,5 +271,6 @@ export default function Registration() {
       </div>
     </div>
   );
-}
+};
 
+export default Registration;

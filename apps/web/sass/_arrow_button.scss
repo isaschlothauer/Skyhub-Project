@@ -7,19 +7,19 @@
   a {
     display: inline-block;
     color: white;
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: 800;
-    padding-right: 70px;
+    padding-right: 4.375rem;
     position: relative;
     &:after {
       content: "";
       display: block;
       position: absolute;
-      top: 50%;
+      top: 45%;
       right: 0;
-      margin-top: -20px;
-      height: 40px;
-      width: 70px;
+      margin-top: -1.25rem;
+      height: 2.5rem;
+      width: 4.375rem;
       background: url("../assets/images/icons/arrow-right-pink.png") no-repeat
         center center;
     }
@@ -33,19 +33,19 @@
   a {
     display: inline-block;
     color: white;
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: 800;
-    padding-right: 70px;
+    padding-right: 4.375rem;
     position: relative;
     &:after {
       content: "";
       display: block;
       position: absolute;
-      top: 50%;
+      top: 48%;
       right: 0;
-      margin-top: -20px;
-      height: 40px;
-      width: 70px;
+      margin-top: -1.25rem;
+      height: 2.5rem;
+      width: 4.375rem;
       background: url("../assets/images/icons/arrow-right-pink.png") no-repeat
         center center;
     }
@@ -64,9 +64,9 @@
   a {
     display: inline-block;
     color: #ec008c;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 800;
-    padding-right: 70px;
+    padding-right: 4.375rem;
     position: relative;
     &:after {
       content: "";
@@ -74,35 +74,133 @@
       position: absolute;
       top: 50%;
       right: 0;
-      margin-top: -20px;
-      height: 40px;
-      width: 70px;
+      margin-top: -1.25rem;
+      height: 2.5rem;
+      width: 4.375rem;
       background: url("../assets/images/icons/arrow-right-pink.png") no-repeat
         center center;
     }
   }
 }
 
+.onlyButton {
+  display: none;
+}
 
-
+//MOBILE SIZE (S and M)
 @media only screen and (max-width: 376px) {
-
 .arrow-jobs {
     a {
       color: transparent;
-      font-size: 10px;
-      padding-right: 0px;
+      font-size: 0.625rem;
+      padding-right: 0rem;
       position: absolute;
-      padding-bottom: 100px;
+      padding-bottom: 6.25rem;
       right: 2%;
       top: 45%;
       &:after {
+        content: "";
+        display: block;
         position: relative;
         bottom: 50%;
         top: 0%;
         left: 0%;
         height: 25px;
         width: 35px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+
+  .arrow-faqcontact {
+    a {
+      display: inline-block;
+      color: transparent;
+      font-size: 0px;
+      font-weight: 800;
+      padding-right: 0px;
+      position: absolute;
+      padding-bottom: 100px;
+      right: 5%;
+      top: 50%;
+      &:after {
+        content: "";
+        display: block;
+        position: relative;
+        bottom: 30%;
+        top: 0%;
+        left: 0%;
+        height: 20px;
+        width: 30px;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .arrow-domain {
+    display: none;
+  }
+
+  .onlyButton {
+    display: initial;
+  }
+}
+
+@media only screen and (min-width: 501px) {
+  .arrow-domain {
+    // Set alignment in container
+    display: contents;
+    text-align: right;
+    a {
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 800;
+      padding-right: 70px;
+      position: relative;
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -20px;
+        height: 40px;
+        width: 70px;
+        background: url("../assets/images/icons/arrow-right-pink.png") no-repeat
+          center center;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 397px) and (max-width: 501px) {
+  .arrow-jobs {
+    text-align: right;
+    a {
+      display: inline-block;
+      color: transparent;
+      font-size: 10px;
+      font-weight: 800;
+      padding-right: 0px;
+      position: absolute;
+      padding-bottom: 100px;
+      right: 5%;
+      top: 45%;
+      &:after {
+        content: "";
+        display: block;
+        position: relative;
+        bottom: 50%;
+        top: 0%;
+        left: 0%;
+        height: 1.563rem;
+        width: 2.188rem;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -112,10 +210,10 @@
 .arrow-faqcontact {
     a {
       color: transparent;
-      font-size: 0px;
-      padding-right: 0px;
+      font-size: 0rem;
+      padding-right: 0rem;
       position: absolute;
-      padding-bottom: 100px;
+      padding-bottom: 6.25rem;
       right: 5%;
       top: 50%;
       &:after {
@@ -123,8 +221,8 @@
         bottom: 30%;
         top: 0%;
         left: 0%;
-        height: 20px;
-        width: 30px;
+        height: 1.25rem;
+        width: 1.875rem;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -134,15 +232,16 @@
 
 
 
+//MOBILE SIZE (L)
 @media only screen and (min-width: 377px) and (max-width:426px) {
 
 .arrow-jobs {
     a {
       color: transparent;
-      font-size: 10px;
-      padding-right: 0px;
+      font-size: 0.625rem;
+      padding-right: 0rem;
       position: absolute;
-      padding-bottom: 100px;
+      padding-bottom: 6.25rem;
       right: 0%;
       top: 58%;
       &:after {
@@ -150,8 +249,8 @@
         bottom: 0%;
         top: 0%;
         left: 0%;
-        height: 27px;
-        width: 37px;
+        height: 1.688rem;
+        width: 2.313rem;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -161,10 +260,10 @@
 .arrow-faqcontact {
     a {
       color: transparent;
-      font-size: 10px;
-      padding-right: 0px;
+      font-size: 0.625rem;
+      padding-right: 0rem;
       position: absolute;
-      padding-bottom: 100px;
+      padding-bottom: 6.25rem;
       right: 0%;
       top: 30%;
       &:after {
@@ -172,8 +271,8 @@
         bottom: 50%;
         top: 0%;
         left: 10%;
-        height: 22px;
-        width: 32px;
+        height: 1.375rem;
+        width: 2rem;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -182,18 +281,16 @@
 }
   
 
-
-
-
+//TABLET SIZE (THIS SIZE WAS DIVIDED SO THE CONTENT COULD RESPOND PROPERLY TO DIFFERENT SIZES OF SCREEN)
 @media only screen and (min-width: 426px) and (max-width: 501px) {
 
 .arrow-jobs {
     a {
       color: transparent;
-      font-size: 10px;
-      padding-right: 0px;
+      font-size: 0.625rem;
+      padding-right: 0rem;
       position: absolute;
-      padding-bottom: 100px;
+      padding-bottom: 6.25rem;
       right: 5%;
       top: 52%;
       &:after {
@@ -201,8 +298,8 @@
         bottom: 50%;
         top: 0%;
         left: 0%;
-        height: 29px;
-        width: 39px;
+        height: 1.813rem;
+        width: 2.438rem;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -212,10 +309,10 @@
 .arrow-faqcontact {
     a {
       color: transparent;
-      font-size: 10px;
-      padding-right: 0px;
+      font-size: 0.625rem;
+      padding-right: 0rem;
       position: absolute;
-      padding-bottom: 100px;
+      padding-bottom: 6.25rem;
       right: 5%;
       top: 28%;
       &:after {
@@ -223,8 +320,8 @@
         bottom: 50%;
         top: 0%;
         left: 10%;
-        height: 24px;
-        width: 34px;
+        height: 1.5rem;
+        width: 2.125rem;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -234,15 +331,16 @@
 
 
 
+//TABLET SIZE (THIS SIZE WAS DIVIDED SO THE CONTENT COULD RESPOND PROPERLY TO DIFFERENT SIZES OF SCREEN)
 @media only screen and (min-width: 501px) and (max-width: 769px) {
 
 .arrow-jobs {
     a {
       color: transparent;
-      font-size: 10px;
-      padding-right: 0px;
+      font-size: 0.625rem;
+      padding-right: 0rem;
       position: absolute;
-      padding-bottom: 100px;
+      padding-bottom: 6.25rem;
       right: 5%;
       top: 63%;
       &:after {
@@ -250,8 +348,8 @@
         bottom: 50%;
         top: 0%;
         left: 0%;
-        height: 31px;
-        width: 41px;
+        height: 1.938rem;
+        width: 2.563rem;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -261,10 +359,10 @@
 .arrow-faqcontact {
     a {
       color: transparent;
-      font-size: 10px;
-      padding-right: 0px;
+      font-size: 0.625rem;
+      padding-right: 0rem;
       position: absolute;
-      padding-bottom: 100px;
+      padding-bottom: 6.25rem;
       right: 5%;
       top: 20%;
       &:after {
@@ -272,8 +370,8 @@
         bottom: 50%;
         top: 0%;
         left: 10%;
-        height: 31px;
-        width: 41px;
+        height: 1.938rem;
+        width: 2.563rem;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -281,23 +379,23 @@
   }
 }
 
-
-
+//SMALL COMPUTER SIZE
 @media only screen and (min-width: 769px) and (max-width:1025px) { 
 
 .arrow-jobs {
     a {
-      padding-right: 20px;
+      padding-right: 1.25rem;
       position: absolute;
-      padding-bottom: 80px;
+      padding-bottom: 5rem;
       right: 10%;
       top: 55%;
+      font-size: 1.125rem;
       &:after {
         bottom: 50%;
         top: 14%;
         left: 95%;
-        height: 33px;
-        width: 43px;
+        height: 2.063rem;
+        width: 2.688rem;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }
@@ -306,11 +404,12 @@
 
   .arrow-faqcontact {
     a {
+      font-size: 1.125rem;
       &:after {
         top: 68%;
         left: 65%;
-        height: 33px;
-        width: 43px;
+        height: 2.063rem;
+        width: 2.688rem;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
         background-size: contain;
       }

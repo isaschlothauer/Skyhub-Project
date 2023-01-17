@@ -1,14 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
+
+{
+  /* STYLES */
+}
 import styles from "./offers.module.scss";
 
+{
+  /* COMPONENTS */
+}
 import Mini_Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import Domain_jobOffersTile from "../../../components/Domain_jobOffersTile";
+import JobTilesContainer from "../../../components/Domain_JobOffersContainer";
+import GoBackContainer from "../../../components/GoBackContainer";
 
-export default function Offers() {
+{
+  /* CONTEXT */
+}
+import JobOffersContainerContext from "../../../contexts/JobOffersContainerContext";
+
+import useAxios from "../../../hooks/useAxios";
+import { JobOffer } from "../../../components/DomainMainStaticCMP";
+import { useRouter } from "next/router";
+
+export interface OffersProps {
+  domain: any;
+}
+const Offers = ({}: OffersProps) => {
+  const router = useRouter();
+  const { domain } = router.query; //REVIEW THIS - It was giving a duplication problem with the interface.
+
+  const jobs = useAxios<JobOffer[]>({
+    url: `http://localhost:5000/static/jobs?domain=${domain}`,
+    initialValue: [],
+  });
+
   return (
     <div id={"page"}>
-      <Mini_Header title={"Job Offers"} />
+      <Mini_Header title={"Job Offers"} Scssdomain={domain} />
       <div className="container mx-auto sm:px-4">
         <div
           className={
@@ -48,13 +76,26 @@ export default function Offers() {
           </div>
         </div>
         <div id={styles.offers} className={styles["offers-branding"]}>
-          <Domain_jobOffersTile />
+          {jobs.slice(/* TODO */).map((job) => (
+            <JobTilesContainer
+              position={job.title}
+              company={job.company}
+              base={job.base}
+              link={"#"}
+            />
+          ))}
         </div>
         <div
           className={`${"flex flex-wrap items-end"} ${styles["row-widgets"]}}`}
         ></div>
+        <GoBackContainer
+          arrowTitle={"Go Back to 'Domain' Page"}
+          link={"/jobs"}
+        />
       </div>
       <Footer />
     </div>
   );
-}
+};
+
+export default Offers;
