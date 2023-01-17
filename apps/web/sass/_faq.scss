@@ -5,8 +5,7 @@
   padding-top: 18rem; //has to be 18 rem, otherwise h1 text is overlapping
 }
 .faq-page {
-  background: #FAFAFA;
-  
+
   .faq-search {
     background: white;
     border-radius: 50px;
@@ -38,7 +37,7 @@
   .faq-questions-container {
     z-index: 2;
     position: relative;
-    margin-bottom: 6rem;
+    margin-bottom: 5rem;
   }
   .faq-questions {
     background: white;
