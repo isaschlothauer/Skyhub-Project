@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import useAxios from "../../hooks/useAxios";
 
 {
@@ -24,10 +25,15 @@ export interface AxiosDataProps {
 }
 
 const FAQ = ({ domain }: FAQProps) => {
+  const [searchValue, setSearchValue] = useState("");
   // fetching the data from backend using useAxios context
   const faqData = useAxios<AxiosDataProps[]>({
     url: "http://localhost:5000/faq",
   });
+
+  const handeInput = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => setSearchValue(event.target.value);
 
   return (
     <div className={styles["faq-page"]}>
@@ -42,6 +48,7 @@ const FAQ = ({ domain }: FAQProps) => {
           <div className={"w-full"}>
             <div className={styles["faq-search"]}>
               <input
+                onChange={handeInput}
                 type="text"
                 name="faq_search"
                 className={styles["faq-search-input"]}
@@ -62,21 +69,30 @@ const FAQ = ({ domain }: FAQProps) => {
           <div className={"w-full"}>
             {faqData && (
               <div className={styles["faq-questions"]}>
-                {faqData.map((singleQNA, id) => (
-                  <div className={`${"row"} ${styles["faq-question-row"]}`}>
-                    <div className={"w-full"}>
-                      <div className={styles["faq-question-box"]} key={id}>
-                        <div className={styles["faq-question"]}>
-                          {" "}
-                          {singleQNA.question}
-                        </div>
-                        <div className={styles["faq-answer"]}>
-                          {singleQNA.answer}
+                {faqData
+                  .filter((singleQNA) =>
+                    singleQNA.question
+                      .toLowerCase()
+                      .includes(searchValue.toLowerCase())
+                  )
+                  .map((singleQNA) => (
+                    <div className={`${"row"} ${styles["faq-question-row"]}`}>
+                      <div className={"w-full"}>
+                        <div
+                          className={styles["faq-question-box"]}
+                          key={singleQNA.id.toString()}
+                        >
+                          <div className={styles["faq-question"]}>
+                            {" "}
+                            {singleQNA.question}
+                          </div>
+                          <div className={styles["faq-answer"]}>
+                            {singleQNA.answer}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
 
                 <div
                   className={`${"flex flex-wrap"} ${
