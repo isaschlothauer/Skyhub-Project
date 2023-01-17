@@ -158,9 +158,10 @@ const Registration = ({ domain }: RegistrationProps) => {
           </div>
         </div>
         <div className={"text-center mt-8"}>New account data</div>
-          
+        
           {/* Data Input Field */}
           <form>
+            {/* Firstname input field */}
             <label htmlFor="firstname" className={labelStyling}>Firstname
               <input 
                 id="firstname"
@@ -172,7 +173,8 @@ const Registration = ({ domain }: RegistrationProps) => {
                 required
                 />
             </label>
-
+            
+            {/* Lastname input field */}
             <label htmlFor="lastname" className={labelStyling}>Lastname
               <input 
                 id="lastname"
@@ -185,6 +187,7 @@ const Registration = ({ domain }: RegistrationProps) => {
                 />
             </label>
 
+            {/* Email input field */}
             <label htmlFor="email" className={labelStyling}>Email
               <input 
                 id="email"
@@ -197,6 +200,7 @@ const Registration = ({ domain }: RegistrationProps) => {
                 />
             </label>
             
+            {/* Company input field */}
             <label htmlFor="company" className={labelStyling}>Company
               <input 
                 id="company"
@@ -208,6 +212,7 @@ const Registration = ({ domain }: RegistrationProps) => {
                 />
             </label>
             
+            {/* Phone number input field */}
             <label htmlFor="phone" className={labelStyling}>Phone number
               <input 
                 id="phone"
@@ -219,6 +224,7 @@ const Registration = ({ domain }: RegistrationProps) => {
                 />
             </label>
 
+            {/* Password input field */}
             <label htmlFor="password" className={labelStyling}>Password
               <input 
                 id="password"
@@ -230,8 +236,9 @@ const Registration = ({ domain }: RegistrationProps) => {
                 onChange={inputFieldData}
                 required
                 />
-            </label>            
-
+            </label>
+            
+            {/* Password confirmation field */}
             <label htmlFor="passwordConfirm" className={labelStyling}>Password Confirmation
               <input 
                 id="passwordConfirm"
@@ -244,30 +251,31 @@ const Registration = ({ domain }: RegistrationProps) => {
                 required
                 />
             </label>
-            {(registration.password !== "" && registration.passwordConfirm !=="")? registration.password !== registration.passwordConfirm? <p>Passwords mismatch</p>: <p>Password match</p>: null }
 
+            {/* Password match/confirmation message generator */}
+            {(registration.password !== "" && registration.passwordConfirm !=="")? registration.password !== registration.passwordConfirm? <p>Passwords mismatch</p>: <p>Password match</p>: null }
           </form>          
 
-            <div className={"mt-5 mx-2 "}>Upon submission, verification email will be sent to the email address specified. Please follow the link to complete the registration.</div>
+          <div className={"mt-5 mx-2 "}>Upon submission, verification email will be sent to the email address specified. Please follow the link to complete the registration.</div>
           
-            {/* TOS checkbox */}
-            <input
-              type="checkbox"
-              checked={tos}
-              className={"ml-3 z-10 mt-5"}
-              onChange={(event) => setTOS(event.target.checked)}
-            />
-            <span className={"ml-2 text-pink-primary"}>Agree to <a href="{{ url('terms-of-service') }}" className={"underline"}>the Terms of Service</a></span>
-            
-            {/* Account data submission button */}
-            {passwordMatch()}
+          {/* TOS checkbox */}
+          <input
+            type="checkbox"
+            checked={tos}
+            className={"ml-3 z-10 mt-5"}
+            onChange={(event) => setTOS(event.target.checked)}
+          />
+          <span className={"ml-2 text-pink-primary"}>Agree to <a href="{{ url('terms-of-service') }}" className={"underline"}>the Terms of Service</a></span>
+          
+          {/* Account data submission button */}
+          {passwordMatch()}
         </div>
 
-        {/* <ReturnHomeContainer /> */}
+         {/* <ReturnHomeContainer /> */}
 
         <div className={"mt-[300px]"}>      
-        <Footer />
-      </div>
+          <Footer />
+        </div>
       </div>
     </div>
   );
