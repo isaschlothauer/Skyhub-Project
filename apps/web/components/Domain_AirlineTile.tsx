@@ -4,7 +4,7 @@ import * as React from "react";
 import ArrowButton from "../assets/images/icons/arrow-right-pink.png";
 
 interface ArilineTileProps {
-  logo: StaticImageData;
+  logo: string;
   title: string;
   slug: string;
 }
