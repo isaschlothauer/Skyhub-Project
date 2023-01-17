@@ -12,6 +12,7 @@ import styles from "./faq.module.scss";
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 import GoHomeContainer from "../../components/GoBackContainer";
+import DOMPurify from "dompurify";
 
 export interface FAQProps {
   domain: string;
@@ -27,6 +28,12 @@ const FAQ = ({ domain }: FAQProps) => {
   // fetching the data from backend using useAxios context
   const faqData = useAxios<AxiosDataProps[]>({
     url: "http://localhost:5000/faq",
+    transform: (data) =>
+      data.map((faqItem) => ({
+        question: DOMPurify.sanitize(faqItem.question),
+        answer: DOMPurify.sanitize(faqItem.answer),
+        id: faqItem.id,
+      })),
   });
 
   return (
@@ -63,16 +70,21 @@ const FAQ = ({ domain }: FAQProps) => {
             {faqData && (
               <div className={styles["faq-questions"]}>
                 {faqData.map((singleQNA, id) => (
-                  <div className={`${"row"} ${styles["faq-question-row"]}`}>
+                  <div key={singleQNA.id} className={`${"row"} ${styles["faq-question-row"]}`}>
                     <div className={"w-full"}>
                       <div className={styles["faq-question-box"]} key={id}>
-                        <div className={styles["faq-question"]}>
-                          {" "}
-                          {singleQNA.question}
-                        </div>
-                        <div className={styles["faq-answer"]}>
-                          {singleQNA.answer}
-                        </div>
+                        <div
+                          className={styles["faq-question"]}
+                          dangerouslySetInnerHTML={{
+                            __html: singleQNA.question,
+                          }}
+                        />
+                        <div
+                          className={styles["faq-answer"]}
+                          dangerouslySetInnerHTML={{
+                            __html: singleQNA.answer,
+                          }}
+                        />
                       </div>
                     </div>
                   </div>
