@@ -4,6 +4,7 @@ import React, { useContext } from "react";
   /* STYLES */
 }
 import styles from "./offers.module.scss";
+import stylesS from "../../../components/staticpage.module.scss";
 
 {
   /* COMPONENTS */
@@ -12,6 +13,7 @@ import Mini_Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import JobTilesContainer from "../../../components/Domain_JobOffersContainer";
 import GoBackContainer from "../../../components/GoBackContainer";
+import { domainToLongName } from "../../../utils/domainToLongName";
 
 {
   /* CONTEXT */
@@ -24,20 +26,25 @@ import { useRouter } from "next/router";
 
 export interface OffersProps {
   domain: any;
+  Scssdomain: string;
 }
 const Offers = ({}: OffersProps) => {
   const router = useRouter();
   const { domain } = router.query; //REVIEW THIS - It was giving a duplication problem with the interface.
 
   const jobs = useAxios<JobOffer[]>({
-    url: `http://localhost:5000/static/jobs?domain=${domain}`,
+    url: `http://localhost:5000/jobs/?domain=${domain}`,
     initialValue: [],
   });
 
   return (
-    <div id={"page"}>
+    <div id={stylesS.domainPage}>
       <Mini_Header title={"Job Offers"} Scssdomain={domain} />
-      <div className="container mx-auto sm:px-4">
+      <div
+        className={` ${
+          styles.containerOffersPage
+        } ${"container mx-auto sm:px-4 "}`}
+      >
         <div
           className={
             "flex flex-wrap"
@@ -75,7 +82,7 @@ const Offers = ({}: OffersProps) => {
             </div>
           </div>
         </div>
-        <div id={styles.offers} className={styles["offers-branding"]}>
+        <div id={styles.offers}>
           {jobs.slice(/* TODO */).map((job) => (
             <JobTilesContainer
               position={job.title}
@@ -85,15 +92,12 @@ const Offers = ({}: OffersProps) => {
             />
           ))}
         </div>
-        <div
-          className={`${"flex flex-wrap items-end"} ${styles["row-widgets"]}}`}
-        ></div>
         <GoBackContainer
-          arrowTitle={"Go Back to 'Domain' Page"}
-          link={"/jobs"}
+          arrowTitle={`Back to ${domainToLongName(domain)} page`}
+          link={`/${domain}`}
         />
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };
