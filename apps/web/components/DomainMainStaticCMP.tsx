@@ -55,7 +55,7 @@ export default function MainStaticCMP(
               position={job.title}
               company={job.company}
               base={job.base}
-              link={`/${domain}/offers/id=${job.id}`}
+              link={`/${domain}/offers/${job.id}`}
             />
           </div>
         ))}

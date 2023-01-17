@@ -4,11 +4,6 @@
   top: 400px;
 }
 
-.containerOffersPage {
-  position: relative;
-  z-index: 2;
-  top: 400px;
-}
 
 #offers {
   margin-bottom: 3rem;
@@ -134,5 +129,17 @@
   .job-offer-list-item-location p,
   .job-offer-list-item-date p {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .containerDomain {
+    top: 15.625rem;
+  }
+}
+
+@media only screen and (min-width: 427px) and (max-width: 768px) {
+  .containerDomain {
+    top: 16.625rem;
   }
 }

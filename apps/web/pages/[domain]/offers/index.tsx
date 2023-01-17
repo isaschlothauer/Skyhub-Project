@@ -41,9 +41,7 @@ const Offers = ({}: OffersProps) => {
     <div id={stylesS.domainPage}>
       <Mini_Header title={"Job Offers"} Scssdomain={domain} />
       <div
-        className={` ${
-          styles.containerOffersPage
-        } ${"container mx-auto sm:px-4 "}`}
+        className={` ${styles.containerDomain} ${"container mx-auto sm:px-4 "}`}
       >
         <div
           className={
@@ -88,7 +86,7 @@ const Offers = ({}: OffersProps) => {
               position={job.title}
               company={job.company}
               base={job.base}
-              link={"#"}
+              link={`/${domain}/offers/${job.id}`}
             />
           ))}
         </div>
