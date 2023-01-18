@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import useAxios from "../hooks/useAxios";
+
 /* STYLES */
 import styles from "../components/staticpage.module.scss";
 import stylesB from "../components/generalButton.module.scss";
+import stylesC from "./domain_jobOffersContainer.module.scss";
 
 {
   /* COMPONENTS */
@@ -19,8 +21,6 @@ import ButtonCMP from "./GeneralButton";
 }
 import JobTilesContainer from "./Domain_JobTilesContainer";
 import JobOffersContainer from "./Domain_JobOffersContainer";
-import axios from "axios";
-import JobOffersContainerContext from "../contexts/JobOffersContainerContext";
 
 export interface JobOffer {
   id: number;
@@ -30,30 +30,37 @@ export interface JobOffer {
   link: string;
 }
 
-export default function MainStaticCMP({ domain }: { domain: string }) {
+export default function MainStaticCMP(
+  { domain }: { domain: string },
+  { cssOffers }: { cssOffers: string }
+) {
   const jobs = useAxios<JobOffer[]>({
-    url: `http://localhost:5000/static/jobs?domain=${domain}`,
+    url: `http://localhost:5000/jobs/?domain=${domain}`,
     initialValue: [],
   });
 
+  
+  // console.log(jobs[0].id);
+
   return (
-    <div id={"page"}>
+    <div id={styles.domainPage}>
       <Mini_Header title={"Available Jobs"} Scssdomain={domain} />
 
-      <div className={"container mx-auto sm:px-0"}>
+      <div
+        className={`${stylesC.containerDomain} ${"container mx-auto sm:px-0 "}`}
+      >
         {jobs.slice(0, 3).map((job) => (
           <div className="jobOffersContainer" key={job.id}>
             <JobOffersContainer
               position={job.title}
               company={job.company}
               base={job.base}
-              link={domain}
+              link={`/${domain}/offers/${job.id}`}
             />
           </div>
         ))}
 
-        <div className="flex flex-row justify-center mb-10 pt-[1000px]">
-          {/*Changed by Diogo: Muda o padding top para ajustar ao que pretendes*/}
+        <div className="flex flex-row justify-center mb-10">
           <ButtonCMP
             route={`/${domain}/offers`}
             buttontext={"SEE MORE OFFERS"}
@@ -69,26 +76,9 @@ export default function MainStaticCMP({ domain }: { domain: string }) {
         <div className={`container mx-auto sm:px-0`}>
           <ContainerFAQContact />
         </div>
-
-        {/* 
-
-  @widget('GoBack', [
-      'back_url' => '/offers',
-      'back_text' => 'learn more',
-      'reverse' => true,
-      'class' => 'widget-3 widget-jobs',
-      'image' => asset('css/skyhub/images/widget/bg-widget-jobs.png'),
-      'title' => 'Jobs',
-      'subtitle' => 'Current offers'
-  ])
-
-  @widget('GoHomepage')
-
-*/}
         <GoBackContainer arrowTitle={"Go Back to Home"} link={"/"} />
+        <Footer />
       </div>
-
-      <Footer />
     </div>
   );
 }
