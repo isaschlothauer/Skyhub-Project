@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { InputDataValidator } from "./inputDataValidator";
+import { Registration } from "./registration.handler";
 
 const RegistrationRouter = Router();
 
-RegistrationRouter.post("/", );
+RegistrationRouter.post("/", Registration);
 
 export default RegistrationRouter;

@@ -23,7 +23,7 @@ import { match } from "assert";
 
 
 const registrationButton = {
-  route: "",
+  route: "/registration",
   cSass: styleslrButton["loginreg-pink"],
   buttontext: "Submit",
 };
@@ -63,12 +63,6 @@ const Registration = ({ domain }: RegistrationProps) => {
     // contact: "" //Nore sure what it is
   });
 
-  const registrationButton = {
-    route: "/",
-    cSass: styleslrButton["loginreg-pink"],
-    buttontext: "Submit",
-  }
-
   // Account type checkbox behavior controller for Airline Representative
   function airlineHandler(event: React.ChangeEvent<HTMLInputElement>) {
     recruitmentRep? setRecruitmentRep(!recruitmentRep) : null;
@@ -103,12 +97,17 @@ const Registration = ({ domain }: RegistrationProps) => {
   }
 
   // Submission button handler
-  function submitHandler(event: React.MouseEvent<HTMLButtonElement>): void {
+  const submitHandler = (event: React.MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault();
 
     console.log(registration);
-    // axios
-    //   .post("http://localhost:5000/register", registration)
+    axios
+    .post("http://localhost:5000/register", registration, {
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    })
   }
 
   function test() {
