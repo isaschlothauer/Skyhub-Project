@@ -11,6 +11,7 @@ interface ArilineTileProps {
 
 export default function AirlineTile({ logo, title, slug }: ArilineTileProps) {
   const router = useRouter();
+
   return (
     <div className="flex flex-col justify-center items-center bg-white p-3 shadow-main rounded-[15px] sm:p-5 md:p-8">
       <div className=" relative w-full h-16 mb-4">
@@ -20,7 +21,7 @@ export default function AirlineTile({ logo, title, slug }: ArilineTileProps) {
       <h3 className="nunito text-[#000e94] text-sm font-extrabold mb-6 md:text-base">
         {title}
       </h3>
-      <a href={`${router.pathname}/${slug}`}>
+      <a href={`${router.asPath}/${slug}`}>
         <Image src={ArrowButton} alt="Arrow Button" />
       </a>
     </div>
