@@ -22,7 +22,6 @@ export default function GoBackContainer({
   arrowTitle,
   link,
 }: GoBackContainerProps) {
-
   return (
     <div className="container mx-auto sm:px-0">
       <div

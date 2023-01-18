@@ -10,12 +10,14 @@
   //Container for the header's logo
   .header-logo {
     display: block;
-    background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
+    background: url("../assets/images/miscellaneous/NewLogoHeader.png")
+      no-repeat center center;
     background-size: contain;
     width: 198px;
     height: 80px;
     margin: 2.85rem auto;
   }
+
   h1 {
     font-size: 3rem;
     line-height: 3.5rem;
@@ -31,131 +33,129 @@
 //Classes for the Different Headers
 
 //Home page Header
-.header-homepage{
-  background: url("../assets/images/header/bgHeaderMainPage.png") no-repeat center center;
+.header-homepage {
+  background: url("../assets/images/header/bgHeaderMainPage.png") no-repeat
+    center center;
   background-size: cover;
-
 }
 
 //Headers for independent pages (FAQ, Contact Us, Login, etc)
-.header-otherpages{
-  background: url("../assets/images/header/bgHeaderForOtherPages.png") no-repeat top center;
+.header-otherpages {
+  background: url("../assets/images/header/bgHeaderForOtherPages.png") no-repeat
+    top center;
   background-size: cover;
   color: $letter-header-white;
 }
 
 //Every Pilot Subject Header
-.header-pilot{
-  background: url("../assets/images/header/bgHeaderBlue.png") no-repeat top center;
+.header-pilot {
+  background: url("../assets/images/header/bgHeaderBlue.png") no-repeat top
+    center;
   background-size: cover;
   color: $letter-header-white;
 }
 
 //Every Cabin Subject Header
-.header-cabin{
-  background: url("../assets/images/header/bgHeaderYellow.png") no-repeat top center;
+.header-cabin {
+  background: url("../assets/images/header/bgHeaderYellow.png") no-repeat top
+    center;
   background-size: cover;
   color: $letter-header-black;
 }
 
 //Every ATC Subject Header
-.header-atc{
-  background: url("../assets/images/header/bgHeaderTurquoise.png") no-repeat top center;
+.header-atc {
+  background: url("../assets/images/header/bgHeaderTurquoise.png") no-repeat top
+    center;
   background-size: cover;
   color: $letter-header-black;
 }
 
-
-
-
-
 @media only screen and (max-width: 376px) {
-  .header-container {
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 550px;
-
-  //Container for the header's logo
-  .header-logo {
-    display: block;
-    background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
-    background-size: contain;
-    width: 120px;
-    height: 70px;
-    margin: 2.2rem auto;
-  }
-  h1 {
-    font-size: 1.8rem;
-    line-height: 3.5rem;
-    font-weight: 900;
-    text-align: center;
-    margin:0;
-    strong {
-      color: #1aebcf;
-    }
-  }
- }
-}
-
-
-@media only screen and (min-width:377px) and (max-width: 426px) {
-  
   .header-container {
     position: absolute;
     z-index: 1;
     width: 100%;
     height: 550px;
-  
+
     //Container for the header's logo
     .header-logo {
       display: block;
-      background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
-  background-size: contain;
-  width: 120px;
-  height: 70px;
-  margin: 2rem auto;
+      background: url("../assets/images/miscellaneous/NewLogoHeader.png")
+        no-repeat center center;
+      background-size: contain;
+      width: 120px;
+      height: 70px;
+      margin: 2.2rem auto;
     }
     h1 {
       font-size: 1.8rem;
       line-height: 3.5rem;
       font-weight: 900;
       text-align: center;
-      margin:0;
+      margin: 0;
       strong {
         color: #1aebcf;
       }
     }
-   }
   }
+}
 
+@media only screen and (min-width: 377px) and (max-width: 426px) {
+  .header-container {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 550px;
 
-
-  @media only screen and (min-width:426px) and (max-width: 769px) {
-  
-    .header-container {
-      position: absolute;
-      z-index: 1;
-      width: 100%;
-      height: 550px;
-    
-      //Container for the header's logo
-      .header-logo {
-        display: block;
-        background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
-        background-size: contain;
-        width: 198px;
-        height: 60px;
-      }
-      h1 {
-        font-size: 2rem;
-        line-height: 3.5rem;
-        font-weight: 900;
-        text-align: center;
-        margin:0;
-        strong {
-          color: #1aebcf;
-        }
-      }
-     }
+    //Container for the header's logo
+    .header-logo {
+      display: block;
+      background: url("../assets/images/miscellaneous/NewLogoHeader.png")
+        no-repeat center center;
+      background-size: contain;
+      width: 120px;
+      height: 70px;
+      margin: 2rem auto;
     }
+    h1 {
+      font-size: 1.8rem;
+      line-height: 3.5rem;
+      font-weight: 900;
+      text-align: center;
+      margin: 0;
+      strong {
+        color: #1aebcf;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 769px) {
+  .header-container {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 550px;
+
+    //Container for the header's logo
+    .header-logo {
+      display: block;
+      background: url("../assets/images/miscellaneous/NewLogoHeader.png")
+        no-repeat center center;
+      background-size: contain;
+      width: 198px;
+      height: 60px;
+    }
+    h1 {
+      font-size: 2rem;
+      line-height: 3.5rem;
+      font-weight: 900;
+      text-align: center;
+      margin: 0;
+      strong {
+        color: #1aebcf;
+      }
+    }
+  }
+}
