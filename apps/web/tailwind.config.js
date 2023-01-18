@@ -26,6 +26,9 @@ module.exports = {
       },
       screens: {
         test: { raw: "(max-width: 268px)" },
+        mobile: { max: "426px" },
+        tablet: { min: "427px", max: "769px" },
+        pc: { min: "770px" },
       },
     },
   },

@@ -1,4 +1,12 @@
+.containerDomain {
+  position: relative;
+  z-index: 2;
+  top: 400px;
+}
+
+
 #offers {
+  margin-bottom: 3rem;
   .job-offer-list-item {
     margin-bottom: 30px;
     -webkit-border-radius: 25px;
@@ -100,7 +108,6 @@
   }
 }
 
-
 @media only screen and (max-width: 500px) {
   .job-image-and-arrow {
     flex-direction: row !important;
@@ -110,7 +117,7 @@
   .job-offer-item-and-images {
     flex-direction: column-reverse;
   }
-  
+
   .job-offer-list-item-details {
     flex-direction: row !important;
     justify-content: space-around !important;
@@ -122,5 +129,17 @@
   .job-offer-list-item-location p,
   .job-offer-list-item-date p {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .containerDomain {
+    top: 15.625rem;
+  }
+}
+
+@media only screen and (min-width: 427px) and (max-width: 768px) {
+  .containerDomain {
+    top: 16.625rem;
   }
 }

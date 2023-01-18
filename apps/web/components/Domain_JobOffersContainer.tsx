@@ -16,7 +16,6 @@ import { LearnMoreArrow } from "./ArrowButton";
 }
 import jobImg from "../../web/assets/images/miscellaneous/job_logo_testing.png";
 import arrowButton from "../assets/images/icons/arrow-right-pink.png";
-import JobOffersContainerContext from "../contexts/JobOffersContainerContext";
 
 interface JobOffersContainerProps {
   position: string;
@@ -29,7 +28,6 @@ function JobOffersContainer(props: JobOffersContainerProps) {
   const { position, company, base, link } = props;
 
   return (
-    <div className={"mb-10"}>
       <div id={styles.offers}>
         <div className={`${styles["job-offer-list-item"]} `}>
           <div className={"flex flex-col justify-between"}>
@@ -79,7 +77,6 @@ function JobOffersContainer(props: JobOffersContainerProps) {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
