@@ -6,6 +6,8 @@ import axios from "axios";
 
 /* STYLES */
 import styles from "./registration.module.scss";
+import contactUsStyle from "../contacts/contactus.module.scss";
+
 
 /* COMPONENTS */
 import Footer from "../../components/Footer";
@@ -52,16 +54,18 @@ const Registration = ({ domain }: RegistrationProps) => {
   const [recruitmentRep, setRecruitmentRep] = useState(false);
   const [user, setUser] = useState(false);
   const [registration, setRegistration] = useState({
-    accountType: "",
+    account_type: "",
     firstname: "",
     lastname: "",
     email: "",
     phone: "",
     company: "",
     password: "",
-    passwordRepeat: ""
+    passwordRepeat: "",
+    tos: false
     // contact: "" //Nore sure what it is
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Account type checkbox behavior controller for Airline Representative
   function airlineHandler(event: React.ChangeEvent<HTMLInputElement>) {
@@ -69,7 +73,7 @@ const Registration = ({ domain }: RegistrationProps) => {
     user? setUser(!user): null;
     setAirlineRep(!airlineRep);
     setRegistration({...registration,
-      accountType: "airline" })
+      account_type: "airline" })
   }
 
   // Account type checkbox behavior controller for Recruitment Agency
@@ -78,7 +82,7 @@ const Registration = ({ domain }: RegistrationProps) => {
     user? setUser(!user): null;
     setRecruitmentRep(!recruitmentRep);
     setRegistration({...registration,
-      accountType: "recruiter" })
+      account_type: "recruiter" })
   }
 
   // Account type checkbox behavior controller for normal user
@@ -87,7 +91,7 @@ const Registration = ({ domain }: RegistrationProps) => {
     recruitmentRep? setRecruitmentRep(!recruitmentRep) : null;
     setUser(!user);
     setRegistration({...registration,
-      accountType: "user" })
+      account_type: "user" })
   }
 
   // Data input fields handler
@@ -96,19 +100,32 @@ const Registration = ({ domain }: RegistrationProps) => {
       [event.target.name]: event.target.value});
   }
 
+  // TOS checkbox handler 
+  function TOS(event: React.ChangeEvent<HTMLInputElement>) {
+    setTOS(!tos);
+    !tos? setRegistration({...registration,
+      tos: true })
+      :
+      setRegistration({...registration,
+        tos: false })
+  }
+
   // Submission button handler
-  const submitHandler = (event: React.MouseEvent<HTMLButtonElement>): void => {
+  function submitHandler (event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
 
-    console.log(registration);
+    // console.log(registration);
     axios
-    .post("http://localhost:5000/register", registration, {
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
+    .post("http://localhost:5000/register", registration)
+    .then((result) => {
+      console.log(result)
     })
+      
   }
+
+
+  // useState to display erorrs messages in the form if the input value is invalid
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   function test() {
     console.log(registration)
@@ -128,7 +145,7 @@ const Registration = ({ domain }: RegistrationProps) => {
         <div className={"mt-3"}>
           <p className={"text-center"}>Account type</p>
           <p className={"mt-5"} >* All fields required</p>
-          
+
           {/* Airline representativ chekbox */}
           <input
             type="checkbox"
@@ -213,6 +230,11 @@ const Registration = ({ domain }: RegistrationProps) => {
                 placeholder="company"
                 onChange={inputFieldData}
                 />
+                {errors.company && !isSubmitted && (
+                  <p className={contactUsStyle["validation-errors"]}>
+                  {errors.company}
+                  </p>
+                )}
             </label>
             
             {/* Phone number input field */}
@@ -266,7 +288,7 @@ const Registration = ({ domain }: RegistrationProps) => {
             type="checkbox"
             checked={tos}
             className={"ml-3 z-10 mt-5"}
-            onChange={(event) => setTOS(event.target.checked)}
+            onChange={TOS}
           />
           <span className={"ml-2 text-pink-primary"}>Agree to <a href="{{ url('terms-of-service') }}" className={"underline"}>the Terms of Service</a></span>
           
@@ -276,7 +298,7 @@ const Registration = ({ domain }: RegistrationProps) => {
               route={registrationButton.route}
               cSass={registrationButton.cSass}
               buttontext={registrationButton.buttontext}
-              onChange={submitHandler}
+              onClick={submitHandler}
             />
           </div>
         </div>

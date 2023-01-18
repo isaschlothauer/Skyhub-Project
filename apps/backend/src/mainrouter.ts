@@ -14,7 +14,7 @@ MainRouter.use("/contact-form", validateInput, ContactFormAndFAQRouter);
 MainRouter.use("/faq", ContactFormAndFAQRouter);
 MainRouter.use("/:domain/insights", InsightsRouter);
 
-MainRouter.use("/register", RegistrationRouter)
+MainRouter.use("/register", registrationValidator, RegistrationRouter)
 MainRouter.use("/jobs", DomainRouter);
 
 export default MainRouter;

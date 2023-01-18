@@ -1,8 +1,10 @@
 import { Router } from "express";
-import { Registration } from "./registration.handler";
+import { UserRegistration } from "./registration.handler";
+import { passwordHash } from "../hash/hash";
+
 
 const RegistrationRouter = Router();
 
-RegistrationRouter.post("/", Registration);
+RegistrationRouter.post("/", passwordHash, UserRegistration)
 
 export default RegistrationRouter;
