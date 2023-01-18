@@ -1,10 +1,8 @@
 import { Router } from "express";
-import { inputDataValidator } from "./inputDataValidator";
+import { InputDataValidator } from "./inputDataValidator";
 
 const RegistrationRouter = Router();
 
-//post method for submitting contact form
-RegistrationRouter.post("/", inputDataValidator);
-
+RegistrationRouter.post("/", );
 
 export default RegistrationRouter;

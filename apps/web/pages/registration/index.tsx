@@ -11,6 +11,7 @@ import styles from "./registration.module.scss";
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 import { userAgent } from "next/server";
+import { match } from "assert";
 
 // TO DO
 // // 1. Setup state for all input fields and check boxes
@@ -18,10 +19,11 @@ import { userAgent } from "next/server";
 // // 3. Implement Term of Service check. If not checked, disable submit buttom
 // 4. Submit button should show verification message and link to login page
 // 5. Revise user type if it's necessary at all. I don't understand typescript. 
+// 6. "User" Find word that sounds more professional
 
 
 const registrationButton = {
-  route: "/",
+  route: "",
   cSass: styleslrButton["loginreg-pink"],
   buttontext: "Submit",
 };
@@ -48,21 +50,18 @@ const Registration = ({ domain }: RegistrationProps) => {
   const [tos, setTOS] = useState(false);
   const [airlineRep, setAirlineRep] = useState(false);
   const [recruitmentRep, setRecruitmentRep] = useState(false);
+  const [user, setUser] = useState(false);
   const [registration, setRegistration] = useState({
+    accountType: "",
     firstname: "",
     lastname: "",
     email: "",
     phone: "",
     company: "",
     password: "",
-    passwordConfirm: "",
-    accountType: ""
+    passwordRepeat: ""
     // contact: "" //Nore sure what it is
-  })
-
-  function clearState() {
-    setRegistration({...registration})
-  }
+  });
 
   const registrationButton = {
     route: "/",
@@ -70,29 +69,31 @@ const Registration = ({ domain }: RegistrationProps) => {
     buttontext: "Submit",
   }
 
-  // Password match/confirmation mechanism
-  const [matchedPassword, setMatchedPassword] = useState("");
-
-
   // Account type checkbox behavior controller for Airline Representative
-
-  // Account type categories clarification
-  // accountType: "1" (airline)
-  // accountType: "2" (recruiter)
-
   function airlineHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    (recruitmentRep)? setRecruitmentRep(!recruitmentRep) : null;
+    recruitmentRep? setRecruitmentRep(!recruitmentRep) : null;
+    user? setUser(!user): null;
     setAirlineRep(!airlineRep);
     setRegistration({...registration,
-      accountType: "1" })
+      accountType: "airline" })
   }
 
   // Account type checkbox behavior controller for Recruitment Agency
   function recruitmentHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    (airlineRep)? setAirlineRep(!airlineRep) : null;
+    airlineRep? setAirlineRep(!airlineRep) : null; 
+    user? setUser(!user): null;
     setRecruitmentRep(!recruitmentRep);
     setRegistration({...registration,
-      accountType: "2" })
+      accountType: "recruiter" })
+  }
+
+  // Account type checkbox behavior controller for normal user
+  function userHandler(event: React.ChangeEvent<HTMLInputElement>) {
+    airlineRep? setAirlineRep(!airlineRep) : null; 
+    recruitmentRep? setRecruitmentRep(!recruitmentRep) : null;
+    setUser(!user);
+    setRegistration({...registration,
+      accountType: "user" })
   }
 
   // Data input fields handler
@@ -101,33 +102,19 @@ const Registration = ({ domain }: RegistrationProps) => {
       [event.target.name]: event.target.value});
   }
 
-  // Password match/confirmation and submit button trigger 
-  function passwordMatch() {
-    if (registration.password !== null && registration.passwordConfirm && registration.password === registration.passwordConfirm && tos === true && registration.accountType !== "" && registration.firstname !== "" && registration.lastname !== "" && registration.email !== "" && registration.phone !== "") {
-      return (
-        <div className={"mt-8 mx-auto w-max mb-5"}>
-          <RegistrationButton
-            route={registrationButton.route}
-            cSass={registrationButton.cSass}
-            buttontext={registrationButton.buttontext}
-            onChange={submitHandler}
-          />
-        </div>
-      )
-    } else {
-      null
-    }
-  }
-
-  console.log(registration);
-
   // Submission button handler
   function submitHandler(event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
 
-    axios
-      .post("http://localhost:5000/register", registration)
-      
+    console.log(registration);
+    // axios
+    //   .post("http://localhost:5000/register", registration)
+  }
+
+  function test() {
+    console.log(registration)
+    // console.log(matchedPassword)
+
   }
 
   return (
@@ -135,12 +122,15 @@ const Registration = ({ domain }: RegistrationProps) => {
       {/* Temporary text color change. Wait for header component to be fixed. Revise text color for mobile design */}
         <Mini_Header title={"Account Registration"} Scssdomain={domain} />
 
+
       <div>
       {/* Account data fields */}
       <div className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px]`}>
         <div className={"mt-3"}>
           <p className={"text-center"}>Account type</p>
           <p className={"mt-5"} >* All fields required</p>
+          
+          {/* Airline representativ chekbox */}
           <input
             type="checkbox"
             checked={airlineRep}
@@ -149,7 +139,8 @@ const Registration = ({ domain }: RegistrationProps) => {
           />
           <span className={"ml-2"}>Airline representative</span>
 
-          <div className={"block mb-5"}>
+          <div className={"block"}>
+            {/* Recruitment agency representative checkbox */}
             <input
               type="checkbox"
               checked={recruitmentRep}
@@ -157,6 +148,17 @@ const Registration = ({ domain }: RegistrationProps) => {
               className={"ml-3 z-10 mt-5"}
             />
             <span className={"ml-2"}>Rectruitment agency</span>
+          </div>
+
+          <div className={"block mb-5"}>
+            {/* User checkbox */}
+            <input
+              type="checkbox"
+              checked={user}
+              onChange={userHandler}
+              className={"ml-3 z-10 mt-5"}
+            />
+            <span className={"ml-2"}>User</span>
           </div>
         </div>
         <div className={"text-center mt-8"}>New account data</div>
@@ -241,21 +243,21 @@ const Registration = ({ domain }: RegistrationProps) => {
             </label>
             
             {/* Password confirmation field */}
-            <label htmlFor="passwordConfirm" className={labelStyling}>Password Confirmation
+            <label htmlFor="passwordRepeat" className={labelStyling}>Password Confirmation
               <input 
-                id="passwordConfirm"
-                name="passwordConfirm"
+                id="passwordRepeat"
+                name="passwordRepeat"
                 type="password"
-                value={registration.passwordConfirm}
+                value={registration.passwordRepeat}
                 className={inputFieldStyling}
-                placeholder="passwordConfirm"
+                placeholder="Retype password"
                 onChange={inputFieldData}
                 required
                 />
             </label>
 
             {/* Password match/confirmation message generator */}
-            {(registration.password !== "" && registration.passwordConfirm !=="")? registration.password !== registration.passwordConfirm? <p>Passwords mismatch</p>: <p>Password match</p>: null }
+            {/* {(matchedPassword.password !== "" && matchedPassword.confirmPassword !=="")? matchedPassword.password !== matchedPassword.confirmPassword? <p>Passwords mismatch</p>: <p>Password match</p>: null } */}
           </form>          
 
           <div className={"mt-5 mx-2 "}>Upon submission, verification email will be sent to the email address specified. Please follow the link to complete the registration.</div>
@@ -270,7 +272,14 @@ const Registration = ({ domain }: RegistrationProps) => {
           <span className={"ml-2 text-pink-primary"}>Agree to <a href="{{ url('terms-of-service') }}" className={"underline"}>the Terms of Service</a></span>
           
           {/* Account data submission button */}
-          {passwordMatch()}
+          <div className={"mt-8 mx-auto w-max mb-5"}>
+            <RegistrationButton
+              route={registrationButton.route}
+              cSass={registrationButton.cSass}
+              buttontext={registrationButton.buttontext}
+              onChange={submitHandler}
+            />
+          </div>
         </div>
 
          {/* <ReturnHomeContainer /> */}
