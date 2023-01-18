@@ -73,11 +73,13 @@ const Registration = ({ domain }: RegistrationProps) => {
   // Password match/confirmation mechanism
   const [matchedPassword, setMatchedPassword] = useState("");
 
-  // Account type category
-  // Airline = "1";
-  // Recruitor = "2";
 
   // Account type checkbox behavior controller for Airline Representative
+
+  // Account type categories clarification
+  // accountType: "1" (airline)
+  // accountType: "2" (recruiter)
+
   function airlineHandler(event: React.ChangeEvent<HTMLInputElement>) {
     (recruitmentRep)? setRecruitmentRep(!recruitmentRep) : null;
     setAirlineRep(!airlineRep);
