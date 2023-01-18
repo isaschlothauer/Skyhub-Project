@@ -16,8 +16,9 @@ export const passwordHash: RequestHandler<{
   argon2
     .hash(req.body.password, hashingOptions)
     .then((hashedPassword) => {
-      req.body.password = hashedPassword;
+      req.body.passwordHash = hashedPassword;
 
+      req.body.password = "";
       req.body.passwordRepeat = "";
 
       next();

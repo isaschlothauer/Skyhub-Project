@@ -55,6 +55,7 @@ const Registration = ({ domain }: RegistrationProps) => {
   const [user, setUser] = useState(false);
   const [registration, setRegistration] = useState({
     account_type: "",
+    account_name: "",
     firstname: "",
     lastname: "",
     email: "",
@@ -118,7 +119,19 @@ const Registration = ({ domain }: RegistrationProps) => {
     axios
     .post("http://localhost:5000/register", registration)
     .then((result) => {
-      console.log(result)
+      console.log(result.status)
+
+      if (result.status === 201) {
+
+      //   setLogin
+      //   return (
+      //     <div>
+
+      //     </div>
+      //   )
+      }
+
+      
     })
       
   }
@@ -181,6 +194,19 @@ const Registration = ({ domain }: RegistrationProps) => {
         
           {/* Data Input Field */}
           <form>
+            {/* Acount name input field */}
+            <label htmlFor="account_name" className={labelStyling}>Account name
+              <input 
+                id="account_name"
+                name="account_name"
+                value={registration.account_name}
+                className={inputFieldStyling}
+                placeholder="Preferred account name"
+                onChange={inputFieldData}
+                required
+                />
+            </label>
+
             {/* Firstname input field */}
             <label htmlFor="firstname" className={labelStyling}>Firstname
               <input 

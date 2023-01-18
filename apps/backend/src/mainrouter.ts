@@ -5,7 +5,8 @@ import { validateInput } from "./pages/api/contact-form-validator";
 import InsightsRouter from "./pages/insights/insights.router";
 import DomainRouter from "./routes/offers/router";
 import RegistrationRouter from "./pages/registration/registration.router";
-import { registrationValidator } from "./pages/registration/registrationValidator";
+import { registrationValidator } from "../src/pages/registration/registrationValidator";
+
 
 const MainRouter = Router();
 
