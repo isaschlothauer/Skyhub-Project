@@ -82,7 +82,7 @@ export default function Insights() {
         <div>
           <Mini_Header title="Airline Insights" Scssdomain={domain as string} />
 
-          <div className="mx-auto container relative z-10 mobile:pt-[15.625rem] tablet:pt-[16.25rem] pc:pt-[20rem] ">
+          <div className="mx-auto container relative z-10 mobile:top-[15.625rem] tablet:top-[16.25rem] pc:top-[20rem] ">
             <div
               className={
                 "flex flex-row space-x-4 justify-around items-center px-10 mx-auto h-32 rounded-[33px] bg-white mb-[60px] mt-[20px] shadow-main"
@@ -103,21 +103,28 @@ export default function Insights() {
               />
             </div>
             <div className="grid grid-cols-2 gap-8 pb-12 mx-auto md:grid-cols-3 lg:grid-cols-4 ">
-              {airlineCompanies.map((airline) => {
-                return (
-                  <AirlineTile
-                    key={airline.name}
-                    logo={`https://pilot.skyhub.staging.d-a-pfeiffer.info/${airline.src}`}
-                    title={airline.name}
-                    slug={airline.slug}
-                  />
-                );
-              })}
+              {airlineCompanies.length > 0 &&
+                airlineCompanies.map((airline) => {
+                  return (
+                    <AirlineTile
+                      key={airline.name}
+                      logo={`https://pilot.skyhub.staging.d-a-pfeiffer.info/${airline.src}`}
+                      title={airline.name}
+                      slug={airline.slug}
+                    />
+                  );
+                })}
             </div>
+            {airlineCompanies.length === 0 && (
+              <p className=" text-center mx-auto text-pink-primary font-bold text-lg pb-12 pt-8 ">
+                No matching results for your search. Try another region or
+                airline type.
+              </p>
+            )}
+            <Pagination totalPage={totalPage} />
+            <FAQ_Contact_Container />
+            <Footer />
           </div>
-          <Pagination totalPage={totalPage} />
-          <FAQ_Contact_Container />
-          <Footer />
         </div>
       )}
     </>
