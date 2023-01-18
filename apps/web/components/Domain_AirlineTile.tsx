@@ -20,7 +20,7 @@ export default function AirlineTile({ logo, title, slug }: ArilineTileProps) {
       <h3 className="nunito text-[#000e94] text-sm font-extrabold mb-6 md:text-base">
         {title}
       </h3>
-      <a href={`${router.pathname}/${slug}`}>
+      <a href={`${router.asPath}/${slug}`}>
         <Image src={ArrowButton} alt="Arrow Button" />
       </a>
     </div>
