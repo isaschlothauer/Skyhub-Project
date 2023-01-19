@@ -24,7 +24,7 @@ export const UserRegistration: RequestHandler<{
     company: string;
     password: string;
     passwordConfirm: string;
-    tos: boolean
+    tos: string;
   }> = (req, res) => {
     const { account_type, account_name, firstname, lastname, email, phone, company, passwordHash, tos } = req.body;
 

@@ -22,10 +22,11 @@ import { match } from "assert";
 // 4. Submit button should show verification message and link to login page
 // 5. Revise user type if it's necessary at all. I don't understand typescript. 
 // 6. "User" Find word that sounds more professional
+// 7. Find way to redirect once submit button is pressed
 
 
 const registrationButton = {
-  route: "/registration",
+  route: "/",
   cSass: styleslrButton["loginreg-pink"],
   buttontext: "Submit",
 };
@@ -49,6 +50,8 @@ export interface RegistrationProps {
   domain: string;
 }
 const Registration = ({ domain }: RegistrationProps) => {
+  const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+
   const [tos, setTOS] = useState(false);
   const [airlineRep, setAirlineRep] = useState(false);
   const [recruitmentRep, setRecruitmentRep] = useState(false);
@@ -63,10 +66,10 @@ const Registration = ({ domain }: RegistrationProps) => {
     company: "",
     password: "",
     passwordRepeat: "",
-    tos: false
-    // contact: "" //Nore sure what it is
+    tos: ""
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const [inputDataError, setInputDataError] = useState(false);
 
   // Account type checkbox behavior controller for Airline Representative
   function airlineHandler(event: React.ChangeEvent<HTMLInputElement>) {
@@ -105,10 +108,10 @@ const Registration = ({ domain }: RegistrationProps) => {
   function TOS(event: React.ChangeEvent<HTMLInputElement>) {
     setTOS(!tos);
     !tos? setRegistration({...registration,
-      tos: true })
+      tos: "confirmed" })
       :
       setRegistration({...registration,
-        tos: false })
+        tos: "rejected" })
   }
 
   // Submission button handler
@@ -119,38 +122,44 @@ const Registration = ({ domain }: RegistrationProps) => {
     axios
     .post("http://localhost:5000/register", registration)
     .then((result) => {
-      console.log(result.status)
+      // console.log(result.status)
 
+      // useState cleaner
       if (result.status === 201) {
+        setRegistration({
+          account_type: "",
+          account_name: "",
+          firstname: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          company: "",
+          password: "",
+          passwordRepeat: "",
+          tos: "",
+        });
 
-      //   setLogin
-      //   return (
-      //     <div>
-
-      //     </div>
-      //   )
+        setIsLoggedIn(true);
+        setInputDataError(false);
+        setTOS(false);
+        setAirlineRep(false);
+        setRecruitmentRep(false);
+        setUser(false);
       }
 
-      
     })
-      
-  }
-
-
-  // useState to display erorrs messages in the form if the input value is invalid
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
-  function test() {
-    console.log(registration)
-    // console.log(matchedPassword)
-
+    .catch((err) => {
+      console.error(err);
+      if (err.response.status != 500) 
+        setInputDataError(true);       
+      else 
+        console.log("Server error. Query cannot be completed");
+    })
   }
 
   return (
     <div className={`${styles["registration-page"]}`}>
-      {/* Temporary text color change. Wait for header component to be fixed. Revise text color for mobile design */}
         <Mini_Header title={"Account Registration"} Scssdomain={domain} />
-
 
       <div>
       {/* Account data fields */}
@@ -240,7 +249,7 @@ const Registration = ({ domain }: RegistrationProps) => {
                 name="email"
                 value={registration.email}
                 className={inputFieldStyling}
-                placeholder="email"
+                placeholder="sample@sample.com"
                 onChange={inputFieldData}
                 required
                 />
@@ -256,11 +265,6 @@ const Registration = ({ domain }: RegistrationProps) => {
                 placeholder="company"
                 onChange={inputFieldData}
                 />
-                {errors.company && !isSubmitted && (
-                  <p className={contactUsStyle["validation-errors"]}>
-                  {errors.company}
-                  </p>
-                )}
             </label>
             
             {/* Phone number input field */}
@@ -270,13 +274,13 @@ const Registration = ({ domain }: RegistrationProps) => {
                 name="phone"
                 value={registration.phone}
                 className={inputFieldStyling}
-                placeholder="phone"
+                placeholder="+country-code 12341234"
                 onChange={inputFieldData}
                 />
             </label>
 
             {/* Password input field */}
-            <label htmlFor="password" className={labelStyling}>Password
+            <label htmlFor="password" className={labelStyling}>Password (minimum 6 characters)
               <input 
                 id="password"
                 name="password"
@@ -304,7 +308,7 @@ const Registration = ({ domain }: RegistrationProps) => {
             </label>
 
             {/* Password match/confirmation message generator */}
-            {/* {(matchedPassword.password !== "" && matchedPassword.confirmPassword !=="")? matchedPassword.password !== matchedPassword.confirmPassword? <p>Passwords mismatch</p>: <p>Password match</p>: null } */}
+            {(registration.password !== "" && registration.passwordRepeat !=="")? registration.password !== registration.passwordRepeat? <p>Passwords mismatch. Please check your password</p>: <p>Passwords match</p>: null }
           </form>          
 
           <div className={"mt-5 mx-2 "}>Upon submission, verification email will be sent to the email address specified. Please follow the link to complete the registration.</div>
@@ -327,6 +331,7 @@ const Registration = ({ domain }: RegistrationProps) => {
               onClick={submitHandler}
             />
           </div>
+          {inputDataError? <p className={"text-center"}>Error. Please make sure all fields are correctly filled in</p>: null }
         </div>
 
          {/* <ReturnHomeContainer /> */}

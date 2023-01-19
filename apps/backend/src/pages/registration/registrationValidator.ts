@@ -10,12 +10,12 @@ export const registrationValidator = [
   body("email").not().isEmpty().trim().isEmail(),
   body("phone").not().isEmpty().trim().escape(),
   body("company").not().isEmpty().trim().escape(),
-  body("password").not().isEmpty().trim().escape(),
+  body("password").not().isEmpty().trim().escape().isLength({ min: 6 }),
   body("passwordRepeat").not().isEmpty().trim().escape(),
-  body("tos").toBoolean(),
+  body("tos").not().isEmpty().trim().escape(),
   (req: express.Request, res: express.Response, next: NextFunction) => {
     const errors = validationResult(req);
-    console.log(req.body)
+    // console.log(req.body)
 
     if (!errors.isEmpty()) {
       res.status(422).json({ validationErrors: errors.array() });
