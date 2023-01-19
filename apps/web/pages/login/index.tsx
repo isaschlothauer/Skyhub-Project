@@ -102,29 +102,6 @@ const Login = ({ domain }: LoginProps) => {
                     required
                   />
 
-<<<<<<< HEAD
-              {/* Login Submission button */}
-              <div className={"w-min mx-auto mt-4"}>
-                {/* TO DO: Implement authentication process */}
-                <LoginButton
-                  onClick={submitBehavior}
-                  route={loginButton.route}
-                  cSass={loginButton.cSass}
-                  buttontext={loginButton.buttontext}
-                />
-              </div>
-
-              {/* login password state checker. To be removed */}
-              <button onClick={() => console.log(login.password)}>
-                test
-              </button>
-
-              <div className={`mx-auto w-max mt-3`}>
-                {/* TO DO: Connect link to recovery page */}
-                <Link href="/password_reset" className={`text-pink-primary`}>
-                  Forgot password?
-                </Link>
-=======
                   {/* Password input field */}
                   <label
                     htmlFor="password"
@@ -169,7 +146,6 @@ const Login = ({ domain }: LoginProps) => {
                     Forgot password?
                   </Link>
                 </div>
->>>>>>> ClassNameTesting
               </div>
             </div>
           </div>
