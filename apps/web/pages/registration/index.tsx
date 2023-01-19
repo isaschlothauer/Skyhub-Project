@@ -145,13 +145,18 @@ const Registration = ({ domain }: RegistrationProps) => {
         setAirlineRep(false);
         setRecruitmentRep(false);
         setUser(false);
+
+        console.log("Account creation successful")
       }
 
     })
     .catch((err) => {
       console.error(err);
-      if (err.response.status != 500) 
+      if (err.response.status != 500) {
         setInputDataError(true);       
+        console.log("Input data was not validated. Please make sure to fill in all fields and make selections on checkboxes");
+
+      }
       else 
         console.log("Server error. Query cannot be completed");
     })
