@@ -21,11 +21,7 @@ MainRouter.use("/:domain/insights", InsightsRouter);
 MainRouter.use("/register", registrationValidator, RegistrationRouter)
 MainRouter.use("/jobs", DomainRouter);
 
-<<<<<<< HEAD
 MainRouter.use("/auth", LoginRouter);
 MainRouter.use("/users", UserRouter);
 
 export default MainRouter;
-=======
-export default MainRouter;
->>>>>>> ClassNameTesting
