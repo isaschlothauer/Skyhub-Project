@@ -49,6 +49,7 @@ export default function Pagination({ totalPage }: PaginationProps) {
     handlePageChange(totalPage);
   };
 
+  if (!totalPage) return <></>;
   return (
     <div className="container flex flex-row flex-wrap justify-center items-center gap-2 mx-auto space-x-2 bg-white shadow-main rounded-[15px] p-3 mb-12 ">
       {currentPage >= 3 && (
