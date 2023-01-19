@@ -26,6 +26,10 @@ interface AirlineTypes extends RowDataPacket {
   type?: string;
 }
 
+interface SingleAirlineInsight extends RowDataPacket {
+  [field: string]: any;
+}
+
 export const GetInsights: RequestHandler<
   GetInsightsParams,
   {},
@@ -92,3 +96,18 @@ export const GetInsights: RequestHandler<
     res.status(500).send("Internal Server Error");
   }
 };
+
+// handler to get all info for single airline insight page
+export const GetAllAirlineInsight: RequestHandler = (req, res) => {
+  const { domain } = req.params;
+  database
+  .query<SingleAirlineInsight[]>
+  ( "SELECT a.*, i.src, i.width, i.height FROM airlines as a JOIN images as i ON a.image_id = i.id WHERE a.job_type = ?", [domain])
+  .then((result) => {
+    res.status(200).json(result[0]);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+});
+}

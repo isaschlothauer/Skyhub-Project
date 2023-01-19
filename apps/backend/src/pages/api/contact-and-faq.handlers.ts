@@ -50,7 +50,6 @@ export const submitContactForm: RequestHandler<{
       res.status(200).json(result[0]);
     })
     .catch((err) => {
-      console.log(err)
       console.error(err);
       res.status(500).send("Internal Server Error");
   });
