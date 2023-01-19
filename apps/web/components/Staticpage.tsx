@@ -36,7 +36,9 @@ const StaticPage = ({ cSass, miniheader, domain, slug }: StaticProps) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/static/${domain}/${slug}`)
+      .get<{ content: string; title: string; css_class: string }>(
+        `http://localhost:5000/static/${domain}/${slug}`
+      )
       .then((response) => response.data)
       .then(({ content, title, css_class }) => {
         setTitle(title);
