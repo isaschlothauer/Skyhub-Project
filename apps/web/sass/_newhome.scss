@@ -57,6 +57,7 @@
     font-weight: 800;
     color: white;
     text-align: center;
+  
     margin-top: 15rem;
     margin-bottom: 9.375rem;
     z-index:999;
@@ -69,13 +70,13 @@
     strong {
       color: #1aebcf;
       overflow: hidden;
-      animation: openclose 20s ease-in-out infinite;
+      animation: openclose 15s ease-in-out infinite;
       background-color: transparent;
       font-weight: 900;
       position: absolute;
-      left: 57.9%;
+      left: 53.5%;
       text-align: left;
-      background-color: transparent;
+
     }
     
     .word1, .word2, .word3, .word4, .word5 {
@@ -273,7 +274,99 @@
       margin-top: 10rem;
       margin-bottom: 1.563rem;
     }
- }
+
+    strong {
+      left: 0%;
+      margin-left: 0.9rem;
+      text-align: center;
+    }
+    .word1, .word2, .word3, .word4, .word5 {
+      font-family: tahoma;
+    }
+    
+    @keyframes openclose {
+
+      //DREAM
+      0% {
+        width: 0px;
+      }
+      5% {
+        width: 0;
+      }
+      16% {
+        width: 1500px;
+        top: 0rem;
+      }
+
+      //JOB
+      21% {
+        top: 0rem;
+        width: 0;
+      }
+      22%{
+        top: -3.2rem;
+      }
+      36% {
+        width: 123px;
+        top: -3.2rem;
+      }
+
+
+      //PASSION
+      41% {
+        width: 0px;
+        top: -3.2rem;
+      }
+
+      42% {
+        top: -6.5rem;
+      }
+
+      56% {
+        width: 1000px;
+        top: -6.5rem;
+      }
+
+    //AIRLINE
+    61% {
+      width: 0px;
+      top: -6.5rem;
+    }
+
+    62% {
+      top: -9.7rem;
+    }
+
+    76% {
+      width: 188px;
+      top: -9.7rem;
+    }
+
+    //SALARY
+    81% {
+      width: 0px;
+      top: -9.7rem;
+    }
+
+    82% {
+      top: -13rem;
+    }
+
+    96% {
+      width: 184px;
+      top: -13rem;
+    }
+
+    
+   //RESET CYCLE
+    100% {
+      width: 0px;
+      top: -13rem;
+    }
+    
+    }
+  }
+ 
 
 .mainpage-firsttext {
     font-size: 0.938rem;
@@ -356,7 +449,97 @@
     margin-top: 17rem;
     margin-bottom: 1.875rem;
   }
- }
+
+  strong {
+    left: 0%;
+    margin-left: 1.48rem;
+  }
+  .word1, .word2, .word3, .word4, .word5 {
+    font-family: tahoma;
+  }
+  
+  @keyframes openclose {
+
+    //DREAM
+    0% {
+      width: 0px;
+    }
+    5% {
+      width: 0;
+    }
+    16% {
+      width: 164px;
+      top: 0rem;
+    }
+
+    //JOB
+    21% {
+      top: 0rem;
+      width: 0;
+    }
+    22%{
+      top: -2.8rem;
+    }
+    36% {
+      width: 123px;
+      top: -2.8rem;
+    }
+
+
+    //PASSION
+    41% {
+      width: 0px;
+      top: -2.8rem;
+    }
+
+    42% {
+      top: -5.7rem;
+    }
+
+    56% {
+      width: 196px;
+      top: -5.7rem;
+    }
+
+  //AIRLINE
+  61% {
+    width: 0px;
+    top: -5.7rem;
+  }
+
+  62% {
+    top: -8.45rem;
+  }
+
+  76% {
+    width: 168px;
+    top: -8.45rem;
+  }
+
+  //SALARY
+  81% {
+    width: 0px;
+    top: -8.45rem;
+  }
+
+  82% {
+    top: -11.3rem;
+  }
+
+  96% {
+    width: 164px;
+    top: -11.3rem;
+  }
+
+  
+ //RESET CYCLE
+  100% {
+    width: 0px;
+    top: -11.3rem;
+  }
+  
+  }
+}
 
  .mainpage-firsttext {
   font-size: 1.625rem;
@@ -409,13 +592,9 @@
       }
   }
 
-.mainpage-robotcontainer{
-    .maingpage-robottext {
-      font-size: 2.188rem;
-      margin-bottom: 6.25rem;
-    }
+
   
-  }
+  
 
 .mainpage-firsttext {
     font-size: 1.875rem;
@@ -488,3 +667,436 @@
     display: none;
   }
 } 
+
+@media only screen and (min-width: 769px) and (max-width:870px) {
+  .mainpage-robotcontainer{
+    .maingpage-robottext {
+      font-size: 2.188rem;
+      margin-bottom: 6.25rem;
+      margin-left: 1rem;
+    }
+    strong {
+      left: 0%;
+      margin-left: 0.7rem;
+    }
+    .word1, .word2, .word3, .word4, .word5 {
+      font-family: tahoma;
+    }
+    
+    @keyframes openclose {
+
+      //DREAM
+      0% {
+        width: 0px;
+      }
+      5% {
+        width: 0;
+      }
+      16% {
+        width: 164px;
+        top: 0rem;
+      }
+
+      //JOB
+      21% {
+        top: 0rem;
+        width: 0;
+      }
+      22%{
+        top: -3.2rem;
+      }
+      36% {
+        width: 123px;
+        top: -3.2rem;
+      }
+
+
+      //PASSION
+      41% {
+        width: 0px;
+        top: -3.2rem;
+      }
+
+      42% {
+        top: -6.5rem;
+      }
+
+      56% {
+        width: 196px;
+        top: -6.5rem;
+      }
+
+    //AIRLINE
+    61% {
+      width: 0px;
+      top: -6.5rem;
+    }
+
+    62% {
+      top: -9.8rem;
+    }
+
+    76% {
+      width: 168px;
+      top: -9.8rem;
+    }
+
+    //SALARY
+    81% {
+      width: 0px;
+      top: -9.8rem;
+    }
+
+    82% {
+      top: -13.2rem;
+    }
+
+    96% {
+      width: 164px;
+      top: -13.2rem;
+    }
+
+    
+   //RESET CYCLE
+    100% {
+      width: 0px;
+      top: -13.2rem;
+    }
+    
+    }
+  }
+}
+@media only screen and (min-width: 870px) and (max-width:1025px) {
+  .mainpage-robotcontainer{
+    .maingpage-robottext {
+      font-size: 2.188rem;
+      margin-bottom: 6.25rem;
+      margin-left: 1rem;
+    }
+    strong {
+      left: 0%;
+      margin-left: 0.4rem;
+    }
+    .word1, .word2, .word3, .word4, .word5 {
+      font-family: tahoma;
+    }
+    
+    @keyframes openclose {
+
+      //DREAM
+      0% {
+        width: 0px;
+      }
+      5% {
+        width: 0;
+      }
+      16% {
+        width: 164px;
+        top: 0rem;
+      }
+
+      //JOB
+      21% {
+        top: 0rem;
+        width: 0;
+      }
+      22%{
+        top: -3.2rem;
+      }
+      36% {
+        width: 123px;
+        top: -3.2rem;
+      }
+
+
+      //PASSION
+      41% {
+        width: 0px;
+        top: -3.2rem;
+      }
+
+      42% {
+        top: -6.5rem;
+      }
+
+      56% {
+        width: 196px;
+        top: -6.5rem;
+      }
+
+    //AIRLINE
+    61% {
+      width: 0px;
+      top: -6.5rem;
+    }
+
+    62% {
+      top: -9.8rem;
+    }
+
+    76% {
+      width: 168px;
+      top: -9.8rem;
+    }
+
+    //SALARY
+    81% {
+      width: 0px;
+      top: -9.8rem;
+    }
+
+    82% {
+      top: -13.2rem;
+    }
+
+    96% {
+      width: 164px;
+      top: -13.2rem;
+    }
+
+    
+   //RESET CYCLE
+    100% {
+      width: 0px;
+      top: -13.2rem;
+    }
+    
+    }
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width:1200px) {
+  .maingpage-robottext {
+    font-size: 3rem;
+    line-height: 3.25rem;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+  
+    margin-top: 15rem;
+    margin-bottom: 9.375rem;
+    z-index:999;
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+   
+    
+    strong {
+      color: #1aebcf;
+      overflow: hidden;
+      animation: openclose 15s ease-in-out infinite;
+      background-color: transparent;
+      font-weight: 900;
+      position: absolute;
+      margin-left: 1rem;
+      text-align: left;
+
+    }
+    
+    .word1, .word2, .word3, .word4, .word5 {
+      font-family: tahoma;
+    }
+    
+    @keyframes openclose {
+
+      //DREAM
+      0% {
+        width: 0px;
+      }
+      5% {
+        width: 0;
+      }
+      16% {
+        width: 164px;
+        top: 0rem;
+      }
+
+      //JOB
+      21% {
+        top: 0rem;
+        width: 0;
+      }
+      22%{
+        top: -4.5rem;
+      }
+      36% {
+        width: 123px;
+        top: -4.5rem;
+      }
+
+
+      //PASSION
+      41% {
+        width: 0px;
+        top: -4.5rem;
+      }
+
+      42% {
+        top: -9rem;
+      }
+
+      56% {
+        width: 196px;
+        top: -9rem;
+      }
+
+    //AIRLINE
+    61% {
+      width: 0px;
+      top: -9rem;
+    }
+
+    62% {
+      top: -13.5rem;
+    }
+
+    76% {
+      width: 168px;
+      top: -13.5rem;
+    }
+
+    //SALARY
+    81% {
+      width: 0px;
+      top: -13.5rem;
+    }
+
+    82% {
+      top: -18rem;
+    }
+
+    96% {
+      width: 164px;
+      top: -18rem;
+    }
+
+    
+   //RESET CYCLE
+    100% {
+      width: 0px;
+      top: -18rem;
+    }
+    
+    }
+  }
+}
+
+
+
+@media only screen and (min-width: 1200px) and (max-width:1300px) {
+  .maingpage-robottext {
+    font-size: 3rem;
+    line-height: 3.25rem;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+  
+    margin-top: 15rem;
+    margin-bottom: 9.375rem;
+    z-index:999;
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+   
+    
+    strong {
+      color: #1aebcf;
+      overflow: hidden;
+      animation: openclose 15s ease-in-out infinite;
+      background-color: transparent;
+      font-weight: 900;
+      position: absolute;
+      margin-left: 0.5rem;
+      text-align: left;
+
+    }
+    
+    .word1, .word2, .word3, .word4, .word5 {
+      font-family: tahoma;
+    }
+    
+    @keyframes openclose {
+
+      //DREAM
+      0% {
+        width: 0px;
+      }
+      5% {
+        width: 0;
+      }
+      16% {
+        width: 164px;
+        top: 0rem;
+      }
+
+      //JOB
+      21% {
+        top: 0rem;
+        width: 0;
+      }
+      22%{
+        top: -4.5rem;
+      }
+      36% {
+        width: 123px;
+        top: -4.5rem;
+      }
+
+
+      //PASSION
+      41% {
+        width: 0px;
+        top: -4.5rem;
+      }
+
+      42% {
+        top: -9rem;
+      }
+
+      56% {
+        width: 196px;
+        top: -9rem;
+      }
+
+    //AIRLINE
+    61% {
+      width: 0px;
+      top: -9rem;
+    }
+
+    62% {
+      top: -13.5rem;
+    }
+
+    76% {
+      width: 168px;
+      top: -13.5rem;
+    }
+
+    //SALARY
+    81% {
+      width: 0px;
+      top: -13.5rem;
+    }
+
+    82% {
+      top: -18rem;
+    }
+
+    96% {
+      width: 164px;
+      top: -18rem;
+    }
+
+    
+   //RESET CYCLE
+    100% {
+      width: 0px;
+      top: -18rem;
+    }
+    
+    }
+  }
+}
