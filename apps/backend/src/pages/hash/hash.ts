@@ -1,6 +1,6 @@
 import express from "express";
 import { RequestHandler } from "express";
-import argon2 from "argon2";
+import * as argon2 from "argon2";
 
 const hashingOptions = {
   type: argon2.argon2id,
