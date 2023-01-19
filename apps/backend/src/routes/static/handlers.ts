@@ -1,4 +1,4 @@
-import { RequestHandler } from "express";
+import { RequestHandler, Response } from "express";
 import { RowDataPacket } from "mysql2";
 import database from "../../database";
 
@@ -6,12 +6,10 @@ export interface StaticPage extends RowDataPacket {
   [field: string]: any;
 }
 
-export const getStaticPage: RequestHandler<{ //Type of the handler, we used it instead of Request and Response types, because we build it as handlers
+export const getStaticPage: RequestHandler<{
   domain: string;
   slug: string;
-
 }> = (req, res) => {
-
   const { domain, slug } = req.params;
 
   database

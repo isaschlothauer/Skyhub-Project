@@ -1,7 +1,17 @@
-import React from 'react'
+import React from "react";
+import { useRouter } from "next/router";
+import DomainMainStaticCMP from "../../components/DomainMainStaticCMP";
 
-export default function index() {
+
+export default function MainStaticDomain() {
+  const router = useRouter();
+  const { domain } = router.query;
+
+  if (domain == null) return <p>Loading...</p>;
+
   return (
-    <div>Page for Pilot / Cabin / ATC</div>
-  )
+    <DomainMainStaticCMP
+      domain={domain.toString()}
+    />
+  );
 }

@@ -2,11 +2,11 @@ import React, { useDebugValue, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 
-  /* STYLES */
+/* STYLES */
 import styles from "./login.module.scss";
 import styleslrButton from "../../components/generalButton.module.scss";
 
-  /* COMPONENTS */
+/* COMPONENTS */
 import LoginButton from "../../components/GeneralButton";
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
@@ -31,15 +31,18 @@ import Mini_Header from "../../components/Header";
 // reference video: https://www.youtube.com/watch?v=2lJuOh4YlGM
 
 const loginButton = {
-    route: "/",
-    cSass: styleslrButton["loginreg-pink"],
-    buttontext: "Sign in",
-  }
+  route: "/",
+  cSass: styleslrButton["loginreg-pink"],
+  buttontext: "Sign in",
+};
 
-export default function Login() {
+export interface LoginProps {
+  domain: string;
+}
+const Login = ({ domain }: LoginProps) => {
   // const [user, setUser] = useState(false);  // User login status. Moved to home
-  const [remember, setRemember] = useState(false);  // Login status to be kept persistent or not
-  
+  const [remember, setRemember] = useState(false); // Login status to be kept persistent or not
+
   const [login, setLogin] = useState({
     username: "testemail@testtesttest.com",
     password: "nothashedpassword"  // Should take care not to make it visible or accessible
@@ -49,12 +52,11 @@ export default function Login() {
 
 // Input field handling definition
   function loginHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    setLogin({...login,
-      [event.target.name]: event.target.value})
+    setLogin({ ...login, [event.target.name]: event.target.value });
   }
 
-// Submit button behavior definition
-  function submitBehavior (event: React.MouseEvent<HTMLButtonElement>): void {
+  // Submit button behavior definition
+  function submitBehavior(event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
 
     axios
@@ -75,43 +77,51 @@ export default function Login() {
 
   return (
     <div className={styles["login-page"]}>
-      
       {/* Temporary text color change. Revise text color for mobile design */}
-      <div className={"md:text-neutral-50 "} >
-        <Mini_Header title={"Sign in"} />
-      </div>
+      {/* <div className={"md:text-neutral-50 "}> */}
+        <Mini_Header title={"Sign in"} Scssdomain={domain} />
+      {/* </div> */}
 
       <div className={`container mx-auto px-2 ${styles["page"]}`}>
         <div className={"flex flex-wrap"}>
           <div className={"mx-auto max-w-xl w-full z-10"}>
-            <div className={`pt-7  pb-7 px-4 bg-white shadow-main rounded-[24px]`}>
-
+            <div
+              className={`pt-7  pb-7 px-4 bg-white shadow-main rounded-[24px]`}
+            >
               <form className={`${styles["login-input"]} `}>
-
                 {/* Username input field */}
-                <label htmlFor="username" className={"block text-pink-primary"}>Email address</label>
-                  <input
-                    type="text"
-                    className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
-                    name="username"
-                    id="username"
-                    placeholder="sample@sample.com"
-                    value={login.username}
-                    onChange={loginHandler}
-                  />
-                
+                <label htmlFor="username" className={"block text-pink-primary"}>
+                  Username
+                </label>
+                <input
+                  type="text"
+                  className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
+                  name="username"
+                  id="username"
+                  placeholder="Enter username or email address"
+                  value={login.username}
+                  onChange={loginHandler}
+                  required
+                />
+
                 {/* Password input field */}
-                <label htmlFor="password" className={"block mt-4 text-pink-primary"}>Password</label>
-                  <input
-                    type="password"
-                    className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
-                    name="password"
-                    id="password"
-                    placeholder="p@s5w0rD"
-                    value={login.password}
-                    onChange={loginHandler}
-                  />
-                  <div className={"mt-3 flex"}>
+                <label
+                  htmlFor="password"
+                  className={"block mt-4 text-pink-primary"}
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
+                  name="password"
+                  id="password"
+                  placeholder="Enter password"
+                  value={login.password}
+                  onChange={loginHandler}
+                  required
+                />
+                <div className={"mt-3 flex"}>
                   <input
                     type="checkbox"
                     checked={remember}
@@ -139,21 +149,20 @@ export default function Login() {
               </button>
 
               <div className={`mx-auto w-max mt-3`}>
-                <Link
-                    href="/password_reset"
-                    className={`text-pink-primary`}
-                  >
-                    Forgot password?
-                  </Link> 
+                {/* TO DO: Connect link to recovery page */}
+                <Link href="/password_reset" className={`text-pink-primary`}>
+                  Forgot password?
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className={"sticky sm:fixed sm:left-0 sm:bottom-0 sm:right-0"}>      
+      <div className={"sticky sm:fixed sm:left-0 sm:bottom-0 sm:right-0"}>
         <Footer />
       </div>
     </div>
   );
-}
+};
 
+export default Login;

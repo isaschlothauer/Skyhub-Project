@@ -1,31 +1,17 @@
-// LEGACY
-
+// // padding adjustment for faq page for header
+.search-container {
+  z-index: 2;
+  position: relative;
+  padding-top: 18rem; //has to be 18 rem, otherwise h1 text is overlapping
+}
 .faq-page {
-  //background: url("../assets/images/home/bg-pattern.jpg") repeat top center;
-  background: #FAFAFA;
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    background: url("../assets/images/header/bgHeaderForOtherPages.png") no-repeat top center;
-    background-size: 100% auto;
-  }
-  #page {
-    position: relative;
-    z-index: 1;
-    min-height: calc(100vh - 212px);
-  }
+
   .faq-search {
     background: white;
     border-radius: 50px;
     position: relative;
     padding: 20px 70px;
-    margin-bottom: 48px;
+    margin-bottom: 4rem;
     .faq-search-input {
       display: block;
       margin: 0;
@@ -47,25 +33,20 @@
       left: 33px;
       background: url("../assets/images/icons/search.png") no-repeat center center;
     }
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 85px;
-      height: 63px;
-      top: 30px;
-      right: -32px;
-      background: url("../assets/images/home/brand-faq-search.png") no-repeat center center;
-    }
   }
   .faq-questions-container {
-    margin-bottom: 70px;
+    z-index: 2;
+    position: relative;
+    margin-bottom: 5rem;
   }
   .faq-questions {
     background: white;
-    padding: 60px 15px;
+    padding: 30px 15px;
     border-radius: 35px;
     position: relative;
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.25);
     .faq-question-box {
       padding: 0 25px;
     }
@@ -99,16 +80,6 @@
         padding-top: 0;
       }
     }
-    &:before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 85px;
-      height: 63px;
-      top: -3px;
-      left: -7px;
-      background: url("../assets/images/home/brand-faq-answer.png") no-repeat center center;
-    }
   }
   .faq-question-no-row {
     display: none;
@@ -121,5 +92,18 @@
       color: #ec008c;
       font-weight: bold;
     }
+  }
+}
+
+//media query for header adjustment
+@media only screen and (min-width:475px) and (max-width: 769px) {
+  .search-container {
+    padding-top: 16.25rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .search-container {
+    padding-top: 20rem;
   }
 }

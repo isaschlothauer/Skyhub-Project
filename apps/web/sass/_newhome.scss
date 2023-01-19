@@ -49,6 +49,7 @@
 //Container of the phrase generator component
 .mainpage-robotcontainer{
   z-index:998;
+  position: relative;
 
   .maingpage-robottext {
     font-size: 3rem;
@@ -59,13 +60,22 @@
     margin-top: 15rem;
     margin-bottom: 9.375rem;
     z-index:999;
-    /*strong {
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+   
+    
+    strong {
       color: #1aebcf;
       overflow: hidden;
-      animation: openclose 5s ease-in-out infinite;
-      background-color: yellow;
+      animation: openclose 20s ease-in-out infinite;
+      background-color: transparent;
       font-weight: 900;
       position: absolute;
+      left: 57.9%;
+      text-align: left;
+      background-color: transparent;
     }
     
     .word1, .word2, .word3, .word4, .word5 {
@@ -73,69 +83,86 @@
     }
     
     @keyframes openclose {
+
+      //DREAM
       0% {
-  
-        width: 0;
+        width: 0px;
       }
       5% {
         width: 0;
       }
-      15% {
-        width: 230px;
+      16% {
+        width: 164px;
+        top: 0rem;
       }
-      30% {
 
-        width: 230px;
-      }
-      33% {
-
+      //JOB
+      21% {
+        top: 0rem;
         width: 0;
       }
-      35% {
+      22%{
+        top: -4.5rem;
+      }
+      36% {
+        width: 123px;
+        top: -4.5rem;
+      }
 
-        width: 0;
-      }
-      38% {
- 
-      }
-      48% {
 
-        width: 190px;
+      //PASSION
+      41% {
+        width: 0px;
+        top: -4.5rem;
       }
-      62% {
 
-        width: 190px;
+      42% {
+        top: -9rem;
       }
-      66% {
 
-        width: 0;
-        text-indent: 0;
+      56% {
+        width: 196px;
+        top: -9rem;
       }
-      71% {
- 
-        width: 0;
-        text-indent: 5px;
-      }
-      86% {
-  
-        width: 285px;
-      }
-      95% {
 
-        width: 285px;
-      }
-      98% {
-
-        width: 0;
-        text-indent: 5px;
-      }
-      100% {
-     
-        width: 0;
-        text-indent: 0;
-      }
+    //AIRLINE
+    61% {
+      width: 0px;
+      top: -9rem;
     }
-*/
+
+    62% {
+      top: -13.5rem;
+    }
+
+    76% {
+      width: 168px;
+      top: -13.5rem;
+    }
+
+    //SALARY
+    81% {
+      width: 0px;
+      top: -13.5rem;
+    }
+
+    82% {
+      top: -18rem;
+    }
+
+    96% {
+      width: 164px;
+      top: -18rem;
+    }
+
+    
+   //RESET CYCLE
+    100% {
+      width: 0px;
+      top: -18rem;
+    }
+    
+    }
   }
 }
 

@@ -1,16 +1,4 @@
-import React from "react";
-import styles from "./offers.module.scss";
-
-import Mini_Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
-import Domain_jobOffersTile from "../../../components/Domain_jobOffersTile";
-
-export default function Offers() {
-  return (
-    <div id={"page"}>
-      <Mini_Header title={"Job Offers"} />
-      <div className="container mx-auto sm:px-4">
-        <div
+<div
           className={
             "flex flex-wrap"
           } /* style="position: relative; z-index: 5; display: none;" */
@@ -47,14 +35,3 @@ export default function Offers() {
             </div>
           </div>
         </div>
-        <div id={styles.offers} className={styles["offers-branding"]}>
-          <Domain_jobOffersTile />
-        </div>
-        <div
-          className={`${"flex flex-wrap items-end"} ${styles["row-widgets"]}}`}
-        ></div>
-      </div>
-      <Footer />
-    </div>
-  );
-}

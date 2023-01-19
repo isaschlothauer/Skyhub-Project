@@ -2,7 +2,6 @@ import React from "react";
 {
   /* STYLES */
 }
-import styles from "./jobs.module.scss";
 import stylesB from "../../components/generalButton.module.scss";
 
 {
@@ -10,8 +9,8 @@ import stylesB from "../../components/generalButton.module.scss";
 }
 import Mini_Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import GoBackHome from "../../components/GoBackContainer";
-import InsightsContainer from "../../components/Domain_AirlineContainer";
+import GoBackContainer from "../../components/GoBackContainer";
+import AirLineContainer from "../../components/Domain_AirlineContainer";
 import ContainerFAQContact from "../../components/FAQ_Contact_Container";
 import ButtonCMP from "../../components/GeneralButton";
 
@@ -28,20 +27,23 @@ function Jobs() {
 
       <div className={"container mx-auto sm:px-0"}>
         <JobOffersContainer />
-        <ButtonCMP
-          route={"/"}
-          buttontext={"SEE MORE OFFERS"}
-          cSass={`${stylesB["see-more-btn"]}`}
-        />
+        <div className="flex flex-row justify-center mb-10">
+          <ButtonCMP
+            route={"/jobs/offers"}
+            buttontext={"SEE MORE OFFERS"}
+            cSass={`${stylesB["see-more-btn"]}`}
+          />
+        </div>
+
         <JobTilesContainer />
-        <InsightsContainer />
+
+        <AirLineContainer />
 
         {/* FAQ & CONTACT US COMPONENT*/}
-        <div
-          className={`container mx-auto sm:px-0 ${styles["mainpage-faqcontact"]}`}
-        >
+        <div className={`container mx-auto sm:px-0`}>
           <ContainerFAQContact />
         </div>
+
         {/* 
 
   @widget('GoBack', [
@@ -57,7 +59,7 @@ function Jobs() {
   @widget('GoHomepage')
 
 */}
-        <GoBackHome />
+        <GoBackContainer arrowTitle={"Go Back to Home"} link={"/"} />
       </div>
 
       <Footer />

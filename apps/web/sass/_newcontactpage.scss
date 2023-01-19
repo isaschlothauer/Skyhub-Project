@@ -5,7 +5,11 @@
     z-index: 2;
     min-height: calc(100vh - 13.25rem);
  }
-
+// padding adjustment for contact form for header
+.contact-form-container {
+  padding-top: 15.625rem;
+  margin-bottom: 5rem;
+}
 // contact us container with all content
 .contact-form {
       position: relative;
@@ -35,8 +39,9 @@
         font-style: italic;
       }
 }
+
  // style for got a question
-.header {
+.header-form-text {
     color: #222351;
     text-align: center;
 }
@@ -51,6 +56,8 @@
   
       label {
         color: #EC4899;
+        font-size: medium;
+      
       }
 
       input, textarea {
@@ -63,13 +70,30 @@
       .message-box {
         border-radius: 1.875rem;
       }
+
+      .first-name, .last-name {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+}
+//media query for header adjustment
+@media only screen and (min-width:426px) and (max-width: 769px) {
+  .contact-form-container {
+    padding-top: 16.25rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .contact-form-container {
+    padding-top: 20rem;
+  }
 }
 
 // media query to adjust input boxes for first name and last name to place them in one line
 @media (min-width: 1200px) {
   .fullname-container {
     display: grid;
-    grid-template-rows: repeat(2, 0.5fr);
     grid-template-columns: repeat(2, 1fr);
 
     label {
@@ -80,7 +104,12 @@
     .validation-errors {
       grid-row: 3;
      }
+   }
 
+   .form-input-fields {
+    label {
+      font-size: large;
+    }
    }
 
   }
