@@ -9,7 +9,7 @@ import { registrationValidator } from "../src/pages/registration/registrationVal
 
 
 import LoginRouter  from "./pages/api/loginRouter";
-import UserRouter from "./pages/api/userRouter";
+import UserRouter from "./pages/users/user.router";
 
 const MainRouter = Router();
 
@@ -18,9 +18,10 @@ MainRouter.use("/contact-form", validateInput, ContactFormAndFAQRouter);
 MainRouter.use("/faq", ContactFormAndFAQRouter);
 MainRouter.use("/:domain/insights", InsightsRouter);
 
-MainRouter.use("/register", registrationValidator, RegistrationRouter)
 MainRouter.use("/jobs", DomainRouter);
 
+
+MainRouter.use("/register", registrationValidator, RegistrationRouter)
 MainRouter.use("/auth", LoginRouter);
 MainRouter.use("/users", UserRouter);
 
