@@ -1,7 +1,5 @@
 .login-page {
-  // background: var(--light);
   height: 100vh;
-  min-height: 900px;
   min-width: 250px;
   &:before {
     content: '';
@@ -11,9 +9,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-  }
-  .mini-head {
-    color: var(--light)
   }
 }
 .data-input-field {
