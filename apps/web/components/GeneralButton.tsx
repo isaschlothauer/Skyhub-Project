@@ -20,11 +20,7 @@ const ButtonCMP = ({
     router.push(route);
   };
   return (
-    <button
-      className={`${className} ${cSass}`.trim()}
-      {...props}
-      onClick={handleChange}
-    >
+    <button className={`${className} ${cSass}`.trim()} {...props}>
       {buttontext}
     </button>
   );
