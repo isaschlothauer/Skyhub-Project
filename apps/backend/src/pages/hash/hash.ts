@@ -1,12 +1,11 @@
-import express from "express";
 import { RequestHandler } from "express";
 import * as argon2 from "argon2";
 
 const hashingOptions = {
-  type: argon2.argon2id,
-  memoryCost: 2 ** 16,
-  timeCost: 5,
-  parallelism: 1,
+  // type: argon2.argon2id,
+  // memoryCost: 2 ** 16,
+  // timeCost: 5,
+  // parallelism: 1,
 };
 
 export const passwordHash: RequestHandler<{
@@ -14,13 +13,17 @@ export const passwordHash: RequestHandler<{
 }> = (req, res, next) => {
 
   argon2
-    .hash(req.body.password, hashingOptions)
+    .hash(req.body.password, )
     .then((hashedPassword) => {
+      console.log(hashedPassword);
+      
       req.body.passwordHash = hashedPassword;
 
-      req.body.password = "";
+
+      // req.body.password = "";
       req.body.passwordRepeat = "";
 
+      // console.log(req.body.passwordHash);
       next();
     })
     .catch((err) => {

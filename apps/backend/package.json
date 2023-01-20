@@ -23,7 +23,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.14",
-    "@types/express-serve-static-core": "^4.17.31",
+    "@types/express-serve-static-core": "^4.17.32",
     "@types/multer": "^1.4.7",
     "@types/node": "^17.0.12",
     "eslint": "7.32.0",

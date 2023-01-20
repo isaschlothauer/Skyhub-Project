@@ -7,6 +7,9 @@ import DomainRouter from "./routes/offers/router";
 import RegistrationRouter from "./pages/registration/registration.router";
 import { registrationValidator } from "../src/pages/registration/registrationValidator";
 
+import { loginValidator } from "./pages/login/login.validator"
+import LoginRouter  from "./pages/login/login.router";
+import UserRouter from "./pages/users/user.router";
 
 const MainRouter = Router();
 
@@ -15,7 +18,11 @@ MainRouter.use("/contact-form", validateInput, ContactFormAndFAQRouter);
 MainRouter.use("/faq", ContactFormAndFAQRouter);
 MainRouter.use("/:domain/insights", InsightsRouter);
 
-MainRouter.use("/register", registrationValidator, RegistrationRouter)
 MainRouter.use("/jobs", DomainRouter);
+
+
+MainRouter.use("/register", registrationValidator, RegistrationRouter)
+MainRouter.use("/auth", loginValidator, LoginRouter);
+MainRouter.use("/users", UserRouter);
 
 export default MainRouter;
