@@ -45,8 +45,8 @@ const Login = ({ domain }: LoginProps) => {
 
   // For testing purposes. Clear state
   const [login, setLogin] = useState({
-    email: "testthree@testfour.com",
-    password: "123456"  // Should take care not to make it visible or accessible
+    email: "",
+    password: ""  // Should take care not to make it visible or accessible
   });
 
   let [loginStatus, setLoginStatus] = useState(false);
