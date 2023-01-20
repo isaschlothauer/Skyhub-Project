@@ -87,7 +87,9 @@ function JobOffersPage({ domain }: { domain: string }) {
           {
             id: 4,
             container: "Salary:",
-            title: `${jobs[0].salary}€`,
+            title: `${jobs[0].salary
+              .toString()
+              .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}€`,
             image: salary,
           },
         ]
@@ -98,19 +100,13 @@ function JobOffersPage({ domain }: { domain: string }) {
       ? [
           {
             id: 1,
-            container: "Certificates",
-            title: `${jobs[0].certificates}`,
-            image: certificates,
-          },
-          {
-            id: 2,
             container: "Min hours:",
             title: `${jobs[0].min_hours}h`,
             image: hours,
           },
 
           {
-            id: 3,
+            id: 2,
             container: "Aircraft:",
             title: jobs[0].aircraft_type,
             image: aircraft,
@@ -136,7 +132,10 @@ function JobOffersPage({ domain }: { domain: string }) {
         ]
       : undefined;
 
-  console.log(jobs);
+  const certificateValues =
+    jobs[0] != undefined ? jobs[0].certificates.split(",", 2) : undefined;
+
+  // console.log(certificateValues);
   return (
     <>
       {jobs[0] != undefined ? (
@@ -225,11 +224,34 @@ function JobOffersPage({ domain }: { domain: string }) {
                         <p className={styles.paragraph}>{detail.title}</p>
                       </div>
                     ))}
+                    <div className="w-full">
+                      <div className={`${styles["certificate-tile"]}`}>
+                        <Image
+                          src={certificates}
+                          height={25}
+                          width={25}
+                          alt="certificate"
+                        />
+                        <h2 className={styles.title}>Certificates:</h2>
+                        {certificateValues.map((certi) => (
+                          <p className={styles.paragraph}>{certi}</p>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            {/* <ul>
+            {/*
+            
+                      {
+            id: 1,
+            container: "Certificates",
+            title: `${jobs[0].certificates}`,
+            image: certificates,
+          },
+            
+            <ul>
                 <li>company={jobs[0].airline}</li>
                 <li>title={jobs[0].title}</li>
                 <li>job_type={jobs[0].job_type}</li>

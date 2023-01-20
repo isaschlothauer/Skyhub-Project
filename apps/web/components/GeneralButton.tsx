@@ -1,6 +1,7 @@
 import { HTMLAttributes } from "react";
 // import Link from "next/link";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   route: string;
@@ -15,14 +16,12 @@ const ButtonCMP = ({
   className,
   ...props
 }: ButtonProps) => {
-  const router = useRouter();
-  const handleChange = () => {
-    router.push(route);
-  };
   return (
-    <button className={`${className} ${cSass}`.trim()} {...props}>
-      {buttontext}
-    </button>
+    <Link href={route}>
+      <button className={`${className} ${cSass}`.trim()} {...props}>
+        {buttontext}
+      </button>
+    </Link>
   );
 };
 
