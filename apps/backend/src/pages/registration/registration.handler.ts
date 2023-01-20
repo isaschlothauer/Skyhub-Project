@@ -7,12 +7,12 @@ import database from "../../database";
 
 // For account registration 
 export interface AccountRegistrationDefinition extends OkPacket {
-  fieldCount: number;
+  // fieldCount: number;
   affectedRows: number;
-  insertId: number;
-  info: string;
-  serverStatus: number;
-  warningStatus: number
+  // insertId: number;
+  // info: string;
+  // serverStatus: number;
+  // warningStatus: number
 }
 
 // User account creation route
