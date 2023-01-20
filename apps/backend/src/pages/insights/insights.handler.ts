@@ -99,10 +99,10 @@ export const GetInsights: RequestHandler<
 
 // handler to get all info for single airline insight page
 export const GetAllAirlineInsight: RequestHandler = (req, res) => {
-  const { domain } = req.params;
+  const { domain, slug } = req.params;
   database
   .query<SingleAirlineInsight[]>
-  ( "SELECT a.*, i.src, i.width, i.height FROM airlines as a JOIN images as i ON a.image_id = i.id WHERE a.job_type = ?", [domain])
+  ( "SELECT a.*, i.src, i.width, i.height FROM airlines as a JOIN images as i ON a.image_id = i.id WHERE a.job_type = ? and a.slug = ?", [domain, slug])
   .then((result) => {
     res.status(200).json(result[0]);
   })
