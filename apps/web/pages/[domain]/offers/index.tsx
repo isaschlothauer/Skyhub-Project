@@ -55,7 +55,7 @@ const Offers = ({}: OffersProps) => {
             "flex flex-wrap"
           } /* style="position: relative; z-index: 5; display: none;" */
         ></div>
-        <div id={styles.offers}>
+        <div id={styles.offersContainer}>
           {jobs.slice(/* TODO */).map((job) => (
             <JobOffersContainer
               position={job.title}

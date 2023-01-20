@@ -140,133 +140,96 @@ function JobOffersPage({ domain }: { domain: string }) {
   return (
     <>
       {jobs[0] != undefined ? (
-        <div id={styles.domainPage}>
+        <div id={"AllPage"}>
           <Mini_Header title={jobs[0].title} Scssdomain={domain} />
           <div>{`${timeAgo.format(new Date())}`}</div>
-          <div
-            className={`${
-              styles.containerDomain
-            } ${"container mx-auto sm:px-0"}`}
-          >
-            <div id={styles.offer}>
-              <div className={styles.offerMainContainer}>
-                <div className={styles["job-offers-first-container"]}>
-                  <div className={`${styles["job-offer-container"]}`}>
-                    <div className={styles["job-offer-list-item-role"]}>
-                      Offer
+          <div className={`${styles.zIndex} ${"container mx-auto sm:px-0"}`}>
+            <div className={styles.MainContainer}>
+              <div className={styles["first-container"]}>
+                <div className={`${styles["offer-container"]}`}>
+                  <div className={styles["role"]}>Offer</div>
+                  <div className={styles["offer-images"]}>
+                    <div className={styles["offer-companyimage"]}>
+                      <Image src={jobImg} alt={"offer-img"} />
                     </div>
-                    <div className={styles["job-offer-logo-name"]}>
-                      <div
-                        className={styles["job-offer-list-item-companyimage"]}
-                      >
-                        <Image src={jobImg} alt={"offer-img"} />
-                      </div>
-                      <div className={styles["job-offer-list-item-company"]}>
-                        {jobs[0].airline}
-                      </div>
-                    </div>
-
-                    <div className={` ${"flex flex-row justify-between"}`}>
-                      <div
-                        className={`${styles["job-offer-list-item-details"]}`}
-                      >
-                        {JobDetails.map((job) => (
-                          <div
-                            className={styles["job-offer-list-item-individual"]}
-                          >
-                            <Image
-                              src={job.image}
-                              height={25}
-                              width={25}
-                              alt="base"
-                            />
-                            <h2 className={styles.containerTitle}>
-                              {job.container}
-                            </h2>
-                            <p className={styles.containerParagraph}>
-                              {job.title}
-                            </p>
-                            {job.timeago != undefined ? (
-                              <p className={styles.timeago}>{job.timeago}</p>
-                            ) : null}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles["job-offer-list-benefits"]}>
-                    <div>
-                      <div className={styles["job-offer-list-item-role"]}>
-                        Incentives
-                      </div>
-                      <div className="flex flex-row flex-wrap justify-between">
-                        {JobIncentives.map((incentive) => (
-                          <div
-                            className={styles["job-offer-list-item-individual"]}
-                          >
-                            <Image
-                              src={incentive.image}
-                              height={25}
-                              width={25}
-                              alt="base"
-                            />
-                            <h2 className={styles.containerTitle}>
-                              {incentive.container}
-                            </h2>
-                            <p className={styles.containerParagraph}>
-                              {incentive.title}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  className={styles["job-offer-list-content-details-benefits"]}
-                >
-                  <div className={`${styles["job-offer-list-content"]}`}>
-                    <div>
-                      <div className={styles["job-offer-list-item-role"]}>
-                        Description
-                      </div>
-                      <div
-                        dangerouslySetInnerHTML={{ __html: jobs[0].content }}
-                      />
+                    <div className={styles["offer-company-name"]}>
+                      {jobs[0].airline}
                     </div>
                   </div>
 
-                  <div className={styles["job-offer-list-req"]}>
-                    <div className={styles["job-offer-list-item-role"]}>
-                      Requirements
-                    </div>
-                    <div className={`${styles["job-offer-list-item-details"]}`}>
-                      {JobReqDetails.map((detail) => (
-                        <div
-                          className={
-                            styles["job-offer-list-item-individual-req"]
-                          }
-                        >
+                  <div className={` ${"flex flex-row justify-between"}`}>
+                    <div className={`${styles["details"]}`}>
+                      {JobDetails.map((job) => (
+                        <div className={styles["map-individual"]}>
                           <Image
-                            src={detail.image}
+                            src={job.image}
                             height={25}
                             width={25}
                             alt="base"
                           />
-                          <h2 className={styles.containerTitle}>
-                            {detail.container}
+                          <h2 className={styles.title}>{job.container}</h2>
+                          <p className={styles.paragraph}>{job.title}</p>
+                          {job.timeago != undefined ? (
+                            <p className={styles.timeago}>{job.timeago}</p>
+                          ) : null}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className={styles["incentives"]}>
+                  <div>
+                    <div className={styles["role"]}>Incentives</div>
+                    <div className="flex flex-row flex-wrap justify-between">
+                      {JobIncentives.map((incentive) => (
+                        <div className={styles["map-individual"]}>
+                          <Image
+                            src={incentive.image}
+                            height={25}
+                            width={25}
+                            alt="base"
+                          />
+                          <h2 className={styles.title}>
+                            {incentive.container}
                           </h2>
-                          <p className={styles.containerParagraphReq}>
-                            {detail.title}
-                          </p>
+                          <p className={styles.paragraph}>{incentive.title}</p>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
               </div>
-              {/* <ul>
+
+              <div className={styles["second-container"]}>
+                <div className={`${styles["description"]}`}>
+                  <div>
+                    <div className={styles["role"]}>Description</div>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: jobs[0].content }}
+                    />
+                  </div>
+                </div>
+
+                <div className={styles["req"]}>
+                  <div className={styles["role"]}>Requirements</div>
+                  <div className={`${styles["details"]}`}>
+                    {JobReqDetails.map((detail) => (
+                      <div className={styles["map-individual-req"]}>
+                        <Image
+                          src={detail.image}
+                          height={25}
+                          width={25}
+                          alt="base"
+                        />
+                        <h2 className={styles.title}>{detail.container}</h2>
+                        <p className={styles.paragraph}>{detail.title}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* <ul>
                 <li>company={jobs[0].airline}</li>
                 <li>title={jobs[0].title}</li>
                 <li>job_type={jobs[0].job_type}</li>
@@ -287,7 +250,7 @@ function JobOffersPage({ domain }: { domain: string }) {
                 <li>apply_phone={jobs[0].apply_phone}</li>
                 <li>apply_email={jobs[0].apply_email}</li>
               </ul>*/}
-            </div>
+
             <div className={`container mx-auto sm:px-0`}>
               <ContainerFAQContact />
             </div>
