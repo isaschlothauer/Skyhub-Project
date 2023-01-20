@@ -146,7 +146,8 @@ const Home = () => {
           className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}
         >
           <h1 className={styles["maingpage-robottext"]}>
-            Find your
+            Find
+            your&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong>
               <div className="message">
                 <div className="word1">dream</div>

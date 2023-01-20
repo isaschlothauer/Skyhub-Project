@@ -1,0 +1,208 @@
+.containerDomain {
+  position: relative;
+  z-index: 2;
+  top: 400px;
+}
+
+.job-offer-logo-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#offer {
+  margin-bottom: 3rem;
+}
+
+.offerMainContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 100%;
+}
+
+.job-offers-first-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 0.6rem;
+}
+.job-offer-container,
+.job-offer-list-content,
+.job-offer-list-benefits,
+.job-offer-list-req {
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: white;
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  padding: 45px;
+}
+.job-offer-list-item {
+  width: 50%;
+}
+.job-offer-list-item-details {
+  clear: left;
+  line-height: 24px;
+  font-size: 16px;
+  color: #727481;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 90%;
+}
+
+.job-offer-list-item-individual,
+.job-offer-list-item-individual-req {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+  background: #fafafa;
+  box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.25);
+  border-radius: 15px;
+  padding: 1rem;
+  & > img {
+    margin-bottom: 1rem;
+  }
+}
+
+.job-offer-list-item-individual {
+  min-width: 40%;
+  max-width: 40%;
+  min-height: 150px;
+}
+
+.job-offer-list-item-individual-req {
+  min-width: 40%;
+  max-width: 40%;
+  min-height: 80px;
+}
+
+.containerTitle {
+  color: $pink;
+  font-weight: 900;
+  text-align: center;
+}
+
+.containerParagraph {
+  font-size: 15px;
+  text-align: center;
+}
+
+.containerParagraphReq {
+  font-size: 10px;
+  line-height: 24px;
+  color: #727481;
+  text-align: center;
+}
+
+.timeago {
+  font-size: 10px;
+}
+
+.job-offer-list-item-companyimage {
+  img {
+    margin: 0;
+    min-width: 10rem;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.job-offer-list-content-details-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 1%;
+  width: 50%;
+}
+
+.job-offer-list-content,
+.job-offer-list-benefits,
+.job-offer-list-req {
+  width: 100%;
+}
+
+.job-offer-list-content,
+.job-offer-list-req {
+  min-height: 49.5%;
+  max-height: 49.5%;
+}
+
+.job-offer-list-benefits {
+  min-height: 30%;
+  max-height: 30%;
+}
+
+.job-offer-list-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.job-offer-list-item-role {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 38px;
+  color: #000e94;
+  margin-bottom: 20px;
+}
+.job-offer-list-item-company {
+  font-size: 20px;
+  line-height: 28px;
+  color: #727481;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .offerMainContainer {
+    flex-direction: column;
+  }
+
+  .job-offer-container {
+    padding: 1rem;
+  }
+
+  .job-offers-first-container {
+    gap: 1rem;
+  }
+
+  .job-offer-list-item-details,
+  .job-offer-list-item-details-req {
+    flex-direction: row !important;
+    justify-content: space-around !important;
+  }
+
+  .job-offer-list-item-individual,
+  .job-offer-list-item-individual-req {
+    min-width: 40%;
+  }
+
+  .job-offer-list-item-role {
+    font-size: 30px;
+  }
+
+  .job-offer-list-content-details-benefits {
+    width: 100%;
+    gap: 1rem;
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .containerDomain {
+    top: 15.625rem;
+  }
+}
+
+@media only screen and (min-width: 427px) and (max-width: 768px) {
+  .containerDomain {
+    top: 16.625rem;
+  }
+}

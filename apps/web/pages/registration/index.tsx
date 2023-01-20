@@ -23,6 +23,7 @@ import { match } from "assert";
 // 5. Revise user type if it's necessary at all. I don't understand typescript. 
 // 6. "User" Find word that sounds more professional
 // 7. Find way to redirect once submit button is pressed
+// 8. Login status needs to be activated upon registration completion?
 
 
 const registrationButton = {
@@ -50,8 +51,7 @@ export interface RegistrationProps {
   domain: string;
 }
 const Registration = ({ domain }: RegistrationProps) => {
-  const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-
+  const [ isLoggedIn, setIsLoggedIn ] = useState(false);  // Login status. Come back to this later
   const [tos, setTOS] = useState(false);
   const [airlineRep, setAirlineRep] = useState(false);
   const [recruitmentRep, setRecruitmentRep] = useState(false);
@@ -66,10 +66,11 @@ const Registration = ({ domain }: RegistrationProps) => {
     company: "",
     password: "",
     passwordRepeat: "",
-    tos: ""
+    tos: "",
   });
 
   const [inputDataError, setInputDataError] = useState(false);
+  const [dumplicateEmail, setDumplicateEmail] = useState(false);
 
   // Account type checkbox behavior controller for Airline Representative
   function airlineHandler(event: React.ChangeEvent<HTMLInputElement>) {
@@ -114,18 +115,8 @@ const Registration = ({ domain }: RegistrationProps) => {
         tos: "rejected" })
   }
 
-  // Submission button handler
-  function submitHandler (event: React.MouseEvent<HTMLButtonElement>): void {
-    event.preventDefault();
-
-    // console.log(registration);
-    axios
-    .post("http://localhost:5000/register", registration)
-    .then((result) => {
-      // console.log(result.status)
-
-      // useState cleaner
-      if (result.status === 201) {
+  // useState cleaner
+  function stateResetter() {
         setRegistration({
           account_type: "",
           account_name: "",
@@ -139,12 +130,29 @@ const Registration = ({ domain }: RegistrationProps) => {
           tos: "",
         });
 
-        setIsLoggedIn(true);
         setInputDataError(false);
         setTOS(false);
         setAirlineRep(false);
         setRecruitmentRep(false);
         setUser(false);
+        setDumplicateEmail(false);
+  }
+
+  // Submission button handler
+  function submitHandler (event: React.MouseEvent<HTMLButtonElement>): void {
+    event.preventDefault();
+
+    // User registration post process
+    axios
+    .post("http://localhost:5000/register", registration) // Does axios header need to be specified? So far it works even without header...
+    .then((result) => {
+      // console.log(result.status)
+
+      // Clearing useState for all fields and checkboxes
+      if (result.status === 201) {
+        stateResetter()
+
+        // Login status needs to be activated here?
 
         console.log("Account creation successful")
       }
@@ -152,10 +160,15 @@ const Registration = ({ domain }: RegistrationProps) => {
     })
     .catch((err) => {
       console.error(err);
-      if (err.response.status != 500) {
+      if (err.response.status === 400) {
+        console.log("Email already exists");
+        setDumplicateEmail(true);
+        
+      }
+      
+      else if (err.response.status != 500) {
         setInputDataError(true);       
-        console.log("Input data was not validated. Please make sure to fill in all fields and make selections on checkboxes");
-
+        console.log("Input data could not be validated. Please make sure to fill in all fields and make selections on checkboxes");
       }
       else 
         console.log("Server error. Query cannot be completed");
@@ -171,7 +184,7 @@ const Registration = ({ domain }: RegistrationProps) => {
       <div className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px]`}>
         <div className={"mt-3"}>
           <p className={"text-center"}>Account type</p>
-          <p className={"mt-5"} >* All fields required</p>
+          <p className={"mt-5"} >* All fields are required</p>
 
           {/* Airline representativ chekbox */}
           <input
@@ -259,6 +272,9 @@ const Registration = ({ domain }: RegistrationProps) => {
                 required
                 />
             </label>
+            {dumplicateEmail? (
+              <p>Account with this email already exist</p>
+            ): null}
             
             {/* Company input field */}
             <label htmlFor="company" className={labelStyling}>Company

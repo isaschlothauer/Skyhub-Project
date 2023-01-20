@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 
-import JobOffersPage from "../../../../components/JobOffersPage";
+import JobOffersPage from "../../../../components/Offers_JobOffersPage";
 
 export default function StaticPage() {
   const router = useRouter();

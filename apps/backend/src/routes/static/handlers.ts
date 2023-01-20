@@ -2,7 +2,7 @@ import { RequestHandler, Response } from "express";
 import { RowDataPacket } from "mysql2";
 import database from "../../database";
 
-export interface StaticPage extends RowDataPacket {
+export interface GetStaticPageResult extends RowDataPacket {
   [field: string]: any;
 }
 
@@ -13,7 +13,7 @@ export const getStaticPage: RequestHandler<{
   const { domain, slug } = req.params;
 
   database
-    .query<StaticPage[]>( //Row Data Packet info, we define the type of query cause its general too
+    .query<GetStaticPageResult[]>( //Row Data Packet info, we define the type of query cause its general too
       "select title, content, css_class from static_page where domain=? and slug=?",
       [domain, slug]
     )
