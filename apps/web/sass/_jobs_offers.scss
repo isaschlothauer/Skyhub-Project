@@ -4,7 +4,6 @@
   top: 400px;
 }
 
-
 #offers {
   margin-bottom: 3rem;
   .job-offer-list-item {
@@ -129,6 +128,12 @@
   .job-offer-list-item-location p,
   .job-offer-list-item-date p {
     display: none;
+  }
+  .job-offer-list-item-role {
+    font-size: 21px !important;
+  }
+  .job-offer-list-item-company {
+    font-size: 18px !important;
   }
 }
 

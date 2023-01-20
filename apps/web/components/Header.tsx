@@ -22,7 +22,7 @@ const Mini_Header = ({ title, Scssdomain, Scssother }: HeaderProps) => {
       <div className={"container mx-auto sm:px-0"}>
         <div>
           <div className={"md:w-full pr-0 pl-0"}>
-            <Link href="/" className={styles["header-logo"]} />
+            <Link className={styles["header-logo"]}  href="/" as={"/"} />
             <h1>{title}</h1>
           </div>
         </div>
