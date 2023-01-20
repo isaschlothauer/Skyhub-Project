@@ -66,10 +66,11 @@ const Registration = ({ domain }: RegistrationProps) => {
     company: "",
     password: "",
     passwordRepeat: "",
-    tos: ""
+    tos: "",
   });
 
   const [inputDataError, setInputDataError] = useState(false);
+  const [dumplicateEmail, setDumplicateEmail] = useState(false);
 
   // Account type checkbox behavior controller for Airline Representative
   function airlineHandler(event: React.ChangeEvent<HTMLInputElement>) {
@@ -134,6 +135,7 @@ const Registration = ({ domain }: RegistrationProps) => {
         setAirlineRep(false);
         setRecruitmentRep(false);
         setUser(false);
+        setDumplicateEmail(false);
   }
 
   // Submission button handler
@@ -158,7 +160,13 @@ const Registration = ({ domain }: RegistrationProps) => {
     })
     .catch((err) => {
       console.error(err);
-      if (err.response.status != 500) {
+      if (err.response.status === 400) {
+        console.log("Email already exists");
+        setDumplicateEmail(true);
+        
+      }
+      
+      else if (err.response.status != 500) {
         setInputDataError(true);       
         console.log("Input data could not be validated. Please make sure to fill in all fields and make selections on checkboxes");
       }
@@ -264,6 +272,9 @@ const Registration = ({ domain }: RegistrationProps) => {
                 required
                 />
             </label>
+            {dumplicateEmail? (
+              <p>Account with this email already exist</p>
+            ): null}
             
             {/* Company input field */}
             <label htmlFor="company" className={labelStyling}>Company

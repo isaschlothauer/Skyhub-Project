@@ -8,7 +8,7 @@ import RegistrationRouter from "./pages/registration/registration.router";
 import { registrationValidator } from "../src/pages/registration/registrationValidator";
 
 import { loginValidator } from "./pages/login/login.validator"
-import LoginRouter  from "./pages/api/loginRouter";
+import LoginRouter  from "./pages/login/login.router";
 import UserRouter from "./pages/users/user.router";
 
 const MainRouter = Router();

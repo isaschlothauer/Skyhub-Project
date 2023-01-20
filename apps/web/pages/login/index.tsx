@@ -43,9 +43,10 @@ const Login = ({ domain }: LoginProps) => {
   // const [user, setUser] = useState(false);  // User login status. Moved to home
   const [remember, setRemember] = useState(false); // Login status to be kept persistent or not
 
+  // For testing purposes. Clear state
   const [login, setLogin] = useState({
-    username: "testemail@testtesttest.com",
-    password: "nothashedpassword"  // Should take care not to make it visible or accessible
+    email: "testthree@testfour.com",
+    password: "123456"  // Should take care not to make it visible or accessible
   });
 
   let [loginStatus, setLoginStatus] = useState(false);
@@ -65,7 +66,7 @@ const Login = ({ domain }: LoginProps) => {
     .then((result) => {
 
       // Clear login.password
-      setLogin({...login, username: "", password: ""});
+      setLogin({...login, email: "", password: ""});
         
       (result.data.length === 1)? setLoginStatus(true) : setLoginStatus(false);
 
@@ -88,16 +89,16 @@ const Login = ({ domain }: LoginProps) => {
               >
                 <form className={`${styles["login-input"]} `}>
                   {/* Username input field */}
-                  <label htmlFor="username" className={"block text-pink-primary"}>
-                    Username
+                  <label htmlFor="email" className={"block text-pink-primary"}>
+                    Email
                   </label>
                   <input
                     type="text"
                     className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
-                    name="username"
-                    id="username"
+                    name="email"
+                    id="email"
                     placeholder="Enter username or email address"
-                    value={login.username}
+                    value={login.email}
                     onChange={loginHandler}
                     required
                   />
