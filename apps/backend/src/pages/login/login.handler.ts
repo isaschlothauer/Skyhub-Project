@@ -7,11 +7,12 @@ import argon2 from 'argon2';
 interface Credentials {
   email: string;
   password: string;
+  passwordHash: string;
 }
 
 // Login Authorization 
 export const Auth: RequestHandler<Credentials> = (req, res) => {
-    const { email, password, passwordHash } = req.body;
+    const { email, password, passwordHash }: Credentials = req.body;
     
     console.log(email, passwordHash, password); 
 
@@ -20,6 +21,9 @@ export const Auth: RequestHandler<Credentials> = (req, res) => {
       .then(([result]) => {
         if (result.length > 0) {
           console.log(result);
+
+          
+
         } else {
           res.status(404).send("User not found");
         }
