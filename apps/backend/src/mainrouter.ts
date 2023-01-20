@@ -7,7 +7,7 @@ import DomainRouter from "./routes/offers/router";
 import RegistrationRouter from "./pages/registration/registration.router";
 import { registrationValidator } from "../src/pages/registration/registrationValidator";
 
-
+import { loginValidator } from "./pages/login/login.validator"
 import LoginRouter  from "./pages/api/loginRouter";
 import UserRouter from "./pages/users/user.router";
 
@@ -22,7 +22,7 @@ MainRouter.use("/jobs", DomainRouter);
 
 
 MainRouter.use("/register", registrationValidator, RegistrationRouter)
-MainRouter.use("/auth", LoginRouter);
+MainRouter.use("/auth", loginValidator, LoginRouter);
 MainRouter.use("/users", UserRouter);
 
 export default MainRouter;
