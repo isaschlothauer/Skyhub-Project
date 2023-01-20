@@ -1,0 +1,31 @@
+declare interface AirlineInformationType {
+    id: number | string;
+    slug: string;
+    name: string;
+    founding: string | number;
+    headquarter: string;
+    employees: string | number;
+    profits: string;
+    destinations: string;
+    callsign: string;
+    fleet: string;
+    orders: string;
+    assessments: string;
+    benefits: string;
+    salary_captain_max: number;
+    salary_captain_avg: number;
+    salary_captain_min: number;
+    salary_sfo_max: number;
+    salary_sfo_avg: number;
+    salary_sfo_min: number;
+    salary_fo_max: number;
+    salary_fo_avg: number;
+    salary_fo_min: number;
+    salary_so_max: number;
+    salary_so_avg: number;
+    salary_so_min: number;
+    assessments_link: string;
+    src: string;
+    width: number;
+    height: number;
+}
