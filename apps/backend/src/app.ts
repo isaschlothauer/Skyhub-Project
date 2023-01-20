@@ -13,7 +13,6 @@ app.get("/", (req, res) => {
 
 //Main Router Usage
 
-
 // Database Connection Test
 app.listen(5000, () => {
   if (database.getConnection() == null) {
