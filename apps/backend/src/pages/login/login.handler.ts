@@ -7,20 +7,26 @@ import argon2 from 'argon2';
 interface Credentials {
   email: string;
   password: string;
-  passwordHash: string;
+  hashedPassword: string;
+}
+
+interface LoginQueryIdenfitier {
+  email: string;
 }
 
 // Login Authorization 
 export const Auth: RequestHandler<Credentials> = (req, res) => {
-    const { email, password, passwordHash }: Credentials = req.body;
+    const { email, password, hashedPassword }: Credentials = req.body;
     
-    console.log(email, passwordHash, password); 
-
+    console.log(email, password, hashedPassword); 
     database
-      .query("SELECT * FROM users WHERE email =?", [email])
-      .then(([result]) => {
+      .query<LoginQueryIdenfitier[]>("SELECT * FROM users WHERE email =?", [email])
+      .then((result) => {
         if (result.length > 0) {
           console.log(result);
+          // res.status(200).json(result)
+          
+
 
           
 
@@ -28,7 +34,7 @@ export const Auth: RequestHandler<Credentials> = (req, res) => {
           res.status(404).send("User not found");
         }
       })
-      .catch((error) => {
+      .catch((err) => {
         console.error(err);
         res.status(500).send("Server Error");
       })

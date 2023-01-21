@@ -6,14 +6,11 @@ import axios from "axios";
 
 /* STYLES */
 import styles from "./registration.module.scss";
-import contactUsStyle from "../contacts/contactus.module.scss";
-
 
 /* COMPONENTS */
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
-import { userAgent } from "next/server";
-import { match } from "assert";
+
 
 // TO DO
 // // 1. Setup state for all input fields and check boxes
@@ -58,12 +55,11 @@ const Registration = ({ domain }: RegistrationProps) => {
   const [user, setUser] = useState(false);
   const [registration, setRegistration] = useState({
     account_type: "",
-    account_name: "",
-    firstname: "",
-    lastname: "",
+    name: "",
     email: "",
     phone: "",
     company: "",
+    contact: "",
     password: "",
     passwordRepeat: "",
     tos: "",
@@ -75,7 +71,6 @@ const Registration = ({ domain }: RegistrationProps) => {
   // Account type checkbox behavior controller for Airline Representative
   function airlineHandler(event: React.ChangeEvent<HTMLInputElement>) {
     recruitmentRep? setRecruitmentRep(!recruitmentRep) : null;
-    user? setUser(!user): null;
     setAirlineRep(!airlineRep);
     setRegistration({...registration,
       account_type: "airline" })
@@ -84,19 +79,9 @@ const Registration = ({ domain }: RegistrationProps) => {
   // Account type checkbox behavior controller for Recruitment Agency
   function recruitmentHandler(event: React.ChangeEvent<HTMLInputElement>) {
     airlineRep? setAirlineRep(!airlineRep) : null; 
-    user? setUser(!user): null;
     setRecruitmentRep(!recruitmentRep);
     setRegistration({...registration,
       account_type: "recruiter" })
-  }
-
-  // Account type checkbox behavior controller for normal user
-  function userHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    airlineRep? setAirlineRep(!airlineRep) : null; 
-    recruitmentRep? setRecruitmentRep(!recruitmentRep) : null;
-    setUser(!user);
-    setRegistration({...registration,
-      account_type: "user" })
   }
 
   // Data input fields handler
@@ -119,12 +104,11 @@ const Registration = ({ domain }: RegistrationProps) => {
   function stateResetter() {
         setRegistration({
           account_type: "",
-          account_name: "",
-          firstname: "",
-          lastname: "",
+          name: "",
           email: "",
           phone: "",
           company: "",
+          contact: "",
           password: "",
           passwordRepeat: "",
           tos: "",
@@ -134,7 +118,6 @@ const Registration = ({ domain }: RegistrationProps) => {
         setTOS(false);
         setAirlineRep(false);
         setRecruitmentRep(false);
-        setUser(false);
         setDumplicateEmail(false);
   }
 
@@ -205,61 +188,12 @@ const Registration = ({ domain }: RegistrationProps) => {
             />
             <span className={"ml-2"}>Rectruitment agency</span>
           </div>
-
-          <div className={"block mb-5"}>
-            {/* User checkbox */}
-            <input
-              type="checkbox"
-              checked={user}
-              onChange={userHandler}
-              className={"ml-3 z-10 mt-5"}
-            />
-            <span className={"ml-2"}>User</span>
-          </div>
         </div>
         <div className={"text-center mt-8"}>New account data</div>
         
           {/* Data Input Field */}
           <form>
-            {/* Acount name input field */}
-            <label htmlFor="account_name" className={labelStyling}>Account name
-              <input 
-                id="account_name"
-                name="account_name"
-                value={registration.account_name}
-                className={inputFieldStyling}
-                placeholder="Preferred account name"
-                onChange={inputFieldData}
-                required
-                />
-            </label>
-
-            {/* Firstname input field */}
-            <label htmlFor="firstname" className={labelStyling}>Firstname
-              <input 
-                id="firstname"
-                name="firstname"
-                value={registration.firstname}
-                className={inputFieldStyling}
-                placeholder="firstname"
-                onChange={inputFieldData}
-                required
-                />
-            </label>
             
-            {/* Lastname input field */}
-            <label htmlFor="lastname" className={labelStyling}>Lastname
-              <input 
-                id="lastname"
-                name="lastname"
-                value={registration.lastname}
-                className={inputFieldStyling}
-                placeholder="Lastname"
-                onChange={inputFieldData}
-                required
-                />
-            </label>
-
             {/* Email input field */}
             <label htmlFor="email" className={labelStyling}>Email
               <input 
@@ -276,30 +210,6 @@ const Registration = ({ domain }: RegistrationProps) => {
               <p>Account with this email already exist</p>
             ): null}
             
-            {/* Company input field */}
-            <label htmlFor="company" className={labelStyling}>Company
-              <input 
-                id="company"
-                name="company"
-                value={registration.company}
-                className={inputFieldStyling}
-                placeholder="company"
-                onChange={inputFieldData}
-                />
-            </label>
-            
-            {/* Phone number input field */}
-            <label htmlFor="phone" className={labelStyling}>Phone number
-              <input 
-                id="phone"
-                name="phone"
-                value={registration.phone}
-                className={inputFieldStyling}
-                placeholder="+country-code 12341234"
-                onChange={inputFieldData}
-                />
-            </label>
-
             {/* Password input field */}
             <label htmlFor="password" className={labelStyling}>Password (minimum 6 characters)
               <input 
@@ -328,8 +238,57 @@ const Registration = ({ domain }: RegistrationProps) => {
                 />
             </label>
 
+            {/* Company input field */}
+            <label htmlFor="company" className={labelStyling}>Company
+              <input 
+                id="company"
+                name="company"
+                value={registration.company}
+                className={inputFieldStyling}
+                placeholder="company"
+                onChange={inputFieldData}
+                />
+            </label>
+
             {/* Password match/confirmation message generator */}
             {(registration.password !== "" && registration.passwordRepeat !=="")? registration.password !== registration.passwordRepeat? <p>Passwords mismatch. Please check your password</p>: <p>Passwords match</p>: null }
+
+            {/* Acount name input field */}
+            <label htmlFor="name" className={labelStyling}>Contact Name
+              <input 
+                id="name"
+                name="ame"
+                value={registration.name}
+                className={inputFieldStyling}
+                placeholder="John Doe"
+                onChange={inputFieldData}
+                required
+                />
+            </label>
+
+            {/* Contact input field */}
+            <label htmlFor="contact" className={labelStyling}>Contact
+              <input 
+                id="contact"
+                name="contact"
+                value={registration.contact}
+                className={inputFieldStyling}
+                placeholder="compacontactny"
+                onChange={inputFieldData}
+                />
+            </label>
+            
+            {/* Phone number input field */}
+            <label htmlFor="phone" className={labelStyling}>Phone number
+              <input 
+                id="phone"
+                name="phone"
+                value={registration.phone}
+                className={inputFieldStyling}
+                placeholder="+country-code 12341234"
+                onChange={inputFieldData}
+                />
+            </label>
           </form>          
 
           <div className={"mt-5 mx-2 "}>Upon submission, verification email will be sent to the email address specified. Please follow the link to complete the registration.</div>

@@ -17,22 +17,22 @@ export interface AccountRegistrationDefinition extends OkPacket {
 
 // User account creation route
 export const UserRegistration: RequestHandler<{
-    account_type: string;
-    account_name: string;
-    firstname: string;
-    lastname: string;
-    email: string;
-    phone: string;
-    company: string;
-    password: string;
-    passwordConfirm: string;
-    tos: string;
+    // account_type: string;
+    // account_name: string;
+    // firstname: string;
+    // lastname: string;
+    // email: string;
+    // phone: string;
+    // company: string;
+    // password: string;
+    // passwordConfirm: string;
+    // tos: string;
   }> = (req, res) => {
-    const { account_type, account_name, firstname, lastname, email, phone, company, passwordHash, tos } = req.body;
+    const { account_type, account_name, firstname, lastname, email, phone, company, hashedPassword, tos } = req.body;
 
     database
-      .query<AccountRegistrationDefinition>("INSERT INTO users (account_type, account_name, firstname, lastname, email, phone, company, passwordHash, tos) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", 
-      [account_type, account_name, firstname, lastname, email, phone, company, passwordHash, tos])
+      .query<AccountRegistrationDefinition>("INSERT INTO users (account_type, account_name, firstname, lastname, email, phone, company, hashedPassword, tos) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+      [account_type, account_name, firstname, lastname, email, phone, company, hashedPassword, tos])
       .then(([result]) => {
         console.log(result);
 
