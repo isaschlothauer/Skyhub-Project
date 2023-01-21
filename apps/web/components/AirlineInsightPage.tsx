@@ -1,6 +1,8 @@
 import * as React from "react";
+import Image from "next/image";
 import Mini_Header from "./Header";
 import styles from "./airline_insight_page.module.scss";
+import AirlineInfoTiles from "./AirlineInfoTiles";
 
 export interface GeneralAirlineProps {
   domain: string;
@@ -24,10 +26,25 @@ export default function AirlineInsight({
         }
       >
         <div
-          className={`container shadow-main ${styles["airline-information-container"]}`}
+          className={`container shadow-main p-4 ${styles["airline-information-container"]}`}
         >
-          {" "}
-          {airlineInfo.name}
+          <p className={"nunito text-[#000e94] text-xl font-extrabold mt-4 "}>
+            Airline Information
+          </p>
+          <Image
+            className={`object-contain ${styles["airline-logo"]}`}
+            alt="Logo"
+            src={`https://pilot.skyhub.staging.d-a-pfeiffer.info/${airlineInfo.src}`}
+            width={airlineInfo.width}
+            height={airlineInfo.height}
+          />
+          <p className={"nunito text-[#727481] leading-7"}>Company Name</p>
+          <h2
+            className={"nunito text-pink-primary font-extrabold text-xl mb-4 "}
+          >
+            {airlineInfo.name}
+          </h2>
+          <AirlineInfoTiles airlineInfo={airlineInfo} />
         </div>
       </div>
     </div>
