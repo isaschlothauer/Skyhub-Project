@@ -1,4 +1,5 @@
 import { RequestHandler } from "express";
+import { Request, Response, NextFunction } from "express";
 import * as argon2 from "argon2";
 
 const hashingOptions = {
@@ -8,9 +9,12 @@ const hashingOptions = {
   // parallelism: 1,
 };
 
-export const passwordHash: RequestHandler<{
+interface Password {
   password: string;
-}> = (req, res, next) => {
+  passwordRepeat: string;
+}
+
+export const passwordHash = (req: Request<{}, {}, Password>, res: Response, next: NextFunction): void => {
 
   argon2
     .hash(req.body.password, )

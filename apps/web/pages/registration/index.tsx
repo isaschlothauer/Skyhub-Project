@@ -55,7 +55,7 @@ const Registration = ({ domain }: RegistrationProps) => {
   });
 
   const [inputDataError, setInputDataError] = useState(false);
-  const [dumplicateEmail, setDumplicateEmail] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   // Account type checkbox behavior controller for Airline Representative
   function airlineHandler(event: React.ChangeEvent<HTMLInputElement>) {
@@ -107,7 +107,7 @@ const Registration = ({ domain }: RegistrationProps) => {
         setTOS(false);
         setAirlineRep(false);
         setRecruitmentRep(false);
-        setDumplicateEmail(false);
+        setErrorMsg("");
   }
 
   // Submission button handler
@@ -118,31 +118,25 @@ const Registration = ({ domain }: RegistrationProps) => {
     axios
     .post("http://localhost:5000/register", registration) // Does axios header need to be specified? So far it works even without header...
     .then((result) => {
-      // console.log(result.status)
 
       // Clearing useState for all fields and checkboxes
       if (result.status === 201) {
+        console.log(result);
         stateResetter()
-
-        // Login status needs to be activated here?
-
-        console.log("Account creation successful")
       }
     })
     .catch((err) => {
       console.error(err);
-      if (err.response.status === 400) {
-        console.log("Email already exists");
-        setDumplicateEmail(true);
-      }
-      
-      else if (err.response.status != 500) {
+
+      if (err.response.headers["content-length"] == "41") {
+        console.log("Email already in use");
+        setErrorMsg(err.response.data);
+      } else if (err.response.status != 500) {
         setInputDataError(true);       
         console.log("Input data could not be validated. Please make sure to fill in all fields and make selections on checkboxes");
-      }
-      else 
+      } else 
         console.log("Server error. Query cannot be completed");
-    })
+      })
   }
 
   return (
@@ -205,8 +199,8 @@ const Registration = ({ domain }: RegistrationProps) => {
                 required
                 />
             </label>
-            {dumplicateEmail? (
-              <p>Account with this email already exist</p>
+            {errorMsg? (
+              <p>{errorMsg}</p>
             ): null}
             
             {/* Password input field */}
