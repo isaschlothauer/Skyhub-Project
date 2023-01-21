@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import useAxios from "../../hooks/useAxios";
+import DOMPurify from "dompurify";
 
 {
   /* STYLES */
@@ -13,7 +14,6 @@ import styles from "./faq.module.scss";
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 import GoHomeContainer from "../../components/GoBackContainer";
-import DOMPurify from "dompurify";
 
 export interface FAQProps {
   domain: string;

@@ -3,6 +3,8 @@ import { StorageEngine } from "multer";
 import { OkPacket, RowDataPacket } from "mysql2";
 import database from "../../database";
 
+// NEED TO IMPLEMENT DUMPLICATE EMAIL CHECK
+
 // For account registration 
 export interface AccountRegistrationDefinition extends OkPacket {
   fieldCount: number;

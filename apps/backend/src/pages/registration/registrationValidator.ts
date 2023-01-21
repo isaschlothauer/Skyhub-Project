@@ -1,5 +1,5 @@
 import express, { RequestHandler } from "express";
-import { NextFunction } from "express-serve-static-core";
+import { Request, Response, NextFunction } from "express";
 import { body, validationResult } from "express-validator";
 
 export const registrationValidator = [
@@ -13,7 +13,7 @@ export const registrationValidator = [
   body("password").not().isEmpty().trim().escape().isLength({ min: 6 }),
   body("passwordRepeat").not().isEmpty().trim().escape(),
   body("tos").not().isEmpty().trim().escape(),
-  (req: express.Request, res: express.Response, next: NextFunction) => {
+  (req: Request, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
     // console.log(req.body)
 
