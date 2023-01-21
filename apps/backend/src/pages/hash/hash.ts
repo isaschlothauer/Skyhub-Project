@@ -17,13 +17,12 @@ export const passwordHash: RequestHandler<{
     .then((hashedPassword) => {
       console.log(hashedPassword);
       
-      req.body.passwordHash = hashedPassword;
+      req.body.password = hashedPassword;
 
 
       // req.body.password = "";
       req.body.passwordRepeat = "";
 
-      // console.log(req.body.passwordHash);
       next();
     })
     .catch((err) => {

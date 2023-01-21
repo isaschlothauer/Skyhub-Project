@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import RegistrationButton from "../../components/GeneralButton";
 import styleslrButton from "../../components/generalButton.module.scss";
-import ReturnHomeContainer from "../../components/GoBackContainer";
+// import ReturnHomeContainer from "../../components/GoBackContainer";
 import axios from "axios";
 
 /* STYLES */
@@ -18,7 +18,7 @@ import Mini_Header from "../../components/Header";
 // // 3. Implement Term of Service check. If not checked, disable submit buttom
 // 4. Submit button should show verification message and link to login page
 // 5. Revise user type if it's necessary at all. I don't understand typescript. 
-// 6. "User" Find word that sounds more professional
+// //6. "User" Find word that sounds more professional
 // 7. Find way to redirect once submit button is pressed
 // 8. Login status needs to be activated upon registration completion?
 
@@ -33,35 +33,24 @@ const registrationButton = {
 const labelStyling = "block font-thin text-pink-primary mt-4 "; //For label
 const inputFieldStyling = "border-2 text-black mt-1 w-full rounded-3xl pl-3 h-9"; // For input field
 
-// type User =  {
-//   firstname: string;
-//   lastname: string;
-//   email: string;
-//   phone: string;
-//   company: string;
-//   newPassword: string;
-//   tos: boolean;
-//   accountType: string;
-// }
-
 export interface RegistrationProps {
   domain: string;
 }
+
 const Registration = ({ domain }: RegistrationProps) => {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);  // Login status. Come back to this later
   const [tos, setTOS] = useState(false);
   const [airlineRep, setAirlineRep] = useState(false);
   const [recruitmentRep, setRecruitmentRep] = useState(false);
-  const [user, setUser] = useState(false);
   const [registration, setRegistration] = useState({
     account_type: "",
-    name: "",
+    account_name: "",
     email: "",
-    phone: "",
-    company: "",
-    contact: "",
     password: "",
     passwordRepeat: "",
+    company: "",
+    contact_name: "",
+    phone: "",
     tos: "",
   });
 
@@ -87,7 +76,7 @@ const Registration = ({ domain }: RegistrationProps) => {
   // Data input fields handler
   function inputFieldData(event: React.ChangeEvent<HTMLInputElement>) {
     setRegistration({...registration,
-      [event.target.name]: event.target.value});
+      [event.target.name]: event.currentTarget.value});
   }
 
   // TOS checkbox handler 
@@ -104,13 +93,13 @@ const Registration = ({ domain }: RegistrationProps) => {
   function stateResetter() {
         setRegistration({
           account_type: "",
-          name: "",
+          account_name: "",
           email: "",
-          phone: "",
-          company: "",
-          contact: "",
           password: "",
           passwordRepeat: "",
+          company: "",
+          contact_name: "",
+          phone: "",
           tos: "",
         });
 
@@ -139,14 +128,12 @@ const Registration = ({ domain }: RegistrationProps) => {
 
         console.log("Account creation successful")
       }
-
     })
     .catch((err) => {
       console.error(err);
       if (err.response.status === 400) {
         console.log("Email already exists");
         setDumplicateEmail(true);
-        
       }
       
       else if (err.response.status != 500) {
@@ -167,7 +154,7 @@ const Registration = ({ domain }: RegistrationProps) => {
       <div className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px]`}>
         <div className={"mt-3"}>
           <p className={"text-center"}>Account type</p>
-          <p className={"mt-5"} >* All fields are required</p>
+          <p className={"mt-5"} >* Required</p>
 
           {/* Airline representativ chekbox */}
           <input
@@ -176,7 +163,7 @@ const Registration = ({ domain }: RegistrationProps) => {
             onChange={airlineHandler}
             className={"ml-3 z-10 mt-8"}
           />
-          <span className={"ml-2"}>Airline representative</span>
+          <span className={"ml-2"}>Airline representative *</span>
 
           <div className={"block"}>
             {/* Recruitment agency representative checkbox */}
@@ -186,16 +173,28 @@ const Registration = ({ domain }: RegistrationProps) => {
               onChange={recruitmentHandler}
               className={"ml-3 z-10 mt-5"}
             />
-            <span className={"ml-2"}>Rectruitment agency</span>
+            <span className={"ml-2"}>Rectruitment agency *</span>
           </div>
         </div>
         <div className={"text-center mt-8"}>New account data</div>
         
           {/* Data Input Field */}
           <form>
-            
+
+            {/* Account name input field */}
+            <label htmlFor="account_name" className={labelStyling}>Account Name *
+              <input 
+                id="account_name"
+                name="account_name"
+                value={registration.account_name}
+                className={inputFieldStyling}
+                placeholder="Account name"
+                onChange={inputFieldData}
+                />
+            </label>
+
             {/* Email input field */}
-            <label htmlFor="email" className={labelStyling}>Email
+            <label htmlFor="email" className={labelStyling}>Email *
               <input 
                 id="email"
                 name="email"
@@ -211,21 +210,21 @@ const Registration = ({ domain }: RegistrationProps) => {
             ): null}
             
             {/* Password input field */}
-            <label htmlFor="password" className={labelStyling}>Password (minimum 6 characters)
+            <label htmlFor="password" className={labelStyling}>Password (minimum 6 characters) *
               <input 
                 id="password"
                 name="password"
                 type="password"
                 value={registration.password}
                 className={inputFieldStyling}
-                placeholder="password"
+                placeholder="Password"
                 onChange={inputFieldData}
                 required
                 />
             </label>
             
             {/* Password confirmation field */}
-            <label htmlFor="passwordRepeat" className={labelStyling}>Password Confirmation
+            <label htmlFor="passwordRepeat" className={labelStyling}>Password Confirmation *
               <input 
                 id="passwordRepeat"
                 name="passwordRepeat"
@@ -238,6 +237,9 @@ const Registration = ({ domain }: RegistrationProps) => {
                 />
             </label>
 
+            {/* Password match/confirmation message generator */}
+            {(registration.password !== "" && registration.passwordRepeat !=="")? registration.password !== registration.passwordRepeat? <p>Passwords mismatch. Please check your password</p>: <p>Passwords match</p>: null }
+
             {/* Company input field */}
             <label htmlFor="company" className={labelStyling}>Company
               <input 
@@ -245,36 +247,21 @@ const Registration = ({ domain }: RegistrationProps) => {
                 name="company"
                 value={registration.company}
                 className={inputFieldStyling}
-                placeholder="company"
+                placeholder="Company name"
                 onChange={inputFieldData}
                 />
             </label>
 
-            {/* Password match/confirmation message generator */}
-            {(registration.password !== "" && registration.passwordRepeat !=="")? registration.password !== registration.passwordRepeat? <p>Passwords mismatch. Please check your password</p>: <p>Passwords match</p>: null }
-
             {/* Acount name input field */}
-            <label htmlFor="name" className={labelStyling}>Contact Name
+            <label htmlFor="contact_name" className={labelStyling}>Contact Name
               <input 
-                id="name"
-                name="ame"
-                value={registration.name}
+                id="contact_name"
+                name="contact_name"
+                value={registration.contact_name}
                 className={inputFieldStyling}
                 placeholder="John Doe"
                 onChange={inputFieldData}
                 required
-                />
-            </label>
-
-            {/* Contact input field */}
-            <label htmlFor="contact" className={labelStyling}>Contact
-              <input 
-                id="contact"
-                name="contact"
-                value={registration.contact}
-                className={inputFieldStyling}
-                placeholder="compacontactny"
-                onChange={inputFieldData}
                 />
             </label>
             
@@ -300,7 +287,7 @@ const Registration = ({ domain }: RegistrationProps) => {
             className={"ml-3 z-10 mt-5"}
             onChange={TOS}
           />
-          <span className={"ml-2 text-pink-primary"}>Agree to <a href="{{ url('terms-of-service') }}" className={"underline"}>the Terms of Service</a></span>
+          <span className={"ml-2 text-pink-primary"}>Agree to <a href="{{ url('terms-of-service') }}" className={"underline"}>the Terms of Service</a> *</span>
           
           {/* Account data submission button */}
           <div className={"mt-8 mx-auto w-max mb-5"}>

@@ -28,11 +28,11 @@ export const UserRegistration: RequestHandler<{
     // passwordConfirm: string;
     // tos: string;
   }> = (req, res) => {
-    const { account_type, account_name, firstname, lastname, email, phone, company, hashedPassword, tos } = req.body;
+    const { account_type, account_name, password, email, company, contact_name, phone, tos } = req.body;
 
     database
-      .query<AccountRegistrationDefinition>("INSERT INTO users (account_type, account_name, firstname, lastname, email, phone, company, hashedPassword, tos) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", 
-      [account_type, account_name, firstname, lastname, email, phone, company, hashedPassword, tos])
+      .query<AccountRegistrationDefinition>("INSERT INTO users (account_type, name, password, email, company_name, contact_name, phone, tos) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", 
+      [account_type, account_name, password, email, company, contact_name, phone, tos])
       .then(([result]) => {
         console.log(result);
 
