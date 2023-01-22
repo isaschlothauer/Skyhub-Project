@@ -12,20 +12,24 @@ interface Credentials {
 
 export const Auth = (req: Request< {}, {}, Credentials>, res: Response) => {
     const { email, password, hashedPassword } = req.body;
+    console.log(req.body);
     
-    console.log(email, password, hashedPassword); 
+    // console.log(email, password, hashedPassword); 
 
     database
       .query<RowDataPacket[]>("SELECT * FROM users WHERE email =?", [email])
       .then(([user]) => {
         const [userResult] = user;
 
-        if (user != null && userResult.email === email) {
-          console.log(userResult.email, email);
-
-        } else {
+        if (!userResult) {
           res.status(401).send("Credentials not found");
+        } else if (userResult!= null && userResult.email === email) {
+          console.log(userResult.email, email);
         }
+
+        // } else {
+        //   res.status(401).send("Credentials not found");
+        // }
       })
       .catch((err) => {
         console.error(err);
