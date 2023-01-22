@@ -2,35 +2,46 @@ import { RequestHandler } from "express";
 import { Request, Response } from "express";
 import { OkPacket, RowDataPacket } from "mysql2";
 import database from '../../database';
-import { passwordHash } from '../hash/hash';
-import argon2 from 'argon2';
+import * as argon2 from "argon2";
+
 interface Credentials {
   email: string;
   password: string;
-  hashedPassword: string;
+  verify: string;
+
 }
 
-export const Auth = (req: Request< {}, {}, Credentials>, res: Response) => {
-    const { email, password, hashedPassword } = req.body;
+export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: Response) => {
+    const { email } = req.body;
     // console.log(req.body);
-    
-    // console.log(email, password, hashedPassword); 
 
     database
       .query<RowDataPacket[]>("SELECT * FROM users WHERE email =?", [email])
       .then(([user]) => {
         const [userResult] = user;
 
+        // Credential checking. No matching email case
         if (!userResult) {
           res.status(401).send("Credentials not found");
         } else if (userResult!= null && userResult.email === email) {
-          // console.log(userResult.email, email);
-          console.log(userResult);
-        }
 
-        // } else {
-        //   res.status(401).send("Credentials not found");
-        // }
+          // Email match found. Verifying passwowrd against password hash. 
+          argon2
+            .verify(userResult.password, req.body.verify)
+            .then((loginVerified) => {
+
+              // Clear traces of password
+              req.body.verify = "";
+              req.body.password = "";
+
+              // Verification responses
+              loginVerified == true? 
+              res.status(200).send("Login successful") : res.status(401).send("Please enter a valid email and password");
+
+            })
+        } else {
+          res.status(401).send("Please enter a valid email and password");
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -40,25 +51,10 @@ export const Auth = (req: Request< {}, {}, Credentials>, res: Response) => {
 
 
 
-    // database
-    //   .query<Credentials[]>("SELECT * FROM users WHERE email =?", [email])
-    //   .then(([result]) => {
-    //     if (result.length > 0) {
-    //       console.log(result);
-    //       // res.status(200).json(result)
-          
 
 
-          
 
-    //     } else {
-    //       res.status(404).send("User not found");
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //     res.status(500).send("Server Error");
-    //   })
+
 
     // argon2
     //   .verify(passwordHash, req.body.password)

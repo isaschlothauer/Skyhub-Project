@@ -25,18 +25,18 @@ export const UserRegistration = (req: Request<{}, {}, RegistrationData>, res: Re
 
   // Duplicate email checking mechanism
   database
-    .query<QueryResults[]>("SELECT * FROM users WHERE email = ?", [email])
-    .then((duplicateEmail) => {
+    .query("SELECT * FROM users WHERE email = ?", [email])
+    .then(([duplicateEmail]) => {
       if (Array.isArray(duplicateEmail) && duplicateEmail.length > 0) {
-        console.log(duplicateEmail);
         res.status(400).send("An account with this email already exists");
       } else {
         
         // Account creation & data insertation
         database
-          .query<QueryResults[]>("INSERT INTO users (account_type, name, password, email, company_name, contact_name, phone, tos) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", 
+          .query("INSERT INTO users (account_type, name, password, email, company_name, contact_name, phone, tos) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", 
           [account_type, account_name, password, email, company, contact_name, phone, tos])
           .then(([result]) => {
+            console.log(result);
             res.status(201).send("Account created");
           })
       }

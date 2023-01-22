@@ -45,8 +45,8 @@ const Login = ({ domain }: LoginProps) => {
 
   // For testing purposes. Clear state
   const [login, setLogin] = useState({
-    email: "",
-    password: ""  // Should take care not to make it visible or accessible
+    email: "testtest@test.com",
+    password: "testtest"  // Should take care not to make it visible or accessible
   });
 
   // Error message for credential check
@@ -75,6 +75,12 @@ const Login = ({ domain }: LoginProps) => {
 
       console.log(result);
 
+      if (result.status === 200) {
+        console.log("Success!");
+      } else {
+        console.log("Error");
+      
+      }
 
   })
   .catch((err) => {
