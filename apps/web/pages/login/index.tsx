@@ -49,6 +49,9 @@ const Login = ({ domain }: LoginProps) => {
     password: ""  // Should take care not to make it visible or accessible
   });
 
+  // Error message for credential check
+  const [errorMsg, setErrorMsg] = useState("");
+
   let [loginStatus, setLoginStatus] = useState(false);
 
 // Input field handling definition
@@ -70,8 +73,18 @@ const Login = ({ domain }: LoginProps) => {
         
       // (result.data.length === 1)? setLoginStatus(true) : setLoginStatus(false);
 
-      console.log(login);
+      console.log(result);
+
+
   })
+  .catch((err) => {
+    console.error(err.response.data);
+    setErrorMsg(err.response.data);
+
+
+  })
+
+  console.log(errorMsg);
   
   console.log(`Test console (to be removed): ${login.password}`); // KEEP THIS ONE TO CHECK AND TEST PASSWORD VISIBILITY. IT MUST NOT BE VISIBLE;
   }
@@ -130,6 +143,8 @@ const Login = ({ domain }: LoginProps) => {
                     <span className={`ml-2 text-pink-primary`}>Remember me</span>
                   </div>
                 </form>
+
+                {/* {(errorMsg != "" && login.email != "")? <p className={"text-center"}>Please check your login information</p>: null} */}
 
                 {/* Login Submission button */}
                 <div className={"w-min mx-auto mt-4"}>

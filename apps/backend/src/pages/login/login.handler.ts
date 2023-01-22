@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import { Request, Response } from "express";
 import { OkPacket, RowDataPacket } from "mysql2";
-import database from "../../database";
+import database from '../../database';
 import { passwordHash } from '../hash/hash';
 import argon2 from 'argon2';
 interface Credentials {
@@ -12,7 +12,7 @@ interface Credentials {
 
 export const Auth = (req: Request< {}, {}, Credentials>, res: Response) => {
     const { email, password, hashedPassword } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     
     // console.log(email, password, hashedPassword); 
 
@@ -24,7 +24,8 @@ export const Auth = (req: Request< {}, {}, Credentials>, res: Response) => {
         if (!userResult) {
           res.status(401).send("Credentials not found");
         } else if (userResult!= null && userResult.email === email) {
-          console.log(userResult.email, email);
+          // console.log(userResult.email, email);
+          console.log(userResult);
         }
 
         // } else {
