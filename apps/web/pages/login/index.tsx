@@ -68,7 +68,7 @@ const Login = ({ domain }: LoginProps) => {
       // Clear login.password
       setLogin({...login, email: "", password: ""});
         
-      (result.data.length === 1)? setLoginStatus(true) : setLoginStatus(false);
+      // (result.data.length === 1)? setLoginStatus(true) : setLoginStatus(false);
 
       console.log(login);
   })

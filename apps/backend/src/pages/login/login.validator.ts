@@ -1,7 +1,8 @@
+import { Request, Response, NextFunction } from 'express';
 import { body, validationResult } from "express-validator";
 
 
-interface loginInputData  {
+interface LoginInputData  {
   email: string;
   password: string;
 }
@@ -9,14 +10,14 @@ interface loginInputData  {
 export const loginValidator = [
   body("email").not().isEmpty().trim().isEmail(),
   body("password").not().isEmpty().trim().escape(),
-  (req, res, next) => {
+  (req: Request< {}, {}, LoginInputData >, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
     // console.log(req.body)
 
     if (!errors.isEmpty()) {
       res.status(422).json({ validationErrors: errors.array() });
     } else {
-      console.log("Vadliation ok");
+      console.log("Valiation ok");
       next();
     }
   }

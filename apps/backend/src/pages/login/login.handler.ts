@@ -10,7 +10,6 @@ interface Credentials {
   hashedPassword: string;
 }
 
-// Login Authorization 
 export const Auth = (req: Request< {}, {}, Credentials>, res: Response) => {
     const { email, password, hashedPassword } = req.body;
     
@@ -19,14 +18,18 @@ export const Auth = (req: Request< {}, {}, Credentials>, res: Response) => {
     database
       .query<RowDataPacket[]>("SELECT * FROM users WHERE email =?", [email])
       .then(([user]) => {
-        if (user != null) {
-          console.log(user);
+        const [userResult] = user;
 
-          const [userResult] = user;
+        if (user != null && userResult.email === email) {
           console.log(userResult.email, email);
 
-          
+        } else {
+          res.status(401).send("Credentials not found");
         }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(401).send("Server error. Unable to process request.");
       })
 
 
