@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-// import { Request, Response } from "express
+import { Request, Response } from "express";
 import { OkPacket, RowDataPacket } from "mysql2";
 import database from "../../database";
 import { passwordHash } from '../hash/hash';
@@ -10,34 +10,47 @@ interface Credentials {
   hashedPassword: string;
 }
 
-interface LoginQueryIdenfitier {
-  email: string;
-}
-
 // Login Authorization 
-export const Auth: RequestHandler<Credentials> = (req, res) => {
-    const { email, password, hashedPassword }: Credentials = req.body;
+export const Auth = (req: Request< {}, {}, Credentials>, res: Response) => {
+    const { email, password, hashedPassword } = req.body;
     
     console.log(email, password, hashedPassword); 
+
     database
-      .query<LoginQueryIdenfitier[]>("SELECT * FROM users WHERE email =?", [email])
-      .then((result) => {
-        if (result.length > 0) {
-          console.log(result);
-          // res.status(200).json(result)
+      .query<RowDataPacket[]>("SELECT * FROM users WHERE email =?", [email])
+      .then(([user]) => {
+        if (user != null) {
+          console.log(user);
+
+          const [userResult] = user;
+          console.log(userResult.email, email);
+
           
-
-
-          
-
-        } else {
-          res.status(404).send("User not found");
         }
       })
-      .catch((err) => {
-        console.error(err);
-        res.status(500).send("Server Error");
-      })
+
+
+
+
+    // database
+    //   .query<Credentials[]>("SELECT * FROM users WHERE email =?", [email])
+    //   .then(([result]) => {
+    //     if (result.length > 0) {
+    //       console.log(result);
+    //       // res.status(200).json(result)
+          
+
+
+          
+
+    //     } else {
+    //       res.status(404).send("User not found");
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //     res.status(500).send("Server Error");
+    //   })
 
     // argon2
     //   .verify(passwordHash, req.body.password)
