@@ -13,20 +13,21 @@ import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 
 // TO DO
-// 1.User login status implement
-//    1.1 Should user status be lifted to bypass login page, change landing page login button to log off?
-//    1.2 Landing page should have if (user).... to check for login status of user
-//      1.2.1 if (user), then Login button should be Log Off
-//      1.2.2 If (user), a button to admin panel should appear instead of register button
-// 2. Implement persistent login via cookie?
-//    2.1 Should this also be lifted?
+// // 1.User login status implement
+// //   1.1 Should user status be lifted to bypass login page, change landing page login button to log off?
+// //   1.2 Landing page should have if (user).... to check for login status of user
+//      1.2.1 when logged in, then Login button should be Log Off
+//      1.2.2 when logged in, a button to admin panel should appear instead of register button
+// // 2. Implement persistent login via cookie?
+// 2. Implement session based login if "remember me" is not enabled
+// //   2.1 Should this also be lifted?
 
-// 3. Do something about the password state. It should not store plain password
-//     3.1 Server should just ok or not
-// 4. Login.password must not store password or hash. It should not be visible or retrievable.
-// 5. Add a simple field input checker not to allow empty fields. No point using express-validator. 
-// LINE 58, Axios needs to be completed
-
+// // 3. Do something about the password state. It should not store plain password
+// //    3.1 Server should just ok or not
+// // 4. Login.password must not store password or hash. It should not be visible or retrievable.
+// //5. Add a simple field input checker not to allow empty fields. No point using express-validator. 
+// // LINE 58, Axios needs to be completed
+// 6. Refer to 
 
 // 6. Figure out post login behavior. What should login button do other than changing state? Admin panel or back to front page?
 // reference video: https://www.youtube.com/watch?v=2lJuOh4YlGM
@@ -51,8 +52,8 @@ const Login = ({ domain }: LoginProps) => {
 
   // For testing purposes. Clear state
   const [login, setLogin] = useState({
-    email: "testtest@test.com",
-    password: "testtest"  // Should take care not to make it visible or accessible
+    email: "",
+    password: ""  // Should take care not to make it visible or accessible
   });
 
   // Error message for credential check
@@ -66,7 +67,7 @@ const Login = ({ domain }: LoginProps) => {
 
   const router = useRouter();
 
-  const [authToken, setAuthToken] = useState< string >();
+  const [authToken, setAuthToken] = useState<string>();
   
   useEffect(() => {
     if (authToken != null || window == null) return;
@@ -83,7 +84,6 @@ const Login = ({ domain }: LoginProps) => {
   function submitBehavior(event: React.MouseEvent<HTMLButtonElement>): void {
   event.preventDefault();
 
-
   axios
     .post('http://localhost:5000/auth', login)
     .then((res: AxiosResponse<LoginResponseData>) => {
@@ -96,8 +96,10 @@ const Login = ({ domain }: LoginProps) => {
         return;
       } else {
         setAuthToken(res.data.token);
-        window.localStorage.setItem("auth_token", res.data.token);
 
+        // If "remember me" is enabled, save the token to local storage. If not, sessionStorage
+        remember? window.localStorage.setItem("auth_token", res.data.token): window.sessionStorage.setItem("auth_token", res.data.token);
+        
         // To clear localStorage, run localStorage.clear()
 
         console.log("Login successful");
