@@ -17,12 +17,13 @@ import Mini_Header from "../../components/Header";
 // // 1. Setup state for all input fields and check boxes
 // // 2. Decide if input field div should be wider and name fields should be inline for wider screen
 // // 3. Implement Term of Service check. If not checked, disable submit buttom
-// 4. Submit button should show verification message and link to login page
+// // 4. Submit button should show verification message and link to login page
 // 5. Revise user type if it's necessary at all. I don't understand typescript. 
 // //6. "User" Find word that sounds more professional
-// 7. Find way to redirect once submit button is pressed
+// // 7. Find way to redirect once submit button is pressed
 // 8. Login status needs to be activated upon registration completion?
-
+// 9. Revise layout and style
+// 10. Verifiation email to be sent to the email address
 
 const registrationButton = {
   route: "/",
