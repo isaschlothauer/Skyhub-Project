@@ -1,6 +1,6 @@
-import React, { useDebugValue, useState } from "react";
+import React, { useDebugValue, useState, useEffect } from "react";
 import Link from "next/link";
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 
 /* STYLES */
 import styles from "./login.module.scss";
@@ -36,6 +36,11 @@ const loginButton = {
   buttontext: "Sign in",
 };
 
+interface LoginResponseData {
+  token: string | undefined;
+  error: string | undefined;
+}
+
 export interface LoginProps {
   domain: string;
 }
@@ -52,40 +57,50 @@ const Login = ({ domain }: LoginProps) => {
   // Error message for credential check
   const [errorMsg, setErrorMsg] = useState("");
 
-  let [loginStatus, setLoginStatus] = useState(false);
-
 // Input field handling definition
   function loginHandler(event: React.ChangeEvent<HTMLInputElement>) {
     setLogin({ ...login, [event.target.name]: event.target.value });
     setErrorMsg("");
   }
 
-  // Submit button behavior definition
-  function submitBehavior(event: React.MouseEvent<HTMLButtonElement>): void {
-    event.preventDefault();
+  const [authToken, setAuthToken] = useState< string >();
+  
+  useEffect(() => {
+    if (authToken != null || window == null) return;
 
-    axios
+    const localAuthToken = window.localStorage.getItem("auth_token");
+
+    if (localAuthToken != null) {
+      setAuthToken(localAuthToken)
+      return;
+    }
+  },[authToken]);
+
+ // Submit button behavior definition
+  function submitBehavior(event: React.MouseEvent<HTMLButtonElement>): void {
+  event.preventDefault();
+
+  axios
     .post('http://localhost:5000/auth', login)
-    // TO BE TAKEN CARE OF
-    .then((result) => {
+    .then((res: AxiosResponse<LoginResponseData>) => {
 
       // Clear login.password
       setLogin({...login, email: "", password: ""});
-        
-      console.log(result);
-  })
-  .catch((err) => {
+
+      if (res.data.token == null) {
+        console.error("No authentication token", res.data.error);
+        return;
+      } else {
+        setAuthToken(res.data.token);
+        window.localStorage.setItem("auth_token", res.data.token);
+      }
+    })
+    .catch((err) => {
 
     // A bit convoluted. Might want to look into it later
     setErrorMsg(err.response.data.error || err.response.data);
-
-
   })
-
-  console.log(errorMsg);
-  
-  console.log(`Test console (to be removed): ${login.password}`); // KEEP THIS ONE TO CHECK AND TEST PASSWORD VISIBILITY. IT MUST NOT BE VISIBLE;
-  }
+}
 
   return (
     <div className={`${styles["login-page"]}`}>
