@@ -1,19 +1,29 @@
-import express, { RequestHandler } from "express";
 import { Request, Response, NextFunction } from "express";
 import { body, validationResult } from "express-validator";
+
+export interface InputData {
+  account_type: string;
+  account_name: string;
+  email: string;
+  password: string;
+  passwordRepeat: string;
+  Company: string;
+  contact_name: string;
+  phone: string;
+  tos: string;  
+}
 
 export const registrationValidator = [
   body("account_type").not().isEmpty().trim().escape(),
   body("account_name").not().isEmpty().trim().escape(),
-  body("firstname").not().isEmpty().trim().escape(),
-  body("lastname").not().isEmpty().trim().escape(),
   body("email").not().isEmpty().trim().isEmail(),
-  body("phone").not().isEmpty().trim().escape(),
-  body("company").not().isEmpty().trim().escape(),
   body("password").not().isEmpty().trim().escape().isLength({ min: 6 }),
   body("passwordRepeat").not().isEmpty().trim().escape(),
+  body("company").trim().escape(),
+  body("contact_name").trim().escape(),
+  body("phone").trim().escape(),
   body("tos").not().isEmpty().trim().escape(),
-  (req: Request, res: Response, next: NextFunction) => {
+  (req: Request<{}, {}, InputData>, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
     // console.log(req.body)
 

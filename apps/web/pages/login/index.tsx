@@ -1,6 +1,7 @@
-import React, { useDebugValue, useState } from "react";
+import React, { useDebugValue, useState, useEffect } from "react";
 import Link from "next/link";
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
+import { useRouter } from "next/router";
 
 /* STYLES */
 import styles from "./login.module.scss";
@@ -12,20 +13,21 @@ import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 
 // TO DO
-// 1.User login status implement
-//    1.1 Should user status be lifted to bypass login page, change landing page login button to log off?
-//    1.2 Landing page should have if (user).... to check for login status of user
-//      1.2.1 if (user), then Login button should be Log Off
-//      1.2.2 If (user), a button to admin panel should appear instead of register button
-// 2. Implement persistent login via cookie?
-//    2.1 Should this also be lifted?
+// // 1.User login status implement
+// //   1.1 Should user status be lifted to bypass login page, change landing page login button to log off?
+// //   1.2 Landing page should have if (user).... to check for login status of user
+//      1.2.1 when logged in, then Login button should be Log Off
+//      1.2.2 when logged in, a button to admin panel should appear instead of register button
+// // 2. Implement persistent login via cookie?
+// 2. Implement session based login if "remember me" is not enabled
+// //   2.1 Should this also be lifted?
 
-// 3. Do something about the password state. It should not store plain password
-//     3.1 Server should just ok or not
-// 4. Login.password must not store password or hash. It should not be visible or retrievable.
-// 5. Add a simple field input checker not to allow empty fields. No point using express-validator. 
-// LINE 58, Axios needs to be completed
-
+// // 3. Do something about the password state. It should not store plain password
+// //    3.1 Server should just ok or not
+// // 4. Login.password must not store password or hash. It should not be visible or retrievable.
+// //5. Add a simple field input checker not to allow empty fields. No point using express-validator. 
+// // LINE 58, Axios needs to be completed
+// 6. Refer to 
 
 // 6. Figure out post login behavior. What should login button do other than changing state? Admin panel or back to front page?
 // reference video: https://www.youtube.com/watch?v=2lJuOh4YlGM
@@ -35,6 +37,11 @@ const loginButton = {
   cSass: styleslrButton["loginreg-pink"],
   buttontext: "Sign in",
 };
+
+interface LoginResponseData {
+  token: string | undefined;
+  error: string | undefined;
+}
 
 export interface LoginProps {
   domain: string;
@@ -49,32 +56,64 @@ const Login = ({ domain }: LoginProps) => {
     password: ""  // Should take care not to make it visible or accessible
   });
 
-  let [loginStatus, setLoginStatus] = useState(false);
+  // Error message for credential check
+  const [errorMsg, setErrorMsg] = useState("");
 
 // Input field handling definition
   function loginHandler(event: React.ChangeEvent<HTMLInputElement>) {
     setLogin({ ...login, [event.target.name]: event.target.value });
+    setErrorMsg("");
   }
 
-  // Submit button behavior definition
-  function submitBehavior(event: React.MouseEvent<HTMLButtonElement>): void {
-    event.preventDefault();
+  const router = useRouter();
 
-    axios
+  const [authToken, setAuthToken] = useState<string>();
+  
+  useEffect(() => {
+    if (authToken != null || window == null) return;
+
+    const localAuthToken = window.localStorage.getItem("auth_token");
+
+    if (localAuthToken != null) {
+      setAuthToken(localAuthToken)
+      return;
+    }
+  },[authToken]);
+
+ // Submit button behavior definition
+  function submitBehavior(event: React.MouseEvent<HTMLButtonElement>): void {
+  event.preventDefault();
+
+  axios
     .post('http://localhost:5000/auth', login)
-    // TO BE TAKEN CARE OF
-    .then((result) => {
+    .then((res: AxiosResponse<LoginResponseData>) => {
 
       // Clear login.password
       setLogin({...login, email: "", password: ""});
-        
-      (result.data.length === 1)? setLoginStatus(true) : setLoginStatus(false);
 
-      console.log(login);
+      if (res.data.token == null) {
+        console.error("No authentication token", res.data.error);
+        return;
+      } else {
+        setAuthToken(res.data.token);
+
+        // If "remember me" is enabled, save the token to local storage. If not, sessionStorage
+        remember? window.localStorage.setItem("auth_token", res.data.token): window.sessionStorage.setItem("auth_token", res.data.token);
+        
+        // To clear localStorage, run localStorage.clear()
+
+        console.log("Login successful");
+
+        // Redirect to home page
+        router.push('/');
+      }
+    })
+    .catch((err) => {
+
+    // A bit convoluted. Might want to look into it later
+    setErrorMsg(err.response.data.error || err.response.data);
   })
-  
-  console.log(`Test console (to be removed): ${login.password}`); // KEEP THIS ONE TO CHECK AND TEST PASSWORD VISIBILITY. IT MUST NOT BE VISIBLE;
-  }
+}
 
   return (
     <div className={`${styles["login-page"]}`}>
@@ -130,13 +169,16 @@ const Login = ({ domain }: LoginProps) => {
                     <span className={`ml-2 text-pink-primary`}>Remember me</span>
                   </div>
                 </form>
+                
+                {errorMsg? <p className={"mt-3 text-center"}>{errorMsg}</p>: null}
+                {/* {(errorMsg != "" && login.email != "")? <p className={"text-center"}>Please check your login information</p>: null} */}
 
                 {/* Login Submission button */}
                 <div className={"w-min mx-auto mt-4"}>
                   {/* TO DO: Implement authentication process */}
                   <LoginButton
                     onClick={submitBehavior}
-                    route={loginButton.route}
+                    route="/"
                     cSass={loginButton.cSass}
                     buttontext={loginButton.buttontext}
                   />
