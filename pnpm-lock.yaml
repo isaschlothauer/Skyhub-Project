@@ -53,6 +53,27 @@ importers:
       tsconfig: link:../../packages/tsconfig
       typescript: 4.9.4
 
+  apps/static-file-server:
+    specifiers:
+      '@types/cors': ^2.8.13
+      '@types/express': ^4.17.14
+      '@types/node': ^17.0.12
+      cors: ^2.8.5
+      dotenv: ^16.0.3
+      express: ^4.18.2
+      ts-node-dev: ^2.0.0
+      typescript: ^4.9.4
+    dependencies:
+      cors: 2.8.5
+      dotenv: 16.0.3
+      express: 4.18.2
+    devDependencies:
+      '@types/cors': 2.8.13
+      '@types/express': 4.17.14
+      '@types/node': 17.0.45
+      ts-node-dev: 2.0.0_zpb5kzpnyozdjq4cwaojlul57u
+      typescript: 4.9.4
+
   apps/web:
     specifiers:
       '@babel/core': ^7.0.0
@@ -3635,7 +3656,7 @@ packages:
     resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==}
     dependencies:
       '@types/connect': 3.4.35
-      '@types/node': 17.0.45
+      '@types/node': 18.11.12
     dev: true
 
   /@types/connect/3.4.35:
@@ -3854,7 +3875,7 @@ packages:
     resolution: {integrity: sha512-z5xyF6uh8CbjAu9760KDKsH2FcDxZ2tFCsA4HIMWE6IkiYMXfVoa+4f9KX+FN0ZLsaMw1WNG2ETLA6N+/YA+cg==}
     dependencies:
       '@types/mime': 3.0.1
-      '@types/node': 17.0.45
+      '@types/node': 18.11.12
     dev: true
 
   /@types/source-list-map/0.1.2:
