@@ -1,6 +1,7 @@
 import React, { useDebugValue, useState, useEffect } from "react";
 import Link from "next/link";
 import axios, {AxiosResponse} from "axios";
+import { useRouter } from "next/router";
 
 /* STYLES */
 import styles from "./login.module.scss";
@@ -63,6 +64,8 @@ const Login = ({ domain }: LoginProps) => {
     setErrorMsg("");
   }
 
+  const router = useRouter();
+
   const [authToken, setAuthToken] = useState< string >();
   
   useEffect(() => {
@@ -80,6 +83,7 @@ const Login = ({ domain }: LoginProps) => {
   function submitBehavior(event: React.MouseEvent<HTMLButtonElement>): void {
   event.preventDefault();
 
+
   axios
     .post('http://localhost:5000/auth', login)
     .then((res: AxiosResponse<LoginResponseData>) => {
@@ -93,6 +97,13 @@ const Login = ({ domain }: LoginProps) => {
       } else {
         setAuthToken(res.data.token);
         window.localStorage.setItem("auth_token", res.data.token);
+
+        // To clear localStorage, run localStorage.clear()
+
+        console.log("Login successful");
+
+        // Redirect to home page
+        router.push('/');
       }
     })
     .catch((err) => {
@@ -165,7 +176,7 @@ const Login = ({ domain }: LoginProps) => {
                   {/* TO DO: Implement authentication process */}
                   <LoginButton
                     onClick={submitBehavior}
-                    route={loginButton.route}
+                    route="/"
                     cSass={loginButton.cSass}
                     buttontext={loginButton.buttontext}
                   />

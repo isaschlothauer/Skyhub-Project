@@ -3,6 +3,7 @@ import RegistrationButton from "../../components/GeneralButton";
 import styleslrButton from "../../components/generalButton.module.scss";
 // import ReturnHomeContainer from "../../components/GoBackContainer";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 /* STYLES */
 import styles from "./registration.module.scss";
@@ -53,6 +54,8 @@ const Registration = ({ domain }: RegistrationProps) => {
     phone: "",
     tos: "",
   });
+
+  const router = useRouter();
 
   const [inputDataError, setInputDataError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -123,6 +126,10 @@ const Registration = ({ domain }: RegistrationProps) => {
       if (result.status === 201) {
         console.log(result);
         stateResetter()
+
+        // Redirect to login page
+        router.push('/login');
+
       }
     })
     .catch((err) => {
