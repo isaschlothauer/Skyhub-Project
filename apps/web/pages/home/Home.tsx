@@ -149,7 +149,7 @@ const Home = () => {
             Find
             your&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong>
-              <div className="message">
+              <div>
                 <div className="word1">dream</div>
                 <div className="word2">offer</div>
                 <div className="word3">passion</div>
