@@ -35,8 +35,8 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
 
         // Credential checking. No matching email case
         if (!userResult) {
-          res.status(401).send("Credentials not found");
-        } else if (userResult!= null && userResult.email === email) {
+          res.status(401).send("Credentials not valid");
+        } else {
 
           // Email match found. Verifying passwowrd against password hash. 
           argon2
@@ -44,34 +44,39 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
             .then((loginVerified) => {
               if (loginVerified) {
 
-              // Web token creation. Payload definition
-              const payload: PayloadResult = { 
-                sub: userResult.id,
-                email: userResult.email,
-                name: userResult.name,
-                company: userResult.company,
-                account_type: userResult.account_type
-              };
+                // Web token creation. Payload definition
+                const payload: PayloadResult = { 
+                  sub: userResult.id,
+                  email: userResult.email,
+                  name: userResult.name,
+                  company: userResult.company,
+                  account_type: userResult.account_type
+                };
 
+                // Check for JWT_SECRET
                 if(process.env.JWT_SECRET){
-                  const token = jwt.sign(payload, process.env.JWT_SECRET.toString(), { expiresIn: "1h" });
+                  const jwtoken = jwt.sign(payload, process.env.JWT_SECRET.toString(), { expiresIn: "1h" });
 
                   req.body.verify = "";
                   req.body.password = "";
 
                   // Respond with token
-                  res.send({ token });
+                  res.json({
+                    token: jwtoken
+                  })
                 } else {
-                  res.status(401).send("JWT_SECRET not found");
+                  // No JWT_SECRET in .env present. Generate an ad hoc JWT_SECRET in case it is not present.
+                  console.warn("No JWT_SECRET environment variable set. Ad hoc randomly generated JWT_SECRET will be used.")
+                  process.env.JWT_SECRET = crypto.randomUUID();
                 }
+              } else {
+                res.status(401).send("Credentials not valid");
               }
             })
-        } else {
-          res.status(401).send("JWT_SECRET not found");
-        }
+        } 
       })
       .catch((err) => {
         console.error(err);
-        res.status(401).send("Server error. Unable to process request.");
+        res.status(500).send("Server error. Unable to process request.");
       });
 }

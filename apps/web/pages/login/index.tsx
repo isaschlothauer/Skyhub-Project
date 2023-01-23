@@ -57,6 +57,7 @@ const Login = ({ domain }: LoginProps) => {
 // Input field handling definition
   function loginHandler(event: React.ChangeEvent<HTMLInputElement>) {
     setLogin({ ...login, [event.target.name]: event.target.value });
+    setErrorMsg("");
   }
 
   // Submit button behavior definition
@@ -78,7 +79,7 @@ const Login = ({ domain }: LoginProps) => {
       // if (result.status === 200) {
       //   console.log("Success!");
       // } else {
-      //   console.log("Error");
+        // console.log("Error");
       
       // }
 
@@ -149,7 +150,8 @@ const Login = ({ domain }: LoginProps) => {
                     <span className={`ml-2 text-pink-primary`}>Remember me</span>
                   </div>
                 </form>
-
+                
+                {errorMsg? <p className={"mt-3 text-center"}>{errorMsg}</p>: null}
                 {/* {(errorMsg != "" && login.email != "")? <p className={"text-center"}>Please check your login information</p>: null} */}
 
                 {/* Login Submission button */}
