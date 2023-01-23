@@ -23,6 +23,17 @@ import JobTilesContainer from "./Domain_JobTilesContainer";
 import JobOffersContainer from "./Domain_JobOffersContainer";
 
 export interface JobOffer {
+  date: string;
+  roster: JSX.Element;
+  created_at: any;
+  location: string;
+  benefits: string;
+  content: string;
+  min_hours: number;
+  aircraft_type: string;
+  certificates: string;
+  salary: number;
+  airline: string;
   id: number;
   title: string;
   company: string;
@@ -39,8 +50,8 @@ export default function MainStaticCMP(
     initialValue: [],
   });
 
-  
-  // console.log(jobs[0].id);
+  console.log(jobs[0]);
+
 
   return (
     <div id={styles.domainPage}>
@@ -56,6 +67,7 @@ export default function MainStaticCMP(
               company={job.company}
               base={job.base}
               link={`/${domain}/offers/${job.id}`}
+              date={job.date}
             />
           </div>
         ))}

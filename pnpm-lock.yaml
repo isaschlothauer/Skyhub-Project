@@ -57,6 +57,27 @@ importers:
       tsconfig: link:../../packages/tsconfig
       typescript: 4.9.4
 
+  apps/static-file-server:
+    specifiers:
+      '@types/cors': ^2.8.13
+      '@types/express': ^4.17.14
+      '@types/node': ^17.0.12
+      cors: ^2.8.5
+      dotenv: ^16.0.3
+      express: ^4.18.2
+      ts-node-dev: ^2.0.0
+      typescript: ^4.9.4
+    dependencies:
+      cors: 2.8.5
+      dotenv: 16.0.3
+      express: 4.18.2
+    devDependencies:
+      '@types/cors': 2.8.13
+      '@types/express': 4.17.14
+      '@types/node': 17.0.45
+      ts-node-dev: 2.0.0_zpb5kzpnyozdjq4cwaojlul57u
+      typescript: 4.9.4
+
   apps/web:
     specifiers:
       '@babel/core': ^7.0.0
@@ -71,6 +92,7 @@ importers:
       dompurify: ^2.4.1
       eslint: 7.32.0
       eslint-config-custom: workspace:*
+      javascript-time-ago: ^2.5.9
       next: 13.0.0
       postcss: ^8.4.20
       react: 18.2.0
@@ -85,6 +107,7 @@ importers:
       axios: 1.2.1
       cors: 2.8.5
       dompurify: 2.4.1
+      javascript-time-ago: 2.5.9
       next: 13.0.0_mz53pcrhrtbilczuivypd336dm
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -3637,7 +3660,7 @@ packages:
     resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==}
     dependencies:
       '@types/connect': 3.4.35
-      '@types/node': 17.0.45
+      '@types/node': 18.11.12
     dev: true
 
   /@types/connect/3.4.35:
@@ -3861,7 +3884,7 @@ packages:
     resolution: {integrity: sha512-z5xyF6uh8CbjAu9760KDKsH2FcDxZ2tFCsA4HIMWE6IkiYMXfVoa+4f9KX+FN0ZLsaMw1WNG2ETLA6N+/YA+cg==}
     dependencies:
       '@types/mime': 3.0.1
-      '@types/node': 17.0.45
+      '@types/node': 18.11.12
     dev: true
 
   /@types/source-list-map/0.1.2:
@@ -8281,6 +8304,12 @@ packages:
       iterate-iterator: 1.0.2
     dev: true
 
+  /javascript-time-ago/2.5.9:
+    resolution: {integrity: sha512-pQ8mNco/9g9TqWXWWjP0EWl6i/lAQScOyEeXy5AB+f7MfLSdgyV9BJhiOD1zrIac/lrxPYOWNbyl/IW8CW5n0A==}
+    dependencies:
+      relative-time-format: 1.1.6
+    dev: false
+
   /jest-haste-map/26.6.2:
     resolution: {integrity: sha512-easWIJXIw71B2RdR8kgqpjQrbMRWQBgiBwXYEhtGUTaX+doCjBheluShdDMeR8IMfJiTqH4+zfhtg29apJf/8w==}
     engines: {node: '>= 10.14.2'}
@@ -10483,6 +10512,10 @@ packages:
     resolution: {integrity: sha512-G08Dxvm4iDN3MLM0EsP62EDV9IuhXPR6blNz6Utcp7zyV3tr4HVNINt6MpaRWbxoOHT3Q7YN2P+jaHX8vUbgog==}
     engines: {node: '>= 0.10'}
     dev: true
+
+  /relative-time-format/1.1.6:
+    resolution: {integrity: sha512-aCv3juQw4hT1/P/OrVltKWLlp15eW1GRcwP1XdxHrPdZE9MtgqFpegjnTjLhi2m2WI9MT/hQQtE+tjEWG1hgkQ==}
+    dev: false
 
   /remark-external-links/8.0.0:
     resolution: {integrity: sha512-5vPSX0kHoSsqtdftSHhIYofVINC8qmp0nctkeU9YoJwV3YfiBRiI6cbFRJ0oI/1F9xS+bopXG0m2KS8VFscuKA==}

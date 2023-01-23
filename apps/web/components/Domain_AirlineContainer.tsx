@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 {
   /* STYLES */
 }
@@ -11,14 +11,14 @@ import stylesArrow from "../components/arrowButton.module.scss";
   /* IMAGES */
 }
 import airlineImg from "../assets/images/widget/InsightsPicJobPage.png";
+import arrowButton from "../assets/images/icons/arrow-right-pink.png";
 
 {
   /* COMPONENTS */
 }
 import { LearnMoreArrow } from "./ArrowButton";
-import Link from "next/link";
 
-function AirLineContainer({ domain }) {
+function AirLineContainer({ domain }: { domain: string }) {
   return (
     <div className={"container mx-auto sm:px-1 mb-10"}>
       <div className={`${styles.mainContainer} ${styles[`insight-${domain}`]}`}>
@@ -41,9 +41,14 @@ function AirLineContainer({ domain }) {
             </div>
           </div>
           <LearnMoreArrow
-            cSass={`${stylesArrow["arrow-faqcontact"]} ${stylesArrow["dark-text"]}`}
+            cSass={`${stylesArrow["arrow-domain"]} ${stylesArrow["dark-text"]}`}
             arrowtext={"Learn more here"}
             link={`/${domain}/insights`}
+          />
+          <Image
+            src={arrowButton}
+            alt={"arrow-button"}
+            className={stylesArrow.onlyButton}
           />
         </div>
       </div>
