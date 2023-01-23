@@ -89,7 +89,7 @@ function JobOffersPage({ domain }: { domain: string }) {
             container: "Salary:",
             title: `${jobs[0].salary
               .toString()
-              .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}€`,
+            .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}€`,
             image: salary,
           },
         ]
@@ -133,7 +133,7 @@ function JobOffersPage({ domain }: { domain: string }) {
       : undefined;
 
   const certificateValues =
-    jobs[0] != undefined ? jobs[0].certificates.split(",", 2) : undefined;
+    jobs[0] != undefined ? jobs[0].certificates.split(", ") : undefined;
 
   // console.log(certificateValues);
   return (
