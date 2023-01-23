@@ -22,6 +22,7 @@ interface PayloadResult {
 // TO DO
 // 1. Create protected route to admin panel
 // 2. Create protected route to job posting page (from admin panel or separate page?)
+// 3. Ask David to clarify how to go about saving it in a cookie
 
 export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: Response) => {
     const { email } = req.body;
@@ -60,7 +61,8 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
 
                   // Respond with token
                   res.send({ token });
-
+                } else {
+                  res.status(401).send("JWT_SECRET not found");
                 }
               }
             })
