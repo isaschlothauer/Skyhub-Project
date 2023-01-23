@@ -43,10 +43,15 @@ const Offers = ({}: OffersProps) => {
     /* /javascript-time-ago shenaningans */
   }
 
+  const domainClean: string = domain
+    ? typeof domain === typeof ""
+      ? (domain as string)
+      : domain[0]
+    : "";
 
   return (
     <div id={stylesS.domainPage}>
-      <Mini_Header title={"Job Offers"} Scssdomain={domain} />
+      <Mini_Header title={"Job Offers"} Scssdomain={domainClean} />
       <div
         className={` ${styles.containerDomain} ${"container mx-auto sm:px-4 "}`}
       >
@@ -67,7 +72,7 @@ const Offers = ({}: OffersProps) => {
           ))}
         </div>
         <GoBackContainer
-          arrowTitle={`Back to ${domainToLongName(domain)} page`}
+          arrowTitle={`Back to ${domainToLongName(domainClean)} page`}
           link={`/${domain}`}
         />
         <Footer />

@@ -24,7 +24,7 @@ import JobOffersContainer from "./Domain_JobOffersContainer";
 
 export interface JobOffer {
   date: string;
-  roster: ReactNode;
+  roster: JSX.Element;
   created_at: any;
   location: string;
   benefits: string;

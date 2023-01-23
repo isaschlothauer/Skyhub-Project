@@ -158,7 +158,7 @@ function JobOffersPage({ domain }: { domain: string }) {
 
                   <div className={` ${"flex flex-row justify-between"}`}>
                     <div className={`${styles["details"]}`}>
-                      {JobDetails.map((job) => (
+                      {(JobDetails ?? []).map((job) => (
                         <div className={styles["map-individual"]}>
                           <Image
                             src={job.image}
@@ -180,7 +180,7 @@ function JobOffersPage({ domain }: { domain: string }) {
                   <div>
                     <div className={styles["role"]}>Incentives</div>
                     <div className="flex flex-row flex-wrap justify-between">
-                      {JobIncentives.map((incentive) => (
+                      {(JobIncentives ?? []).map((incentive) => (
                         <div className={styles["map-individual"]}>
                           <Image
                             src={incentive.image}
@@ -212,7 +212,7 @@ function JobOffersPage({ domain }: { domain: string }) {
                 <div className={styles["req"]}>
                   <div className={styles["role"]}>Requirements</div>
                   <div className={`${styles["details"]}`}>
-                    {JobReqDetails.map((detail) => (
+                    {(JobReqDetails ?? []).map((detail) => (
                       <div className={styles["map-individual-req"]}>
                         <Image
                           src={detail.image}
@@ -233,7 +233,7 @@ function JobOffersPage({ domain }: { domain: string }) {
                           alt="certificate"
                         />
                         <h2 className={styles.title}>Certificates:</h2>
-                        {certificateValues.map((certi) => (
+                        {(certificateValues ?? []).map((certi) => (
                           <p className={styles.paragraph}>{certi}</p>
                         ))}
                       </div>
