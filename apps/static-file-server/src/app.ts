@@ -15,4 +15,4 @@ app.use(
 
 app.use(express.static("public"));
 
-app.listen(PORT, () => console.log("Static file server running on port", PORT));
+app.listen(PORT, () => console.log("Static file server running on port: http://localhost:", PORT));

@@ -12,9 +12,6 @@ app.get("/", (req, res) => {
   res.send("Hello there!");
 });
 
-// Use company images
-app.use("/images", express.static(path.join(__dirname, "static-file-server/public/images")));
-
 // Database Connection Test
 app.listen(5000, () => {
   if (database.getConnection() == null) {
