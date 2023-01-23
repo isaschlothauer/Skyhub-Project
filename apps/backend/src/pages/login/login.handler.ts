@@ -35,7 +35,7 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
 
         // Credential checking. No matching email case
         if (!userResult) {
-          res.status(401).send("Credentials not valid");
+          res.status(401).send("Invalid email or password");
         } else {
 
           // Email match found. Verifying passwowrd against password hash. 
@@ -65,12 +65,12 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
                     token: jwtoken
                   })
                 } else {
-                  // No JWT_SECRET in .env present. Generate an ad hoc JWT_SECRET in case it is not present.
+                  // No JWT_SECRET in .env present. Generate an ad hoc JWT_SECRET.
                   console.warn("No JWT_SECRET environment variable set. Ad hoc randomly generated JWT_SECRET will be used.")
                   process.env.JWT_SECRET = crypto.randomUUID();
                 }
               } else {
-                res.status(401).send("Credentials not valid");
+                res.status(401).send("Invalid email or password");
               }
             })
         } 
