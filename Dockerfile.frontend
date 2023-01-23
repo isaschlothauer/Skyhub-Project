@@ -1,0 +1,10 @@
+FROM node:16
+
+RUN npm install -g pnpm
+
+COPY . /app
+WORKDIR /app/apps/web
+RUN pnpm install --force
+
+CMD [ "npx", "next", "start" ]
+EXPOSE 3000
