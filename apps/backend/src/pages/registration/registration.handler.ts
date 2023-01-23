@@ -16,10 +16,6 @@ interface RegistrationData {
   tos: string;
 }
 
-interface QueryResults extends RowDataPacket {
-  [field: string]: any;
-} 
-
 export const UserRegistration = (req: Request<{}, {}, RegistrationData>, res: Response): void => {
   const { account_type, account_name, password, email, company, contact_name, phone, tos } = req.body;;
 
