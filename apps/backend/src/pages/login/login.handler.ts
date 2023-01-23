@@ -3,13 +3,25 @@ import { Request, Response } from "express";
 import { OkPacket, RowDataPacket } from "mysql2";
 import database from '../../database';
 import * as argon2 from "argon2";
+import jwt from "jsonwebtoken";
 
 interface Credentials {
   email: string;
   password: string;
   verify: string;
-
 }
+
+interface PayloadResult {
+  sub: number;
+  name: string;
+  email: string;
+  company: string;
+  account_type: string;
+}
+
+// TO DO
+// 1. Create protected route to admin panel
+// 2. Create protected route to job posting page (from admin panel or separate page?)
 
 export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: Response) => {
     const { email } = req.body;
@@ -29,76 +41,35 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
           argon2
             .verify(userResult.password, req.body.verify)
             .then((loginVerified) => {
+              if (loginVerified) {
 
-              // Clear traces of password
-              req.body.verify = "";
-              req.body.password = "";
+              // Web token creation. Payload definition
+              const payload: PayloadResult = { 
+                sub: userResult.id,
+                email: userResult.email,
+                name: userResult.name,
+                company: userResult.company,
+                account_type: userResult.account_type
+              };
 
-              // Verification responses
-              loginVerified == true? 
-              res.status(200).send("Login successful") : res.status(401).send("Please enter a valid email and password");
+                if(process.env.JWT_SECRET){
+                  const token = jwt.sign(payload, process.env.JWT_SECRET.toString(), { expiresIn: "1h" });
 
+                  req.body.verify = "";
+                  req.body.password = "";
+
+                  // Respond with token
+                  res.send({ token });
+
+                }
+              }
             })
         } else {
-          res.status(401).send("Please enter a valid email and password");
+          res.status(401).send("JWT_SECRET not found");
         }
       })
       .catch((err) => {
         console.error(err);
         res.status(401).send("Server error. Unable to process request.");
-      })
-
-
-
-
-
-
-
-
-
-    // argon2
-    //   .verify(passwordHash, req.body.password)
-    //   .then((passwordVerified) => {
-    //     if (passwordVerified) {
-    //       database
-    //        .query("SELECT * FROM users WHERE email =?", [email])
-    //         .then((result) => {
-    //         console.log(result);
-    //         res.status(202).send("Credential accepted");
-    //         })
-    //     }
-    //     else {
-    //       res.status(401).send("Invalid credentials");
-    //     }
-    //   })
-    //   .catch
-    // database
-    //   .query("SELECT * FROM users WHERE passwordHash = ?", [ passwordHash])
-    //   .then(([result]) => {
-    //     console.log(result);
-
-
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //     res.status(500).send("Query cannot be completed");
-    //   })
-} 
-
-// export const Auth: RequestHandler<Credentials> = (req, res) => {
-//   const { email, password } = req.body;
-
-//   console.log(req.body);
-
-  // database
-  //   .query("Select * from users WHERE email = ? and password = ?", [email, passwordHash])
-  //   .then(([result]) => {
-  //     console.log(result);
-
-
-  //   })
-  //   .catch((err) => {
-  //     console.error(err);
-  //     res.status(500).send("Query cannot be completed");
-  //   })
-// } 
+      });
+}

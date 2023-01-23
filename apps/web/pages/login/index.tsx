@@ -75,12 +75,12 @@ const Login = ({ domain }: LoginProps) => {
 
       console.log(result);
 
-      if (result.status === 200) {
-        console.log("Success!");
-      } else {
-        console.log("Error");
+      // if (result.status === 200) {
+      //   console.log("Success!");
+      // } else {
+      //   console.log("Error");
       
-      }
+      // }
 
   })
   .catch((err) => {
