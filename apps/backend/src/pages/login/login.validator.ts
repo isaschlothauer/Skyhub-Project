@@ -15,7 +15,9 @@ export const loginValidator = [
     // console.log(req.body)
 
     if (!errors.isEmpty()) {
-      res.status(422).send("Make sure all fields are correctly filled in");
+      // res.status(422).send("Make sure all fields are correctly filled in");
+      res.status(422).json({ error: "Make sure all fields are correctly filled in" });
+
     } else {
       console.log("Valiation ok");
       next();

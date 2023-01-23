@@ -72,21 +72,12 @@ const Login = ({ domain }: LoginProps) => {
       // Clear login.password
       setLogin({...login, email: "", password: ""});
         
-      // (result.data.length === 1)? setLoginStatus(true) : setLoginStatus(false);
-
       console.log(result);
-
-      // if (result.status === 200) {
-      //   console.log("Success!");
-      // } else {
-        // console.log("Error");
-      
-      // }
-
   })
   .catch((err) => {
-    console.error(err.response.data);
-    setErrorMsg(err.response.data);
+
+    // A bit convoluted. Might want to look into it later
+    setErrorMsg(err.response.data.error || err.response.data);
 
 
   })

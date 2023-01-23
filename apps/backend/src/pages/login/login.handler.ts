@@ -70,7 +70,9 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
                   process.env.JWT_SECRET = crypto.randomUUID();
                 }
               } else {
-                res.status(401).send("Invalid email or password");
+                // res.status(401).send("Invalid email or password");
+                res.status(401).json({ error: "Invalid email or password" });
+
               }
             })
         } 
