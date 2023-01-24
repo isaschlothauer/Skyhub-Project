@@ -17,25 +17,32 @@
 
 // styles for AirlineInfoTiles
 .main-tiles-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 90%;
+    //display: flex;
+    //flex-direction: row;
+    //flex-wrap: wrap;
+    //justify-content: center;
+   // height: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr );
     margin-bottom: 1rem;
+    gap: 0.5rem;
 
 .small-tiles {
-    min-width: 40%;
-    //flex: 1 0 calc(50% - 26px);
-    height: 10rem;
+    height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    margin: 16px;
+    gap: 1rem;
+    margin: 0.5rem;
     background: #FFFFFF;
     border-radius: 15px;
-    padding: 1rem;
+    padding: 0.5rem;
+
+    img {
+        height: 2rem;
+        width: 2rem;
+    }
 
 }
 }
