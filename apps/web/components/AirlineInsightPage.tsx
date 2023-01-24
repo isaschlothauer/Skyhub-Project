@@ -26,41 +26,33 @@ export default function AirlineInsight({
       {/*airline information container*/}
 
       <div
-        className={
-          "mx-auto container relative z-10 mobile:top-[15.625rem] tablet:top-[16.25rem] pc:top-[20rem]"
-        }
+        className={`container shadow-main p-4 mobile:top-[15.625rem] tablet:top-[16.25rem] pc:top-[20rem] ${styles["airline-information-tile"]}`}
       >
-        <div
-          className={`container shadow-main p-4 ${styles["airline-information-container"]}`}
-        >
-          <p className={"nunito text-[#000e94] text-xl font-extrabold mt-4 "}>
-            Airline Information
-          </p>
-          <Image
-            className={`object-contain ${styles["airline-logo"]}`}
-            alt="Logo"
-            src={`https://pilot.skyhub.staging.d-a-pfeiffer.info/${airlineInfo.src}`}
-            width={airlineInfo.width}
-            height={airlineInfo.height}
-          />
-          <p className={"nunito text-[#727481] leading-7"}>Company Name</p>
-          <h2
-            className={"nunito text-pink-primary font-extrabold text-xl mb-4 "}
-          >
-            {airlineInfo.name}
-          </h2>
-          <AirlineInfoTiles airlineInfo={airlineInfo} />
-        </div>
+        <h2 className={"nunito text-[#000e94] text-xl font-extrabold mt-4 "}>
+          Airline Information
+        </h2>
+        <Image
+          className={`object-contain ${styles["airline-logo"]}`}
+          alt="Logo"
+          src={`https://pilot.skyhub.staging.d-a-pfeiffer.info/${airlineInfo.src}`}
+          width={airlineInfo.width}
+          height={airlineInfo.height}
+        />
+        <p className={"nunito text-[#727481] leading-7"}>Company Name</p>
+        <h2 className={"nunito text-pink-primary font-extrabold text-xl mb-4 "}>
+          {airlineInfo.name}
+        </h2>
+        <AirlineInfoTiles airlineInfo={airlineInfo} />
       </div>
       {/*airline information container ends*/}
 
       {/*aircraft fleet and aircraft orders tile*/}
       <div
-        className={`container shadow-main pt-4 pb-7 px-7 ${styles["aircraft-fleet-and-orders"]}`}
+        className={`container shadow-main pt-4 pb-7 px-7 ${styles["aircraft-fleet-and-orders-tile"]}`}
       >
-        <div className={styles["img-and-h2"]}>
+        <div className={styles["img-and-h2-container"]}>
           <Image src={aircraft} alt={"aircraft-img"} />
-          <h2 className={"nunito text-pink-primary font-bold"}>
+          <h2 className={"nunito text-[#000e94] text-xl font-extrabold"}>
             Aircraft Fleet
           </h2>
         </div>
@@ -70,9 +62,9 @@ export default function AirlineInsight({
             __html: airlineInfo.fleet,
           }}
         ></p>
-        <div className={styles["img-and-h2"]}>
+        <div className={styles["img-and-h2-container"]}>
           <Image src={aircraft} alt={"aircraft-img"} />
-          <h2 className={"nunito text-pink-primary font-bold"}>
+          <h2 className={"nunito text-[#000e94] text-xl font-extrabold"}>
             Aircraft Orders
           </h2>
         </div>
@@ -86,11 +78,15 @@ export default function AirlineInsight({
       {/*end of aircraft fleet and aircraft orders tile*/}
 
       {/*assesment tile*/}
-      <div className={`container shadow-main ${styles[`assesment-${domain}`]}`}>
-        <h2 className={"nunito text-[#000000] font-bold mb-4"}>
+      <div
+        className={`container shadow-main ${
+          styles[`assessment-tile-${domain}`]
+        }`}
+      >
+        <h2 className={"nunito text-[#000e94] text-xl font-extrabold mb-4"}>
           {airlineInfo.name + " " + airlineInfo.job_type}{" "}
-          <span className={"nunito text-pink-primary font-bold "}>
-            assesment
+          <span className={"nunito text-pink-primary font-extrabold "}>
+            assessment
           </span>{" "}
           consists of:
         </h2>
@@ -98,7 +94,7 @@ export default function AirlineInsight({
           {airlineInfo.assessments.split("\n").map((line, index) => (
             <div key={index}>
               <div
-                className={styles["list"]}
+                className={styles["assessment-tile-list"]}
                 dangerouslySetInnerHTML={{ __html: line }}
               ></div>
             </div>
@@ -108,16 +104,20 @@ export default function AirlineInsight({
       {/*end of assesment tile*/}
 
       {/*airline benefits tile*/}
-      <div>
-        <h2>Airline Benefits</h2>
+      <div
+        className={`container shadow-main ${styles["airline-benefits-tile"]}`}
+      >
+        <h2 className={"nunito text-[#000e94] text-xl font-extrabold mb-4"}>
+          Airline Benefits
+        </h2>
         <p
-          className={`nunito ${styles["benefits-text"]}`}
+          className={`nunito ${styles["airline-benefits-tile-text"]}`}
           dangerouslySetInnerHTML={{
             __html: airlineInfo.benefits,
           }}
         ></p>
       </div>
-      {/*airline benefits tile*/}
+      {/*end of airline benefits tile*/}
     </div>
   );
 }
