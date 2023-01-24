@@ -1,18 +1,18 @@
 import Image, { StaticImageData } from "next/image";
 
-interface SalaryMobile {
+interface SalaryRow {
   iconSalary: StaticImageData;
   iconHeight?: number;
   salaryType: string;
   salaryValue: number;
 }
 
-export default function SalaryMobile({
+export default function SalaryRow({
   iconSalary,
   iconHeight,
   salaryType,
   salaryValue,
-}: SalaryMobile) {
+}: SalaryRow) {
   return (
     <div className="flex flex-row justify-between ">
       <div className="flex flex-row relative">
