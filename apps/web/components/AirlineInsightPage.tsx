@@ -5,11 +5,66 @@ import SalaryTablet from "./SalaryTablet";
 
 import styles from "./airline_insight_page.module.scss";
 
-export interface GeneralAirlineProps {
+// images
+import IconRankCaptain from "../assets/images/icons/icon-rank-captain.png";
+import IconRankSFO from "../assets/images/icons/icon-rank-sfo.png";
+import IconRankFO from "../assets/images/icons/icon-rank-fo.png";
+import IconRankSO from "../assets/images/icons/icon-rank-so.png";
+import { StaticImageData } from "next/image";
+
+export type GeneralAirlineProps = {
   domain: string;
   slug: string;
   airlineInfo: AirlineInformationType;
-}
+};
+
+export type AirlineSalary = {
+  title: string;
+  min: number;
+  avg: number;
+  max: number;
+  icon: StaticImageData;
+};
+export type AirlineSalaries = {
+  [key: string]: AirlineSalary[];
+};
+
+const buildSalaries = (
+  airlineInfo: AirlineInformationType
+): AirlineSalaries => {
+  return {
+    pilot: [
+      {
+        title: "Captain",
+        min: airlineInfo.salary_captain_min,
+        avg: airlineInfo.salary_captain_avg,
+        max: airlineInfo.salary_captain_max,
+        icon: IconRankCaptain,
+      },
+      {
+        title: "Senior First Officer",
+        min: airlineInfo.salary_sfo_min,
+        avg: airlineInfo.salary_sfo_avg,
+        max: airlineInfo.salary_sfo_max,
+        icon: IconRankSFO,
+      },
+      {
+        title: "First Officer",
+        min: airlineInfo.salary_fo_min,
+        avg: airlineInfo.salary_fo_avg,
+        max: airlineInfo.salary_fo_max,
+        icon: IconRankFO,
+      },
+      {
+        title: "Second Officer",
+        min: airlineInfo.salary_so_min,
+        avg: airlineInfo.salary_so_avg,
+        max: airlineInfo.salary_so_max,
+        icon: IconRankSO,
+      },
+    ],
+  };
+};
 
 export default function AirlineInsight({
   domain,
@@ -17,7 +72,7 @@ export default function AirlineInsight({
   airlineInfo,
 }: GeneralAirlineProps) {
   if (airlineInfo == null) return <p>Loading...</p>;
-
+  const salaries = buildSalaries(airlineInfo);
   return (
     <div>
       <Mini_Header title={"Airline Insight"} Scssdomain={domain} />
@@ -33,58 +88,14 @@ export default function AirlineInsight({
           {airlineInfo.name}
         </div>
         <div className="mx-auto container relative z-10 mobile:top-[15.625rem] tablet:top-[16.25rem] pc:top-[20rem]">
-          <SalaryMobile
-            jobTitle={"Captain"}
-            maxSalary={airlineInfo.salary_captain_max}
-            avgSalary={airlineInfo.salary_captain_avg}
-            minSalary={airlineInfo.salary_captain_min}
-          />
+          {salaries[domain].map((salary) => (
+            <SalaryMobile key={salary.title} salary={salary} />
+          ))}
 
-          <SalaryMobile
-            jobTitle={"Senior First Officer"}
-            maxSalary={airlineInfo.salary_sfo_max}
-            avgSalary={airlineInfo.salary_sfo_avg}
-            minSalary={airlineInfo.salary_sfo_min}
-          />
-
-          <SalaryMobile
-            jobTitle={"First Officer"}
-            maxSalary={airlineInfo.salary_fo_max}
-            avgSalary={airlineInfo.salary_fo_avg}
-            minSalary={airlineInfo.salary_fo_min}
-          />
-
-          <SalaryMobile
-            jobTitle={"Second Officer"}
-            maxSalary={airlineInfo.salary_so_max}
-            avgSalary={airlineInfo.salary_so_avg}
-            minSalary={airlineInfo.salary_so_min}
-          />
           <div className="grid grid-cols-2 gap-8 ">
-            <SalaryTablet
-              jobTitle={"Captain"}
-              maxSalary={airlineInfo.salary_captain_max}
-              avgSalary={airlineInfo.salary_captain_avg}
-              minSalary={airlineInfo.salary_captain_min}
-            />
-            <SalaryTablet
-              jobTitle={"Senior First Officer"}
-              maxSalary={airlineInfo.salary_sfo_max}
-              avgSalary={airlineInfo.salary_sfo_avg}
-              minSalary={airlineInfo.salary_sfo_min}
-            />
-            <SalaryTablet
-              jobTitle={"First Officer"}
-              maxSalary={airlineInfo.salary_fo_max}
-              avgSalary={airlineInfo.salary_fo_avg}
-              minSalary={airlineInfo.salary_fo_min}
-            />
-            <SalaryTablet
-              jobTitle={"Second Officer"}
-              maxSalary={airlineInfo.salary_so_max}
-              avgSalary={airlineInfo.salary_so_avg}
-              minSalary={airlineInfo.salary_so_min}
-            />
+            {salaries[domain].map((salary) => (
+              <SalaryTablet key={salary.title} salary={salary} />
+            ))}
           </div>
         </div>
       </div>

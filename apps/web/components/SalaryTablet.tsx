@@ -10,67 +10,39 @@ import IconRankCaptain from "../assets/images/icons/icon-rank-captain.png";
 import IconRankSFO from "../assets/images/icons/icon-rank-sfo.png";
 import IconRankFO from "../assets/images/icons/icon-rank-fo.png";
 import IconRankSO from "../assets/images/icons/icon-rank-so.png";
+import { AirlineSalary } from "./AirlineInsightPage";
 
-interface SalaryTabletProps {
-  icon?: StaticImageData;
-  jobTitle: string;
-  maxSalary?: number;
-  avgSalary?: number;
-  minSalary?: number;
-}
-
-const rankIcons: { [key: string]: StaticImageData } = {
-  Captain: IconRankCaptain,
-  "Senior First Officer": IconRankSFO,
-  "First Officer": IconRankFO,
-  "Second Officer": IconRankSO,
+type SalaryTabletProps = {
+  salary: AirlineSalary;
 };
 
-export default function SalaryTablet({
-  icon,
-  jobTitle,
-  maxSalary,
-  avgSalary,
-  minSalary,
-}: SalaryTabletProps) {
+export default function SalaryTablet({ salary }: SalaryTabletProps) {
   const isTablet = useMediaQuery("(min-width: 501px) and (max-width: 885px)");
   return (
     <>
-      {isTablet && (maxSalary || avgSalary || minSalary) ? (
+      {isTablet && (salary.max || salary.avg || salary.min) ? (
         <div className="flex flex-col  rounded-[15px] bg-white shadow-main px-6 pt-3 pb-6 gap-5">
-          <div className="flex flex-row justify-center items-center relative mb-2 mt-3">
-            <Image
-              src={icon || rankIcons[jobTitle]}
-              alt={` ${jobTitle} rank icon`}
-              className=" object-contain h-7 w-10"
-            />
-            <h3 className=" text-[#000e94] text-base font-extrabold pl-2 ">
-              {jobTitle}
-            </h3>
-          </div>
-          {maxSalary && (
-            <SalaryRow
-              iconSalary={IconMaxSalary}
-              iconHeight={19}
-              salaryType="Maximum Salary"
-              salaryValue={maxSalary}
-            />
-          )}
-          {avgSalary && (
-            <SalaryRow
-              iconSalary={IconAvgSalary}
-              salaryType="Average Salary"
-              salaryValue={avgSalary}
-            />
-          )}
-          {minSalary && (
-            <SalaryRow
-              iconSalary={IconMinSalary}
-              iconHeight={19}
-              salaryType="Minimum Salary"
-              salaryValue={minSalary}
-            />
-          )}
+          <SalaryTitle icon={salary.icon} jobTitle={salary.title} />
+
+          <SalaryRow
+            iconSalary={IconMaxSalary}
+            iconHeight={19}
+            salaryType="Maximum Salary"
+            salaryValue={salary.max}
+          />
+
+          <SalaryRow
+            iconSalary={IconAvgSalary}
+            salaryType="Average Salary"
+            salaryValue={salary.avg}
+          />
+
+          <SalaryRow
+            iconSalary={IconMinSalary}
+            iconHeight={19}
+            salaryType="Minimum Salary"
+            salaryValue={salary.min}
+          />
         </div>
       ) : (
         <></>
