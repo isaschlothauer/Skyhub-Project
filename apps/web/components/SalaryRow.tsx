@@ -30,14 +30,14 @@ export default function SalaryRow({
             <p className=" text-pink-primary font-bold pl-2 ">{salaryType}</p>
           </div>
           <p className=" text-dark-gray font-medium whitespace-nowrap">
-            {salaryValue?.toLocaleString("en-US") || "---"} €
+            {salaryValue?.toLocaleString("en-US").concat(" €") || "-"}
           </p>
         </div>
       )}
       {isTablet && (
         <div className="flex flex-col justify-center items-center">
           <p className=" text-dark-gray font-medium whitespace-nowrap">
-            {salaryValue?.toLocaleString("en-US") || "---"} €
+            {salaryValue?.toLocaleString("en-US").concat(" €") || "-"}
           </p>
           <div className="flex flex-row relative mt-1">
             <Image
