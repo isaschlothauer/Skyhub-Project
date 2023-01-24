@@ -18,7 +18,7 @@ export default function AirlineTile({ logo, title, slug }: ArilineTileProps) {
         <Image className=" object-contain" alt="Logo" src={logo} fill />
       </div>
 
-      <h3 className="nunito text-[#000e94] text-sm font-extrabold mb-6 md:text-base">
+      <h3 className="nunito text-[#000e94] text-center text-sm font-extrabold mb-6 md:text-base">
         {title}
       </h3>
       <a href={`/${router.query.domain}/insights/${slug}`}>
