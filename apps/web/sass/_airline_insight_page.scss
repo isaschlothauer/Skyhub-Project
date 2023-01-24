@@ -1,7 +1,210 @@
-.airline-information-container {
+
+// styles in AirlineInsightPage
+.airline-information-tile {
     position: relative;
     z-index: 2;
     border-radius: 25px;
     background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
+
+    .airline-logo {
+        height: 8rem;
+        width: 20rem;
+    }
+}
+
+.aircraft-fleet-and-orders-tile {
+    width: 90%;
+    background: #FFFFFF;
+    margin-top: 17.5rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    line-height: 1.8rem;
+
+    .img-and-h2-container {
+        display: flex;
+        gap: 1rem;
+        margin: 1rem 0;
+      }
+
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+}
+
+.assessment-tile-pilot {
+    width: 90%;
+    border-radius: 25px;
+    background-color: $pilot-tile-airline;
+    background-size: cover;
+    padding: 28px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.assessment-tile-cabin {
+    width: 90%;
+    border-radius: 25px;
+    background-color: $cabin-tile-airline;
+    background-size: cover;
+    padding: 28px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+.assessment-tile-atc {
+    width: 90%;
+    border-radius: 25px;
+    background-color: $atc-tile-airline;
+    background-size: cover;
+    padding: 1.75rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .assessment-tile-list {
+    list-style-image: url("../../.././apps/web/assets/images/icons/checkbox.png");
+    line-height: 1.8rem;
+    p {
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+        font-style: italic;
+    }
+  }
+
+  .airline-benefits-tile{
+    width: 90%;
+    border-radius: 25px;
+    background: #FFFFFF;
+    margin: 2rem auto;
+    padding: 1.75rem;
+    line-height: 1.8rem;
+
+  .airline-benefits-tile-text {
+    color: #727481;
+
+    strong {
+        color: #ec008c;
+    }
+
+  }
+}
+
+// styles in AirlineInfoTiles
+.main-tiles-container {
+    //display: flex;
+    //flex-direction: row;
+    //flex-wrap: wrap;
+    //justify-content: center;
+   // height: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr );
+    margin: 2rem 0;
+    gap: 0.5rem;
+
+.small-tiles {
+    height: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem;
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 0.5rem;
+
+    img {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+    h2, p {
+        font-size: 0.7rem;
+    }
+
+}
+}
+
+
+@media (min-width: 400px) {
+// styles in AirlineInfoTiles
+.main-tiles-container {
+.small-tiles {
     height: 10rem;
+
+    img {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    h2, p {
+        font-size: 1rem;
+    }
+
+}
+}
+}
+
+
+@media (min-width: 427px) {
+ // styles in AirlineInsightPage
+.aircraft-fleet-and-orders-tile {
+    margin-top: 18.4rem;
+}
+}
+
+@media (min-width: 600px) {
+    // styles in AirlineInfoTiles
+    .main-tiles-container {
+    .small-tiles {
+        height: 12rem;
+        width: 12rem;
+    
+        img {
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+    
+    }
+ }
+
+ // styles in AirlineInsightPage
+.airline-information-tile {
+   width: 80%;
+   margin-left: auto;   
+   margin-right: auto;
+}
+
+.aircraft-fleet-and-orders-tile,
+.assessment-tile-pilot, 
+.assessment-tile-cabin, 
+.assessment-tile-atc,
+.airline-benefits-tile {
+    width: 80%;
+    padding-left: 3rem;
+  }
+
+}
+
+@media (min-width: 770px) {
+  // styles in AirlineInfoTiles
+  .main-tiles-container {
+    .small-tiles {
+      height: 14rem;
+      width: 14rem;
+    }
+   }
+
+// styles in AirlineInsightPage
+.aircraft-fleet-and-orders-tile {
+   margin-top: 22rem;
+}
 }
