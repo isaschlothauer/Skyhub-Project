@@ -88,23 +88,14 @@ const Login = ({ domain }: LoginProps) => {
   function submitBehavior(event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
 
-<<<<<<< HEAD
     axios
-      .post("http://localhost:5000/auth", login)
+      .post("http://localhost:5000/auth", login, {
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+      })
       .then((res: AxiosResponse<LoginResponseData>) => {
-        // Clear login.password
-        setLogin({ ...login, email: "", password: "" });
-=======
-  axios
-    .post('http://localhost:5000/auth', login, {
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-    })
-    .then((res: AxiosResponse<LoginResponseData>) => {
->>>>>>> f05f2cde66351ec2c4c4b42112b20f9e81dd44fe
-
         if (res.data.token == null) {
           console.error("No authentication token", res.data.error);
           return;
