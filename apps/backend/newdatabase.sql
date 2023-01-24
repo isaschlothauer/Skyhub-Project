@@ -20672,17 +20672,19 @@ CREATE TABLE
 CREATE TABLE
     `users` (
         `id` int(10) UNSIGNED NOT NULL,
+        `account_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT ' ',
         `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
         `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
         `email_verified_at` timestamp NULL DEFAULT NULL,
         `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
         `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-        `created_at` timestamp NULL DEFAULT NULL,
-        `updated_at` timestamp NULL DEFAULT NULL,
+        `created_at` timestamp default NOW(),
+        `updated_at` timestamp default NULL ON UPDATE NOW(),
         `access` int(11) NOT NULL DEFAULT 0,
         `company_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
         `contact_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-        `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+        `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+        `tos` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT ' '
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
 --
@@ -20694,6 +20696,7 @@ CREATE TABLE
 INSERT INTO
     `users` (
         `id`,
+        `account_type`,
         `name`,
         `email`,
         `email_verified_at`,
@@ -20704,10 +20707,12 @@ INSERT INTO
         `access`,
         `company_name`,
         `contact_name`,
-        `phone`
+        `phone`,
+        `tos`
     )
 VALUES (
         1,
+        '',
         'admin',
         'philipp.hochstetter+skyhub.admin@yahoo.de',
         '2021-12-10 17:14:18',
@@ -20718,9 +20723,11 @@ VALUES (
         1,
         NULL,
         NULL,
-        NULL
+        NULL,
+        ''
     ), (
         2,
+        '',
         'philipp',
         'philipp.hochstetter+skyhub.philipp@yahoo.de',
         '2022-04-26 20:36:28',
@@ -20731,9 +20738,11 @@ VALUES (
         32,
         NULL,
         NULL,
-        NULL
+        NULL,
+        ''
     ), (
         3,
+        '',
         'ryanair',
         'philipp.hochstetter+skyhub.ryanair@yahoo.de',
         '2021-12-14 14:14:57',
@@ -20744,9 +20753,11 @@ VALUES (
         8,
         'Ryanair',
         'Ryanair Recruitment',
-        '+3531234567'
+        '+3531234567',
+        ''
     ), (
         4,
+        '',
         'test',
         'philipp.hochstetter+skyhub.test@yahoo.de',
         '2021-12-14 13:53:58',
@@ -20757,9 +20768,11 @@ VALUES (
         8,
         'test',
         'test',
-        '123456789'
+        '123456789',
+        ''
     ), (
         5,
+        '',
         'david-alexander-pfeiffer',
         'david.pfeiffer971@gmail.com',
         NULL,
@@ -20770,7 +20783,8 @@ VALUES (
         1,
         'David Alexander Pfeiffer Software & IT',
         'David Alexander Pfeiffer',
-        '+491735675204'
+        '+491735675204',
+        ''
     );
 
 -- --------------------------------------------------------

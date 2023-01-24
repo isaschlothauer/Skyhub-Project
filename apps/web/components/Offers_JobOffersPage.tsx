@@ -12,7 +12,6 @@ import styles from "./offers_JobOffersPage.module.scss";
 {
   /* IMG */
 }
-import jobImg from "../../web/assets/images/miscellaneous/job_logo_testing.png";
 import contract from "../assets/images/icons/contract2.png";
 import location from "../assets/images/icons/base.png";
 import date from "../assets/images/icons/calendar.png";
@@ -38,6 +37,7 @@ import DOMPurify from "dompurify";
 function JobOffersPage({ domain }: { domain: string }) {
   const router = useRouter();
   const { id } = router.query;
+
   const jobs = useAxios<JobOffer[]>({
     url: `http://localhost:5000/jobs/offers?domain=${domain}&id=${id}`,
     initialValue: [],
@@ -48,6 +48,19 @@ function JobOffersPage({ domain }: { domain: string }) {
       })),
   });
 
+  const airlineName = jobs[0] != null ? jobs[0].airline : undefined;
+  const imageSRC = useAxios<JobOffer[]>({
+    url: `http://localhost:5000/images?airline=${airlineName}`,
+    initialValue: [],
+  });
+
+  const apiUrlImages = "http://localhost:5080/static";
+
+  const mainImage =
+    imageSRC[0] != null ? apiUrlImages.concat(imageSRC[0].source) : undefined;
+
+  console.log(airlineName);
+  console.log(mainImage);
   {
     /* javascript-time-ago shenaningans */
   }
@@ -133,7 +146,7 @@ function JobOffersPage({ domain }: { domain: string }) {
       : undefined;
 
   const certificateValues =
-    jobs[0] != undefined ? jobs[0].certificates.split(",", 2) : undefined;
+    jobs[0] != undefined ? jobs[0].certificates.split(", ") : undefined;
 
   // console.log(certificateValues);
   return (
@@ -149,7 +162,7 @@ function JobOffersPage({ domain }: { domain: string }) {
                   <div className={styles["role"]}>Offer</div>
                   <div className={styles["offer-images"]}>
                     <div className={styles["offer-companyimage"]}>
-                      <Image src={jobImg} alt={"offer-img"} />
+                      <Image src={mainImage} width={250} height={250} alt={"offer-img"} />
                     </div>
                     <div className={styles["offer-company-name"]}>
                       {jobs[0].airline}
@@ -158,7 +171,7 @@ function JobOffersPage({ domain }: { domain: string }) {
 
                   <div className={` ${"flex flex-row justify-between"}`}>
                     <div className={`${styles["details"]}`}>
-                      {JobDetails.map((job) => (
+                      {(JobDetails ?? []).map((job) => (
                         <div className={styles["map-individual"]}>
                           <Image
                             src={job.image}
@@ -180,7 +193,7 @@ function JobOffersPage({ domain }: { domain: string }) {
                   <div>
                     <div className={styles["role"]}>Incentives</div>
                     <div className="flex flex-row flex-wrap justify-between">
-                      {JobIncentives.map((incentive) => (
+                      {(JobIncentives ?? []).map((incentive) => (
                         <div className={styles["map-individual"]}>
                           <Image
                             src={incentive.image}
@@ -212,7 +225,7 @@ function JobOffersPage({ domain }: { domain: string }) {
                 <div className={styles["req"]}>
                   <div className={styles["role"]}>Requirements</div>
                   <div className={`${styles["details"]}`}>
-                    {JobReqDetails.map((detail) => (
+                    {(JobReqDetails ?? []).map((detail) => (
                       <div className={styles["map-individual-req"]}>
                         <Image
                           src={detail.image}
@@ -233,7 +246,7 @@ function JobOffersPage({ domain }: { domain: string }) {
                           alt="certificate"
                         />
                         <h2 className={styles.title}>Certificates:</h2>
-                        {certificateValues.map((certi) => (
+                        {(certificateValues ?? []).map((certi) => (
                           <p className={styles.paragraph}>{certi}</p>
                         ))}
                       </div>

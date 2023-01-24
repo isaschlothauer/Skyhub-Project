@@ -18,7 +18,7 @@ import arrowButton from "../assets/images/icons/arrow-right-pink.png";
 }
 import { LearnMoreArrow } from "./ArrowButton";
 
-function AirLineContainer({ domain }) {
+function AirLineContainer({ domain }: { domain: string }) {
   return (
     <div className={"container mx-auto sm:px-1 mb-10"}>
       <div className={`${styles.mainContainer} ${styles[`insight-${domain}`]}`}>
