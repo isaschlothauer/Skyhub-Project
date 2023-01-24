@@ -11,6 +11,7 @@ import IconRankSFO from "../assets/images/icons/icon-rank-sfo.png";
 import IconRankFO from "../assets/images/icons/icon-rank-fo.png";
 import IconRankSO from "../assets/images/icons/icon-rank-so.png";
 import { StaticImageData } from "next/image";
+import SalaryDesktop from "./SalaryDesktop";
 
 export type GeneralAirlineProps = {
   domain: string;
@@ -97,6 +98,7 @@ export default function AirlineInsight({
               <SalaryTablet key={salary.title} salary={salary} />
             ))}
           </div>
+          <SalaryDesktop salaries={salaries[domain]} />
         </div>
       </div>
     </div>
