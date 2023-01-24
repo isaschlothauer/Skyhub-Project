@@ -159,18 +159,6 @@ export default function AirlineInsight({
             </div>
           ))}
         </div>
-        <div className="mx-auto container relative z-10 mobile:top-[15.625rem] tablet:top-[16.25rem] pc:top-[20rem]">
-          {salaries[domain].map((salary) => (
-            <SalaryMobile key={salary.title} salary={salary} />
-          ))}
-
-          <div className="grid grid-cols-2 gap-8 ">
-            {salaries[domain].map((salary) => (
-              <SalaryTablet key={salary.title} salary={salary} />
-            ))}
-          </div>
-          <SalaryDesktop salaries={salaries[domain]} />
-        </div>
       </div>
       {/*end of assesment tile*/}
 
@@ -189,6 +177,21 @@ export default function AirlineInsight({
         ></p>
       </div>
       {/*end of airline benefits tile*/}
+      <div className="mx-auto container relative z-10 ">
+        <h2 className="text-xl font-extrabold mb-4 ml-7 pt-4 text-[#000e94] ">
+          Airline Salaries
+        </h2>
+        {salaries[domain].map((salary) => (
+          <SalaryMobile key={salary.title} salary={salary} />
+        ))}
+
+        <div className="grid grid-cols-2 gap-8 ">
+          {salaries[domain].map((salary) => (
+            <SalaryTablet key={salary.title} salary={salary} />
+          ))}
+        </div>
+        <SalaryDesktop salaries={salaries[domain]} />
+      </div>
     </div>
   );
 }

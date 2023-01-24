@@ -51,8 +51,8 @@ export default function SalaryDesktop({ icon, salaries }: SalaryDesktopProps) {
   const salaryRows = buildSalaryRows(salaries);
   return (
     <>
-      <div className="container mx-auto shadow-main rounded-[15px] px-11 py-9">
-        {isDesktop && (
+      {isDesktop && (
+        <div className="container mx-auto shadow-main rounded-[15px] px-11 py-9">
           <table className="table-fixed w-full">
             <thead>
               <tr>
@@ -93,8 +93,8 @@ export default function SalaryDesktop({ icon, salaries }: SalaryDesktopProps) {
               ))}
             </tbody>
           </table>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 }
