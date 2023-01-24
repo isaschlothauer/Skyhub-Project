@@ -34,7 +34,6 @@ const Offers = ({}: OffersProps) => {
     initialValue: [],
   });
 
-
   const airlineName = jobs[0] != null ? jobs[0].company : undefined;
   const imageSRC = useAxios<JobOffer[]>({
     url: `http://localhost:5000/images?airline=${airlineName}`,

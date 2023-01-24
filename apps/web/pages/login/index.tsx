@@ -85,7 +85,12 @@ const Login = ({ domain }: LoginProps) => {
   event.preventDefault();
 
   axios
-    .post('http://localhost:5000/auth', login)
+    .post('http://localhost:5000/auth', login, {
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    })
     .then((res: AxiosResponse<LoginResponseData>) => {
 
       // Clear login.password

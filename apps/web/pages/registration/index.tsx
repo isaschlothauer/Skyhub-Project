@@ -120,7 +120,12 @@ const Registration = ({ domain }: RegistrationProps) => {
 
     // User registration post process
     axios
-    .post("http://localhost:5000/register", registration) // Does axios header need to be specified? So far it works even without header...
+    .post("http://localhost:5000/register", registration, {
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    }) // Does axios header need to be specified? So far it works even without header...
     .then((result) => {
 
       // Clearing useState for all fields and checkboxes
