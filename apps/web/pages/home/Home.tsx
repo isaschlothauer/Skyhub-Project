@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { useEffect } from "react";
 
 {
   /*STYLES*/
@@ -29,6 +30,7 @@ import PilotTile from "../../assets/images/widget/PilotWidgetMainPage.jpg";
 import CabinTile from "../../assets/images/widget/CabinWidgetMainPage.jpg";
 import ATCTile from "../../assets/images/widget/ATCWidgetMainPage.jpg";
 import CrossandSquare from "../../assets/images/branding/branding-3.png";
+import jwt_decode from 'jwt-decode';
 
 const loginregButtons = [
   {
@@ -97,6 +99,27 @@ const Home = () => {
   // check if localStorage.auth_token exists.
   // Protected path to admin panel still have to be setup.
   const { authToken, setAuthToken } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (window.localStorage.auth_token !== null) {
+      console.log(window.localStorage);
+      setAuthToken(window.localStorage.auth_token);
+
+      // const token = window.localStorage.auth_token;
+      // let decoded = jwt_decode(token);
+
+      // console.log(decoded);
+      // const authenticationToken = window.localStorage.auth_token;
+
+      
+
+      // console.log(authenticationToken);
+    } else {
+      console.log("localStorage is null");
+    }
+  }, [authToken])
+
+  // console.log(window.localStorage);
   return (
     <div className={styles["mainpage"]}>
       <div
