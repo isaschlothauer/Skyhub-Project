@@ -35,6 +35,10 @@ export const UserRegistration = (req: Request<{}, {}, RegistrationData>, res: Re
             console.log(result);
             res.status(201).send("Account created");
           })
+          .catch((err) => {
+            console.error(err);
+            res.status(500).send("Query cannot be completed");
+          });
       }
     })
       .catch((err) => {
