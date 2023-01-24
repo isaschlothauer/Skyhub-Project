@@ -1,6 +1,7 @@
 import * as React from "react";
 import Mini_Header from "./Header";
 import SalaryMobile from "./SalaryMobile";
+import SalaryTablet from "./SalaryTablet";
 
 import styles from "./airline_insight_page.module.scss";
 
@@ -59,6 +60,32 @@ export default function AirlineInsight({
             avgSalary={airlineInfo.salary_so_avg}
             minSalary={airlineInfo.salary_so_min}
           />
+          <div className="grid grid-cols-2 gap-8 ">
+            <SalaryTablet
+              jobTitle={"Captain"}
+              maxSalary={airlineInfo.salary_captain_max}
+              avgSalary={airlineInfo.salary_captain_avg}
+              minSalary={airlineInfo.salary_captain_min}
+            />
+            <SalaryTablet
+              jobTitle={"Senior First Officer"}
+              maxSalary={airlineInfo.salary_sfo_max}
+              avgSalary={airlineInfo.salary_sfo_avg}
+              minSalary={airlineInfo.salary_sfo_min}
+            />
+            <SalaryTablet
+              jobTitle={"First Officer"}
+              maxSalary={airlineInfo.salary_fo_max}
+              avgSalary={airlineInfo.salary_fo_avg}
+              minSalary={airlineInfo.salary_fo_min}
+            />
+            <SalaryTablet
+              jobTitle={"Second Officer"}
+              maxSalary={airlineInfo.salary_so_max}
+              avgSalary={airlineInfo.salary_so_avg}
+              minSalary={airlineInfo.salary_so_min}
+            />
+          </div>
         </div>
       </div>
     </div>
