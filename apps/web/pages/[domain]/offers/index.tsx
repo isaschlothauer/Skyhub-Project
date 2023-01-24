@@ -34,7 +34,6 @@ const Offers = ({}: OffersProps) => {
     initialValue: [],
   });
 
-
   const airlineName = jobs[0] != null ? jobs[0].company : undefined;
   const imageSRC = useAxios<JobOffer[]>({
     url: `http://localhost:5000/images?airline=${airlineName}`,
@@ -47,7 +46,7 @@ const Offers = ({}: OffersProps) => {
     imageSRC[0] != null ? apiUrlImages.concat(imageSRC[0].source) : undefined;
 
   console.log(airlineName);
-  console.log(mainImage);cd pro
+  console.log(mainImage);
 
   {
     /* javascript-time-ago shenaningans */
