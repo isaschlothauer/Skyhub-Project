@@ -49,7 +49,6 @@ const ContactUs = ({ domain }: ContactProps) => {
   //if the input is invalid
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault();
-    console.log("Sending");
 
     axios
       .post("http://localhost:5000/contact-form", inputFields, {
@@ -60,9 +59,7 @@ const ContactUs = ({ domain }: ContactProps) => {
       })
       //if information provided by user is valid proceed to submit
       .then((res) => {
-        console.log("Response received");
         if (res.status === 201) {
-          console.log("Response succeeded!");
           setIsSubmitted(true);
           setInputFields({
             first_name: "",

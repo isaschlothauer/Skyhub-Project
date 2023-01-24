@@ -4,7 +4,7 @@ interface SalaryMobile {
   iconSalary: StaticImageData;
   iconHeight?: number;
   salaryType: string;
-  salaryValue: string;
+  salaryValue: number;
 }
 
 export default function SalaryMobile({
@@ -25,7 +25,7 @@ export default function SalaryMobile({
         <p className=" text-pink-primary font-bold pl-2 ">{salaryType}</p>
       </div>
       <p className=" text-dark-gray font-medium whitespace-nowrap">
-        {salaryValue}
+        {salaryValue.toLocaleString("en-US")} €
       </p>
     </div>
   );

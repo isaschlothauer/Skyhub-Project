@@ -91,10 +91,9 @@ const jobTiles = [
 ];
 
 const Home = () => {
-  // From Login page. This should change button render according to login state
-  // Once logged in, Login button should change to Log Out
-  // Register to Admin (or Admin Panel or Page)
-  const [userLogin, setUserLogin] = useState(false);
+  // localStorage contains auth_token only when logged in. To trigger and render Admin panel button and edit page link,
+  // check if localStorage.auth_token exists. 
+  // Protected path to admin panel still have to be setup.
 
   return (
     <div className={styles["mainpage"]}>
@@ -146,9 +145,10 @@ const Home = () => {
           className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}
         >
           <h1 className={styles["maingpage-robottext"]}>
-            Find your
+            Find
+            your&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong>
-              <div className="message">
+              <div>
                 <div className="word1">dream</div>
                 <div className="word2">offer</div>
                 <div className="word3">passion</div>

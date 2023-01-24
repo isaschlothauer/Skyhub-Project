@@ -11,14 +11,11 @@ import stylesS from "../../../components/staticpage.module.scss";
 }
 import Mini_Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import JobTilesContainer from "../../../components/Domain_JobOffersContainer";
+import JobOffersContainer from "../../../components/Domain_JobOffersContainer";
 import GoBackContainer from "../../../components/GoBackContainer";
 import { domainToLongName } from "../../../utils/domainToLongName";
-
-{
-  /* CONTEXT */
-}
-import JobOffersContainerContext from "../../../contexts/JobOffersContainerContext";
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en";
 
 import useAxios from "../../../hooks/useAxios";
 import { JobOffer } from "../../../components/DomainMainStaticCMP";
@@ -37,9 +34,38 @@ const Offers = ({}: OffersProps) => {
     initialValue: [],
   });
 
+
+  const airlineName = jobs[0] != null ? jobs[0].company : undefined;
+  const imageSRC = useAxios<JobOffer[]>({
+    url: `http://localhost:5000/images?airline=${airlineName}`,
+    initialValue: [],
+  });
+
+  const apiUrlImages = "http://localhost:5080/static";
+
+  const mainImage =
+    imageSRC[0] != null ? apiUrlImages.concat(imageSRC[0].source) : undefined;
+
+  console.log(airlineName);
+  console.log(mainImage);cd pro
+
+  {
+    /* javascript-time-ago shenaningans */
+  }
+  TimeAgo.addDefaultLocale(en);
+  {
+    /* /javascript-time-ago shenaningans */
+  }
+
+  const domainClean: string = domain
+    ? typeof domain === typeof ""
+      ? (domain as string)
+      : domain[0]
+    : "";
+
   return (
     <div id={stylesS.domainPage}>
-      <Mini_Header title={"Job Offers"} Scssdomain={domain} />
+      <Mini_Header title={"Job Offers"} Scssdomain={domainClean} />
       <div
         className={` ${styles.containerDomain} ${"container mx-auto sm:px-4 "}`}
       >
@@ -47,51 +73,21 @@ const Offers = ({}: OffersProps) => {
           className={
             "flex flex-wrap"
           } /* style="position: relative; z-index: 5; display: none;" */
-        >
-          <div className={"md:w-full pr-4 pl-4"}>
-            <div id={styles["offers-filter"]}>
-              <div className={"flex flex-wrap"}>
-                <div className={"md:w-3/4 pr-4 pl-4"}>
-                  <div className={styles["sky-select"]}>
-                    <div className={styles["sky-select-content"]}>
-                      <label className={styles["sky-select-label"]}>
-                        Fow what position are you looking for?
-                      </label>
-                      <select>
-                        <option value="1">Hejo</option>
-                        <option value="2">Hejo 2</option>
-                        <option value="3">Hejo 3</option>
-                        <option value="4">Hejo 4</option>
-                        <option value="5">Hejo 5</option>
-                      </select>
-                      <div className={styles["sky-select-help"]}></div>
-                    </div>
-                  </div>
-                </div>
-                <div className={"md:w-1/4 pr-4 pl-4"}>
-                  <button
-                    type="submit"
-                    className={`${"btn"} ${"btn-lg"} ${"btn-pink"} ${"btn-full-width"} ${"btn-rounded"}`}
-                  >
-                    Search
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id={styles.offers}>
+        ></div>
+        <div id={styles.offersContainer}>
           {jobs.slice(/* TODO */).map((job) => (
-            <JobTilesContainer
+            <JobOffersContainer
               position={job.title}
               company={job.company}
               base={job.base}
+              date={job.date}
               link={`/${domain}/offers/${job.id}`}
+              imageSRC={mainImage}
             />
           ))}
         </div>
         <GoBackContainer
-          arrowTitle={`Back to ${domainToLongName(domain)} page`}
+          arrowTitle={`Back to ${domainToLongName(domainClean)} page`}
           link={`/${domain}`}
         />
         <Footer />

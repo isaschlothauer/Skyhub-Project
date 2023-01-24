@@ -13,9 +13,9 @@ import IconRankSO from "../assets/images/icons/icon-rank-so.png";
 interface SalaryMobileProps {
   icon?: StaticImageData;
   jobTitle: string;
-  maxSalary?: string;
-  avgSalary?: string;
-  minSalary?: string;
+  maxSalary?: number;
+  avgSalary?: number;
+  minSalary?: number;
 }
 
 const rankIcons: { [key: string]: StaticImageData } = {
@@ -44,24 +44,30 @@ export default function SalaryMobile({
           {jobTitle}
         </h3>
       </div>
-      <SalaryRow
-        iconSalary={IconMaxSalary}
-        iconHeight={19}
-        salaryType="Maximum Salary"
-        salaryValue="240,000 €"
-      />
-      <SalaryRow
-        iconSalary={IconAvgSalary}
-        salaryType="Average Salary"
-        salaryValue="190,000 €"
-      />
+      {maxSalary && (
+        <SalaryRow
+          iconSalary={IconMaxSalary}
+          iconHeight={19}
+          salaryType="Maximum Salary"
+          salaryValue={maxSalary}
+        />
+      )}
+      {avgSalary && (
+        <SalaryRow
+          iconSalary={IconAvgSalary}
+          salaryType="Average Salary"
+          salaryValue={avgSalary}
+        />
+      )}
 
-      <SalaryRow
-        iconSalary={IconMinSalary}
-        iconHeight={19}
-        salaryType="Minimum Salary"
-        salaryValue="150,000 €"
-      />
+      {minSalary && (
+        <SalaryRow
+          iconSalary={IconMinSalary}
+          iconHeight={19}
+          salaryType="Minimum Salary"
+          salaryValue={minSalary}
+        />
+      )}
     </div>
   );
 }
