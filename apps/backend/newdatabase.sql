@@ -12,6 +12,8 @@ SET time_zone = "+00:00";
 
 --
 
+SELECT i.src AS source FROM images AS i INNER JOIN airlines AS a ON i.id=a.image_id WHERE a.name="Lufthansa";
+
 CREATE TABLE
     `faq` (
         `id` int(10) UNSIGNED NOT NULL,

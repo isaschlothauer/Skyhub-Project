@@ -9,6 +9,10 @@ module.exports = {
         protocol: "https",
         hostname: "pilot.skyhub.staging.d-a-pfeiffer.info",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+      },
     ],
   },
 };

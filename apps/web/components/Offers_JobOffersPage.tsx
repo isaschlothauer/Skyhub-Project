@@ -38,6 +38,7 @@ import DOMPurify from "dompurify";
 function JobOffersPage({ domain }: { domain: string }) {
   const router = useRouter();
   const { id } = router.query;
+
   const jobs = useAxios<JobOffer[]>({
     url: `http://localhost:5000/jobs/offers?domain=${domain}&id=${id}`,
     initialValue: [],
@@ -48,6 +49,18 @@ function JobOffersPage({ domain }: { domain: string }) {
       })),
   });
 
+  const airlineName = jobs[0] != null ? jobs[0].airline : undefined;
+  const imageSRC = useAxios<JobOffer[]>({
+    url: `http://localhost:5000/images?airline=${airlineName}`,
+    initialValue: [],
+  });
+
+  const apiUrlImages = "http://localhost:5080/static";
+  const mainImage =
+    imageSRC[0] != null ? apiUrlImages.concat(imageSRC[0].source) : undefined;
+
+  console.log(airlineName);
+  console.log(mainImage);
   {
     /* javascript-time-ago shenaningans */
   }
@@ -89,7 +102,7 @@ function JobOffersPage({ domain }: { domain: string }) {
             container: "Salary:",
             title: `${jobs[0].salary
               .toString()
-            .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}€`,
+              .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")}€`,
             image: salary,
           },
         ]
@@ -149,7 +162,7 @@ function JobOffersPage({ domain }: { domain: string }) {
                   <div className={styles["role"]}>Offer</div>
                   <div className={styles["offer-images"]}>
                     <div className={styles["offer-companyimage"]}>
-                      <Image src={jobImg} alt={"offer-img"} />
+                      <Image src={mainImage} width={250} height={250} alt={"offer-img"} />
                     </div>
                     <div className={styles["offer-company-name"]}>
                       {jobs[0].airline}
