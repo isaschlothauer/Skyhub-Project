@@ -20671,7 +20671,7 @@ CREATE TABLE
 
 CREATE TABLE
     `users` (
-        `id` int(10) UNSIGNED NOT NULL,
+        `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
         `account_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT ' ',
         `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
         `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
