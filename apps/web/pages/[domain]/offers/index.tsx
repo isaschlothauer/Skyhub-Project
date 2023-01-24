@@ -47,7 +47,7 @@ const Offers = ({}: OffersProps) => {
     imageSRC[0] != null ? apiUrlImages.concat(imageSRC[0].source) : undefined;
 
   console.log(airlineName);
-  console.log(mainImage);cd pro
+  console.log(mainImage);
 
   {
     /* javascript-time-ago shenaningans */
