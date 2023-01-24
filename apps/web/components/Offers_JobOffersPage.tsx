@@ -12,7 +12,6 @@ import styles from "./offers_JobOffersPage.module.scss";
 {
   /* IMG */
 }
-import jobImg from "../../web/assets/images/miscellaneous/job_logo_testing.png";
 import contract from "../assets/images/icons/contract2.png";
 import location from "../assets/images/icons/base.png";
 import date from "../assets/images/icons/calendar.png";
@@ -56,6 +55,7 @@ function JobOffersPage({ domain }: { domain: string }) {
   });
 
   const apiUrlImages = "http://localhost:5080/static";
+
   const mainImage =
     imageSRC[0] != null ? apiUrlImages.concat(imageSRC[0].source) : undefined;
 

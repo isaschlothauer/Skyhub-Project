@@ -34,11 +34,25 @@ const Offers = ({}: OffersProps) => {
     initialValue: [],
   });
 
+
+  const airlineName = jobs[0] != null ? jobs[0].company : undefined;
+  const imageSRC = useAxios<JobOffer[]>({
+    url: `http://localhost:5000/images?airline=${airlineName}`,
+    initialValue: [],
+  });
+
+  const apiUrlImages = "http://localhost:5080/static";
+
+  const mainImage =
+    imageSRC[0] != null ? apiUrlImages.concat(imageSRC[0].source) : undefined;
+
+  console.log(airlineName);
+  console.log(mainImage);cd pro
+
   {
     /* javascript-time-ago shenaningans */
   }
   TimeAgo.addDefaultLocale(en);
-  const timeAgo = new TimeAgo("en-GB");
   {
     /* /javascript-time-ago shenaningans */
   }
@@ -68,6 +82,7 @@ const Offers = ({}: OffersProps) => {
               base={job.base}
               date={job.date}
               link={`/${domain}/offers/${job.id}`}
+              imageSRC={mainImage}
             />
           ))}
         </div>

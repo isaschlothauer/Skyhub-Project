@@ -14,7 +14,6 @@ import { LearnMoreArrow } from "./ArrowButton";
 {
   /* IMG */
 }
-import jobImg from "../../web/assets/images/miscellaneous/job_logo_testing.png";
 import arrowButton from "../assets/images/icons/arrow-right-pink.png";
 import Link from "next/link";
 import TimeAgo from "javascript-time-ago";
@@ -39,7 +38,7 @@ const timeAgo = new TimeAgo("en-GB");
 }
 
 function JobOffersContainer(props: JobOffersContainerProps) {
-  const { position, company, base, link, date, dateAgo } = props;
+  const { position, company, base, link, date, imageSRC } = props;
 
   const time = `${new Date(date).toLocaleDateString("en-GB", {
     weekday: "short",
@@ -81,7 +80,7 @@ function JobOffersContainer(props: JobOffersContainerProps) {
 
           <div className={`${styles["job-image-and-arrow"]}`}>
             <div className={styles["job-offer-list-item-image"]}>
-              <Image src={jobImg} alt={"offer-img"} />
+              <Image src={imageSRC} width={200} height={200} alt={"offer-img"} />
             </div>
 
             <LearnMoreArrow
