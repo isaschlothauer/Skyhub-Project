@@ -24,11 +24,11 @@
    // height: 90%;
     display: grid;
     grid-template-columns: repeat(2, 1fr );
-    margin-bottom: 1rem;
+    margin: 2rem 0;
     gap: 0.5rem;
 
 .small-tiles {
-    height: 90%;
+    height: 7rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,9 +40,57 @@
     padding: 0.5rem;
 
     img {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+    h2, p {
+        font-size: 0.7rem;
+    }
+
+}
+}
+
+
+@media (min-width: 400px) {
+// styles for AirlineInfoTiles
+.main-tiles-container {
+.small-tiles {
+    height: 10rem;
+
+    img {
         height: 2rem;
         width: 2rem;
     }
 
+    h2, p {
+        font-size: 1rem;
+    }
+
 }
+}
+}
+
+@media (min-width: 600px) {
+    // styles for AirlineInfoTiles
+    .main-tiles-container {
+    .small-tiles {
+        height: 12rem;
+        width: 12rem;
+    
+        img {
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+    
+    }
+ }
+
+ // styles for AirlineInsightPage
+.airline-information-container {
+   width: 570px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
 }
