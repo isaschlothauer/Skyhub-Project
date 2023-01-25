@@ -52,7 +52,7 @@ export default function SalaryDesktop({ icon, salaries }: SalaryDesktopProps) {
   return (
     <>
       {isDesktop && (
-        <div className="container mx-auto shadow-main rounded-[15px] px-11 py-9">
+        <div className="container mx-auto shadow-main bg-white rounded-[15px] px-11 py-9">
           <table className="table-fixed w-full">
             <thead>
               <tr>
