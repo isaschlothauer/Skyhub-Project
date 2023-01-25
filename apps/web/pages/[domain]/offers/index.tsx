@@ -90,7 +90,7 @@ const Offers = ({}: OffersProps) => {
           } /* style="position: relative; z-index: 5; display: none;" */
         ></div>
         <div id={styles.offersContainer}>
-          {jobs.slice(/* TODO */).map((job) => (
+          {jobs.slice(/* TODO */).reverse().map((job) => (
             <Link href={`/${domain}/offers/${job.id}`}>
               <JobOffersContainer
                 position={job.title}

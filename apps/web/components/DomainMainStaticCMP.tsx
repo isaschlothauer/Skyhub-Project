@@ -87,20 +87,23 @@ export default function MainStaticCMP(
       <div
         className={`${stylesC.containerDomain} ${"container mx-auto sm:px-0 "}`}
       >
-        {jobs.slice(0, 3).map((job) => (
-          <div className="jobOffersContainer" key={job.id}>
-            <Link href={`/${domain}/offers/${job.id}`}>
-              <JobOffersContainer
-                position={job.title}
-                company={job.company}
-                base={job.base}
-                link={`/${domain}/offers/${job.id}`}
-                date={job.date}
-                imageSrc={imagesMap ? imagesMap.get(job.company) : undefined}
-              />
-            </Link>
-          </div>
-        ))}
+        {jobs
+          .slice(0, 3)
+          .reverse()
+          .map((job) => (
+            <div className="jobOffersContainer" key={job.id}>
+              <Link href={`/${domain}/offers/${job.id}`}>
+                <JobOffersContainer
+                  position={job.title}
+                  company={job.company}
+                  base={job.base}
+                  link={`/${domain}/offers/${job.id}`}
+                  date={job.date}
+                  imageSrc={imagesMap ? imagesMap.get(job.company) : undefined}
+                />
+              </Link>
+            </div>
+          ))}
 
         <div className="flex flex-row justify-center mb-10">
           <ButtonCMP

@@ -73,7 +73,7 @@ function JobOffersContainer(props: JobOffersContainerProps) {
           <div>
             <div className={styles["job-offer-list-item-role"]}>{position}</div>
             <div className={styles["job-offer-list-item-company"]}>
-              {company}
+              <p>{company}</p>
             </div>
           </div>
         </div>
@@ -83,17 +83,17 @@ function JobOffersContainer(props: JobOffersContainerProps) {
             {jobDetailsImages.map((image) => (
               <>
                 <div className={styles["job-offer-image"]}>
-                  <Image src={image.contract} />
+                  <Image src={image.contract} alt={"contract"} />
                   <div>
                     <p>Contract</p>
                   </div>
                 </div>
                 <div className={styles["job-offer-image"]}>
-                  <Image src={image.base} />
+                  <Image src={image.base} alt={"base"} />
                   <p>{base}</p>
                 </div>
                 <div className={styles["job-offer-image"]}>
-                  <Image src={image.date} />
+                  <Image src={image.date} alt={"date"} />
                   <div>
                     <p className={styles.timeBig}>{timeBig}</p>
                     <p className={styles.timeTiny}>{timeTiny}</p>
@@ -115,6 +115,9 @@ function JobOffersContainer(props: JobOffersContainerProps) {
                   height={150}
                 />
               )}
+              <div className={styles["job-offer-list-item-company-sub"]}>
+                <p>{company}</p>
+              </div>
             </div>
 
             <LearnMoreArrow
@@ -122,13 +125,6 @@ function JobOffersContainer(props: JobOffersContainerProps) {
               cSass={`${stylesArrow["arrow-domain"]} ${stylesArrow["dark-text"]}`}
               link={link}
             />
-            <Link href={link}>
-              <Image
-                src={arrowButton}
-                alt={"arrow-button"}
-                className={stylesArrow.onlyButton}
-              />
-            </Link>
           </div>
         </div>
       </div>

@@ -1,0 +1,6 @@
+/*
+!.gitignore
+!avatars/
+avatars/*
+!avatars/default.png
+!logo-default.png
