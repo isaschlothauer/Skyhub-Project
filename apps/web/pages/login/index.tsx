@@ -93,7 +93,7 @@ const Login = ({ domain }: LoginProps) => {
       })
       .then((res: AxiosResponse<LoginResponseData>) => {
         // Clear login.password
-        setLogin({ ...login, email: "", password: "" });
+        setLogin({ email: "", password: "" });
 
         if (res.data.token == null) {
           console.error("No authentication token", res.data.error);

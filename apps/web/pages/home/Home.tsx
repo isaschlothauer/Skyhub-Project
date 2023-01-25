@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useEffect } from "react";
+import jwt_decode from "jwt-decode";
 
 {
   /*STYLES*/
@@ -30,7 +31,6 @@ import PilotTile from "../../assets/images/widget/PilotWidgetMainPage.jpg";
 import CabinTile from "../../assets/images/widget/CabinWidgetMainPage.jpg";
 import ATCTile from "../../assets/images/widget/ATCWidgetMainPage.jpg";
 import CrossandSquare from "../../assets/images/branding/branding-3.png";
-import jwt_decode from 'jwt-decode';
 
 const loginregButtons = [
   {
@@ -44,6 +44,24 @@ const loginregButtons = [
     route: "/registration",
     cSass: styleslrButton["loginreg-pink"],
     buttontext: "Register",
+  },
+  {
+    id: 3,
+    route: "",
+    cSass: `${styleslrButton["loginreg-white"]} ${styleslrButton["loginreg-logout"]}`,
+    buttontext: "Log Out",
+  },
+  {
+    id: 4,
+    route: "",
+    cSass: `${styleslrButton["loginreg-pink"]} ${styleslrButton["loginreg-pink-adminpanel"]}`,
+    buttontext: "Admin Panel",
+  },
+  {
+    id: 5,
+    route: "",
+    cSass: `${styleslrButton["loginreg-pink"]} ${styleslrButton["loginreg-pink-dashboard"]}`,
+    buttontext: "Dashboard",
   },
 ];
 
@@ -102,14 +120,18 @@ const Home = () => {
 
   useEffect(() => {
     console.log(window.localStorage);
-    window.localStorage.auth_token? console.log("localStorage: Yes"): console.log("localStorage: No");
-    window.sessionStorage.auth_token? console.log("SessionStorage: Yes"): console.log("SessionStorage: No");
+    window.localStorage.auth_token
+      ? console.log("localStorage: Yes")
+      : console.log("localStorage: No");
+    window.sessionStorage.auth_token
+      ? console.log("SessionStorage: Yes")
+      : console.log("SessionStorage: No");
 
     let token = "";
 
     if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
-      console.log("token is in th storage");
-      
+      console.log("token is in the storage");
+
       if (window.localStorage.auth_token) {
         setAuthToken(window.localStorage.auth_token);
         token = window.localStorage.auth_token;
@@ -122,7 +144,7 @@ const Home = () => {
 
       // let token = window.localStorage.auth_token;
 
-      console.log(token)
+      console.log(token);
 
       if (token === null) {
         console.log("No valid token");
@@ -136,13 +158,13 @@ const Home = () => {
     }
 
     // LOGOFF BUTTON IN LINE 240
-}, [authToken])
+  }, [authToken]);
 
-function logoff() {
-  setAuthToken(null);
-  localStorage.clear();
-  sessionStorage.clear();
-}
+  function logoff() {
+    setAuthToken(null);
+    localStorage.clear();
+    sessionStorage.clear();
+  }
 
   // console.log(window.localStorage);
   return (
@@ -175,7 +197,7 @@ function logoff() {
                       styles["mainpage-logincontainer2nd"]
                     }  ${"md:block"}`}
                   >
-                    {loginregButtons.map((gbutton) => (
+                    {loginregButtons.slice(0, 2).map((gbutton) => (
                       <LoginButton
                         className={"ml-8 lg:ml-0"}
                         key={gbutton.id}
@@ -186,10 +208,84 @@ function logoff() {
                     ))}
                   </div>
                 </div>
+              ) : authToken != null &&
+                (Object.values(jwt_decode(authToken)).includes("recruiter") ||
+                  Object.values(jwt_decode(authToken)).includes("airline")) ? (
+                <div
+                  className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
+                    styles["mainpage-logincontainer"]
+                  }`}
+                >
+                  <div
+                    className={`${
+                      styles["mainpage-logincontainer2nd"]
+                    }  ${"md:block"}`}
+                  >
+                    {loginregButtons
+                      .filter((rbutton) => rbutton.id === 3 || rbutton.id === 5)
+                      .map((gbutton) =>
+                        gbutton.id === 3 ? (
+                          <LoginButton
+                            onClick={logoff}
+                            className={"ml-8 lg:ml-0"}
+                            key={gbutton.id}
+                            route={gbutton.route}
+                            cSass={gbutton.cSass}
+                            buttontext={gbutton.buttontext}
+                          />
+                        ) : (
+                          <LoginButton
+                            className={"ml-8 lg:ml-0"}
+                            key={gbutton.id}
+                            route={gbutton.route}
+                            cSass={gbutton.cSass}
+                            buttontext={gbutton.buttontext}
+                          />
+                        )
+                      )}
+                  </div>
+                </div>
+              ) : authToken != null &&
+                Object.values(jwt_decode(authToken)).includes("admin") ? (
+                <div
+                  className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
+                    styles["mainpage-logincontainer"]
+                  }`}
+                >
+                  <div
+                    className={`${
+                      styles["mainpage-logincontainer2nd"]
+                    }  ${"md:block"}`}
+                  >
+                    {loginregButtons
+                      .filter(
+                        (adbutton) => adbutton.id === 3 || adbutton.id === 4
+                      )
+                      .map((gbutton) =>
+                        gbutton.id === 3 ? (
+                          <LoginButton
+                            onClick={logoff}
+                            className={"ml-8 lg:ml-0"}
+                            key={gbutton.id}
+                            route={gbutton.route}
+                            cSass={gbutton.cSass}
+                            buttontext={gbutton.buttontext}
+                          />
+                        ) : (
+                          <LoginButton
+                            className={"ml-8 lg:ml-0"}
+                            key={gbutton.id}
+                            route={gbutton.route}
+                            cSass={gbutton.cSass}
+                            buttontext={gbutton.buttontext}
+                          />
+                        )
+                      )}
+                  </div>
+                </div>
               ) : (
-                <button>Hello</button>
+                <p>Error: You are not an admin, recruiter or airline</p>
               )}
-
             </div>
           </div>
         </div>
@@ -237,9 +333,6 @@ function logoff() {
         ))}
       </div>
 
-      <button className={"z-100"} onClick={logoff}>Log off</button>
-      {console.log(authToken)}
-  
       {/* FIRST TEXT MAIN PAGE*/}
       <div className={"container mx-auto sm:px-0"}>
         <div className={"md:w-full pr-0 pl-0"}>
