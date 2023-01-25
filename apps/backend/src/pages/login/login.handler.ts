@@ -62,8 +62,7 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
 
                 // Respond with token
                 res.json({
-                  token: jwtoken 
-                  //acctype: userResult.account_type //Added this line (DIOGO)
+                  token: jwtoken
                 })
               } else {
                 // No JWT_SECRET in .env present. Generate an ad hoc JWT_SECRET.

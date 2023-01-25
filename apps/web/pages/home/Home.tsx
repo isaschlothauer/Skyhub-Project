@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { useEffect } from "react";
 
 {
   /*STYLES*/
@@ -29,6 +30,7 @@ import PilotTile from "../../assets/images/widget/PilotWidgetMainPage.jpg";
 import CabinTile from "../../assets/images/widget/CabinWidgetMainPage.jpg";
 import ATCTile from "../../assets/images/widget/ATCWidgetMainPage.jpg";
 import CrossandSquare from "../../assets/images/branding/branding-3.png";
+import jwt_decode from 'jwt-decode';
 
 const loginregButtons = [
   {
@@ -97,6 +99,52 @@ const Home = () => {
   // check if localStorage.auth_token exists.
   // Protected path to admin panel still have to be setup.
   const { authToken, setAuthToken } = useContext(AuthContext);
+
+  useEffect(() => {
+    console.log(window.localStorage);
+    window.localStorage.auth_token? console.log("localStorage: Yes"): console.log("localStorage: No");
+    window.sessionStorage.auth_token? console.log("SessionStorage: Yes"): console.log("SessionStorage: No");
+
+    let token = "";
+
+    if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
+      console.log("token is in th storage");
+      
+      if (window.localStorage.auth_token) {
+        setAuthToken(window.localStorage.auth_token);
+        token = window.localStorage.auth_token;
+      } else {
+        setAuthToken(window.sessionStorage.auth_token);
+        token = window.sessionStorage.auth_token;
+      }
+
+      console.log(authToken);
+
+      // let token = window.localStorage.auth_token;
+
+      console.log(token)
+
+      if (token === null) {
+        console.log("No valid token");
+        return;
+      } else {
+        let decoded = jwt_decode(token);
+        console.log(decoded);
+      }
+    } else {
+      console.log("No valid token");
+    }
+
+    // LOGOFF BUTTON IN LINE 240
+}, [authToken])
+
+function logoff() {
+  setAuthToken(null);
+  localStorage.clear();
+  sessionStorage.clear();
+}
+
+  // console.log(window.localStorage);
   return (
     <div className={styles["mainpage"]}>
       <div
@@ -141,6 +189,7 @@ const Home = () => {
               ) : (
                 <button>Hello</button>
               )}
+
             </div>
           </div>
         </div>
@@ -188,6 +237,9 @@ const Home = () => {
         ))}
       </div>
 
+      <button className={"z-100"} onClick={logoff}>Log off</button>
+      {console.log(authToken)}
+  
       {/* FIRST TEXT MAIN PAGE*/}
       <div className={"container mx-auto sm:px-0"}>
         <div className={"md:w-full pr-0 pl-0"}>
