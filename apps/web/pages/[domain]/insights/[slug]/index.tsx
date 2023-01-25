@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import useAxios from "../../../.././hooks/useAxios";
 import DOMPurify from "dompurify";
 import AirlineInsightPage from "../../../../components/AirlineInsightPage";
+import Footer from "../../../../components/Footer";
 
 export default function AirlineFullPage() {
   const router = useRouter();
@@ -30,6 +31,7 @@ export default function AirlineFullPage() {
         domain={domain.toString()}
         slug={slug.toString()}
       />
+      <Footer />
     </div>
   );
 }
