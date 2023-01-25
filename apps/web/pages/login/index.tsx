@@ -2,8 +2,6 @@ import React, { useDebugValue, useState, useEffect } from "react";
 import Link from "next/link";
 import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/router";
-import { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
 
 /* STYLES */
 import styles from "./login.module.scss";
@@ -43,7 +41,6 @@ const loginButton = {
 interface LoginResponseData {
   token: string | undefined;
   error: string | undefined;
-  acctype: string | undefined;
 }
 
 export interface LoginProps {
@@ -70,8 +67,7 @@ const Login = ({ domain }: LoginProps) => {
 
   const router = useRouter();
 
-  const { authToken, setAuthToken } = useContext(AuthContext);
-  //const [acc, setAcc] = useState<string>(); //Added this line (DIOGO)
+  const [authToken, setAuthToken] = useState<string>();
 
   useEffect(() => {
     if (authToken != null || window == null) return;
@@ -96,12 +92,14 @@ const Login = ({ domain }: LoginProps) => {
         },
       })
       .then((res: AxiosResponse<LoginResponseData>) => {
+        // Clear login.password
+        setLogin({ email: "", password: "" });
+
         if (res.data.token == null) {
           console.error("No authentication token", res.data.error);
           return;
         } else {
           setAuthToken(res.data.token);
-          //setAcc(res.data.acctype); //Added this line (DIOGO)
 
           // If "remember me" is enabled, save the token to local storage. If not, sessionStorage
           remember
@@ -118,6 +116,7 @@ const Login = ({ domain }: LoginProps) => {
       })
       .catch((err) => {
         // A bit convoluted. Might want to look into it later
+        setErrorMsg(err.response.data.error || err.response.data);
       });
   }
 

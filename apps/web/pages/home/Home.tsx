@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { useEffect } from "react";
+import jwt_decode from "jwt-decode";
 
 {
   /*STYLES*/
@@ -42,6 +44,24 @@ const loginregButtons = [
     route: "/registration",
     cSass: styleslrButton["loginreg-pink"],
     buttontext: "Register",
+  },
+  {
+    id: 3,
+    route: "",
+    cSass: `${styleslrButton["loginreg-white"]} ${styleslrButton["loginreg-logout"]}`,
+    buttontext: "Log Out",
+  },
+  {
+    id: 4,
+    route: "",
+    cSass: `${styleslrButton["loginreg-pink"]} ${styleslrButton["loginreg-pink-adminpanel"]}`,
+    buttontext: "Admin Panel",
+  },
+  {
+    id: 5,
+    route: "",
+    cSass: `${styleslrButton["loginreg-pink"]} ${styleslrButton["loginreg-pink-dashboard"]}`,
+    buttontext: "Dashboard",
   },
 ];
 
@@ -97,6 +117,56 @@ const Home = () => {
   // check if localStorage.auth_token exists.
   // Protected path to admin panel still have to be setup.
   const { authToken, setAuthToken } = useContext(AuthContext);
+
+  useEffect(() => {
+    console.log(window.localStorage);
+    window.localStorage.auth_token
+      ? console.log("localStorage: Yes")
+      : console.log("localStorage: No");
+    window.sessionStorage.auth_token
+      ? console.log("SessionStorage: Yes")
+      : console.log("SessionStorage: No");
+
+    let token = "";
+
+    if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
+      console.log("token is in the storage");
+
+      if (window.localStorage.auth_token) {
+        setAuthToken(window.localStorage.auth_token);
+        token = window.localStorage.auth_token;
+      } else {
+        setAuthToken(window.sessionStorage.auth_token);
+        token = window.sessionStorage.auth_token;
+      }
+
+      console.log(authToken);
+
+      // let token = window.localStorage.auth_token;
+
+      console.log(token);
+
+      if (token === null) {
+        console.log("No valid token");
+        return;
+      } else {
+        let decoded = jwt_decode(token);
+        console.log(decoded);
+      }
+    } else {
+      console.log("No valid token");
+    }
+
+    // LOGOFF BUTTON IN LINE 240
+  }, [authToken]);
+
+  function logoff() {
+    setAuthToken(null);
+    localStorage.clear();
+    sessionStorage.clear();
+  }
+
+  // console.log(window.localStorage);
   return (
     <div className={styles["mainpage"]}>
       <div
@@ -127,7 +197,7 @@ const Home = () => {
                       styles["mainpage-logincontainer2nd"]
                     }  ${"md:block"}`}
                   >
-                    {loginregButtons.map((gbutton) => (
+                    {loginregButtons.slice(0, 2).map((gbutton) => (
                       <LoginButton
                         className={"ml-8 lg:ml-0"}
                         key={gbutton.id}
@@ -138,8 +208,83 @@ const Home = () => {
                     ))}
                   </div>
                 </div>
+              ) : authToken != null &&
+                (Object.values(jwt_decode(authToken)).includes("recruiter") ||
+                  Object.values(jwt_decode(authToken)).includes("airline")) ? (
+                <div
+                  className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
+                    styles["mainpage-logincontainer"]
+                  }`}
+                >
+                  <div
+                    className={`${
+                      styles["mainpage-logincontainer2nd"]
+                    }  ${"md:block"}`}
+                  >
+                    {loginregButtons
+                      .filter((rbutton) => rbutton.id === 3 || rbutton.id === 5)
+                      .map((gbutton) =>
+                        gbutton.id === 3 ? (
+                          <LoginButton
+                            onClick={logoff}
+                            className={"ml-8 lg:ml-0"}
+                            key={gbutton.id}
+                            route={gbutton.route}
+                            cSass={gbutton.cSass}
+                            buttontext={gbutton.buttontext}
+                          />
+                        ) : (
+                          <LoginButton
+                            className={"ml-8 lg:ml-0"}
+                            key={gbutton.id}
+                            route={gbutton.route}
+                            cSass={gbutton.cSass}
+                            buttontext={gbutton.buttontext}
+                          />
+                        )
+                      )}
+                  </div>
+                </div>
+              ) : authToken != null &&
+                Object.values(jwt_decode(authToken)).includes("admin") ? (
+                <div
+                  className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
+                    styles["mainpage-logincontainer"]
+                  }`}
+                >
+                  <div
+                    className={`${
+                      styles["mainpage-logincontainer2nd"]
+                    }  ${"md:block"}`}
+                  >
+                    {loginregButtons
+                      .filter(
+                        (adbutton) => adbutton.id === 3 || adbutton.id === 4
+                      )
+                      .map((gbutton) =>
+                        gbutton.id === 3 ? (
+                          <LoginButton
+                            onClick={logoff}
+                            className={"ml-8 lg:ml-0"}
+                            key={gbutton.id}
+                            route={gbutton.route}
+                            cSass={gbutton.cSass}
+                            buttontext={gbutton.buttontext}
+                          />
+                        ) : (
+                          <LoginButton
+                            className={"ml-8 lg:ml-0"}
+                            key={gbutton.id}
+                            route={gbutton.route}
+                            cSass={gbutton.cSass}
+                            buttontext={gbutton.buttontext}
+                          />
+                        )
+                      )}
+                  </div>
+                </div>
               ) : (
-                <button>Hello</button>
+                <p>Error: You are not an admin, recruiter or airline</p>
               )}
             </div>
           </div>
