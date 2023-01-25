@@ -26,6 +26,7 @@ interface JobOffersContainerProps {
   link: string;
   date: string;
   dateAgo?: string;
+  imageSrc?: string;
 }
 
 {
@@ -38,7 +39,7 @@ const timeAgo = new TimeAgo("en-GB");
 }
 
 function JobOffersContainer(props: JobOffersContainerProps) {
-  const { position, company, base, link, date, imageSRC } = props;
+  const { position, company, base, link, date, imageSrc } = props;
 
   const time = `${new Date(date).toLocaleDateString("en-GB", {
     weekday: "short",
@@ -80,7 +81,14 @@ function JobOffersContainer(props: JobOffersContainerProps) {
 
           <div className={`${styles["job-image-and-arrow"]}`}>
             <div className={styles["job-offer-list-item-image"]}>
-              <Image src={imageSRC} width={200} height={200} alt={"offer-img"} />
+              {imageSrc && (
+                <Image
+                  src={imageSrc}
+                  width={200}
+                  height={200}
+                  alt={"offer-img"}
+                />
+              )}
             </div>
 
             <LearnMoreArrow

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 
 {
   /* STYLES */
@@ -20,33 +20,48 @@ import en from "javascript-time-ago/locale/en";
 import useAxios from "../../../hooks/useAxios";
 import { JobOffer } from "../../../components/DomainMainStaticCMP";
 import { useRouter } from "next/router";
+import axios from "axios";
+
+const IMAGE_STORAGE_URL = "http://localhost:5080/static";
 
 export interface OffersProps {
   domain: any;
   Scssdomain: string;
 }
+
 const Offers = ({}: OffersProps) => {
   const router = useRouter();
   const { domain } = router.query; //REVIEW THIS - It was giving a duplication problem with the interface.
+  const [imagesMap, setImagesMap] = useState<Map<string, string>>();
 
   const jobs = useAxios<JobOffer[]>({
+    // TODO: paging
     url: `http://localhost:5000/jobs/?domain=${domain}`,
     initialValue: [],
+    transform: (offers) => {
+      // Generate map of images related to airline id
+      const _imagesMap = new Map();
+      Promise.all(
+        offers.map((offer) => {
+          return axios
+            .get(`http://localhost:5000/images?airline=${offer.company}`)
+            .then((result) => {
+              console.log(result.data);
+              _imagesMap.set(
+                offer.company,
+                IMAGE_STORAGE_URL + result.data[0].source
+              );
+            });
+        })
+      ).then(() => {
+        console.log(_imagesMap);
+        setImagesMap(_imagesMap);
+      });
+
+      // We don't change offers themselves
+      return offers;
+    },
   });
-
-  const airlineName = jobs[0] != null ? jobs[0].company : undefined;
-  const imageSRC = useAxios<JobOffer[]>({
-    url: `http://localhost:5000/images?airline=${airlineName}`,
-    initialValue: [],
-  });
-
-  const apiUrlImages = "http://localhost:5080/static";
-
-  const mainImage =
-    imageSRC[0] != null ? apiUrlImages.concat(imageSRC[0].source) : undefined;
-
-  console.log(airlineName);
-  console.log(mainImage);
 
   {
     /* javascript-time-ago shenaningans */
@@ -81,7 +96,7 @@ const Offers = ({}: OffersProps) => {
               base={job.base}
               date={job.date}
               link={`/${domain}/offers/${job.id}`}
-              imageSRC={mainImage}
+              imageSrc={imagesMap ? imagesMap.get(job.company) : undefined}
             />
           ))}
         </div>
