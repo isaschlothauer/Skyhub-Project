@@ -9,6 +9,8 @@ export interface ArrowProps {
 }
 
 export const LearnMoreArrow = ({ arrowtext, cSass, link }: ArrowProps) => {
+  
+  // alternative to see if ReactJs stops the bullshit page reload
   const router = useRouter();
   const handleChange = () => {
     router.push(
