@@ -61,7 +61,7 @@ export default function MainStaticCMP(
           return axios
             .get(`http://localhost:5000/images?airline=${offer.company}`)
             .then((result) => {
-              console.log(result.data);
+              console.log("result_data", result.data);
               _imagesMap.set(
                 offer.company,
                 "http://localhost:5080/static" + result.data[0].source
