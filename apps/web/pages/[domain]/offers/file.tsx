@@ -38,7 +38,39 @@
 //       </div>
 //     </div>
 //   </>
+
 // );
 export default function File() {
   return <div></div>;
 }
+
+/* 
+
+
+  const [imagesrc, setImagesrc] = useState(); //WTF
+
+  /*  const imageSources = axios
+  .all(
+    airlineNames.map((airline) =>
+      axios.get(`http://localhost:5000/images?airline=${airline}`)
+    )
+  )
+  .then((result) =>
+    result.map((res) => {
+      imageSourcesArray.push(res.data);
+      console.log("image source as supposed to", res.data);
+    })
+  );
+
+const imageSourcesArray: Array<[]> = [];
+// console.log("image source array crap", imageSourcesArray);
+
+const apiUrlImages = "http://localhost:5080/static";
+
+const mainImage =
+  imageSources[0] != null
+    ? apiUrlImages.concat(imageSources[0].source)
+    : undefined;
+// console.log("The images string path/source:", mainImage);
+
+*/ 
