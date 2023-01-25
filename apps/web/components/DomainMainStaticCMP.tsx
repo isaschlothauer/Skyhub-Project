@@ -21,6 +21,8 @@ import ButtonCMP from "./GeneralButton";
 }
 import JobTilesContainer from "./Domain_JobTilesContainer";
 import JobOffersContainer from "./Domain_JobOffersContainer";
+import axios from "axios";
+import Link from "next/link";
 
 export interface JobOffer {
   date: string;
@@ -45,13 +47,38 @@ export default function MainStaticCMP(
   { domain }: { domain: string },
   { cssOffers }: { cssOffers: string }
 ) {
+  const [imagesMap, setImagesMap] = useState<Map<string, string>>();
   const jobs = useAxios<JobOffer[]>({
+    // TODO: paging
     url: `http://localhost:5000/jobs/?domain=${domain}`,
     initialValue: [],
+    transform: (offers) => {
+      // Generate map of images related to airline id
+      const _imagesMap = new Map();
+      Promise.all(
+        // going to wait for all Maping to be done and then setImagesMap all at once
+        offers.map((offer) => {
+          return axios
+            .get(`http://localhost:5000/images?airline=${offer.company}`)
+            .then((result) => {
+              console.log(result.data);
+              _imagesMap.set(
+                offer.company,
+                "http://localhost:5080/static" + result.data[0].source
+              );
+            });
+        })
+      ).then(() => {
+        console.log("images map", _imagesMap);
+        setImagesMap(_imagesMap);
+      });
+
+      // We don't change offers themselves
+      return offers;
+    },
   });
 
-  console.log(jobs[0]);
-
+  console.log("jobs[0]", jobs[0]);
 
   return (
     <div id={styles.domainPage}>
@@ -62,13 +89,16 @@ export default function MainStaticCMP(
       >
         {jobs.slice(0, 3).map((job) => (
           <div className="jobOffersContainer" key={job.id}>
-            <JobOffersContainer
-              position={job.title}
-              company={job.company}
-              base={job.base}
-              link={`/${domain}/offers/${job.id}`}
-              date={job.date}
-            />
+            <Link href={`/${domain}/offers/${job.id}`}>
+              <JobOffersContainer
+                position={job.title}
+                company={job.company}
+                base={job.base}
+                link={`/${domain}/offers/${job.id}`}
+                date={job.date}
+                imageSrc={imagesMap ? imagesMap.get(job.company) : undefined}
+              />
+            </Link>
           </div>
         ))}
 

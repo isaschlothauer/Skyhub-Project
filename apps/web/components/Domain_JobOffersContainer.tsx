@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 {
   /* STYLES */
 }
@@ -10,14 +10,16 @@ import stylesArrow from "./arrowButton.module.scss";
   /* COMPONENTS */
 }
 import { LearnMoreArrow } from "./ArrowButton";
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en";
 
 {
   /* IMG */
 }
 import arrowButton from "../assets/images/icons/arrow-right-pink.png";
-import Link from "next/link";
-import TimeAgo from "javascript-time-ago";
-import en from "javascript-time-ago/locale/en";
+import calendar from "../assets/images/icons/contract2.png";
+import base from "../assets/images/icons/base.png";
+import contract from "../assets/images/icons/contract2.png";
 
 interface JobOffersContainerProps {
   position: string;
@@ -38,13 +40,28 @@ const timeAgo = new TimeAgo("en-GB");
   /* /javascript-time-ago shenaningans */
 }
 
+const jobDetailsImages = [
+  {
+    contract: contract,
+
+    base: base,
+
+    date: calendar,
+  },
+];
+
 function JobOffersContainer(props: JobOffersContainerProps) {
   const { position, company, base, link, date, imageSrc } = props;
 
-  const time = `${new Date(date).toLocaleDateString("en-GB", {
+  const timeBig = `${new Date(date).toLocaleDateString("en-GB", {
     weekday: "short",
     year: "numeric",
     month: "long",
+    day: "numeric",
+  })}`;
+  const timeTiny = `${new Date(date).toLocaleDateString("en-GB", {
+    year: "2-digit",
+    month: "2-digit",
     day: "numeric",
   })}`;
   const ago = `${timeAgo.format(new Date(date))}`;
@@ -61,32 +78,41 @@ function JobOffersContainer(props: JobOffersContainerProps) {
           </div>
         </div>
 
-        <div
-          className={`${
-            styles["job-offer-item-and-images"]
-          } ${"flex flex-row justify-between"}`}
-        >
-          <div className={`${styles["job-offer-list-item-details"]}`}>
-            <div className={styles["job-offer-list-item-contract"]}>
-              <p>Contract</p>
-            </div>
-            <div className={styles["job-offer-list-item-location"]}>
-              <p>{base}</p>
-            </div>
-            <div className={styles["job-offer-list-item-date"]}>
-              <p>{time}</p>
-              <p>{ago}</p>
-            </div>
+        <div className={`${styles["job-offer"]}`}>
+          <div className={`${styles["job-offer-details"]}`}>
+            {jobDetailsImages.map((image) => (
+              <>
+                <div className={styles["job-offer-image"]}>
+                  <Image src={image.contract} />
+                  <div>
+                    <p>Contract</p>
+                  </div>
+                </div>
+                <div className={styles["job-offer-image"]}>
+                  <Image src={image.base} />
+                  <p>{base}</p>
+                </div>
+                <div className={styles["job-offer-image"]}>
+                  <Image src={image.date} />
+                  <div>
+                    <p className={styles.timeBig}>{timeBig}</p>
+                    <p className={styles.timeTiny}>{timeTiny}</p>
+                    <p className={styles.ago}>{ago}</p>
+                  </div>
+                </div>
+              </>
+            ))}
           </div>
 
           <div className={`${styles["job-image-and-arrow"]}`}>
-            <div className={styles["job-offer-list-item-image"]}>
+            <div className={styles["airline-container"]}>
               {imageSrc && (
                 <Image
                   src={imageSrc}
-                  width={200}
-                  height={200}
                   alt={"offer-img"}
+                  className={styles.airlineImage}
+                  width={200}
+                  height={150}
                 />
               )}
             </div>

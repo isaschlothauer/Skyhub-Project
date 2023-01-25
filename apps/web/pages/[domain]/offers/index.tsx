@@ -21,6 +21,7 @@ import useAxios from "../../../hooks/useAxios";
 import { JobOffer } from "../../../components/DomainMainStaticCMP";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Link from "next/link";
 
 const IMAGE_STORAGE_URL = "http://localhost:5080/static";
 
@@ -90,14 +91,16 @@ const Offers = ({}: OffersProps) => {
         ></div>
         <div id={styles.offersContainer}>
           {jobs.slice(/* TODO */).map((job) => (
-            <JobOffersContainer
-              position={job.title}
-              company={job.company}
-              base={job.base}
-              date={job.date}
-              link={`/${domain}/offers/${job.id}`}
-              imageSrc={imagesMap ? imagesMap.get(job.company) : undefined}
-            />
+            <Link href={`/${domain}/offers/${job.id}`}>
+              <JobOffersContainer
+                position={job.title}
+                company={job.company}
+                base={job.base}
+                date={job.date}
+                link={`/${domain}/offers/${job.id}`}
+                imageSrc={imagesMap ? imagesMap.get(job.company) : undefined}
+              />
+            </Link>
           ))}
         </div>
         <GoBackContainer
