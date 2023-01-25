@@ -101,23 +101,48 @@ const Home = () => {
   const { authToken, setAuthToken } = useContext(AuthContext);
 
   useEffect(() => {
-    if (window.localStorage.auth_token !== null) {
-      console.log(window.localStorage);
-      setAuthToken(window.localStorage.auth_token);
+    console.log(window.localStorage);
+    window.localStorage.auth_token? console.log("localStorage: Yes"): console.log("localStorage: No");
+    window.sessionStorage.auth_token? console.log("SessionStorage: Yes"): console.log("SessionStorage: No");
 
-      // const token = window.localStorage.auth_token;
-      // let decoded = jwt_decode(token);
+    let token = "";
 
-      // console.log(decoded);
-      // const authenticationToken = window.localStorage.auth_token;
-
+    if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
+      console.log("token is in th storage");
       
+      if (window.localStorage.auth_token) {
+        setAuthToken(window.localStorage.auth_token);
+        token = window.localStorage.auth_token;
+      } else {
+        setAuthToken(window.sessionStorage.auth_token);
+        token = window.sessionStorage.auth_token;
+      }
 
-      // console.log(authenticationToken);
+      console.log(authToken);
+
+      // let token = window.localStorage.auth_token;
+
+      console.log(token)
+
+      if (token === null) {
+        console.log("No valid token");
+        return;
+      } else {
+        let decoded = jwt_decode(token);
+        console.log(decoded);
+      }
     } else {
-      console.log("localStorage is null");
+      console.log("No valid token");
     }
-  }, [authToken])
+
+    // LOGOFF BUTTON IN LINE 240
+}, [authToken])
+
+function logoff() {
+  setAuthToken(null);
+  localStorage.clear();
+  sessionStorage.clear();
+}
 
   // console.log(window.localStorage);
   return (
@@ -164,6 +189,7 @@ const Home = () => {
               ) : (
                 <button>Hello</button>
               )}
+
             </div>
           </div>
         </div>
@@ -211,6 +237,9 @@ const Home = () => {
         ))}
       </div>
 
+      <button className={"z-100"} onClick={logoff}>Log off</button>
+      {console.log(authToken)}
+  
       {/* FIRST TEXT MAIN PAGE*/}
       <div className={"container mx-auto sm:px-0"}>
         <div className={"md:w-full pr-0 pl-0"}>
