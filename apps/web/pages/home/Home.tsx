@@ -1,6 +1,8 @@
 import * as React from "react";
 import Image from "next/image";
 import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 {
   /*STYLES*/
@@ -92,9 +94,9 @@ const jobTiles = [
 
 const Home = () => {
   // localStorage contains auth_token only when logged in. To trigger and render Admin panel button and edit page link,
-  // check if localStorage.auth_token exists. 
+  // check if localStorage.auth_token exists.
   // Protected path to admin panel still have to be setup.
-
+  const { authToken, setAuthToken } = useContext(AuthContext);
   return (
     <div className={styles["mainpage"]}>
       <div
@@ -113,27 +115,32 @@ const Home = () => {
               </div>
 
               {/*LOGIN/REGISTER BUTTON*/}
-              <div
-                className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
-                  styles["mainpage-logincontainer"]
-                }`}
-              >
+
+              {authToken == null ? (
                 <div
-                  className={`${
-                    styles["mainpage-logincontainer2nd"]
-                  }  ${"md:block"}`}
+                  className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
+                    styles["mainpage-logincontainer"]
+                  }`}
                 >
-                  {loginregButtons.map((gbutton) => (
-                    <LoginButton
-                      className={"ml-8 lg:ml-0"}
-                      key={gbutton.id}
-                      route={gbutton.route}
-                      cSass={gbutton.cSass}
-                      buttontext={gbutton.buttontext}
-                    />
-                  ))}
+                  <div
+                    className={`${
+                      styles["mainpage-logincontainer2nd"]
+                    }  ${"md:block"}`}
+                  >
+                    {loginregButtons.map((gbutton) => (
+                      <LoginButton
+                        className={"ml-8 lg:ml-0"}
+                        key={gbutton.id}
+                        route={gbutton.route}
+                        cSass={gbutton.cSass}
+                        buttontext={gbutton.buttontext}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <button>Hello</button>
+              )}
             </div>
           </div>
         </div>

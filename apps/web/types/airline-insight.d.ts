@@ -25,6 +25,7 @@ declare interface AirlineInformationType {
     salary_so_avg: number;
     salary_so_min: number;
     assessments_link: string;
+    job_type: string;
     src: string;
     width: number;
     height: number;

@@ -20,6 +20,7 @@ module.exports = {
       colors: {
         "pink-primary": "#ec008c",
         "light-gray": "#eaeaea",
+        "dark-gray": "#727481",
       },
       boxShadow: {
         main: "0 0 30px rgb(0 0 0 / 10%)",
