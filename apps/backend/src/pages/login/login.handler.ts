@@ -62,7 +62,7 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
 
                 // Respond with token
                 res.json({
-                  token: jwtoken
+                  token: jwtoken 
                   //acctype: userResult.account_type //Added this line (DIOGO)
                 })
               } else {

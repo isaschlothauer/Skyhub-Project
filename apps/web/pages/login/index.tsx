@@ -43,7 +43,7 @@ const loginButton = {
 interface LoginResponseData {
   token: string | undefined;
   error: string | undefined;
-  acctype: string | undefined;
+  //acctype: string | undefined; //Added this line (DIOGO)
 }
 
 export interface LoginProps {
