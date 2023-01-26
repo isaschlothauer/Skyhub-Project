@@ -25,6 +25,7 @@ import axios from "axios";
 import Link from "next/link";
 
 export interface JobOffer {
+  job_type(job_type: any): unknown;
   date: string;
   roster: JSX.Element;
   created_at: any;
@@ -61,7 +62,7 @@ export default function MainStaticCMP(
           return axios
             .get(`http://localhost:5000/images?airline=${offer.company}`)
             .then((result) => {
-              console.log(result.data);
+              console.log("result_data", result.data);
               _imagesMap.set(
                 offer.company,
                 "http://localhost:5080/static" + result.data[0].source

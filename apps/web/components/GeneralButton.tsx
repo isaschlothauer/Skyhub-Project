@@ -17,7 +17,7 @@ const ButtonCMP = ({
   ...props
 }: ButtonProps) => {
   return (
-    <Link href={route}>
+    <Link href={`${route}`} as={route}>
       <button className={`${className} ${cSass}`.trim()} {...props}>
         {buttontext}
       </button>
