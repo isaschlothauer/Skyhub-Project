@@ -18,7 +18,9 @@ const tokenVerification = (req: NextApiRequest, res: NextApiResponse, next: Next
       throw new Error("Authorization header has not the 'Bearer' type");
     }
 
-    req.payload = jwt.verify(token, process.env.JWT_SECRET);
+    if (process.env.JWT_SECRET) {
+      req.payload = jwt.verify(token, process.env.JWT_SECRET);
+    }
 
     // console.log(req.payload);
 
