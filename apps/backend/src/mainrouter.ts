@@ -11,7 +11,7 @@ import { loginValidator } from "./pages/login/login.validator";
 import LoginRouter from "./pages/login/login.router";
 import UserRouter from "./pages/users/user.router";
 import ImageRouter from "./routes/images/routes";
-import SecureRouter from './pages/secureRoute/secure.route';
+import SecureRouter from './pages/secureRoute/secure.router';
 import tokenVerification from "./pages/auth/auth";
 
 
