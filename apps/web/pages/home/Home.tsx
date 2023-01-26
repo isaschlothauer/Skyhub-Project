@@ -53,13 +53,13 @@ const loginregButtons = [
   },
   {
     id: 4,
-    route: "",
+    route: "/control",
     cSass: `${styleslrButton["loginreg-pink"]} ${styleslrButton["loginreg-pink-adminpanel"]}`,
     buttontext: "Admin Panel",
   },
   {
     id: 5,
-    route: "",
+    route: "/control",
     cSass: `${styleslrButton["loginreg-pink"]} ${styleslrButton["loginreg-pink-dashboard"]}`,
     buttontext: "Dashboard",
   },
@@ -161,7 +161,7 @@ const Home = () => {
   }, [authToken]);
 
   function logoff() {
-    setAuthToken(null);
+    setAuthToken(undefined);
     localStorage.clear();
     sessionStorage.clear();
   }
