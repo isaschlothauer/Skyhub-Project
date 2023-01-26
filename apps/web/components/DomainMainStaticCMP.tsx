@@ -25,6 +25,7 @@ import axios from "axios";
 import Link from "next/link";
 
 export interface JobOffer {
+  job_type(job_type: any): unknown;
   date: string;
   roster: JSX.Element;
   created_at: any;
