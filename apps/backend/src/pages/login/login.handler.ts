@@ -33,6 +33,8 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
     .then(([user]) => {
       const [userResult] = user;
 
+      console.log(userResult);
+
       // Credential checking. No matching email case
       if (!userResult) {
         res.status(401).send("Invalid credentials");
@@ -43,6 +45,12 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
           .verify(userResult.password, req.body.verify)
           .then((loginVerified) => {
             if (loginVerified) {
+
+              // Access counter incremented upon sign in
+              userResult.access++;
+
+              database
+                .query<RowDataPacket[]>("UPDATE users SET access = ? WHERE email =?", [userResult.access, userResult.email])
 
               // Web token creation. Payload definition
               const payload: PayloadResult = { 
@@ -63,7 +71,6 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
                 // Respond with token
                 res.json({
                   token: jwtoken
-                  //acctype: userResult.account_type //Added this line (DIOGO)
                 })
               } else {
                 // No JWT_SECRET in .env present. Generate an ad hoc JWT_SECRET.
