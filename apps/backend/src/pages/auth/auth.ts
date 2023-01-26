@@ -1,9 +1,21 @@
 import * as express from 'express';
-import type { NextApiRequest, NextApiResponse, NextApiHandler} from 'next';
+// import type { NextApiRequest, NextApiResponse, NextApiHandler} from 'next';
+import { RequestHandler, Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 
+// type TokenVerifiedRequest = Request & {
+//   authorizationHeader: string;
+//   type: string;
+//   token: string;
+//   payload: any;
+// };
 
-const tokenVerification = (req: NextApiRequest, res: NextApiResponse, next: NextApiHandler) => {
+// interface ErrorMsg extends ErrorConstructor {
+//   message?: string | undefined;
+// }
+
+
+const tokenVerification: RequestHandler= (req: Request, res: Response, next: NextFunction) => {
 
   try {
     const authorizationHeader = req.get("Authorization");
@@ -22,7 +34,7 @@ const tokenVerification = (req: NextApiRequest, res: NextApiResponse, next: Next
       req.payload = jwt.verify(token, process.env.JWT_SECRET);
     }
 
-    // console.log(req.payload);
+    console.log(req.payload);
 
     next();
   } catch (err) {

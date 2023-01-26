@@ -7,11 +7,12 @@ import tokenVerifier from "./token.verifier";
 
 const SecureRouter: Router = Router();
 
-SecureRouter.post("/", (req: NextApiRequest, res: NextApiResponse) => {
-  console.log(req.payload);
+SecureRouter.post("/", (req, res) => {
+  console.log(req.headers);
+  // console.log(req.payload);
   console.log("All good");
+  res.status(200).send("Data is passed")
 });
 
-SecureRouter.post("/", tokenVerifier);
 
 export default SecureRouter;
