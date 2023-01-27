@@ -9,6 +9,15 @@
   margin-bottom: 1rem;
 }
 
+.title {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  margin-bottom: 1rem;
+}
+
 .line {
   display: flex;
   flex-direction: row;
@@ -83,14 +92,17 @@
     align-content: center;
   }
   .singleContainer {
-    min-width: 40%;
+    max-width: 140px;
+    min-width: 140px;
+    min-height: 168px;
+    max-height: 168px;
   }
 
   .infoContainer {
     margin: 0 !important;
   }
   .title {
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
     margin-bottom: 0 !important;
   }
   .subtitle {

@@ -181,7 +181,10 @@
   max-height: 49%;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 13px;
+  }
   .MainContainer {
     flex-direction: column;
   }
