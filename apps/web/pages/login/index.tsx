@@ -81,8 +81,9 @@ const Login = ({ domain }: LoginProps) => {
   }, [authToken]);
 
   // Submit button behavior definition
-  function submitBehavior(event: React.MouseEvent<HTMLButtonElement>): void {
+  function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLInputElement>): void {
     event.preventDefault();
+    console.log("Hello");
 
     axios
       .post("http://localhost:5000/auth", login, {
@@ -144,6 +145,16 @@ const Login = ({ domain }: LoginProps) => {
                   placeholder="Enter username or email address"
                   value={login.email}
                   onChange={loginHandler}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      // console.log("Enter key pressed");
+                      submissionHandler(event);
+                    }
+                    // if (e.key === "Enter") {
+                    //   e.preventDefault();
+                    //   {submitBehavior};
+                    // }
+                  }} 
                   required
                 />
 
@@ -162,6 +173,11 @@ const Login = ({ domain }: LoginProps) => {
                   placeholder="Enter password"
                   value={login.password}
                   onChange={loginHandler}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      submissionHandler(event);
+                    }
+                  }} 
                   required
                 />
                 <div className={"mt-3 flex"}>
@@ -184,8 +200,9 @@ const Login = ({ domain }: LoginProps) => {
               <div className={"w-min mx-auto mt-4"}>
                 {/* TO DO: Implement authentication process */}
                 <LoginButton
-                  onClick={submitBehavior}
-                  route="/"
+                  tabIndex={0}
+                  onClick={submissionHandler}
+                  route=""
                   cSass={loginButton.cSass}
                   buttontext={loginButton.buttontext}
                 />
