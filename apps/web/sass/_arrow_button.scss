@@ -89,7 +89,7 @@
 
 //MOBILE SIZE (S and M)
 @media only screen and (max-width: 376px) {
-.arrow-jobs {
+  .arrow-jobs {
     a {
       color: transparent;
       font-size: 0.625rem;
@@ -159,6 +159,7 @@
     // Set alignment in container
     display: contents;
     text-align: right;
+    transition: all ease 0.1s;
     a {
       display: inline-block;
       font-size: 18px;
@@ -203,13 +204,14 @@
         left: 0%;
         height: 1.563rem;
         width: 2.188rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
   }
-  
-.arrow-faqcontact {
+
+  .arrow-faqcontact {
     a {
       color: transparent;
       font-size: 0rem;
@@ -225,19 +227,17 @@
         left: 0%;
         height: 1.25rem;
         width: 1.875rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
   }
 }
 
-
-
 //MOBILE SIZE (L)
-@media only screen and (min-width: 377px) and (max-width:426px) {
-
-.arrow-jobs {
+@media only screen and (min-width: 377px) and (max-width: 426px) {
+  .arrow-jobs {
     a {
       color: transparent;
       font-size: 0.625rem;
@@ -253,13 +253,14 @@
         left: 0%;
         height: 1.688rem;
         width: 2.313rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
   }
 
-.arrow-faqcontact {
+  .arrow-faqcontact {
     a {
       color: transparent;
       font-size: 0.625rem;
@@ -275,18 +276,17 @@
         left: 10%;
         height: 1.375rem;
         width: 2rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
   }
 }
-  
 
 //TABLET SIZE (THIS SIZE WAS DIVIDED SO THE CONTENT COULD RESPOND PROPERLY TO DIFFERENT SIZES OF SCREEN)
 @media only screen and (min-width: 426px) and (max-width: 501px) {
-
-.arrow-jobs {
+  .arrow-jobs {
     a {
       color: transparent;
       font-size: 0.625rem;
@@ -302,13 +302,14 @@
         left: 0%;
         height: 1.813rem;
         width: 2.438rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
   }
 
-.arrow-faqcontact {
+  .arrow-faqcontact {
     a {
       color: transparent;
       font-size: 0.625rem;
@@ -324,19 +325,17 @@
         left: 10%;
         height: 1.5rem;
         width: 2.125rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
   }
 }
 
-
-
 //TABLET SIZE (THIS SIZE WAS DIVIDED SO THE CONTENT COULD RESPOND PROPERLY TO DIFFERENT SIZES OF SCREEN)
 @media only screen and (min-width: 501px) and (max-width: 769px) {
-
-.arrow-jobs {
+  .arrow-jobs {
     a {
       color: transparent;
       font-size: 0.625rem;
@@ -352,13 +351,14 @@
         left: 0%;
         height: 1.938rem;
         width: 2.563rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
   }
 
-.arrow-faqcontact {
+  .arrow-faqcontact {
     a {
       color: transparent;
       font-size: 0.625rem;
@@ -374,17 +374,17 @@
         left: 10%;
         height: 1.938rem;
         width: 2.563rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
-    }  
+    }
   }
 }
 
 //SMALL COMPUTER SIZE
-@media only screen and (min-width: 769px) and (max-width:1025px) { 
-
-.arrow-jobs {
+@media only screen and (min-width: 769px) and (max-width: 1025px) {
+  .arrow-jobs {
     a {
       padding-right: 1.25rem;
       position: absolute;
@@ -398,7 +398,8 @@
         left: 95%;
         height: 2.063rem;
         width: 2.688rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
@@ -412,7 +413,8 @@
         left: 65%;
         height: 2.063rem;
         width: 2.688rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }

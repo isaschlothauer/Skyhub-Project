@@ -23,6 +23,21 @@
       margin-bottom: 25px;
     }
   }
+  .checkBoxes {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    color: #000000;
+    & p {
+      font-size: 16px;
+    }
+    & img {
+      object-fit: contain;
+      min-width: 25px;
+    }
+  }
 }
 
 .insight-pilot {
@@ -66,6 +81,6 @@
 
 @media only screen and (max-width: 800px) {
   .imageContainer {
-    display: none;
+    display: none !important;
   }
 }
