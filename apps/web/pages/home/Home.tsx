@@ -112,13 +112,17 @@ const jobTiles = [
   },
 ];
 
+
+// TO DO
+// * Invalid token handling
+
+
 const Home = () => {
-  // localStorage contains auth_token only when logged in. To trigger and render Admin panel button and edit page link,
-  // check if localStorage.auth_token exists.
-  // Protected path to admin panel still have to be setup.
   const { authToken, setAuthToken } = useContext(AuthContext);
 
   useEffect(() => {
+
+    // Token location checker (only for development)
     console.log(window.localStorage);
     window.localStorage.auth_token
       ? console.log("localStorage: Yes")
@@ -129,6 +133,7 @@ const Home = () => {
 
     let token = "";
 
+    // Token checker (only for development)
     if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
       console.log("token is in the storage");
 
