@@ -190,7 +190,7 @@ const ContactUs = ({ domain }: ContactProps) => {
           </div>
         </div>
       </div>
-      <GoHomeContainer arrowTitle={"Go Back to Home Page"} link={"/"} />
+      <GoHomeContainer arrowTitle={"Go Back to Home"} link={"/"} />
       <Footer />
     </div>
   );

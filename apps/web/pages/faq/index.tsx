@@ -121,7 +121,7 @@ const FAQ = ({ domain }: FAQProps) => {
         </div>
         {/* // BACK TO HOMEPAGE TILE */}
       </div>
-      <GoHomeContainer arrowTitle={"Go Back to Home Page"} link={"/"} />
+      <GoHomeContainer arrowTitle={"Go Back to Home"} link={"/"} />
       <Footer />
     </div>
   );

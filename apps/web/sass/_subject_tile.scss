@@ -68,30 +68,7 @@
   }
 }
 
-//Container with "Learn More" and arrow
-.tile-learnmore {
-  text-align: right;
-  a {
-    display: inline-block;
-    color: white;
-    font-size: 1.125rem;
-    font-weight: 800;
-    padding-right: 5rem;
-    position: relative;
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 50%;
-      right: 0;
-      margin-top: -0.688rem;
-      height: 1.313rem;
-      width: 4.375rem;
-      background: url("../assets/images/miscellaneous/summary-arrow.png")
-        no-repeat center center;
-    }
-  }
-}
+
 
 //Container with the line in the left!
 .tile-leftline {

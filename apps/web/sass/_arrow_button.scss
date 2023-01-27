@@ -64,7 +64,7 @@
   a {
     display: inline-block;
     color: #ec008c;
-    font-size: 1.125rem;
+    font-size: 1.2rem;
     font-weight: 800;
     padding-right: 4.375rem;
     position: relative;
@@ -179,57 +179,6 @@
   }
 }
 
-@media only screen and (min-width: 397px) and (max-width: 501px) {
-  .arrow-jobs {
-    text-align: right;
-    a {
-      display: inline-block;
-      color: transparent;
-      font-size: 10px;
-      font-weight: 800;
-      padding-right: 0px;
-      position: absolute;
-      padding-bottom: 100px;
-      right: 5%;
-      top: 45%;
-      &:after {
-        content: "";
-        display: block;
-        position: relative;
-        bottom: 50%;
-        top: 0%;
-        left: 0%;
-        height: 1.563rem;
-        width: 2.188rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
-        background-size: contain;
-      }
-    }
-  }
-  
-.arrow-faqcontact {
-    a {
-      color: transparent;
-      font-size: 0rem;
-      padding-right: 0rem;
-      position: absolute;
-      padding-bottom: 6.25rem;
-      right: 5%;
-      top: 50%;
-      &:after {
-        position: relative;
-        bottom: 30%;
-        top: 0%;
-        left: 0%;
-        height: 1.25rem;
-        width: 1.875rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
-        background-size: contain;
-      }
-    }
-  }
-}
-
 
 
 //MOBILE SIZE (L)
@@ -278,6 +227,10 @@
       }
     }
   }
+
+
+
+
 }
   
 
@@ -411,6 +364,141 @@
         height: 2.063rem;
         width: 2.688rem;
         background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+}
+
+
+
+//Estas Media queries já existem
+@media only screen and (max-width: 376px) {
+
+.arrow-gobackhome {
+  text-align: center;
+  a {
+    display: block;
+    color: #ec008c;
+    font-size: 0.938rem;
+    font-weight: 800;
+    padding-right: 0rem;
+    position: relative;
+    &:after {
+      content: "";
+      display: none;
+      position: absolute;
+      top: 95%;
+      right: 2%;
+      margin-top: -1.25rem;
+      height: 1.5rem;
+      width: 2.125rem;
+      background: url("../assets/images/icons/arrow-right-pink.png") no-repeat;
+      background-size: contain;
+    }
+  }
+}
+}
+
+
+@media only screen and (min-width: 377px) and (max-width:426px) {
+  .arrow-gobackhome {
+    text-align: center;
+    a {
+      display: block;
+      color: #ec008c;
+      font-size: 0.938rem;
+      font-weight: 800;
+      padding-right: 2.7rem;
+      position: relative;
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0%;
+        top: 0%;
+        right: 2%;
+        margin-bottom: 0rem;
+        margin-top: 0rem;
+        height: 1.375rem;
+        width: 2rem;
+        background: url("../assets/images/icons/arrow-right-pink.png") no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 426px) and (max-width:501px) {
+
+  .arrow-gobackhome {
+  text-align: center;
+  a {
+    display: block;
+    color: #ec008c;
+    font-size: 1.063rem;
+    font-weight: 800;
+    padding-right: 2.7rem;
+    position: relative;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 95%;
+      right: 0%;
+      margin-top: -1.25rem;
+      height: 1.5rem;
+      width: 2.125rem;
+      background: url("../assets/images/icons/arrow-right-pink.png") no-repeat;
+      background-size: contain;
+    }
+  }
+}
+}
+@media only screen and (min-width: 501px) and (max-width:769px) {
+  .arrow-gobackhome {
+    text-align: center;
+    a {
+      display: inline-block;
+      color: #ec008c;
+      font-size: 1.08rem;
+      font-weight: 800;
+      padding-right: 3.375rem;
+      position: relative;
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 73%;
+        right: 2%;
+        margin-top: -1.25rem;
+        height: 1.938rem;
+        width: 2.563rem;
+        background: url("../assets/images/icons/arrow-right-pink.png") no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 769px) and (max-width:1025px) {
+  .arrow-gobackhome {
+    text-align: center;
+    a {
+      display: block;
+      color: #ec008c;
+      font-size: 1.125rem;
+      font-weight: 800;
+      padding-right: 3.375rem;
+      position: relative;
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 70%;
+        right: 2%;
+        margin-top: -1.25rem;
+        height: 2.063rem;
+        width: 2.688rem;
+        background: url("../assets/images/icons/arrow-right-pink.png") no-repeat;
         background-size: contain;
       }
     }
