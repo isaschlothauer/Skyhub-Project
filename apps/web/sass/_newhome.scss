@@ -13,7 +13,7 @@
 
     //This class deals with the flex in the logo container and was created to handle some queries
     .mainpage-logoflex{
-      @apply md:w-1/4 pr-4 pl-4;
+      @apply md:w-1/4 pr-4 pl-0;
 
     //Logo container and properties
     .mainpage-logocontainer {
@@ -234,11 +234,11 @@
     height: calc(140vh/3);
 
   .mainpage-logoflex{
-      @apply w-0 pr-28 pl-0;
+      @apply w-1 pr-28 pl-0;
 
     .mainpage-logocontainer {
-        padding-top: 0.969rem;
-        width: 7.5rem;
+        padding-top: 1.5rem;
+        width: 8.5rem;
        
         .mainpage-logo {
           background: url("../assets/images/miscellaneous/NewLogoHeader.png") no-repeat center center;
@@ -256,7 +256,7 @@
     flex-direction: column;
     margin-left: 0rem;
     font-size: 0.625rem;
-    align-self: flex-end;
+    align-self: flex-start;
  }
    
 .mainpage-logincontainer2nd {
@@ -264,7 +264,7 @@
     flex-direction: column;
     margin-left: 0rem;
     align-self: flex-end;
-    padding-top: 1.25rem;
+    padding-top: 2.1rem;
     font-size: 0.625rem;
  }
 
@@ -272,7 +272,7 @@
     .maingpage-robottext {
       font-size: 1.063rem;
       line-height: 3.25rem;
-      margin-top: 10rem;
+      margin-top: 8rem;
       margin-bottom: 1.563rem;
       width: 12.5rem;
     }
@@ -398,8 +398,8 @@
  //This class deals specifically with the flexes around the header for some queries
  .mainpage-headerflex {
      display: flex;
-     flex-direction: column-reverse;
-     align-items: center
+     flex-direction: row;
+     justify-content: space-between;
  }
 }
 
@@ -415,7 +415,7 @@
   @apply w-0 pr-48;
 
     .mainpage-logocontainer {
-        padding-top: 2.531rem;
+        padding-top: 2.8rem;
         width: 12.5rem;
        
         .mainpage-logo {
@@ -434,7 +434,7 @@
   flex-direction: column;
   margin-left: 0rem;
   font-size: 0.625rem;
-  align-self: flex-end;
+  align-self: flex-start;
  }
  
 .mainpage-logincontainer2nd {
@@ -442,13 +442,14 @@
   flex-direction: column;
   margin-left: 0rem;
   align-self: flex-end;
+  padding-top: 2.9rem;
   font-size: 0.625rem;
  }
 
 .mainpage-robotcontainer{
   .maingpage-robottext {
     font-size: 1.875rem;
-    margin-top: 17rem;
+    margin-top: 14rem;
     margin-bottom: 1.875rem;
     width: 18.75rem;
   }
@@ -571,8 +572,8 @@
  //This class deals specifically with the flexes around the header for some queries
  .mainpage-headerflex{
   display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
   }
 }
 

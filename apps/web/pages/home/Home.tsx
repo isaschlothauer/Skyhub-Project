@@ -188,7 +188,7 @@ const Home = () => {
 
               {authToken == null ? (
                 <div
-                  className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
+                  className={`${"md:w-1/3 pr-0 pl-1 ml-16"} ${"text-right"} ${
                     styles["mainpage-logincontainer"]
                   }`}
                 >

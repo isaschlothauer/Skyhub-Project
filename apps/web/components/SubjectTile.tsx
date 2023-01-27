@@ -1,10 +1,10 @@
 import * as React from "react";
 import Image, { StaticImageData } from "next/image";
 
-{/*STYLES*/}
+{
+  /*STYLES*/
+}
 import styles from "./subjectTile.module.scss";
-
-
 
 export interface TileProps {
   tilename: string;
@@ -23,7 +23,7 @@ const Tile = ({
 }: TileProps) => {
   return (
     <div className={`mx-auto sm:px-0`}>
-      <div className="sm:w-full pr-3 pl-3">
+      <div className="sm:w-full">
         <div className={cSass}>
           <div className={styles["tile-image"]}>
             <Image src={picture} alt="summary1" />
