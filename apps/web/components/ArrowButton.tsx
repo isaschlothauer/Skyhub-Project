@@ -9,8 +9,7 @@ export interface ArrowProps {
 }
 
 export const LearnMoreArrow = ({ arrowtext, cSass, link }: ArrowProps) => {
-  
-  // alternative to see if ReactJs stops the bullshit page reload
+  /* alternative to see if ReactJs stops the bullshit page reload
   const router = useRouter();
   const handleChange = () => {
     router.push(
@@ -22,11 +21,11 @@ export const LearnMoreArrow = ({ arrowtext, cSass, link }: ArrowProps) => {
         shallow: true,
       }
     );
-  };
+  };*/
   return (
     <>
       <div className={cSass}>
-        <Link href={`${link}`} as={link}>
+        <Link href={link} as={`${link}`}>
           {arrowtext}
         </Link>
       </div>

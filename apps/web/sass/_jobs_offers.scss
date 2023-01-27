@@ -23,6 +23,7 @@
     -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     padding: 45px;
+    transition: all ease 0.1s;
     .airline-container {
       display: flex;
       flex-direction: column;
@@ -65,8 +66,10 @@
       flex-direction: column;
       flex-wrap: wrap;
       padding-top: 1rem;
-      justify-content: space-between;
+      justify-content: space-around;
       align-content: center;
+      padding-left: 3rem;
+      padding-right: 3rem;
       .job-offer-image {
         display: flex;
         flex-direction: row;
@@ -86,6 +89,9 @@
           display: none;
         }
       }
+    }
+    &:hover {
+      box-shadow: 0 0 10px $blue;
     }
   }
   .job-image-and-arrow {

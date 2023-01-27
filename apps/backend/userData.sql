@@ -1,5 +1,5 @@
 -- table for contact us page
-
+-- RENAME TABLE users TO users_old;
 CREATE TABLE
     `users` (
         `id` int(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,

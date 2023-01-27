@@ -41,7 +41,7 @@ const Offers = ({}: OffersProps) => {
   const router = useRouter();
   const { domain } = router.query; //REVIEW THIS - It was giving a duplication problem with the interface.
   const [imagesMap, setImagesMap] = useState<Map<string, string>>();
-  const [jobType, setJobType] = useState([""]);
+  const [jobType, setJobType] = useState<string[]>([]);
 
   const jobs = useAxios<JobOffer[]>({
     // TODO: paging
@@ -50,10 +50,10 @@ const Offers = ({}: OffersProps) => {
     transform: (offers) => {
       // Generate map of images related to airline id
       const _imagesMap = new Map();
-      const _jobType = new Map();
       Promise.all(
         offers.map((offer) => {
-          axios
+          setJobType(offer.job_type);
+          return axios
             .get(`http://localhost:5000/images?airline=${offer.company}`)
             .then((result) => {
               console.log("result.data", result.data);
@@ -62,7 +62,6 @@ const Offers = ({}: OffersProps) => {
                 IMAGE_STORAGE_URL + result.data[0].source
               );
             });
-          setJobType(offer.job_type);
         })
       ).then(() => {
         // console.log("_imagesMap", _imagesMap);
@@ -78,7 +77,7 @@ const Offers = ({}: OffersProps) => {
   console.log("jobType", jobType.toString().split(", "));
 
   const [selectJobType, setSelectJobType] = useState<string>("");
-  const handleSelectedJobType = (e) => {
+  const handleSelectedJobType = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectJobType(e.target.value);
   };
 
@@ -99,7 +98,8 @@ const Offers = ({}: OffersProps) => {
       <div
         className={` ${styles.containerDomain} ${"container mx-auto sm:px-4 "}`}
       >
-        <div
+        {/*
+         <div
           className={
             "flex flex-row space-x-4 justify-around items-center px-10 mx-auto h-32 rounded-[33px] bg-white mb-[60px] mt-[20px] shadow-main"
           }
@@ -120,6 +120,8 @@ const Offers = ({}: OffersProps) => {
             ))}
           </select>
         </div>
+        */}
+
         <div id={styles.offersContainer}>
           {jobs
             .slice(/* TODO */)

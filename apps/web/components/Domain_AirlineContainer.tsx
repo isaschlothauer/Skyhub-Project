@@ -47,7 +47,7 @@ function AirLineContainer({ domain }: { domain: string }) {
               <LearnMoreArrow
                 cSass={`${stylesArrow["arrow-domain"]} ${stylesArrow["dark-text"]}`}
                 arrowtext={"Learn more here"}
-                link={`/${domain}/insights`}
+                link={`${domain}/insights`}
               />
               <Image
                 src={arrowButton}

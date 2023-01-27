@@ -139,7 +139,7 @@ function JobOffersPage({ domain }: { domain: string }) {
           {
             id: 2,
             container: "Roster",
-            title: `${jobs[0].roster}h`,
+            title: `${jobs[0].roster}`,
             image: roster,
           },
         ]

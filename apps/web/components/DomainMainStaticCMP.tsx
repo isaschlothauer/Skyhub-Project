@@ -108,7 +108,7 @@ export default function MainStaticCMP(
 
         <div className="flex flex-row justify-center mb-10">
           <ButtonCMP
-            route={`/${domain}/offers`}
+            route={`${domain}/offers`}
             buttontext={"SEE MORE OFFERS"}
             cSass={`${stylesB["see-more-btn"]}`}
           />
