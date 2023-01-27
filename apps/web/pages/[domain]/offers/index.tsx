@@ -1,5 +1,10 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en";
+import { useRouter } from "next/router";
+import axios from "axios";
+import Link from "next/link";
+import useAxios from "../../../hooks/useAxios";
 {
   /* STYLES */
 }
@@ -14,14 +19,16 @@ import Footer from "../../../components/Footer";
 import JobOffersContainer from "../../../components/Domain_JobOffersContainer";
 import GoBackContainer from "../../../components/GoBackContainer";
 import { domainToLongName } from "../../../utils/domainToLongName";
-import TimeAgo from "javascript-time-ago";
-import en from "javascript-time-ago/locale/en";
-
-import useAxios from "../../../hooks/useAxios";
 import { JobOffer } from "../../../components/DomainMainStaticCMP";
-import { useRouter } from "next/router";
-import axios from "axios";
-import Link from "next/link";
+import Select from "../../../components/Select";
+
+{
+  /* javascript-time-ago shenaningans */
+}
+TimeAgo.addDefaultLocale(en);
+{
+  /* /javascript-time-ago shenaningans */
+}
 
 const IMAGE_STORAGE_URL = "http://localhost:5080/static";
 
@@ -34,6 +41,7 @@ const Offers = ({}: OffersProps) => {
   const router = useRouter();
   const { domain } = router.query; //REVIEW THIS - It was giving a duplication problem with the interface.
   const [imagesMap, setImagesMap] = useState<Map<string, string>>();
+  const [jobType, setJobType] = useState<string[]>([]);
 
   const jobs = useAxios<JobOffer[]>({
     // TODO: paging
@@ -44,10 +52,11 @@ const Offers = ({}: OffersProps) => {
       const _imagesMap = new Map();
       Promise.all(
         offers.map((offer) => {
+          setJobType(offer.job_type);
           return axios
             .get(`http://localhost:5000/images?airline=${offer.company}`)
             .then((result) => {
-              console.log(result.data);
+              console.log("result.data", result.data);
               _imagesMap.set(
                 offer.company,
                 IMAGE_STORAGE_URL + result.data[0].source
@@ -55,7 +64,7 @@ const Offers = ({}: OffersProps) => {
             });
         })
       ).then(() => {
-        console.log(_imagesMap);
+        // console.log("_imagesMap", _imagesMap);
         setImagesMap(_imagesMap);
       });
 
@@ -64,13 +73,18 @@ const Offers = ({}: OffersProps) => {
     },
   });
 
-  {
-    /* javascript-time-ago shenaningans */
-  }
-  TimeAgo.addDefaultLocale(en);
-  {
-    /* /javascript-time-ago shenaningans */
-  }
+  console.log("jobs", jobs);
+  console.log("jobType", jobType.toString().split(", "));
+
+  const [selectJobType, setSelectJobType] = useState<string>("");
+  const handleSelectedJobType = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectJobType(e.target.value);
+  };
+
+  const [showAll, setShowAll] = useState<boolean>(false);
+  const handleClick = () => {
+    setShowAll(!showAll);
+  };
 
   const domainClean: string = domain
     ? typeof domain === typeof ""
@@ -84,24 +98,46 @@ const Offers = ({}: OffersProps) => {
       <div
         className={` ${styles.containerDomain} ${"container mx-auto sm:px-4 "}`}
       >
-        <div
+        {/*
+         <div
           className={
-            "flex flex-wrap"
-          } /* style="position: relative; z-index: 5; display: none;" */
-        ></div>
+            "flex flex-row space-x-4 justify-around items-center px-10 mx-auto h-32 rounded-[33px] bg-white mb-[60px] mt-[20px] shadow-main"
+          }
+        >
+          <select
+            className={styles.Select}
+            value={selectJobType}
+            onChange={handleSelectedJobType}
+          >
+            <option value="">job type</option>
+            {jobType.toString().split(", ").map((job) => (
+              <option
+                value={job}
+                // key={jobType ? jobType.get(job.id) : undefined}
+              >
+                {job}
+              </option>
+            ))}
+          </select>
+        </div>
+        */}
+
         <div id={styles.offersContainer}>
-          {jobs.slice(/* TODO */).reverse().map((job) => (
-            <Link href={`/${domain}/offers/${job.id}`}>
-              <JobOffersContainer
-                position={job.title}
-                company={job.company}
-                base={job.base}
-                date={job.date}
-                link={`/${domain}/offers/${job.id}`}
-                imageSrc={imagesMap ? imagesMap.get(job.company) : undefined}
-              />
-            </Link>
-          ))}
+          {jobs
+            .slice(/* TODO */)
+            .reverse()
+            .map((job) => (
+              <Link href={`/${domain}/offers/${job.id}`}>
+                <JobOffersContainer
+                  position={job.title}
+                  company={job.company}
+                  base={job.base}
+                  date={job.date}
+                  link={`/${domain}/offers/${job.id}`}
+                  imageSrc={imagesMap ? imagesMap.get(job.company) : undefined}
+                />
+              </Link>
+            ))}
         </div>
         <GoBackContainer
           arrowTitle={`Back to ${domainToLongName(domainClean)} page`}

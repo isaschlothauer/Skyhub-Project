@@ -89,7 +89,7 @@
 
 //MOBILE SIZE (S and M)
 @media only screen and (max-width: 376px) {
-.arrow-jobs {
+  .arrow-jobs {
     a {
       color: transparent;
       font-size: 0.625rem;
@@ -304,7 +304,9 @@
   }
 
   .onlyButton {
+    margin-top: 1rem;
     display: initial;
+    align-self: flex-end;
   }
 }
 
@@ -313,6 +315,7 @@
     // Set alignment in container
     display: contents;
     text-align: right;
+    transition: all ease 0.1s;
     a {
       display: inline-block;
       font-size: 18px;
@@ -338,8 +341,7 @@
 
 //TABLET SIZE (THIS SIZE WAS DIVIDED SO THE CONTENT COULD RESPOND PROPERLY TO DIFFERENT SIZES OF SCREEN)
 @media only screen and (min-width: 501px) and (max-width: 769px) {
-
-.arrow-jobs {
+  .arrow-jobs {
     a {
       color: transparent;
       font-size: 0.625rem;
@@ -356,13 +358,14 @@
         margin-left: 0.4rem;
         height: 1.938rem;
         width: 2.563rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
   }
 
-.arrow-faqcontact {
+  .arrow-faqcontact {
     a {
       color: transparent;
       font-size: 0.625rem;
@@ -378,10 +381,11 @@
         left: 10%;
         height: 1.938rem;
         width: 2.563rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
-    }  
+    }
   }
 
   .arrow-gobackhome {
@@ -402,9 +406,8 @@
 }
 
 //SMALL COMPUTER SIZE
-@media only screen and (min-width: 769px) and (max-width:1025px) { 
-
-.arrow-jobs {
+@media only screen and (min-width: 769px) and (max-width: 1025px) {
+  .arrow-jobs {
     a {
       padding-right: 1.25rem;
       position: absolute;
@@ -418,7 +421,8 @@
         left: 95%;
         height: 2.063rem;
         width: 2.688rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }
@@ -432,7 +436,8 @@
         left: 65%;
         height: 2.063rem;
         width: 2.688rem;
-        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png) no-repeat center center;
+        background: url(/_next/static/media/arrow-right-pink.a45a9e7b.png)
+          no-repeat center center;
         background-size: contain;
       }
     }

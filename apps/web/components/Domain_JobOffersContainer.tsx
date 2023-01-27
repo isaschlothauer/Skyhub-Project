@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import Image from "next/image";
-import Link from "next/link";
 {
   /* STYLES */
 }
@@ -124,6 +123,11 @@ function JobOffersContainer(props: JobOffersContainerProps) {
               arrowtext={"Learn more"}
               cSass={`${stylesArrow["arrow-domain"]} ${stylesArrow["dark-text"]}`}
               link={link}
+            />
+            <Image
+              src={arrowButton}
+              alt={"arrow-button"}
+              className={stylesArrow.onlyButton}
             />
           </div>
         </div>
