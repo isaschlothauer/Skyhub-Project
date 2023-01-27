@@ -61,7 +61,7 @@ const Login = ({ domain }: LoginProps) => {
   }, [authToken]);
 
   // Submit button behavior definition
-  function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
+  function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     event.preventDefault();
     console.log("Hello");
 
