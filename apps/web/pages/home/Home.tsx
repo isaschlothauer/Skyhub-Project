@@ -212,7 +212,7 @@ const Home = () => {
                 (Object.values(jwt_decode(authToken)).includes("recruiter") ||
                   Object.values(jwt_decode(authToken)).includes("airline")) ? (
                 <div
-                  className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
+                  className={`${"md:w-1/3 pr-0 pl-1 ml-16"} ${"text-right"} ${
                     styles["mainpage-logincontainer"]
                   }`}
                 >
@@ -248,7 +248,7 @@ const Home = () => {
               ) : authToken != null &&
                 Object.values(jwt_decode(authToken)).includes("admin") ? (
                 <div
-                  className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
+                  className={`${"md:w-1/3 pr-0 pl-1 ml-16"} ${"text-right"} ${
                     styles["mainpage-logincontainer"]
                   }`}
                 >
