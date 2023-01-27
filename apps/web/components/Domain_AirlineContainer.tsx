@@ -6,6 +6,7 @@ import Link from "next/link";
 }
 import styles from "./domain_airlineContainer.module.scss";
 import stylesArrow from "../components/arrowButton.module.scss";
+import stylesB from "../components/generalButton.module.scss";
 
 {
   /* IMAGES */
@@ -18,13 +19,14 @@ import checkbox from "../assets/images/icons/checkbox.png";
   /* COMPONENTS */
 }
 import { LearnMoreArrow } from "./ArrowButton";
+import ButtonCMP from "./GeneralButton";
 
 const checkBoxes = [
   {
     id: 1,
     content: `How much <span>salary</span> can I expect?`,
   },
-  { id: 2, content: `Are their additional <span>benefits</span>?` },
+  { id: 2, content: `Are there any additional <span>benefits</span>?` },
   { id: 3, content: `Of what does the <span>assesment</span> consists?` },
   { id: 4, content: `What is the actual <span>revenue</span> of the company?` },
   { id: 5, content: "And much more ..." },
@@ -76,16 +78,13 @@ function AirLineContainer({ domain }: { domain: string }) {
                   </Link>
                 </div>
               </div>
-              <LearnMoreArrow
-                cSass={`${stylesArrow["arrow-domain"]} ${stylesArrow["dark-text"]}`}
-                arrowtext={"Learn more here"}
-                link={`${domain}/insights`}
-              />
-              <Image
-                src={arrowButton}
-                alt={"arrow-button"}
-                className={stylesArrow.onlyButton}
-              />
+              <div className={styles.buttonDiv}>
+                <ButtonCMP
+                  route={`/${domain}/insights`}
+                  buttontext={"GO TO INSIGHTS"}
+                  cSass={`${stylesB["see-more-btn-insights"]}`}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -95,3 +94,13 @@ function AirLineContainer({ domain }: { domain: string }) {
 }
 
 export default AirLineContainer;
+
+{
+  /* Unused onlyButton img (pinky roundy thingy)
+ <Image
+                src={arrowButton}
+                alt={"arrow-button"}
+                className={stylesArrow.onlyButton}
+              />
+*/
+}
