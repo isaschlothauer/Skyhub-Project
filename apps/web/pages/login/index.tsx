@@ -57,7 +57,7 @@ const Login = ({ domain }: LoginProps) => {
   });
 
   // Error message for credential check
-  const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   // Input field handling definition
   function loginHandler(event: React.ChangeEvent<HTMLInputElement>) {
@@ -83,7 +83,6 @@ const Login = ({ domain }: LoginProps) => {
   // Submit button behavior definition
   function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLInputElement>): void {
     event.preventDefault();
-    console.log("Hello");
 
     axios
       .post("http://localhost:5000/auth", login, {
@@ -150,10 +149,6 @@ const Login = ({ domain }: LoginProps) => {
                       // console.log("Enter key pressed");
                       submissionHandler(event);
                     }
-                    // if (e.key === "Enter") {
-                    //   e.preventDefault();
-                    //   {submitBehavior};
-                    // }
                   }} 
                   required
                 />
@@ -173,11 +168,6 @@ const Login = ({ domain }: LoginProps) => {
                   placeholder="Enter password"
                   value={login.password}
                   onChange={loginHandler}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      submissionHandler(event);
-                    }
-                  }} 
                   required
                 />
                 <div className={"mt-3 flex"}>
@@ -194,11 +184,9 @@ const Login = ({ domain }: LoginProps) => {
               {errorMsg ? (
                 <p className={"mt-3 text-center"}>{errorMsg}</p>
               ) : null}
-              {/* {(errorMsg != "" && login.email != "")? <p className={"text-center"}>Please check your login information</p>: null} */}
 
               {/* Login Submission button */}
               <div className={"w-min mx-auto mt-4"}>
-                {/* TO DO: Implement authentication process */}
                 <LoginButton
                   tabIndex={0}
                   onClick={submissionHandler}
