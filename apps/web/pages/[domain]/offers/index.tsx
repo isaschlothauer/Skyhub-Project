@@ -20,7 +20,7 @@ import JobOffersContainer from "../../../components/Domain_JobOffersContainer";
 import GoBackContainer from "../../../components/GoBackContainer";
 import { domainToLongName } from "../../../utils/domainToLongName";
 import { JobOffer } from "../../../components/DomainMainStaticCMP";
-import Select from "../../../components/Select";
+import { useDebounce } from "use-debounce";
 
 {
   /* javascript-time-ago shenaningans */
@@ -41,7 +41,7 @@ const Offers = ({}: OffersProps) => {
   const router = useRouter();
   const { domain } = router.query; //REVIEW THIS - It was giving a duplication problem with the interface.
   const [imagesMap, setImagesMap] = useState<Map<string, string>>();
-  const [jobType, setJobType] = useState<string[]>([]);
+  // const [jobType, setJobType] = useState<string[]>([]);
 
   const jobs = useAxios<JobOffer[]>({
     // TODO: paging
@@ -52,7 +52,7 @@ const Offers = ({}: OffersProps) => {
       const _imagesMap = new Map();
       Promise.all(
         offers.map((offer) => {
-          setJobType(offer.job_type);
+          // setJobType(offer.job_type);
           return axios
             .get(`http://localhost:5000/images?airline=${offer.company}`)
             .then((result) => {
@@ -74,17 +74,18 @@ const Offers = ({}: OffersProps) => {
   });
 
   console.log("jobs", jobs);
-  console.log("jobType", jobType.toString().split(", "));
+  // console.log("jobType", jobType.toString().split(", "));
 
   const [selectJobType, setSelectJobType] = useState<string>("");
-  const handleSelectedJobType = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSelectedJobType = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setSelectJobType(e.target.value);
   };
 
-  const [showAll, setShowAll] = useState<boolean>(false);
-  const handleClick = () => {
-    setShowAll(!showAll);
-  };
+  const debouncedSearchTerm = useDebounce(selectJobType, 500);
+
+  console.log("selectedJobType", selectJobType);
 
   const domainClean: string = domain
     ? typeof domain === typeof ""
@@ -98,46 +99,51 @@ const Offers = ({}: OffersProps) => {
       <div
         className={` ${styles.containerDomain} ${"container mx-auto sm:px-4 "}`}
       >
-        {/*
-         <div
+        <div
           className={
             "flex flex-row space-x-4 justify-around items-center px-10 mx-auto h-32 rounded-[33px] bg-white mb-[60px] mt-[20px] shadow-main"
           }
         >
-          <select
-            className={styles.Select}
-            value={selectJobType}
+          <input
+            type={"text"}
+            name={"job_type-search"}
+            placeholder="First Officer, Lufthansa, Athens..."
             onChange={handleSelectedJobType}
-          >
-            <option value="">job type</option>
-            {jobType.toString().split(", ").map((job) => (
-              <option
-                value={job}
-                // key={jobType ? jobType.get(job.id) : undefined}
-              >
-                {job}
-              </option>
-            ))}
-          </select>
+            className="w-2/4 pr-1 pl-1 mr-1 ml-1 text-center block"
+          />
         </div>
-        */}
 
         <div id={styles.offersContainer}>
-          {jobs
-            .slice(/* TODO */)
-            .reverse()
-            .map((job) => (
-              <Link href={`/${domain}/offers/${job.id}`}>
-                <JobOffersContainer
-                  position={job.title}
-                  company={job.company}
-                  base={job.base}
-                  date={job.date}
-                  link={`/${domain}/offers/${job.id}`}
-                  imageSrc={imagesMap ? imagesMap.get(job.company) : undefined}
-                />
-              </Link>
-            ))}
+          {jobs &&
+            jobs
+              .filter(
+                (singleJobTitle) =>
+                  singleJobTitle.title
+                    .toLowerCase()
+                    .includes(selectJobType.toLowerCase()) ||
+                  singleJobTitle.company
+                    .toLowerCase()
+                    .includes(selectJobType.toLowerCase()) ||
+                  singleJobTitle.base
+                    .toLowerCase()
+                    .includes(selectJobType.toLowerCase())
+              )
+              .slice(/* TODO */)
+              .reverse()
+              .map((job) => (
+                <Link href={`/${domain}/offers/${job.id}`}>
+                  <JobOffersContainer
+                    position={job.title}
+                    company={job.company}
+                    base={job.base}
+                    date={job.date}
+                    link={`/${domain}/offers/${job.id}`}
+                    imageSrc={
+                      imagesMap ? imagesMap.get(job.company) : undefined
+                    }
+                  />
+                </Link>
+              ))}
         </div>
         <GoBackContainer
           arrowTitle={`Back to ${domainToLongName(domainClean)} page`}

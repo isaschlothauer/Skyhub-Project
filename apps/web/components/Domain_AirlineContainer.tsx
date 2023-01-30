@@ -5,20 +5,17 @@ import Link from "next/link";
   /* STYLES */
 }
 import styles from "./domain_airlineContainer.module.scss";
-import stylesArrow from "../components/arrowButton.module.scss";
 import stylesB from "../components/generalButton.module.scss";
 
 {
   /* IMAGES */
 }
 import airlineImg from "../assets/images/widget/InsightsPicJobPage.png";
-import arrowButton from "../assets/images/icons/arrow-right-pink.png";
 import checkbox from "../assets/images/icons/checkbox.png";
 
 {
   /* COMPONENTS */
 }
-import { LearnMoreArrow } from "./ArrowButton";
 import ButtonCMP from "./GeneralButton";
 
 const checkBoxes = [
