@@ -20687,8 +20687,6 @@ CREATE TABLE
         `tos` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT ' '
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
---
-
 -- --------------------------------------------------------
 
 --

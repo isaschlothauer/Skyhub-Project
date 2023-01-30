@@ -12,8 +12,25 @@ import LoginButton from "../../components/GeneralButton";
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 
+// TO DO
+// // 1.User login status implement
+// //   1.1 Should user status be lifted to bypass login page, change landing page login button to log off?
+// //   1.2 Landing page should have if (user).... to check for login status of user
+// //     1.2.1 when logged in, then Login button should be Log Off
+// //     1.2.2 when logged in, a button to admin panel should appear instead of register button
+// // 2. Implement persistent login via cookie?
+// //2. Implement session based login if "remember me" is not enabled
+// //   2.1 Should this also be lifted?
+
+// // 3. Do something about the password state. It should not store plain password
+// //    3.1 Server should just ok or not
+// // 4. Login.password must not store password or hash. It should not be visible or retrievable.
+// //5. Add a simple field input checker not to allow empty fields. No point using express-validator.
+// // LINE 58, Axios needs to be completed
+// 6: check and modify typescript
+
 const loginButton = {
-  route: "/",
+  route: "/control",
   cSass: styleslrButton["loginreg-pink"],
   buttontext: "Sign in",
 };
@@ -37,7 +54,7 @@ const Login = ({ domain }: LoginProps) => {
   });
 
   // Error message for credential check
-  const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   // Input field handling definition
   function loginHandler(event: React.ChangeEvent<HTMLInputElement>) {
@@ -61,7 +78,7 @@ const Login = ({ domain }: LoginProps) => {
   }, [authToken]);
 
   // Submit button behavior definition
-  function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLInputElement>): void {
     event.preventDefault();
     console.log("Hello");
 
@@ -91,7 +108,7 @@ const Login = ({ domain }: LoginProps) => {
           console.log("Login successful");
 
           // Redirect to home page
-          router.push("/");
+          router.push("/control");
         }
       })
       .catch((err) => {
@@ -159,7 +176,7 @@ const Login = ({ domain }: LoginProps) => {
                   <input
                     type="checkbox"
                     checked={remember}
-                    onChange={() => setRemember(!remember)}
+                    onChange={() => setRemember(true)}
                     className={"ml-3 z-10"}
                   />
                   <span className={`ml-2 text-pink-primary`}>Remember me</span>
@@ -171,7 +188,6 @@ const Login = ({ domain }: LoginProps) => {
               ) : null}
               {/* Login Submission button */}
               <div className={"w-min mx-auto mt-4"}>
-                {/* TO DO: Implement authentication process */}
                 <LoginButton
                   tabIndex={0}
                   onClick={submissionHandler}

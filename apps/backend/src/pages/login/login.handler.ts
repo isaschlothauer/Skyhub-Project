@@ -33,7 +33,7 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
     .then(([user]) => {
       const [userResult] = user;
 
-      console.log(userResult);
+      // console.log(userResult);
 
       // Credential checking. No matching email case
       if (!userResult) {
