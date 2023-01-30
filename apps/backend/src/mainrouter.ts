@@ -6,6 +6,7 @@ import InsightsRouter from "./pages/insights/insights.router";
 import DomainRouter from "./routes/offers/router";
 import RegistrationRouter from "./pages/registration/registration.router";
 import { registrationValidator } from "../src/pages/registration/registrationValidator";
+import { offersCounter } from "./offercounter";
 
 import { loginValidator } from "./pages/login/login.validator";
 import LoginRouter from "./pages/login/login.router";
@@ -22,6 +23,7 @@ MainRouter.use("/static", StaticPageRouter);
 MainRouter.use("/contact-form", validateInput, ContactFormAndFAQRouter);
 MainRouter.use("/faq", ContactFormAndFAQRouter);
 MainRouter.use("/:domain/insights", InsightsRouter);
+MainRouter.use("/counter", offersCounter)
 
 // Job offers
 MainRouter.use("/jobs", DomainRouter);
@@ -39,5 +41,6 @@ MainRouter.use("/users", UserRouter); // For testing purposes
 MainRouter.use(tokenVerification)
 
 MainRouter.use("/secureRoute", SecureRouter);
+
 
 export default MainRouter;

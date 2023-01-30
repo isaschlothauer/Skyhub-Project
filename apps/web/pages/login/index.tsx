@@ -80,6 +80,7 @@ const Login = ({ domain }: LoginProps) => {
   // Submit button behavior definition
   function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLInputElement>): void {
     event.preventDefault();
+    console.log("Hello");
 
     axios
       .post("http://localhost:5000/auth", login, {
@@ -89,6 +90,7 @@ const Login = ({ domain }: LoginProps) => {
         },
       })
       .then((res: AxiosResponse<LoginResponseData>) => {
+
         // Clear login.password
         setLogin({ email: "", password: "" });
 
@@ -102,8 +104,6 @@ const Login = ({ domain }: LoginProps) => {
           remember
             ? window.localStorage.setItem("auth_token", res.data.token)
             : window.sessionStorage.setItem("auth_token", res.data.token);
-
-          // To clear localStorage, run localStorage.clear()
 
           console.log("Login successful");
 
@@ -165,6 +165,11 @@ const Login = ({ domain }: LoginProps) => {
                   placeholder="Enter password"
                   value={login.password}
                   onChange={loginHandler}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      submissionHandler(event);
+                    }
+                  }} 
                   required
                 />
                 <div className={"mt-3 flex"}>
@@ -181,7 +186,6 @@ const Login = ({ domain }: LoginProps) => {
               {errorMsg ? (
                 <p className={"mt-3 text-center"}>{errorMsg}</p>
               ) : null}
-
               {/* Login Submission button */}
               <div className={"w-min mx-auto mt-4"}>
                 <LoginButton

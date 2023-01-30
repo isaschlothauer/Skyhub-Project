@@ -1,10 +1,12 @@
 import * as React from "react";
 import Image, { StaticImageData } from "next/image";
+import axios from "axios";
+import { useEffect, useState, useContext } from "react";
 
-{/*STYLES*/}
+{
+  /*STYLES*/
+}
 import styles from "./subjectTile.module.scss";
-
-
 
 export interface TileProps {
   tilename: string;
@@ -12,6 +14,7 @@ export interface TileProps {
   picture: StaticImageData;
   subtilename: string;
   arrowbmap: JSX.Element;
+  tcounter: any;
 }
 
 const Tile = ({
@@ -20,17 +23,18 @@ const Tile = ({
   picture,
   subtilename,
   arrowbmap,
+  tcounter,
 }: TileProps) => {
   return (
     <div className={`mx-auto sm:px-0`}>
-      <div className="sm:w-full pr-3 pl-3">
+      <div className="sm:w-full">
         <div className={cSass}>
           <div className={styles["tile-image"]}>
             <Image src={picture} alt="summary1" />
           </div>
           <div className={styles["tile-offers"]}>
             <div className={styles["tile-offerscount"]}>
-              <strong>{/* { $cabinCount } */}</strong> Active Offers
+              <strong>{tcounter}</strong>Active Offers
             </div>
             <div className={styles["tile-traveltheworld"]}>
               <div className={styles["tile-traveltheworld-subtitle"]}>
