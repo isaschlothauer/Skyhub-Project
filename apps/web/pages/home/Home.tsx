@@ -66,12 +66,22 @@ const loginregButtons = [
   },
 ];
 
+interface JWT {
+  [s: string]: string;
+}
+
 const Home = () => {
-  // localStorage contains auth_token only when logged in. To trigger and render Admin panel button and edit page link,
-  // check if localStorage.auth_token exists.
-  // Protected path to admin panel still have to be setup.
+// TO DO
+// * Invalid token handling
+
+// NOTE;
+// So far authToken is used only to render whether user is logged in or not.
+// Application checks local/sessionStorage for the token to determine whether the user is logged in or not.
+
   const [counter, setCounter] = useState([]);
   const [jobTiles, setJobTiles] = useState<{ [key: any]: any }[]>([]);
+  const { authToken, setAuthToken } = useContext(AuthContext);
+  let token: string | null = null;
 
   useEffect(() => {
     const test1 = async () => {
@@ -199,22 +209,6 @@ const Home = () => {
       },
     ]);
   }, [counter]);
-
-interface JWT {
-  [s: string]: string;
-}
-
-
-// TO DO
-// * Invalid token handling
-
-// NOTE;
-// So far authToken is used only to render whether user is logged in or not.
-// Application checks local/sessionStorage for the token to determine whether the user is logged in or not.
-
-
-  const { authToken, setAuthToken } = useContext(AuthContext);
-  let token: string | null = null;
 
   useEffect(() => {
     // Initialize 'window'
