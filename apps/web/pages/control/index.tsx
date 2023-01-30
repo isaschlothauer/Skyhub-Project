@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 export default function Control () {
-const [token, setToken] = useState(null);
 const [loginStatus, setLoginStatus] = useState<number | undefined>(undefined);
 const [account, setAccount] = useState("");
 const [name, setName] = useState<string>("");
@@ -61,9 +60,6 @@ const [accountType, setAccountType] = useState<string>("");
       
     })
 
-    
-
-
   }, [loginStatus]);
 
   console.log(account);
@@ -71,13 +67,20 @@ const [accountType, setAccountType] = useState<string>("");
   if (loginStatus == 401) {
     return (
       <>
-        <p>You are not logged in. Please log in and try again</p>
+      <div className={"mt-20 w-full items-enter"}>
+        <p className={"text-center"}>You are not logged in. Please log in and try again</p>
+        <div className={"mt-10 w-full text-center"}>
+          <a href="/login" className={"inline-block text-xl"}>Login</a>
+        </div>
+
+      </div>
+
       </>
     )
   } else {
     return (
       <>
-        <p>Hello {name}</p>
+        <p className={"alilgn-center"}>Hello {name}</p>
         <div className={"mt-5"} />
         {(accountType === "admin")
         ? <p>As an admin, you are able to have control over the site's user, content and administrative tasks through this page</p>
@@ -94,46 +97,5 @@ const [accountType, setAccountType] = useState<string>("");
       </>
     )
   }
-
-    // <>
-    // {/* {loginStatus && <p>Hoo</p>} */}
-
-
-
-
-
-    // {loginStatus !== 401 && accountType == "admin" ? (
-    //   <>
-    //     <p>This is the admin panel for the {accountType}</p>
-    //     <p>You cal do all sorts of stuff in this page as an admin</p>
-    //   </>
-    // ): (
-    //   <>
-    //     <p>This is the user dashboard for the account type {accountType}</p>
-    //     <p>As a non-admin account type, the dashboard allows user to modify account details, post job and so on</p>
-    //   </>
-    // ) }
-  //   // </>
-  // )
-
-  // if (setStatusCheck == undefined) {
-  //   return (
-  //     <p>boo</p>
-  //   )
-  // } else {
-  //   return (
-  //     <p>Noo</p>
-  //   )
-  // }
-    
-    // <>
-    //   <p>This page is a place holder for admin panel / user dashboard.</p>
-    //   <p>Test page</p>
-
-    //   <div className={"mt-10"}>
-    //     {/* {JSON.stringify(userDetails)} */}
-    //   </div>
-    //   </>
-  
 }
 
