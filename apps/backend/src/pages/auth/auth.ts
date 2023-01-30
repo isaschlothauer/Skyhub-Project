@@ -15,7 +15,7 @@ import jwt from 'jsonwebtoken';
 // }
 
 
-const tokenVerification: RequestHandler= (req: Request, res: Response, next: NextFunction) => {
+const tokenVerification = (req: Request, res: Response, next: NextFunction) => {
 
   try {
     const authorizationHeader = req.get("Authorization");
@@ -27,14 +27,17 @@ const tokenVerification: RequestHandler= (req: Request, res: Response, next: Nex
     const [type, token] = authorizationHeader.split(" ");
 
     if (type !== "Bearer") {
-      throw new Error("Authorization header has not the 'Bearer' type");
+      throw new Error("Authorization header does not have the 'Bearer' type");
     }
 
     if (process.env.JWT_SECRET) {
-      req.payload = jwt.verify(token, process.env.JWT_SECRET);
+      req.body.payload = jwt.verify(token, process.env.JWT_SECRET);
     }
 
-    console.log(req.payload);
+    const { account_type } = req.body.payload;
+
+    // console.log(req.body.payload);
+    console.log("Token verification")
 
     next();
   } catch (err) {

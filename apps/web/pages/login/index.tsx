@@ -174,7 +174,7 @@ const Login = ({ domain }: LoginProps) => {
                   <input
                     type="checkbox"
                     checked={remember}
-                    onChange={() => setRemember(!remember)}
+                    onChange={() => setRemember(true)}
                     className={"ml-3 z-10"}
                   />
                   <span className={`ml-2 text-pink-primary`}>Remember me</span>
