@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { getJobsById, getJobsContainer } from "./handlers";
 
+
 const DomainRouter = Router();
 
 DomainRouter.get("/", getJobsContainer);
