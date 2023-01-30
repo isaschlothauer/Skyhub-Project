@@ -20,7 +20,7 @@ import JobOffersContainer from "../../../components/Domain_JobOffersContainer";
 import GoBackContainer from "../../../components/GoBackContainer";
 import { domainToLongName } from "../../../utils/domainToLongName";
 import { JobOffer } from "../../../components/DomainMainStaticCMP";
-import { useDebounce } from "use-debounce";
+import { useDebouncedCallback } from "use-debounce";
 
 {
   /* javascript-time-ago shenaningans */
@@ -76,16 +76,13 @@ const Offers = ({}: OffersProps) => {
   console.log("jobs", jobs);
   // console.log("jobType", jobType.toString().split(", "));
 
-  const [selectJobType, setSelectJobType] = useState<string>("");
-  const handleSelectedJobType = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setSelectJobType(e.target.value);
-  };
+  const [searchJobType, setSearchJobType] = useState<string>("");
 
-  const debouncedSearchTerm = useDebounce(selectJobType, 500);
+  const debounced = useDebouncedCallback((value) => {
+    setSearchJobType(value);
+  }, 500);
 
-  console.log("selectedJobType", selectJobType);
+  console.log("selectedJobType", searchJobType);
 
   const domainClean: string = domain
     ? typeof domain === typeof ""
@@ -108,7 +105,7 @@ const Offers = ({}: OffersProps) => {
             type={"text"}
             name={"job_type-search"}
             placeholder="First Officer, Lufthansa, Athens..."
-            onChange={handleSelectedJobType}
+            onChange={(e) => debounced(e.target.value)}
             className="w-2/4 pr-1 pl-1 mr-1 ml-1 text-center block"
           />
         </div>
@@ -120,13 +117,13 @@ const Offers = ({}: OffersProps) => {
                 (singleJobTitle) =>
                   singleJobTitle.title
                     .toLowerCase()
-                    .includes(selectJobType.toLowerCase()) ||
+                    .includes(searchJobType.toLowerCase()) ||
                   singleJobTitle.company
                     .toLowerCase()
-                    .includes(selectJobType.toLowerCase()) ||
+                    .includes(searchJobType.toLowerCase()) ||
                   singleJobTitle.base
                     .toLowerCase()
-                    .includes(selectJobType.toLowerCase())
+                    .includes(searchJobType.toLowerCase())
               )
               .slice(/* TODO */)
               .reverse()
