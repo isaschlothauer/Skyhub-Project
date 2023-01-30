@@ -2,24 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 export default function Control () {
-const [loginStatus, setLoginStatus] = useState<number | undefined>(undefined);
-const [account, setAccount] = useState("");
-const [name, setName] = useState<string>("");
-const [accountType, setAccountType] = useState<string>("");
+  const [loginStatus, setLoginStatus] = useState<number | undefined>(undefined);
+  const [account, setAccount] = useState("");
+  const [name, setName] = useState<string>("");
+  const [accountType, setAccountType] = useState<string>("");
 
-
-
-  useEffect(() => {
   let token: string | null = null;
-
-  console.log(window.localStorage);
-  window.localStorage.auth_token
-    ? console.log("localStorage: Yes")
-    : console.log("localStorage: No");
-  window.sessionStorage.auth_token
-    ? console.log("SessionStorage: Yes")
-    : console.log("SessionStorage: No");
-
+  useEffect(() => {
 
       // Token checker (only for development)
       if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
@@ -34,7 +23,7 @@ const [accountType, setAccountType] = useState<string>("");
         }
       }
 
-  console.log(token);
+  // console.log(token);
 
   axios
     .post("http://localhost:5000/secureRoute", {}, {
@@ -44,11 +33,10 @@ const [accountType, setAccountType] = useState<string>("");
       },
     })
     .then(result => {
-      
-      // console.log(result.status)
-      console.log(result)
-
-      if (account == undefined) return;
+      if (result == undefined) {
+        console.log("No data received from the server.");
+        return
+      };
 
       setAccount(result.data);
       setName(result.data.name);
@@ -59,10 +47,9 @@ const [accountType, setAccountType] = useState<string>("");
       setLoginStatus(err.response.status);
       
     })
-
   }, [loginStatus]);
 
-  console.log(account);
+  // console.log(account);
 
   if (loginStatus == 401) {
     return (
@@ -72,9 +59,7 @@ const [accountType, setAccountType] = useState<string>("");
         <div className={"mt-10 w-full text-center"}>
           <a href="/login" className={"inline-block text-xl"}>Login</a>
         </div>
-
       </div>
-
       </>
     )
   } else {
@@ -83,17 +68,20 @@ const [accountType, setAccountType] = useState<string>("");
         <p className={"alilgn-center"}>Hello {name}</p>
         <div className={"mt-5"} />
         {(accountType === "admin")
-        ? <p>As an admin, you are able to have control over the site's user, content and administrative tasks through this page</p>
-        : <p>Account type {accountType} will have the ability to post job listing, approove airline information submitted by others and many more</p>}
+        ? <p>As an admin, you are able to have control over the site's user, content and administrative tasks through this page.</p>
+        : <p>Account type: {accountType} will have the ability to post job listing, approove airline information submitted by others and many more.</p>}
 
         <div className={"mt-5"} />
-        <p>As an information, here are your account details. Of course this information will not be visible once development is done:</p>
+        <p>As an information, here are your account details. Of course this information will not be visible once development is done.</p>
         <div className={"mt-5"} />
         {Object.entries(account).map(([key, value]) => {
           return (
             <p key={key}>{key}: {value}</p>
           )
         })}
+        <div className={"mt-10"}>
+          <a href="/">Go back to the landing page</a>
+        </div>
       </>
     )
   }

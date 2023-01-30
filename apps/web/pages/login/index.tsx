@@ -16,10 +16,10 @@ import Mini_Header from "../../components/Header";
 // // 1.User login status implement
 // //   1.1 Should user status be lifted to bypass login page, change landing page login button to log off?
 // //   1.2 Landing page should have if (user).... to check for login status of user
-//      1.2.1 when logged in, then Login button should be Log Off
-//      1.2.2 when logged in, a button to admin panel should appear instead of register button
+// //     1.2.1 when logged in, then Login button should be Log Off
+// //     1.2.2 when logged in, a button to admin panel should appear instead of register button
 // // 2. Implement persistent login via cookie?
-// 2. Implement session based login if "remember me" is not enabled
+// //2. Implement session based login if "remember me" is not enabled
 // //   2.1 Should this also be lifted?
 
 // // 3. Do something about the password state. It should not store plain password
@@ -27,13 +27,10 @@ import Mini_Header from "../../components/Header";
 // // 4. Login.password must not store password or hash. It should not be visible or retrievable.
 // //5. Add a simple field input checker not to allow empty fields. No point using express-validator.
 // // LINE 58, Axios needs to be completed
-// 6. Refer to
-
-// 6. Figure out post login behavior. What should login button do other than changing state? Admin panel or back to front page?
-// reference video: https://www.youtube.com/watch?v=2lJuOh4YlGM
+// 6: check and modify typescript
 
 const loginButton = {
-  route: "/",
+  route: "/control",
   cSass: styleslrButton["loginreg-pink"],
   buttontext: "Sign in",
 };
@@ -111,7 +108,7 @@ const Login = ({ domain }: LoginProps) => {
           console.log("Login successful");
 
           // Redirect to home page
-          router.push("/");
+          router.push("/control");
         }
       })
       .catch((err) => {

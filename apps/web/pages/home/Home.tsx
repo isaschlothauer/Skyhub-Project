@@ -112,30 +112,27 @@ const jobTiles = [
   },
 ];
 
+interface JWT {
+  [s: string]: string;
+}
+
 
 // TO DO
 // * Invalid token handling
 
+// NOTE;
+// So far authToken is used only to render whether user is logged in or not.
+// Application checks local/sessionStorage for the token to determine whether the user is logged in or not.
+
 
 const Home = () => {
+ 
   const { authToken, setAuthToken } = useContext(AuthContext);
+  let token: string | null = null;
 
   useEffect(() => {
-
-    // Token location checker (only for development)
-    console.log(window.localStorage);
-    window.localStorage.auth_token
-      ? console.log("localStorage: Yes")
-      : console.log("localStorage: No");
-    window.sessionStorage.auth_token
-      ? console.log("SessionStorage: Yes")
-      : console.log("SessionStorage: No");
-
-    let token = "";
-
-    // Token checker (only for development)
+    // Initialize 'window'
     if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
-      console.log("token is in the storage");
 
       if (window.localStorage.auth_token) {
         setAuthToken(window.localStorage.auth_token);
@@ -145,24 +142,18 @@ const Home = () => {
         token = window.sessionStorage.auth_token;
       }
 
-      console.log(authToken);
-
-      // let token = window.localStorage.auth_token;
-
-      console.log(token);
-
       if (token === null) {
         console.log("No valid token");
         return;
       } else {
+        // Just for testing purposes
         let decoded = jwt_decode(token);
+        console.log("ONLY FOR TESTING");
         console.log(decoded);
       }
     } else {
       console.log("No valid token");
     }
-
-    // LOGOFF BUTTON IN LINE 240
   }, [authToken]);
 
   function logoff() {
@@ -171,7 +162,6 @@ const Home = () => {
     sessionStorage.clear();
   }
 
-  // console.log(window.localStorage);
   return (
     <div className={styles["mainpage"]}>
       <div
@@ -214,8 +204,8 @@ const Home = () => {
                   </div>
                 </div>
               ) : authToken != null &&
-                (Object.values(jwt_decode(authToken)).includes("recruiter") ||
-                  Object.values(jwt_decode(authToken)).includes("airline")) ? (
+                (Object.values(jwt_decode<JWT>(authToken)).includes("recruiter") ||
+                  Object.values(jwt_decode<JWT>(authToken)).includes("airline")) ? (
                 <div
                   className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
                     styles["mainpage-logincontainer"]
@@ -251,7 +241,7 @@ const Home = () => {
                   </div>
                 </div>
               ) : authToken != null &&
-                Object.values(jwt_decode(authToken)).includes("admin") ? (
+                Object.values(jwt_decode<JWT>(authToken)).includes("admin") ? (
                 <div
                   className={`${"md:w-1/3 pr-1 pl-1 ml-16"} ${"text-right"} ${
                     styles["mainpage-logincontainer"]
