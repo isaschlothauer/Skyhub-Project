@@ -178,7 +178,7 @@ export default function AirlineInsight({
       </div>
       {/*end of airline benefits tile*/}
       <div className="mx-auto container relative z-10 ">
-        <h2 className="text-xl font-extrabold mb-4 ml-7 pt-4 text-[#000e94] ">
+        <h2 className="text-xl font-extrabold mb-4 ml-7 pt-4 text-blue-primary ">
           Airline Salaries
         </h2>
         {salaries[domain].map((salary) => (
