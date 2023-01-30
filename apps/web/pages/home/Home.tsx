@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 {
   /*STYLES*/
@@ -65,57 +66,140 @@ const loginregButtons = [
   },
 ];
 
-const jobTiles = [
-  {
-    id: 1,
-    picture: PilotTile,
-    tilename: "Pilot",
-    cSass: stylesJobs["tile-main-container"],
-    subtilename: "Enter Your Office Above the Clouds",
-    arrowbmap: (
-      <LearnMoreArrow
-        arrowtext={"Learn More"}
-        cSass={stylesArrow["arrow-jobs"]}
-        link={"/pilot"}
-      />
-    ),
-  },
-
-  {
-    id: 2,
-    picture: CabinTile,
-    tilename: "Cabin",
-    cSass: stylesJobs["tile-main-container"],
-    subtilename: "Travel Around the World",
-    arrowbmap: (
-      <LearnMoreArrow
-        arrowtext={"Learn More"}
-        cSass={stylesArrow["arrow-jobs"]}
-        link={"/cabin"}
-      />
-    ),
-  },
-
-  {
-    id: 3,
-    picture: ATCTile,
-    tilename: "Air Traffic Control",
-    cSass: stylesJobs["tile-main-container"],
-    subtilename: "Manage the Sky",
-    arrowbmap: (
-      <LearnMoreArrow
-        arrowtext={"Learn More"}
-        cSass={stylesArrow["arrow-jobs"]}
-        link={"/atc"}
-      />
-    ),
-  },
-];
-
 const Home = () => {
   // localStorage contains auth_token only when logged in. To trigger and render Admin panel button and edit page link,
   // check if localStorage.auth_token exists.
   // Protected path to admin panel still have to be setup.
+  const [counter, setCounter] = useState([]);
+  const [jobTiles, setJobTiles] = useState<{ [key: any]: any }[]>([]);
+
+  useEffect(() => {
+    const test1 = async () => {
+      const data = await axios.get(`http://localhost:5000/counter`);
+      const data2 = await data.data.map((counterarray) =>
+        Object.values(counterarray)
+      );
+      const data3 = setCounter(data2);
+
+      return data3;
+    };
+    test1();
+  }, []);
+
+  useEffect(() => {
+    if (counter.length === 0) return;
+    setJobTiles([
+      {
+        id: 1,
+        picture: PilotTile,
+        tilename: "Pilot",
+        cSass: stylesJobs["tile-main-container"],
+        subtilename: "Enter Your Office Above the Clouds",
+        tcounter:
+          counter.length === 3
+            ? counter[0][1] === "pilot"
+              ? counter[0][0]
+              : counter[1][1] === "pilot"
+              ? counter[1][0]
+              : counter[2][1] === "pilot"
+              ? counter[2][0]
+              : 0
+            : counter.length === 2
+            ? counter[0][1] === "pilot"
+              ? counter[0][0]
+              : counter[1][1] === "pilot"
+              ? counter[1][0]
+              : 0
+            : counter.length === 1
+            ? counter[0][1] === "pilot"
+              ? counter[0][0]
+              : 0
+            : 0,
+
+        arrowbmap: (
+          <LearnMoreArrow
+            arrowtext={"Learn More"}
+            cSass={stylesArrow["arrow-jobs"]}
+            link={"/pilot"}
+          />
+        ),
+      },
+
+      {
+        id: 2,
+        picture: CabinTile,
+        tilename: "Cabin",
+        cSass: stylesJobs["tile-main-container"],
+        subtilename: "Travel Around the World",
+        tcounter:
+          counter.length === 3
+            ? counter[0][1] === "cabin"
+              ? counter[0][0]
+              : counter[1][1] === "cabin"
+              ? counter[1][0]
+              : counter[2][1] === "cabin"
+              ? counter[2][0]
+              : 0
+            : counter.length === 2
+            ? counter[0][1] === "cabin"
+              ? counter[0][0]
+              : counter[1][1] === "cabin"
+              ? counter[1][0]
+              : 0
+            : counter.length === 1
+            ? counter[0][1] === "cabin"
+              ? counter[0][0]
+              : counter === undefined
+              ? 0
+              : 0
+            : 0,
+
+        arrowbmap: (
+          <LearnMoreArrow
+            arrowtext={"Learn More"}
+            cSass={stylesArrow["arrow-jobs"]}
+            link={"/cabin"}
+          />
+        ),
+      },
+
+      {
+        id: 3,
+        picture: ATCTile,
+        tilename: "Air Traffic Control",
+        cSass: stylesJobs["tile-main-container"],
+        subtilename: "Manage the Sky",
+        tcounter:
+          counter.length === 3
+            ? counter[0][1] === "air traffic control"
+              ? counter[0][0]
+              : counter[1][1] === "air traffic control"
+              ? counter[1][0]
+              : counter[2][1] === "air traffic control"
+              ? counter[2][0]
+              : 0
+            : counter.length === 2
+            ? counter[0][1] === "air traffic control"
+              ? counter[0][0]
+              : counter[1][1] === "air traffic control"
+              ? counter[1][0]
+              : 0
+            : counter.length === 1
+            ? counter[0][1] === "air traffic control"
+              ? counter[0][0]
+              : 0
+            : 0,
+        arrowbmap: (
+          <LearnMoreArrow
+            arrowtext={"Learn More"}
+            cSass={stylesArrow["arrow-jobs"]}
+            link={"/atc"}
+          />
+        ),
+      },
+    ]);
+  }, [counter]);
+
   const { authToken, setAuthToken } = useContext(AuthContext);
 
   useEffect(() => {
@@ -329,6 +413,7 @@ const Home = () => {
             picture={pilottile.picture}
             subtilename={pilottile.subtilename}
             arrowbmap={pilottile.arrowbmap}
+            tcounter={pilottile.tcounter}
           />
         ))}
       </div>
@@ -352,6 +437,7 @@ const Home = () => {
             picture={cabintile.picture}
             subtilename={cabintile.subtilename}
             arrowbmap={cabintile.arrowbmap}
+            tcounter={cabintile.tcounter}
           />
         ))}
       </div>
@@ -379,6 +465,7 @@ const Home = () => {
             picture={atctile.picture}
             subtilename={atctile.subtilename}
             arrowbmap={atctile.arrowbmap}
+            tcounter={atctile.tcounter}
           />
         ))}
       </div>
