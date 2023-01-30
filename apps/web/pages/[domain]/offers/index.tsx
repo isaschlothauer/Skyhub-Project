@@ -96,35 +96,28 @@ const Offers = ({}: OffersProps) => {
       <div
         className={` ${styles.containerDomain} ${"container mx-auto sm:px-4 "}`}
       >
-        <div
-          className={
-            "flex flex-row space-x-4 justify-around items-center px-10 mx-auto h-32 rounded-[33px] bg-white mb-[60px] mt-[20px] shadow-main"
-          }
-        >
+        <div className={styles["faq-search"]}>
           <input
             type={"text"}
             name={"job_type-search"}
             placeholder="First Officer, Lufthansa, Athens..."
-            onChange={(e) => debounced(e.target.value)}
-            className="w-2/4 pr-1 pl-1 mr-1 ml-1 text-center block"
+            onChange={(e) => debounced(e.target.value.toLowerCase())}
+            className={styles["faq-search-input"]}
           />
         </div>
 
         <div id={styles.offersContainer}>
           {jobs &&
             jobs
-              .filter(
-                (singleJobTitle) =>
-                  singleJobTitle.title
-                    .toLowerCase()
-                    .includes(searchJobType.toLowerCase()) ||
+              .filter((singleJobTitle) => {
+                return (
+                  singleJobTitle.title.toLowerCase().includes(searchJobType) ||
                   singleJobTitle.company
                     .toLowerCase()
-                    .includes(searchJobType.toLowerCase()) ||
-                  singleJobTitle.base
-                    .toLowerCase()
-                    .includes(searchJobType.toLowerCase())
-              )
+                    .includes(searchJobType) ||
+                  singleJobTitle.base.toLowerCase().includes(searchJobType)
+                );
+              })
               .slice(/* TODO */)
               .reverse()
               .map((job) => (

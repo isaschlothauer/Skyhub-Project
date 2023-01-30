@@ -178,6 +178,35 @@
   }
 }
 
+.faq-search {
+  background: white;
+  border-radius: 50px;
+  position: relative;
+  padding: 20px 70px;
+  margin-bottom: 4rem;
+  .faq-search-input {
+    display: block;
+    margin: 0;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    line-height: 32px;
+    height: 32px;
+    width: 100%;
+    background: transparent;
+  }
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    top: 27px;
+    left: 33px;
+    background: url("../assets/images/icons/search.png") no-repeat center center;
+  }
+}
+
 @media only screen and (max-width: 426px) {
   .containerDomain {
     top: 15.625rem;
