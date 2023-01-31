@@ -93,88 +93,88 @@ export default function EditInsights({ airlineInfo }: GeneralAirlineProps) {
       inputs: [
         {
           name: "captain_max_salary",
-          label: "Maximum Captain Salary",
+          label: "Maximum Captain Salary (€)",
           type: "text",
           value: inputFields.captain_max_salary,
         },
         {
           name: "captain_avg_salary",
-          label: "Average Captain Salary",
+          label: "Average Captain Salary (€)",
           type: "text",
           value: inputFields.captain_avg_salary,
         },
         {
           name: "captain_min_salary",
-          label: "Minimum Captain Salary",
+          label: "Minimum Captain Salary (€)",
           type: "text",
           value: inputFields.captain_min_salary,
         },
       ],
     },
     {
-      header: "Senior First Officer Salary",
+      header: "Senior First Officer Salary (€)",
       inputs: [
         {
           name: "sfo_max_salary",
-          label: "Maximum Senior First Offier Salary",
+          label: "Maximum Senior First Offier Salary (€)",
           type: "text",
           value: inputFields.sfo_max_salary,
         },
         {
           name: "sfo_avg_salary",
-          label: "Average Senior First Officer Salary",
+          label: "Average Senior First Officer Salary (€)",
           type: "text",
           value: inputFields.sfo_avg_salary,
         },
         {
           name: "sfo_min_salary",
-          label: "Minimum Senior First Officer Salary",
+          label: "Minimum Senior First Officer Salary (€)",
           type: "text",
           value: inputFields.sfo_min_salary,
         },
       ],
     },
     {
-      header: "First Officer Salary",
+      header: "First Officer Salary(€)",
       inputs: [
         {
           name: "fo_max_salary",
-          label: "Maximum First Officer Salary",
+          label: "Maximum First Officer Salary (€)",
           type: "text",
           value: inputFields.fo_max_salary,
         },
         {
           name: "fo_avg_salary",
-          label: "Average First Officer Salary",
+          label: "Average First Officer Salary (€)",
           type: "text",
           value: inputFields.fo_avg_salary,
         },
         {
           name: "fo_min_salary",
-          label: "Minimum First Officer Salary",
+          label: "Minimum First Officer (€)",
           type: "text",
           value: inputFields.fo_min_salary,
         },
       ],
     },
     {
-      header: "Second Officer Salary",
+      header: "Second Officer Salary (€)",
       inputs: [
         {
           name: "so_max_salary",
-          label: "Maximum Second Officer Salary",
+          label: "Maximum Second Officer Salary (€)",
           type: "text",
           value: inputFields.so_max_salary,
         },
         {
           name: "so_avg_salary",
-          label: "Average Second Officer Salary",
+          label: "Average Second Officer Salary (€)",
           type: "text",
           value: inputFields.so_avg_salary,
         },
         {
           name: "so_min_salary",
-          label: "Minimum Second Officer Salary",
+          label: "Minimum Second Officer Salary (€)",
           type: "text",
           value: inputFields.so_min_salary,
         },
@@ -183,7 +183,7 @@ export default function EditInsights({ airlineInfo }: GeneralAirlineProps) {
   ];
 
   return (
-    <div className="container mx-auto shadow-main bg-white rounded-[15px] px-8 py-10 tablet:px-16 tablet:py-12 pc:px-24 pc:py-16 ">
+    <div className="container mx-auto shadow-main bg-white rounded-[15px] px-8 py-10 mb-12 tablet:px-16 tablet:py-12 pc:px-24 pc:py-16 ">
       <form>
         {formData.map(({ header, inputs }) => {
           return (
