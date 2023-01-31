@@ -17,6 +17,8 @@ import IconRankFO from "../assets/images/icons/icon-rank-fo.png";
 import IconRankSO from "../assets/images/icons/icon-rank-so.png";
 import { StaticImageData } from "next/image";
 import SalaryDesktop from "./SalaryDesktop";
+import { Button } from "./Button";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 export type GeneralAirlineProps = {
   domain: string;
@@ -77,8 +79,13 @@ export default function AirlineInsight({
   slug,
   airlineInfo,
 }: GeneralAirlineProps) {
+  const isMobile = useMediaQuery("(max-width: 500px)");
+  const isTablet = useMediaQuery("(min-width: 501px) and (max-width: 885px)");
+
   if (airlineInfo == null) return <p>Loading...</p>;
+
   const salaries = buildSalaries(airlineInfo);
+
   return (
     <div>
       <Mini_Header title={"Airline Insight"} Scssdomain={domain} />
@@ -189,16 +196,26 @@ export default function AirlineInsight({
         <h2 className="text-xl font-extrabold mb-4 ml-7 pt-4 text-[#000e94] ">
           Airline Salaries
         </h2>
-        {salaries[domain].map((salary) => (
-          <SalaryMobile key={salary.title} salary={salary} />
-        ))}
-
-        <div className="grid grid-cols-2 gap-8 ">
-          {salaries[domain].map((salary) => (
-            <SalaryTablet key={salary.title} salary={salary} />
+        {isMobile &&
+          salaries[domain].map((salary) => (
+            <SalaryMobile key={salary.title} salary={salary} />
           ))}
+
+        {isTablet && (
+          <div className="grid grid-cols-2 gap-8 mb-8">
+            {salaries[domain].map((salary) => (
+              <SalaryTablet key={salary.title} salary={salary} />
+            ))}
+          </div>
+        )}
+        {!isMobile && !isTablet && (
+          <SalaryDesktop salaries={salaries[domain]} />
+        )}
+        <div className={`${isMobile ? "mt-5" : "mt-8"}`}>
+          <Button route={`/${domain}/insights/${slug}/edit`} variant="primary">
+            Provide new info
+          </Button>
         </div>
-        <SalaryDesktop salaries={salaries[domain]} />
       </div>
     </div>
   );
