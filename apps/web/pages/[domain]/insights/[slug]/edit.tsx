@@ -4,6 +4,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DOMPurify from "dompurify";
 import EditInsight from "../../../../components/EditInsight";
+import Mini_Header from "../../../../components/Header";
+import Footer from "../../../../components/Footer";
+import FAQ_Contact_Container from "../../../../components/FAQ_Contact_Container";
 
 export default function EditInsightPage() {
   const router = useRouter();
@@ -35,7 +38,17 @@ export default function EditInsightPage() {
 
   return (
     <div>
-      <EditInsight airlineInfo={airlineInfo} />
+      <Mini_Header
+        title={`${airlineInfo.name}`}
+        Scssdomain={domain as string}
+      />
+      <div className="mx-auto container relative z-10 mobile:top-[15.625rem] tablet:top-[16.25rem] pc:top-[20rem] ">
+        <EditInsight airlineInfo={airlineInfo} />
+        <FAQ_Contact_Container />
+      </div>
+      <div className="relative z-10 mobile:top-[15.625rem] tablet:top-[16.25rem] pc:top-[20rem]">
+        <Footer />
+      </div>
     </div>
   );
 }
