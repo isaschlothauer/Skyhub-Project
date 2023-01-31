@@ -31,6 +31,7 @@ module.exports = {
         mobile: { max: "426px" },
         tablet: { min: "427px", max: "769px" },
         pc: { min: "770px" },
+        fix1: { min: "1025px" },
       },
     },
   },

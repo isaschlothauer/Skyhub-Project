@@ -22,8 +22,9 @@
 .goback-textcontainer {
   display: flex;
   width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   gap: 1rem;
   font-family: "Nunito", "Open Sans", sans-serif;
   padding: 2.5rem 1.875rem;
@@ -32,14 +33,14 @@
   .goback-subtext {
     color: #a5a5b1;
     font-weight: 700;
+    margin-bottom: 0.5rem;
     font-size: 1rem;
     cursor: pointer;
   }
 
   .goback-maintext {
-    display: none;
     color: #010e98;
-    font-size: 1.875rem;
+    font-size: 1.65rem;
     font-weight: 900;
     cursor: pointer;
 
@@ -49,15 +50,78 @@
   }
 }
 
-@media (min-width: 700px) {
+
+
+@media (max-width: 376px) {
+
+.goback-maincontainer {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+}
+
   .goback-textcontainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
+  display: block;
+  padding: 1rem 1.175rem;
+
+    .goback-subtext {
+      display: none;
+  }
 
     .goback-maintext {
-      display: block;
+      display: none;
+   }
+}
+}
+
+@media only screen and (min-width: 377px) and (max-width:426px) {
+  .goback-textcontainer {
+    flex-direction: column;
+    padding: 2.5rem 0.175rem;
+
+    .goback-maintext {
+      display: none;
+    }
   }
 }
+
+
+
+@media only screen and (min-width: 426px) and (max-width:501px) {
+  .goback-textcontainer {
+    flex-direction: column;
+    padding: 2.5rem 0.175rem;
+  
+    .goback-subtext {
+      margin-bottom: 0rem;
+    }
+
+    .goback-maintext {
+      display: none;
+    }
+  }
+}
+
+
+
+@media only screen and (min-width: 501px) and (max-width:769px) {
+
+  .goback-textcontainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+
+    .goback-maintext {
+      font-size: 1.25rem;
+  }
+ }
+}
+
+
+@media only screen and (min-width: 769px) and (max-width:1025px) {
+  
+  .goback-textcontainer {
+    .goback-maintext {
+      font-size: 1.45rem;
+  }
+ }
 }

@@ -22,8 +22,8 @@ export const UserRegistration = (req: Request<{}, {}, RegistrationData>, res: Re
   // Duplicate email checking mechanism
   database
     .query<RowDataPacket[]>("SELECT * FROM users WHERE email = ?", [email])
-    .then(([duplicateEmail]) => {
-      if (Array.isArray(duplicateEmail) && duplicateEmail.length > 0) {
+    .then(([user]) => {
+      if (Array.isArray(user) && user.length > 0) {
         res.status(400).send("An account with this email already exists");
       } else {
         

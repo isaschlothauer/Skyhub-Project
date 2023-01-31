@@ -2,8 +2,6 @@ import React, { useDebugValue, useState, useEffect } from "react";
 import Link from "next/link";
 import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/router";
-import { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
 
 /* STYLES */
 import styles from "./login.module.scss";
@@ -18,10 +16,10 @@ import Mini_Header from "../../components/Header";
 // // 1.User login status implement
 // //   1.1 Should user status be lifted to bypass login page, change landing page login button to log off?
 // //   1.2 Landing page should have if (user).... to check for login status of user
-//      1.2.1 when logged in, then Login button should be Log Off
-//      1.2.2 when logged in, a button to admin panel should appear instead of register button
+// //     1.2.1 when logged in, then Login button should be Log Off
+// //     1.2.2 when logged in, a button to admin panel should appear instead of register button
 // // 2. Implement persistent login via cookie?
-// 2. Implement session based login if "remember me" is not enabled
+// //2. Implement session based login if "remember me" is not enabled
 // //   2.1 Should this also be lifted?
 
 // // 3. Do something about the password state. It should not store plain password
@@ -29,13 +27,10 @@ import Mini_Header from "../../components/Header";
 // // 4. Login.password must not store password or hash. It should not be visible or retrievable.
 // //5. Add a simple field input checker not to allow empty fields. No point using express-validator.
 // // LINE 58, Axios needs to be completed
-// 6. Refer to
-
-// 6. Figure out post login behavior. What should login button do other than changing state? Admin panel or back to front page?
-// reference video: https://www.youtube.com/watch?v=2lJuOh4YlGM
+// 6: check and modify typescript
 
 const loginButton = {
-  route: "/",
+  route: "/control",
   cSass: styleslrButton["loginreg-pink"],
   buttontext: "Sign in",
 };
@@ -43,7 +38,6 @@ const loginButton = {
 interface LoginResponseData {
   token: string | undefined;
   error: string | undefined;
-  acctype: string | undefined;
 }
 
 export interface LoginProps {
@@ -60,7 +54,7 @@ const Login = ({ domain }: LoginProps) => {
   });
 
   // Error message for credential check
-  const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   // Input field handling definition
   function loginHandler(event: React.ChangeEvent<HTMLInputElement>) {
@@ -70,8 +64,7 @@ const Login = ({ domain }: LoginProps) => {
 
   const router = useRouter();
 
-  const { authToken, setAuthToken } = useContext(AuthContext);
-  //const [acc, setAcc] = useState<string>(); //Added this line (DIOGO)
+  const [authToken, setAuthToken] = useState<string>();
 
   useEffect(() => {
     if (authToken != null || window == null) return;
@@ -85,8 +78,9 @@ const Login = ({ domain }: LoginProps) => {
   }, [authToken]);
 
   // Submit button behavior definition
-  function submitBehavior(event: React.MouseEvent<HTMLButtonElement>): void {
+  function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLInputElement>): void {
     event.preventDefault();
+    console.log("Hello");
 
     axios
       .post("http://localhost:5000/auth", login, {
@@ -96,28 +90,30 @@ const Login = ({ domain }: LoginProps) => {
         },
       })
       .then((res: AxiosResponse<LoginResponseData>) => {
+
+        // Clear login.password
+        setLogin({ email: "", password: "" });
+
         if (res.data.token == null) {
           console.error("No authentication token", res.data.error);
           return;
         } else {
           setAuthToken(res.data.token);
-          //setAcc(res.data.acctype); //Added this line (DIOGO)
 
           // If "remember me" is enabled, save the token to local storage. If not, sessionStorage
           remember
             ? window.localStorage.setItem("auth_token", res.data.token)
             : window.sessionStorage.setItem("auth_token", res.data.token);
 
-          // To clear localStorage, run localStorage.clear()
-
           console.log("Login successful");
 
           // Redirect to home page
-          router.push("/");
+          router.push("/control");
         }
       })
       .catch((err) => {
         // A bit convoluted. Might want to look into it later
+        setErrorMsg(err.response.data.error || err.response.data);
       });
   }
 
@@ -145,6 +141,12 @@ const Login = ({ domain }: LoginProps) => {
                   placeholder="Enter username or email address"
                   value={login.email}
                   onChange={loginHandler}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      // console.log("Enter key pressed");
+                      submissionHandler(event);
+                    }
+                  }} 
                   required
                 />
 
@@ -163,13 +165,18 @@ const Login = ({ domain }: LoginProps) => {
                   placeholder="Enter password"
                   value={login.password}
                   onChange={loginHandler}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      submissionHandler(event);
+                    }
+                  }} 
                   required
                 />
                 <div className={"mt-3 flex"}>
                   <input
                     type="checkbox"
                     checked={remember}
-                    onChange={() => setRemember(!remember)}
+                    onChange={() => setRemember(true)}
                     className={"ml-3 z-10"}
                   />
                   <span className={`ml-2 text-pink-primary`}>Remember me</span>
@@ -179,14 +186,12 @@ const Login = ({ domain }: LoginProps) => {
               {errorMsg ? (
                 <p className={"mt-3 text-center"}>{errorMsg}</p>
               ) : null}
-              {/* {(errorMsg != "" && login.email != "")? <p className={"text-center"}>Please check your login information</p>: null} */}
-
               {/* Login Submission button */}
               <div className={"w-min mx-auto mt-4"}>
-                {/* TO DO: Implement authentication process */}
                 <LoginButton
-                  onClick={submitBehavior}
-                  route="/"
+                  tabIndex={0}
+                  onClick={submissionHandler}
+                  route=""
                   cSass={loginButton.cSass}
                   buttontext={loginButton.buttontext}
                 />

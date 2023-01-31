@@ -6,6 +6,13 @@
 
 #offers {
   margin-bottom: 3rem;
+  height: 100%;
+  .job-offer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-height: 150px;
+  }
   .job-offer-list-item {
     margin-bottom: 30px;
     -webkit-border-radius: 25px;
@@ -16,11 +23,19 @@
     -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     padding: 45px;
-    .job-offer-list-item-image {
-      img {
-        margin: 0;
-        min-width: 10rem;
-        max-width: 100%;
+    transition: all ease 0.1s;
+    .airline-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      .airlineImage {
+        object-fit: cover;
+        width: 100%;
         max-height: 100%;
       }
     }
@@ -29,7 +44,8 @@
       font-weight: 900;
       line-height: 38px;
       color: #000e94;
-      margin-bottom: 20px;
+      margin-bottom: 1rem;
+      text-align: center;
     }
     .job-offer-list-item-company {
       font-size: 20px;
@@ -37,8 +53,12 @@
       color: #727481;
       text-transform: uppercase;
       margin-bottom: 1rem;
+      text-align: center;
     }
-    .job-offer-list-item-details {
+    .job-offer-list-item-company-sub {
+      display: none;
+    }
+    .job-offer-details {
       line-height: 24px;
       font-size: 16px;
       color: #727481;
@@ -46,57 +66,32 @@
       flex-direction: column;
       flex-wrap: wrap;
       padding-top: 1rem;
-      justify-content: space-between;
-      .job-offer-list-item-contract {
-        position: relative;
-        padding-left: 30px;
-        margin-bottom: 8px;
-        &:before {
-          content: "";
+      justify-content: space-around;
+      align-content: center;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      .job-offer-image {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        gap: 1rem;
+        & img {
           display: block;
-          position: absolute;
-          width: 14px;
-          height: 18px;
+          width: 26px;
+          height: 26px;
           top: 50%;
           margin-top: -9px;
           left: 0;
-          background: url("../assets/images/icons/contract.png") no-repeat
-            center center;
+          background-size: cover;
+        }
+        & .timeTiny {
+          display: none;
         }
       }
-      .job-offer-list-item-location {
-        position: relative;
-        padding-left: 30px;
-        margin-bottom: 8px;
-        &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          width: 16px;
-          height: 20px;
-          top: 50%;
-          margin-top: -10px;
-          left: 0;
-          background: url("../assets/images/icons/location.png") no-repeat
-            center center;
-        }
-      }
-      .job-offer-list-item-date {
-        position: relative;
-        padding-left: 30px;
-        &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          width: 20px;
-          height: 20px;
-          top: 50%;
-          margin-top: -10px;
-          left: 0;
-          background: url("../assets/images/icons/date.png") no-repeat center
-            center;
-        }
-      }
+    }
+    &:hover {
+      box-shadow: 0 0 10px $blue;
     }
   }
   .job-image-and-arrow {
@@ -107,33 +102,108 @@
   }
 }
 
-@media only screen and (max-width: 500px) {
-  .job-image-and-arrow {
-    flex-direction: row !important;
-    align-items: center;
+@media only screen and (max-width: 672px) {
+  .job-offer-list-item-role {
+    font-size: 20px !important;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+  .job-offer-list-item {
+    padding: 2rem !important;
   }
 
-  .job-offer-item-and-images {
-    flex-direction: column-reverse;
+  .airline-container {
+    justify-content: flex-end !important;
+    width: 150px !important;
+    height: 50px !important;
+    margin-top: 1rem;
+    align-content: left;
   }
 
-  .job-offer-list-item-details {
-    flex-direction: row !important;
-    justify-content: space-around !important;
-    padding-right: 3rem;
-    padding-left: 3rem;
-    padding-top: 3rem !important;
+  .job-offer {
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    max-height: 100% !important;
+    p {
+      font-size: 10px;
+      text-align: center;
+    }
+
+    .job-offer-details {
+      margin-top: 1rem;
+      gap: 1rem;
+      justify-content: left !important;
+      padding: 0 !important;
+      flex-wrap: initial !important;
+      width: 60%;
+    }
+
+    .job-image-and-arrow {
+      align-self: initial !important;
+      flex-direction: column;
+      align-items: center;
+      width: 40%;
+    }
+
+    .job-offer-image {
+      & .ago {
+        display: none;
+      }
+      & .timeBig {
+        display: none;
+      }
+      & .timeTiny {
+        display: contents !important;
+      }
+    }
+
+    .job-offer-list-item-role {
+      font-size: 21px !important;
+    }
+    .job-offer-list-item-company {
+      font-size: 18px !important;
+    }
   }
-  .job-offer-list-item-contract p,
-  .job-offer-list-item-location p,
-  .job-offer-list-item-date p {
+
+  .job-offer-list-item-company {
     display: none;
   }
-  .job-offer-list-item-role {
-    font-size: 21px !important;
+  .job-offer-list-item-company-sub {
+    display: contents !important;
+    & p {
+      font-size: 13px;
+      font-style: italic;
+    }
   }
-  .job-offer-list-item-company {
-    font-size: 18px !important;
+}
+
+.faq-search {
+  background: white;
+  border-radius: 50px;
+  position: relative;
+  padding: 20px 70px;
+  margin-bottom: 4rem;
+  .faq-search-input {
+    display: block;
+    margin: 0;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    line-height: 32px;
+    height: 32px;
+    width: 100%;
+    background: transparent;
+  }
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    top: 27px;
+    left: 33px;
+    background: url("../assets/images/icons/search.png") no-repeat center center;
   }
 }
 

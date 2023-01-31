@@ -2,6 +2,7 @@
 
 .mainContainer {
   position: relative;
+  transition: all ease 0.1s;
 
   .overlay {
     width: 100%;
@@ -20,6 +21,25 @@
       font-weight: 900;
       line-height: 38px;
       margin-bottom: 25px;
+    }
+  }
+  .checkBoxes {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    color: #000000;
+    & p {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    & p:hover {
+      font-weight: 1000;
+    }
+    & img {
+      object-fit: contain;
+      min-width: 25px;
     }
   }
 }
@@ -65,6 +85,11 @@
 
 @media only screen and (max-width: 800px) {
   .imageContainer {
-    display: none;
+    display: none !important;
+  }
+
+  .buttonDiv {
+    display: flex;
+    justify-content: center;
   }
 }
