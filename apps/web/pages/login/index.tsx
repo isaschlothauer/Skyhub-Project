@@ -28,6 +28,7 @@ import Mini_Header from "../../components/Header";
 // //5. Add a simple field input checker not to allow empty fields. No point using express-validator.
 // // LINE 58, Axios needs to be completed
 // 6: check and modify typescript
+// 7: At the moment, second auth_token can be manually added to access first account. This needs to be taken care of.
 
 const loginButton = {
   route: "/control",
