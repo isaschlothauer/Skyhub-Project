@@ -72,6 +72,9 @@ const Login = ({ domain }: LoginProps) => {
     // Initialize 'window'
     if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
 
+      console.log("local: " + window.localStorage.auth_token);
+      console.log("session: " + window.sessionStorage.auth_token);
+      
       // If token is present, user is already logged in
       if (window.localStorage.auth_token) {
         setAuthToken(window.localStorage.auth_token);
@@ -140,7 +143,7 @@ const Login = ({ domain }: LoginProps) => {
         <Mini_Header title={"Sign in"} Scssdomain={domain} />
 
         <div className={`container mx-auto px-2 ${styles["page"]} `}>
-          <div className={"flex flex-wrap"}>
+          <div className={"flex flex-wrap flex flex-col h-screen min-h-[730px] md:min-h-[840px]"}>
             <div className={"mx-auto max-w-xl w-full z-10"}>
               <div
                 className={`pt-7 mt-[230px] md:mt-[300px] pb-7 px-4 bg-white shadow-main rounded-[24px]`}
@@ -222,7 +225,7 @@ const Login = ({ domain }: LoginProps) => {
             </div>
           </div>
         </div>
-        <div className={"fixed left-0 bottom-0 right-0"}>
+        <div className={"mt-[-130px] sm:mt-[-131px] md:mt-[-195px]"}>
           <Footer />
         </div>
       </div>
