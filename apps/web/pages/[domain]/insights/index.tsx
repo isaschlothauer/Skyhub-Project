@@ -123,6 +123,8 @@ export default function Insights() {
             )}
             <Pagination totalPage={totalPage} />
             <FAQ_Contact_Container />
+          </div>
+          <div className="relative z-10 mobile:top-[15.625rem] tablet:top-[16.25rem] pc:top-[20rem]">
             <Footer />
           </div>
         </div>
