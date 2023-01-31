@@ -11,6 +11,7 @@ app.get("/", (req, res) => {
   res.send("Hello there!");
 });
 
+
 // Database Connection Test
 app.listen(5000, () => {
   if (database.getConnection() == null) {
@@ -21,5 +22,16 @@ app.listen(5000, () => {
     "DATABASE CONNECTED: check the backend info on http://localhost:5000"
   );
 });
+
+
+{/*//MySQL Query Preparation
+database.execute(
+  'SELECT * FROM `table` WHERE `name` = ? AND `age` > ?',
+  ['Rick C-137', 53],
+  function(err, results, fields) {
+    console.log(results);
+    console.log(fields); 
+  }
+);*/}
 
 app.use("/", MainRouter);
