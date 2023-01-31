@@ -51,7 +51,7 @@ const Login = ({ domain }: LoginProps) => {
   // For testing purposes. Clear state
   const [login, setLogin] = useState({
     email: "",
-    password: "", // Should take care not to make it visible or accessible
+    password: "", 
   });
 
   // Error message for credential check
@@ -67,21 +67,23 @@ const Login = ({ domain }: LoginProps) => {
 
   const [authToken, setAuthToken] = useState<string>();
 
+  // Checks if the user is already logged in or not. 
   useEffect(() => {
-    if (authToken != null || window == null) return;
+    // Initialize 'window'
+    if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
 
-    const localAuthToken = window.localStorage.getItem("auth_token");
-
-    if (localAuthToken != null) {
-      setAuthToken(localAuthToken);
-      return;
+      // If token is present, user is already logged in
+      if (window.localStorage.auth_token) {
+        setAuthToken(window.localStorage.auth_token);
+      } else {
+        setAuthToken(window.sessionStorage.auth_token);
+      }
     }
   }, [authToken]);
 
   // Submit button behavior definition
   function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLInputElement>): void {
     event.preventDefault();
-    console.log("Hello");
 
     axios
       .post("http://localhost:5000/auth", login, {
@@ -118,15 +120,16 @@ const Login = ({ domain }: LoginProps) => {
       });
   }
 
-  if (authToken == null) {
+  // If user is already logged in, user is notified as such
+  if (authToken !== undefined) {
     return (
       <>
-      <div className={"mt-20 w-full items-enter"}>
-        <p className={"text-center"}>You are already logged in.</p>
-        <div className={"mt-10 w-full text-center"}>
-          <a href="/" className={"inline-block text-xl"}>Return to landing page</a>
+        <div className={"mt-20 w-full items-enter"}>
+          <p className={"text-center"}>You are already logged in.</p>
+          <div className={"mt-10 w-full text-center"}>
+            <a href="/" className={"inline-block text-xl"}>Return to landing page</a>
+          </div>
         </div>
-      </div>
       </>
     )
   } else {
@@ -157,7 +160,6 @@ const Login = ({ domain }: LoginProps) => {
                     onChange={loginHandler}
                     onKeyDown={(event) => {
                       if (event.key === "Enter") {
-                        // console.log("Enter key pressed");
                         submissionHandler(event);
                       }
                     }} 
@@ -190,7 +192,7 @@ const Login = ({ domain }: LoginProps) => {
                     <input
                       type="checkbox"
                       checked={remember}
-                      onChange={() => setRemember(true)}
+                      onChange={() => setRemember(!remember)}
                       className={"ml-3 z-10"}
                     />
                     <span className={`ml-2 text-pink-primary`}>Remember me</span>
