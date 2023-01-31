@@ -2,7 +2,7 @@ import Image, { StaticImageData } from "next/image";
 import SalaryRow from "../components/SalaryRow";
 import SalaryTitle from "../components/SalaryTitle";
 import { AirlineSalary } from "./AirlineInsightPage";
-import useMediaQuery from "../hooks/useMediaQuery";
+
 //images
 import IconAvgSalary from "../assets/images/icons/icon-salary-avg.png";
 import IconMaxSalary from "../assets/images/icons/icon-salary-max.png";
@@ -47,54 +47,51 @@ const buildSalaryRows = (salaries: AirlineSalary[]): SalaryRow[] => {
 };
 
 export default function SalaryDesktop({ icon, salaries }: SalaryDesktopProps) {
-  const isDesktop = useMediaQuery("(min-width: 886px)");
   const salaryRows = buildSalaryRows(salaries);
   return (
     <>
-      {isDesktop && (
-        <div className="container mx-auto shadow-main bg-white rounded-[15px] px-11 py-9">
-          <table className="table-fixed w-full">
-            <thead>
-              <tr>
-                <th></th>
-                {salaries.map(({ title: jobTitle }) => {
-                  return (
-                    <th key={jobTitle} className="border-l px-3">
-                      <SalaryTitle
-                        icon={icon || rankIcons[jobTitle]}
-                        jobTitle={jobTitle}
-                      />
-                    </th>
-                  );
-                })}
-              </tr>
-            </thead>
-            <tbody>
-              {salaryRows.map((salaryRow) => (
-                <tr key={salaryRow.label}>
-                  <th scope="row" className="text-center border-t px-4 ">
-                    <div className="flex flex-row relative justify-center ">
-                      <Image
-                        src={salaryRow.iconSalary}
-                        alt={`${salaryRow.label} icon`}
-                        className="object-contain"
-                      />
-                      <p className=" text-pink-primary font-bold pl-2 ">
-                        {salaryRow.label}
-                      </p>
-                    </div>
+      <div className="container mx-auto shadow-main bg-white rounded-[15px] px-11 py-9">
+        <table className="table-fixed w-full">
+          <thead>
+            <tr>
+              <th></th>
+              {salaries.map(({ title: jobTitle }) => {
+                return (
+                  <th key={jobTitle} className="border-l px-3">
+                    <SalaryTitle
+                      icon={icon || rankIcons[jobTitle]}
+                      jobTitle={jobTitle}
+                    />
                   </th>
-                  {salaryRow.salaryValues.map((salaryValue, index) => (
-                    <TD key={`${salaryRow.label}-${index}`}>
-                      {salaryValue?.toLocaleString("en-US").concat(" €") || "-"}
-                    </TD>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+                );
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            {salaryRows.map((salaryRow) => (
+              <tr key={salaryRow.label}>
+                <th scope="row" className="text-center border-t px-4 ">
+                  <div className="flex flex-row relative justify-center ">
+                    <Image
+                      src={salaryRow.iconSalary}
+                      alt={`${salaryRow.label} icon`}
+                      className="object-contain"
+                    />
+                    <p className=" text-pink-primary font-bold pl-2 ">
+                      {salaryRow.label}
+                    </p>
+                  </div>
+                </th>
+                {salaryRow.salaryValues.map((salaryValue, index) => (
+                  <TD key={`${salaryRow.label}-${index}`}>
+                    {salaryValue?.toLocaleString("en-US").concat(" €") || "-"}
+                  </TD>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }
