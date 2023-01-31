@@ -28,6 +28,7 @@ import Mini_Header from "../../components/Header";
 // //5. Add a simple field input checker not to allow empty fields. No point using express-validator.
 // // LINE 58, Axios needs to be completed
 // 6: check and modify typescript
+// 7: At the moment, second auth_token can be manually added to access first account. This needs to be taken care of.
 
 const loginButton = {
   route: "/control",
@@ -50,7 +51,7 @@ const Login = ({ domain }: LoginProps) => {
   // For testing purposes. Clear state
   const [login, setLogin] = useState({
     email: "",
-    password: "", // Should take care not to make it visible or accessible
+    password: "", 
   });
 
   // Error message for credential check
@@ -66,21 +67,26 @@ const Login = ({ domain }: LoginProps) => {
 
   const [authToken, setAuthToken] = useState<string>();
 
+  // Checks if the user is already logged in or not. 
   useEffect(() => {
-    if (authToken != null || window == null) return;
+    // Initialize 'window'
+    if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
 
-    const localAuthToken = window.localStorage.getItem("auth_token");
-
-    if (localAuthToken != null) {
-      setAuthToken(localAuthToken);
-      return;
+      console.log("local: " + window.localStorage.auth_token);
+      console.log("session: " + window.sessionStorage.auth_token);
+      
+      // If token is present, user is already logged in
+      if (window.localStorage.auth_token) {
+        setAuthToken(window.localStorage.auth_token);
+      } else {
+        setAuthToken(window.sessionStorage.auth_token);
+      }
     }
   }, [authToken]);
 
   // Submit button behavior definition
   function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLInputElement>): void {
     event.preventDefault();
-    console.log("Hello");
 
     axios
       .post("http://localhost:5000/auth", login, {
@@ -117,100 +123,115 @@ const Login = ({ domain }: LoginProps) => {
       });
   }
 
+  // If user is already logged in, user is notified as such
+  if (authToken !== undefined) {
+    return (
+      <>
+        <div className={"mt-20 w-full items-enter"}>
+          <p className={"text-center"}>You are already logged in.</p>
+          <div className={"mt-10 w-full text-center"}>
+            <a href="/" className={"inline-block text-xl"}>Return to landing page</a>
+          </div>
+        </div>
+      </>
+    )
+  } else {
   return (
-    <div className={`${styles["login-page"]}`}>
-      {/* Temporary text color change. Revise text color for mobile design */}
-      <Mini_Header title={"Sign in"} Scssdomain={domain} />
+    <>
+      <div className={`${styles["login-page"]}`}>
+        {/* Temporary text color change. Revise text color for mobile design */}
+        <Mini_Header title={"Sign in"} Scssdomain={domain} />
 
-      <div className={`container mx-auto px-2 ${styles["page"]} `}>
-        <div className={"flex flex-wrap"}>
-          <div className={"mx-auto max-w-xl w-full z-10"}>
-            <div
-              className={`pt-7 mt-[230px] md:mt-[300px] pb-7 px-4 bg-white shadow-main rounded-[24px]`}
-            >
-              <form className={`${styles["login-input"]} `}>
-                {/* Username input field */}
-                <label htmlFor="email" className={"block text-pink-primary"}>
-                  Email
-                </label>
-                <input
-                  type="text"
-                  className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
-                  name="email"
-                  id="email"
-                  placeholder="Enter username or email address"
-                  value={login.email}
-                  onChange={loginHandler}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      // console.log("Enter key pressed");
-                      submissionHandler(event);
-                    }
-                  }} 
-                  required
-                />
-
-                {/* Password input field */}
-                <label
-                  htmlFor="password"
-                  className={"block mt-4 text-pink-primary"}
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
-                  name="password"
-                  id="password"
-                  placeholder="Enter password"
-                  value={login.password}
-                  onChange={loginHandler}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      submissionHandler(event);
-                    }
-                  }} 
-                  required
-                />
-                <div className={"mt-3 flex"}>
+        <div className={`container mx-auto px-2 ${styles["page"]} `}>
+          <div className={"flex flex-wrap flex flex-col h-screen min-h-[730px] md:min-h-[840px]"}>
+            <div className={"mx-auto max-w-xl w-full z-10"}>
+              <div
+                className={`pt-7 mt-[230px] md:mt-[300px] pb-7 px-4 bg-white shadow-main rounded-[24px]`}
+              >
+                <form className={`${styles["login-input"]} `}>
+                  {/* Username input field */}
+                  <label htmlFor="email" className={"block text-pink-primary"}>
+                    Email
+                  </label>
                   <input
-                    type="checkbox"
-                    checked={remember}
-                    onChange={() => setRemember(true)}
-                    className={"ml-3 z-10"}
+                    type="text"
+                    className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
+                    name="email"
+                    id="email"
+                    placeholder="Enter username or email address"
+                    value={login.email}
+                    onChange={loginHandler}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter") {
+                        submissionHandler(event);
+                      }
+                    }} 
+                    required
                   />
-                  <span className={`ml-2 text-pink-primary`}>Remember me</span>
-                </div>
-              </form>
 
-              {errorMsg ? (
-                <p className={"mt-3 text-center"}>{errorMsg}</p>
-              ) : null}
-              {/* Login Submission button */}
-              <div className={"w-min mx-auto mt-4"}>
-                <LoginButton
-                  tabIndex={0}
-                  onClick={submissionHandler}
-                  route=""
-                  cSass={loginButton.cSass}
-                  buttontext={loginButton.buttontext}
-                />
-              </div>
-              <div className={`mx-auto w-max mt-3`}>
-                {/* TO DO: Connect link to recovery page */}
-                <Link href="/password_reset" className={`text-pink-primary`}>
-                  Forgot password?
-                </Link>
+                  {/* Password input field */}
+                  <label
+                    htmlFor="password"
+                    className={"block mt-4 text-pink-primary"}
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
+                    name="password"
+                    id="password"
+                    placeholder="Enter password"
+                    value={login.password}
+                    onChange={loginHandler}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter") {
+                        submissionHandler(event);
+                      }
+                    }} 
+                    required
+                  />
+                  <div className={"mt-3 flex"}>
+                    <input
+                      type="checkbox"
+                      checked={remember}
+                      onChange={() => setRemember(!remember)}
+                      className={"ml-3 z-10"}
+                    />
+                    <span className={`ml-2 text-pink-primary`}>Remember me</span>
+                  </div>
+                </form>
+
+                {errorMsg ? (
+                  <p className={"mt-3 text-center"}>{errorMsg}</p>
+                ) : null}
+                {/* Login Submission button */}
+                <div className={"w-min mx-auto mt-4"}>
+                  <LoginButton
+                    tabIndex={0}
+                    onClick={submissionHandler}
+                    route=""
+                    cSass={loginButton.cSass}
+                    buttontext={loginButton.buttontext}
+                  />
+                </div>
+                <div className={`mx-auto w-max mt-3`}>
+                  {/* TO DO: Connect link to recovery page */}
+                  <Link href="/password_reset" className={`text-pink-primary`}>
+                    Forgot password?
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div className={"mt-[-130px] sm:mt-[-131px] md:mt-[-195px]"}>
+          <Footer />
+        </div>
       </div>
-      <div className={"fixed left-0 bottom-0 right-0"}>
-        <Footer />
-      </div>
-    </div>
-  );
+    </>
+    );
+  }
 };
 
 export default Login;
