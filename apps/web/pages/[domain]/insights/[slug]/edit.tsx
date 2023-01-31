@@ -35,11 +35,7 @@ export default function EditInsightPage() {
 
   return (
     <div>
-      <EditInsight
-        airlineInfo={airlineInfo}
-        domain={domain.toString()}
-        slug={slug.toString()}
-      />
+      <EditInsight airlineInfo={airlineInfo} />
     </div>
   );
 }

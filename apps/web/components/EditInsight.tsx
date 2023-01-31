@@ -1,43 +1,31 @@
 import React from "react";
 import { useState } from "react";
 
-// export type InsightInput = {
-//   label: string;
-//   type: string;
-//   value: string;
-// };
-
 export type GeneralAirlineProps = {
-  domain: string;
-  slug: string;
   airlineInfo: AirlineInformationType;
 };
 
-export default function EditInsights({
-  domain,
-  slug,
-  airlineInfo,
-}: GeneralAirlineProps) {
+export default function EditInsights({ airlineInfo }: GeneralAirlineProps) {
   const [inputFields, setInputFields] = useState({
-    founded: airlineInfo.founding || "",
-    headquarter: airlineInfo.headquarter || "",
-    employees: airlineInfo.employees || "",
-    revenue: airlineInfo.profits || "",
-    destinations: airlineInfo.destinations || "",
+    founded: airlineInfo.founding,
+    headquarter: airlineInfo.headquarter,
+    employees: airlineInfo.employees,
+    revenue: airlineInfo.profits,
+    destinations: airlineInfo.destinations,
     callsign: airlineInfo.callsign,
-    assessment_link: airlineInfo.assessments_link || "",
-    captain_max_salary: airlineInfo.salary_captain_max || "",
-    captain_avg_salary: airlineInfo.salary_captain_avg || "",
-    captain_min_salary: airlineInfo.salary_captain_min || "",
-    sfo_max_salary: airlineInfo.salary_sfo_max || "",
-    sfo_avg_salary: airlineInfo.salary_sfo_avg || "",
-    sfo_min_salary: airlineInfo.salary_sfo_min || "",
-    fo_max_salary: airlineInfo.salary_fo_max || "",
-    fo_avg_salary: airlineInfo.salary_fo_avg || "",
-    fo_min_salary: airlineInfo.salary_fo_min || "",
-    so_max_salary: airlineInfo.salary_so_max || "",
-    so_avg_salary: airlineInfo.salary_so_avg || "",
-    so_min_salary: airlineInfo.salary_so_min || "",
+    assessment_link: airlineInfo.assessments_link,
+    captain_max_salary: airlineInfo.salary_captain_max,
+    captain_avg_salary: airlineInfo.salary_captain_avg,
+    captain_min_salary: airlineInfo.salary_captain_min,
+    sfo_max_salary: airlineInfo.salary_sfo_max,
+    sfo_avg_salary: airlineInfo.salary_sfo_avg,
+    sfo_min_salary: airlineInfo.salary_sfo_min,
+    fo_max_salary: airlineInfo.salary_fo_max,
+    fo_avg_salary: airlineInfo.salary_fo_avg,
+    fo_min_salary: airlineInfo.salary_fo_min,
+    so_max_salary: airlineInfo.salary_so_max,
+    so_avg_salary: airlineInfo.salary_so_avg,
+    so_min_salary: airlineInfo.salary_so_min,
   });
 
   function handleInputChange(
@@ -90,7 +78,7 @@ export default function EditInsights({
           name: "callsign",
           label: "Callsign",
           type: "text",
-          value: inputFields.revenue,
+          value: inputFields.callsign,
         },
         {
           name: "assessment_link",
@@ -195,7 +183,7 @@ export default function EditInsights({
   ];
 
   return (
-    <div className="container mx-auto shadow-main bg-white rounded-[15px] px-8 py-10 md:px-16 md:py-12 ">
+    <div className="container mx-auto shadow-main bg-white rounded-[15px] px-8 py-10 tablet:px-16 tablet:py-12 pc:px-24 pc:py-16 ">
       <form>
         {formData.map(({ header, inputs }) => {
           return (
@@ -214,7 +202,7 @@ export default function EditInsights({
                     id={input.label}
                     name={input.name}
                     type={input.type}
-                    value={input.value}
+                    value={input.value || ""}
                   />
                 </div>
               ))}
