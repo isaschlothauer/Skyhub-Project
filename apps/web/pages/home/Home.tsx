@@ -1,5 +1,5 @@
 import * as React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -71,23 +71,35 @@ interface JWT {
 }
 
 const Home = () => {
-// TO DO
-// * Invalid token handling
+  // TO DO
+  // * Invalid token handling
 
-// NOTE;
-// So far authToken is used only to render whether user is logged in or not.
-// Application checks local/sessionStorage for the token to determine whether the user is logged in or not.
+  // NOTE;
+  // So far authToken is used only to render whether user is logged in or not.
+  // Application checks local/sessionStorage for the token to determine whether the user is logged in or not.
 
   const [counter, setCounter] = useState([]);
-  const [jobTiles, setJobTiles] = useState<{ [key: any]: any }[]>([]);
+  const [jobTiles, setJobTiles] = useState<
+    {
+      tilename: string;
+      cSass: string | undefined;
+      subtilename: string;
+      arrowbmap: JSX.Element;
+      tcounter: any;
+      id: React.Key | null | undefined;
+      picture: StaticImageData;
+      [key: number]: any;
+    }[]
+  >([]);
   const { authToken, setAuthToken } = useContext(AuthContext);
   let token: string | null = null;
 
   useEffect(() => {
     const test1 = async () => {
       const data = await axios.get(`http://localhost:5000/counter`);
-      const data2 = await data.data.map((counterarray) =>
-        Object.values(counterarray)
+      const data2 = await data.data.map(
+        (counterarray: { [s: string]: unknown } | ArrayLike<unknown>) =>
+          Object.values(counterarray)
       );
       const data3 = setCounter(data2);
 
@@ -213,7 +225,6 @@ const Home = () => {
   useEffect(() => {
     // Initialize 'window'
     if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
-
       if (window.localStorage.auth_token) {
         setAuthToken(window.localStorage.auth_token);
         token = window.localStorage.auth_token;
@@ -284,8 +295,12 @@ const Home = () => {
                   </div>
                 </div>
               ) : authToken != null &&
-                (Object.values(jwt_decode<JWT>(authToken)).includes("recruiter") ||
-                  Object.values(jwt_decode<JWT>(authToken)).includes("airline")) ? (
+                (Object.values(jwt_decode<JWT>(authToken)).includes(
+                  "recruiter"
+                ) ||
+                  Object.values(jwt_decode<JWT>(authToken)).includes(
+                    "airline"
+                  )) ? (
                 <div
                   className={`${"md:w-1/3 pr-0 pl-1 ml-16"} ${"text-right"} ${
                     styles["mainpage-logincontainer"]
