@@ -1,6 +1,29 @@
 // Base page setup
 .registration-page {
-  // height: 100vh;
-  min-height: 900px;
   width: 100%;
+  min-height: calc(100vh - 440px);
+}
+
+@media only screen and (min-width: 768px) {
+  .registration-page {
+    min-height: calc(100vh - 480px);
+  }
+}
+
+@media only screen and (min-width: 770px) {
+  .registration-page {
+    min-height: calc(100vh - 530px);
+  }
+}
+
+@media only screen and (min-width: 1019px) {
+  .registration-page {
+    min-height: calc(100vh - 540px);
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .registration-page {
+    min-height: calc(100vh - 545px);
+  }
 }
