@@ -328,7 +328,7 @@ const Registration = ({ domain }: RegistrationProps) => {
 
         {/* <ReturnHomeContainer /> */}
 
-        <div className={"mt-[300px]"}>
+        <div className={"mt-[310px] md:mt-[350px]"}>
           <Footer />
         </div>
       </div>
