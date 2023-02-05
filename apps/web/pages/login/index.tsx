@@ -137,99 +137,97 @@ const Login = ({ domain }: LoginProps) => {
     )
   } else {
   return (
-    <>
-      <div className={`${styles["login-page"]}`}>
-        {/* Temporary text color change. Revise text color for mobile design */}
-        <Mini_Header title={"Sign in"} Scssdomain={domain} />
+    <div>
+      <Mini_Header title={"Sign in"} Scssdomain={domain} />
 
-        <div className={`container mx-auto px-2 ${styles["page"]} `}>
-          <div className={"flex flex-wrap flex flex-col h-screen min-h-[730px] md:min-h-[840px]"}>
-            <div className={"mx-auto max-w-xl w-full z-10"}>
-              <div
-                className={`pt-7 mt-[230px] md:mt-[300px] pb-7 px-4 bg-white shadow-main rounded-[24px]`}
+      <div className={`${styles["loginPage"]}`}>
+        {/* Account data fields */}
+        <div
+          className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px] `}
+        >
+          <div className={"mt-3"}>
+            
+            {/* Data Input Field */}
+            <form>
+              {/* Email input field */}
+              <label htmlFor="email" className={"block text-pink-primary"}>
+                Email
+              </label>
+              <input
+                type="text"
+                className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
+                name="email"
+                id="email"
+                placeholder="Enter username or email address"
+                value={login.email}
+                onChange={loginHandler}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    submissionHandler(event);
+                  }
+                }} 
+                required
+              />
+
+              {/* Password input field */}
+              <label
+                htmlFor="password"
+                className={"block mt-4 text-pink-primary"}
               >
-                <form className={`${styles["login-input"]} `}>
-                  {/* Username input field */}
-                  <label htmlFor="email" className={"block text-pink-primary"}>
-                    Email
-                  </label>
-                  <input
-                    type="text"
-                    className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
-                    name="email"
-                    id="email"
-                    placeholder="Enter username or email address"
-                    value={login.email}
-                    onChange={loginHandler}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter") {
-                        submissionHandler(event);
-                      }
-                    }} 
-                    required
-                  />
-
-                  {/* Password input field */}
-                  <label
-                    htmlFor="password"
-                    className={"block mt-4 text-pink-primary"}
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
-                    name="password"
-                    id="password"
-                    placeholder="Enter password"
-                    value={login.password}
-                    onChange={loginHandler}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter") {
-                        submissionHandler(event);
-                      }
-                    }} 
-                    required
-                  />
-                  <div className={"mt-3 flex"}>
-                    <input
-                      type="checkbox"
-                      checked={remember}
-                      onChange={() => setRemember(!remember)}
-                      className={"ml-3 z-10"}
-                    />
-                    <span className={`ml-2 text-pink-primary`}>Remember me</span>
-                  </div>
-                </form>
-
-                {errorMsg ? (
-                  <p className={"mt-3 text-center"}>{errorMsg}</p>
-                ) : null}
-                {/* Login Submission button */}
-                <div className={"w-min mx-auto mt-4"}>
-                  <LoginButton
-                    tabIndex={0}
-                    onClick={submissionHandler}
-                    route=""
-                    cSass={loginButton.cSass}
-                    buttontext={loginButton.buttontext}
-                  />
-                </div>
-                <div className={`mx-auto w-max mt-3`}>
-                  {/* TO DO: Connect link to recovery page */}
-                  <Link href="/password_reset" className={`text-pink-primary`}>
-                    Forgot password?
-                  </Link>
-                </div>
+                Password
+              </label>
+              <input
+                type="password"
+                className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
+                name="password"
+                id="password"
+                placeholder="Enter password"
+                value={login.password}
+                onChange={loginHandler}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    submissionHandler(event);
+                  }
+                }} 
+                required
+              />
+              <div className={"mt-3 flex"}>
+                <input
+                  type="checkbox"
+                  checked={remember}
+                  onChange={() => setRemember(!remember)}
+                  className={"ml-3 z-10"}
+                />
+                <span className={`ml-2 text-pink-primary`}>Remember me</span>
               </div>
+            </form>
+            {errorMsg ? (
+              <p className={"mt-3 text-center"}>{errorMsg}</p>
+            ) : null}
+            {/* Login Submission button */}
+            <div className={"w-min mx-auto mt-4"}>
+              <LoginButton
+                tabIndex={0}
+                onClick={submissionHandler}
+                route=""
+                cSass={loginButton.cSass}
+                buttontext={loginButton.buttontext}
+              />
+            </div>
+            <div className={`mx-auto w-max mt-3`}>
+              {/* TO DO: Connect link to recovery page */}
+              <Link href="/password_reset" className={`text-pink-primary`}>
+                Forgot password?
+              </Link>
             </div>
           </div>
         </div>
-        <div className={"mt-[-130px] sm:mt-[-131px] md:mt-[-195px]"}>
-          <Footer />
-        </div>
+
       </div>
-    </>
+      <div className={`mt-[310px] md:mt-[350px] ${styles["footerQuery1"]}`}>
+        <Footer />
+      </div>
+    </div>
     );
   }
 };
