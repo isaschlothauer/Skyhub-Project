@@ -39,8 +39,8 @@ export default function Control () {
       };
 
       setAccount(result.data);
-      setName(result.data.name);
-      setAccountType(result.data.account_type);
+      setName(result.data.accountName);
+      setAccountType(result.data.accountType);
     })
     .catch((err) => {
       console.error(err);
@@ -49,9 +49,11 @@ export default function Control () {
     })
   }, [loginStatus]);
 
-  // console.log(account);
-
   if (loginStatus == 401) {
+
+    // When token is invalid, it clears the token before redirecting to the login page
+    localStorage.clear();
+    sessionStorage.clear();
     return (
       <>
       <div className={"mt-20 w-full items-enter"}>
@@ -65,11 +67,11 @@ export default function Control () {
   } else {
     return (
       <>
-        <p className={"alilgn-center"}>Hello {name}</p>
+        <p className={"alilgn-center"}>Hello {name}!</p>
         <div className={"mt-5"} />
         {(accountType === "admin")
-        ? <p>As an admin, you are able to have control over the site's user, content and administrative tasks through this page.</p>
-        : <p>Account type: {accountType} will have the ability to post job listing, approove airline information submitted by others and many more.</p>}
+        ? <p>For the time being, admin panel is not ready and this serves as a place holder. As an admin, you are able to have control over the site's user, content and administrative tasks through this page.</p>
+        : <p>For the time being, user dashboard is not ready yet and this serves as a place holder. Account type "{accountType}" will have the ability to post job listing, approove airline information submitted by others and many more.</p>}
 
         <div className={"mt-5"} />
         <p>As an information, here are your account details. Of course this information will not be visible once development is done.</p>
