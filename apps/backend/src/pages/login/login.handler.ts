@@ -63,7 +63,7 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
 
               // Check for JWT_SECRET
               if(process.env.JWT_SECRET){
-                const jwtoken = jwt.sign(payload, process.env.JWT_SECRET.toString(), { expiresIn: "1h" });
+                const jwtoken = jwt.sign(payload, process.env.JWT_SECRET.toString(), { expiresIn: "2h" });
 
                 req.body.verify = "";
                 req.body.password = "";
