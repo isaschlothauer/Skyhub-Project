@@ -96,7 +96,7 @@ const Home = () => {
 
   useEffect(() => {
     const test1 = async () => {
-      const data = await axios.get(`http://localhost:5000/counter`);
+      const data = await axios.get(`http:///localhost:5000/jobs/counter`);
       const data2 = await data.data.map(
         (counterarray: { [s: string]: unknown } | ArrayLike<unknown>) =>
           Object.values(counterarray)
