@@ -1,10 +1,7 @@
 import { Request, Response } from "express";
 import { OkPacket, RowDataPacket } from 'mysql2';
 import database from "../../database";
-const mailer = require('../../mailer/mailer');
-
-
-// NEED TO IMPLEMENT DUMPLICATE EMAIL CHECK
+import mailer from "../../mailer/mailer";
 
 // For account registration 
 interface RegistrationData {
