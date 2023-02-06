@@ -12,8 +12,8 @@ export const dashboard = (req: Request, res: Response) => {
 
       if (data) {
         // Post dev response
-        // res.status(200).send({ accountName: user.name, accountType: user.account_type });
-        res.status(200).json(user); // Test response. Disable in the end and enable above line instead.
+        res.status(200).send({ accountName: user.name, accountType: user.account_type });
+        // res.status(200).json(user); // Test response. Disable in the end and enable above line instead.
       } else {
         res.status(404).send("User not found");
       }
