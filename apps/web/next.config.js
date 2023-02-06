@@ -1,7 +1,18 @@
+const securityHeaders = [];
+
 module.exports = {
   reactStrictMode: true,
   experimental: {
     transpilePackages: ["ui"],
+  },
+
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: securityHeaders,
+      },
+    ];
   },
   images: {
     remotePatterns: [
