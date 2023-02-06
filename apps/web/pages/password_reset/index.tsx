@@ -6,7 +6,7 @@ import Link from "next/link";
 {
   /* STYLES */
 }
-import styles from "./loginRecovery.module.scss";
+import styles from "./passwordReset.module.scss";
 
 {
   /* COMPONENTS */
@@ -15,7 +15,7 @@ import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 
 
-// 1. Layout and styles to be revised
+// // 1. Layout and styles to be revised
 // 2. Password reset mechanism to be implemented
 // 3. Confirmation email to be sent
 // 4. Redirect to the landing page?
@@ -27,42 +27,37 @@ const loginSubmit = {
   buttontext: "Submit",
 };
 
-export interface LoginRecoveryProps {
+export interface PasswordResetProps {
   domain: string;
 }
-const LoginRecovery = ({ domain }: LoginRecoveryProps) => {
-  const [isChecked, setIsChecked] = useState(false);
+const PasswordReset = ({ domain }: PasswordResetProps) => {
 
   return (
-    <div className={styles["login-page"]}>
-      {/* Temporary text color change. Revise text color for mobile design */}
-      <Mini_Header title={"Reset password"} Scssdomain={domain} />
-
-      <div className={"relative top-[220px] md:top-[300px] z-10"}>
-        <div className={`container mx-auto z-10 px-2 ${styles["page"]}`}>
-          <div className={"flex flex-wrap"}>
-            <div className={"mx-auto max-w-xl w-full z-10"}>
-              <div
-                className={`pt-7  pb-7 px-4 bg-white shadow-main rounded-[24px]`}
-              >
-                <form className={`${styles["login-input"]} `}>
+    <div>
+      <Mini_Header title={"Reset Password"} Scssdomain={domain} />
+      <div className={`${styles["passwordReset"]}`}>
+        <div
+          className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px] `}
+        >
+          <div className={"mt-3"}>
+            {/* Data Input Field */}
+            <form>
                   {/* Username input field */}
                   <label
-                    htmlFor="username"
+                    htmlFor="email"
                     className={"block mt-4 text-pink-primary"}
                   >
-                    Username
+                    Resistered email address
                   </label>
                   <input
                     type="text"
                     className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
-                    name="username"
-                    id="username"
-                    placeholder="Enter username or email address"
+                    name="email"
+                    id="email"
+                    placeholder="Please provide your registered email address"
                     required
                   />
                 </form>
-
                 {/* Login Info Submission button */}
                 <div className={"w-min mt-12 mx-auto"}>
                   {/* TO DO: Email the account holder with password reset link */}
@@ -72,22 +67,21 @@ const LoginRecovery = ({ domain }: LoginRecoveryProps) => {
                     buttontext={loginSubmit.buttontext}
                   />
                 </div>
-                <div className={`mx-auto w-max mt-5`}>
+                <div className={`mx-auto w-max mt-5 mb-5`}>
                   {/* Return to landing page */}
                   <Link href="/" className={`text-pink-primary`}>
                     Return to main page
                   </Link>
                 </div>
-              </div>
             </div>
           </div>
         </div>
-        <div className={"fixed left-0 bottom-0 right-0"}>
-          <Footer />
-        </div>
+      <div className={`mt-[310px] md:mt-[350px] ${styles["footerQuery"]}`}>
+        <Footer />
       </div>
     </div>
   );
 };
 
-export default LoginRecovery;
+
+export default PasswordReset;
