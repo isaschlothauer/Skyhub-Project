@@ -90,23 +90,15 @@ const ContainerFAQContact = () => {
     >
       <div className={"flex items-end gap-4 flex-nowrap"}>
         {fcTiles.map((fctile) => (
-          <div
-            key={fctile.id}
-            onClick={() => {
-              router.push(`/${fctile.linkT}`);
-            }}
-            className="clickableDiv"
-          >
-            <FAQContact
-              tilename={fctile.tilename}
-              cSass={fctile.cSass}
-              cSass2nd={fctile.cSass2nd}
-              subtilename={fctile.subtilename}
-              cTailwind={fctile.cTailwind}
-              picture={fctile.picture}
-              arrowbinfo={fctile.arrowbmap}
-            />
-          </div>
+          <FAQContact
+            tilename={fctile.tilename}
+            cSass={fctile.cSass}
+            cSass2nd={fctile.cSass2nd}
+            subtilename={fctile.subtilename}
+            cTailwind={fctile.cTailwind}
+            picture={fctile.picture}
+            arrowbinfo={fctile.arrowbmap}
+          />
         ))}
       </div>
     </div>

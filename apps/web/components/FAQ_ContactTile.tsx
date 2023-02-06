@@ -24,15 +24,18 @@ export const FAQContact = ({
   cSass2nd,
   picture,
   arrowbinfo,
+  cTailwind,
 }: FAQContactProps) => {
   return (
-    <div className={`${styles.faqcontact} ${cSass}`}>
-      <Image src={picture} alt="widgetcheck" />
-      <div className={styles["faqcontact-textoverlay"]}>
-        <div>
-          <div className={styles["faqcontact-subtext"]}>{subtilename}</div>
-          <div className={`${cSass2nd}`}>{tilename}</div>
-          {arrowbinfo}
+    <div className={`${cTailwind}`}>
+      <div className={`${styles.faqcontact} ${cSass}`}>
+        <Image src={picture} alt="widgetcheck" />
+        <div className={styles["faqcontact-textoverlay"]}>
+          <div>
+            <div className={styles["faqcontact-subtext"]}>{subtilename}</div>
+            <div className={`${cSass2nd}`}>{tilename}</div>
+            {arrowbinfo}
+          </div>
         </div>
       </div>
     </div>
