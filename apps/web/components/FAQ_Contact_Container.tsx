@@ -1,5 +1,5 @@
 import * as React from "react";
-import FAQContact from "./FAQ_ContactTile";
+import { useRouter } from "next/router";
 
 {
   /*STYLES*/
@@ -12,12 +12,13 @@ import stylesArrow from "../components/arrowButton.module.scss";
   /*COMPONENTS*/
 }
 import { LearnMoreArrow } from "./ArrowButton";
-
+import FAQContact from "./FAQ_ContactTile";
 {
   /*IMAGES*/
 }
 import FAQTile from "../assets/images/widget/FAQWidget.jpg";
 import ContactTile from "../assets/images/widget/ContactUsWidget.jpg";
+import Link from "next/link";
 
 const arrowButtons = [
   {
@@ -46,6 +47,7 @@ const fcTiles = [
     cSass2nd: stylesFC["faqcontact-maintextfaq"],
     cTailwind: `w-full w-[calc(33.33%-0.5rem)] ${stylesFC["faqcontact-generalcontainer"]}`,
     picture: FAQTile,
+    linkT: "/faq",
     arrowbmap: arrowButtons
       .slice(1, 2)
       .map((arrowbutton) => (
@@ -66,6 +68,7 @@ const fcTiles = [
     cSass2nd: stylesFC["faqcontact-maintextcontact"],
     cTailwind: `w-full w-[calc(66.66%-0.5rem)] ${stylesFC["faqcontact-generalcontainer"]}`,
     picture: ContactTile,
+    linkT: "/contacts",
     arrowbmap: arrowButtons
       .slice(0, 1)
       .map((arrowbutton) => (
@@ -80,22 +83,30 @@ const fcTiles = [
 ];
 
 const ContainerFAQContact = () => {
+  const router = useRouter();
   return (
     <div
       className={`container mx-auto sm:px-0 ${styles["containerfaqcontact"]}`}
     >
       <div className={"flex items-end gap-4 flex-nowrap"}>
         {fcTiles.map((fctile) => (
-          <FAQContact
+          <div
             key={fctile.id}
-            tilename={fctile.tilename}
-            cSass={fctile.cSass}
-            cSass2nd={fctile.cSass2nd}
-            subtilename={fctile.subtilename}
-            cTailwind={fctile.cTailwind}
-            picture={fctile.picture}
-            arrowbinfo={fctile.arrowbmap}
-          />
+            onClick={() => {
+              router.push(`/${fctile.linkT}`);
+            }}
+            className="clickableDiv"
+          >
+            <FAQContact
+              tilename={fctile.tilename}
+              cSass={fctile.cSass}
+              cSass2nd={fctile.cSass2nd}
+              subtilename={fctile.subtilename}
+              cTailwind={fctile.cTailwind}
+              picture={fctile.picture}
+              arrowbinfo={fctile.arrowbmap}
+            />
+          </div>
         ))}
       </div>
     </div>

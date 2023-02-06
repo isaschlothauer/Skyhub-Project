@@ -14,8 +14,6 @@ import ImageRouter from "./routes/images/routes";
 import SecureRouter from './pages/secureRoute/secure.router';
 import tokenVerification from "./pages/auth/auth";
 
-
-
 const MainRouter = Router();
 
 MainRouter.use("/static", StaticPageRouter);

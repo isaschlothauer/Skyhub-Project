@@ -6,6 +6,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import Link from "next/link";
 
 {
   /*STYLES*/
@@ -421,15 +422,16 @@ const Home = () => {
       {/*PILOT TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
         {jobTiles.slice(0, 1).map((pilottile) => (
-          <Tile
-            key={pilottile.id}
-            tilename={pilottile.tilename}
-            cSass={pilottile.cSass}
-            picture={pilottile.picture}
-            subtilename={pilottile.subtilename}
-            arrowbmap={pilottile.arrowbmap}
-            tcounter={pilottile.tcounter}
-          />
+          <Link href={"/pilot"} key={pilottile.id}>
+            <Tile
+              tilename={pilottile.tilename}
+              cSass={pilottile.cSass}
+              picture={pilottile.picture}
+              subtilename={pilottile.subtilename}
+              arrowbmap={pilottile.arrowbmap}
+              tcounter={pilottile.tcounter}
+            />
+          </Link>
         ))}
       </div>
 
@@ -445,15 +447,16 @@ const Home = () => {
       {/*CABIN TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
         {jobTiles.slice(1, 2).map((cabintile) => (
-          <Tile
-            key={cabintile.id}
-            tilename={cabintile.tilename}
-            cSass={cabintile.cSass}
-            picture={cabintile.picture}
-            subtilename={cabintile.subtilename}
-            arrowbmap={cabintile.arrowbmap}
-            tcounter={cabintile.tcounter}
-          />
+          <Link href={"/cabin"} key={cabintile.id}>
+            <Tile
+              tilename={cabintile.tilename}
+              cSass={cabintile.cSass}
+              picture={cabintile.picture}
+              subtilename={cabintile.subtilename}
+              arrowbmap={cabintile.arrowbmap}
+              tcounter={cabintile.tcounter}
+            />
+          </Link>
         ))}
       </div>
 
@@ -473,15 +476,16 @@ const Home = () => {
         className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
       >
         {jobTiles.slice(2, 3).map((atctile) => (
-          <Tile
-            key={atctile.id}
-            tilename={atctile.tilename}
-            cSass={atctile.cSass}
-            picture={atctile.picture}
-            subtilename={atctile.subtilename}
-            arrowbmap={atctile.arrowbmap}
-            tcounter={atctile.tcounter}
-          />
+          <Link href={"/atc"} key={atctile.id}>
+            <Tile
+              tilename={atctile.tilename}
+              cSass={atctile.cSass}
+              picture={atctile.picture}
+              subtilename={atctile.subtilename}
+              arrowbmap={atctile.arrowbmap}
+              tcounter={atctile.tcounter}
+            />
+          </Link>
         ))}
       </div>
 
@@ -497,7 +501,6 @@ const Home = () => {
       <div className={`container mx-auto sm:px-0}`}>
         <ContainerFAQContact />
       </div>
-
       <Footer />
     </div>
   );

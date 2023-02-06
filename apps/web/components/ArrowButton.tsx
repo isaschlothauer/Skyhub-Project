@@ -5,7 +5,7 @@ import * as React from "react";
 export interface ArrowProps {
   arrowtext?: string;
   cSass: string;
-  link: string;
+  link?: string;
 }
 
 export const LearnMoreArrow = ({ arrowtext, cSass, link }: ArrowProps) => {

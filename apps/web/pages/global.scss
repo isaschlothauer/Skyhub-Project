@@ -60,6 +60,10 @@ span {
   max-width: calc(100vw - 40px);
 }
 
+.clickableDiv {
+  cursor: pointer;
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: calc(100vw - 60px);
