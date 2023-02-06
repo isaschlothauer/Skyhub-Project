@@ -2,6 +2,7 @@
   position: relative;
   z-index: 2;
   top: 300px;
+  margin-bottom: 22rem;
 }
 
 .offer-images {
@@ -223,10 +224,19 @@
   .containerDomain {
     top: 15.625rem;
   }
+
+  .zIndex {
+    position: relative;
+    margin-bottom: 21.8rem;
+  }
 }
 
-@media only screen and (min-width: 427px) and (max-width: 768px) {
+@media only screen and (min-width: 426px) and (max-width: 768px) {
   .containerDomain {
     top: 16.625rem;
+  }
+
+  .zIndex {
+    margin-bottom: 21.5rem;
   }
 }

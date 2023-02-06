@@ -6,7 +6,8 @@
   font-weight: 700;
   font-size: 32px;
   line-height: 44px;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem; //Diogo Changed*/}
+  text-align: center; /*Diogo Changed*/
 }
 
 .title {
@@ -81,7 +82,7 @@
   margin-bottom: 2rem;
 }
 
-@media only screen and (min-width: 375px) and (max-width: 501px) {
+@media only screen and (min-width: 320px) and (max-width: 501px) { //*Diogo Changed*/
   .containerTitle {
     font-size: 21px;
   }

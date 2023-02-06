@@ -22,7 +22,7 @@ import requirements from "../assets/images/icons/requirements-icon.png";
 import costs from "../assets/images/icons/costs-icon.png";
 import application from "../assets/images/icons/application-icon.png";
 
-function JobTilesContainer({ domain } : { domain: string }) {
+function JobTilesContainer({ domain }: { domain: string }) {
   const jobTiles = [
     {
       tile_id: 1,
@@ -71,7 +71,9 @@ function JobTilesContainer({ domain } : { domain: string }) {
       <div className={styles.containerTitle}>
         Find more information about the process
       </div>
-      <div className={`${styles.line} ${"mb-10"}`}>
+      <div className={`${styles.line} ${"mb-14"}`}>
+        {" "}
+        {/*Diogo Changed*/}
         {jobTiles.map((firstcontainer) => (
           <JobTiles
             key={firstcontainer.tile_id}

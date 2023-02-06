@@ -162,7 +162,12 @@ function JobOffersPage({ domain }: { domain: string }) {
                   <div className={styles["role"]}>Offer</div>
                   <div className={styles["offer-images"]}>
                     <div className={styles["offer-companyimage"]}>
-                      <Image src={mainImage} width={250} height={250} alt={"offer-img"} />
+                      <Image
+                        src={mainImage}
+                        width={250}
+                        height={250}
+                        alt={"offer-img"}
+                      />
                     </div>
                     <div className={styles["offer-company-name"]}>
                       {jobs[0].airline}
@@ -285,16 +290,15 @@ function JobOffersPage({ domain }: { domain: string }) {
                 <li>apply_phone={jobs[0].apply_phone}</li>
                 <li>apply_email={jobs[0].apply_email}</li>
               </ul>*/}
-
-            <div className={`container mx-auto sm:px-0`}>
-              <ContainerFAQContact />
-            </div>
-            <GoBackContainer
-              arrowTitle={`Back to ${domainToLongName(domain)} job offers`}
-              link={`/${domain}/offers`}
-            />
-            <Footer />
           </div>
+          <div className={`container mx-auto sm:px-0`}>
+            <ContainerFAQContact />
+          </div>
+          <GoBackContainer
+            arrowTitle={`Back to ${domainToLongName(domain)} job offers`}
+            link={`/${domain}/offers`}
+          />
+          <Footer />
         </div>
       ) : (
         <p>Loading...</p>

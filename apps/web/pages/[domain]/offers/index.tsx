@@ -139,8 +139,8 @@ const Offers = ({}: OffersProps) => {
           arrowTitle={`Back to ${domainToLongName(domainClean)} page`}
           link={`/${domain}`}
         />
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 };
