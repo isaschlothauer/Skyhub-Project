@@ -111,14 +111,14 @@ export default function MainStaticCMP(
             ))
         ) : (
           <div
-            className={`text-center mx-auto text-pink-primary font-bold text-lg pb-24 pt-8 ${stylesD.containerTitle}`}
+            className={`text-center mx-auto text-pink-primary font-bold text-lg ${stylesD.containerNothingfound}`}
           >
             No matching results for your search.
           </div>
         )}
 
         {jobs.length != 0 ? (
-          <div className="flex flex-row justify-center mb-14">
+          <div className="flex flex-row justify-center mb-16">
             {" "}
             {/*Diogo Changed*/}
             <ButtonCMP

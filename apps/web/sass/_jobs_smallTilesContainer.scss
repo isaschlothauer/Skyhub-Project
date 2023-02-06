@@ -6,8 +6,15 @@
   font-weight: 700;
   font-size: 32px;
   line-height: 44px;
-  margin-bottom: 2rem; //Diogo Changed*/}
-  text-align: center; /*Diogo Changed*/
+  margin-bottom: 3rem; 
+  text-align: center; 
+}
+
+.containerNothingfound {
+  font-size: 32px;
+  line-height: 44px;
+  margin-bottom: 8rem; 
+  padding-top: 2rem; 
 }
 
 .title {
@@ -85,7 +92,15 @@
 @media only screen and (min-width: 320px) and (max-width: 501px) { //*Diogo Changed*/
   .containerTitle {
     font-size: 21px;
+    margin-bottom: 2rem; 
   }
+
+  .containerNothingfound {
+    font-size: 21px;
+    margin-bottom: 4rem; //Diogo Changed*/}
+    padding-top: 1rem; //Diogo Changed*/}
+  }
+
   .line {
     flex-direction: row;
     justify-content: center;

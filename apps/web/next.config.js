@@ -6,14 +6,14 @@ module.exports = {
     transpilePackages: ["ui"],
   },
 
-  async headers() {
+  /*async headers() {
     return [
       {
         source: "/:path*",
         headers: securityHeaders,
       },
     ];
-  },
+  },*/
   images: {
     remotePatterns: [
       {

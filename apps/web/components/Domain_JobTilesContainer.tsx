@@ -71,7 +71,7 @@ function JobTilesContainer({ domain }: { domain: string }) {
       <div className={styles.containerTitle}>
         Find more information about the process
       </div>
-      <div className={`${styles.line} ${"mb-14"}`}>
+      <div className={`${styles.line} ${"mb-16"}`}>
         {" "}
         {/*Diogo Changed*/}
         {jobTiles.map((firstcontainer) => (
