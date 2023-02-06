@@ -1,5 +1,5 @@
 import * as React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -80,15 +80,27 @@ const Home = () => {
   // Application checks local/sessionStorage for the token to determine whether the user is logged in or not.
 
   const [counter, setCounter] = useState([]);
-  const [jobTiles, setJobTiles] = useState<{ [key: any]: any }[]>([]);
+  const [jobTiles, setJobTiles] = useState<
+    {
+      tilename: string;
+      cSass: string | undefined;
+      subtilename: string;
+      arrowbmap: JSX.Element;
+      tcounter: any;
+      id: React.Key | null | undefined;
+      picture: StaticImageData;
+      [key: number]: any;
+    }[]
+  >([]);
   const { authToken, setAuthToken } = useContext(AuthContext);
   let token: string | null = null;
 
   useEffect(() => {
     const test1 = async () => {
-      const data = await axios.get(`http://localhost:5000/counter`);
-      const data2 = await data.data.map((counterarray) =>
-        Object.values(counterarray)
+      const data = await axios.get(`http:///localhost:5000/jobs/counter`);
+      const data2 = await data.data.map(
+        (counterarray: { [s: string]: unknown } | ArrayLike<unknown>) =>
+          Object.values(counterarray)
       );
       const data3 = setCounter(data2);
 
@@ -227,9 +239,18 @@ const Home = () => {
         return;
       } else {
         // Just for testing purposes
-        let decoded = jwt_decode(token);
+        let decoded: {exp: number} = jwt_decode(token);
         console.log("ONLY FOR TESTING");
         console.log(decoded);
+
+        const expiration: boolean = decoded.exp < Date.now() / 1000;
+
+        console.log(expiration);
+        
+        if (expiration == true) {
+          console.log("Token is expired");
+          logoff();
+        }
       }
     } else {
       console.log("No valid token");

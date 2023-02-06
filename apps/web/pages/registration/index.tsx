@@ -151,10 +151,11 @@ const Registration = ({ domain }: RegistrationProps) => {
   }
 
   return (
-    <div className={`${styles["registration-page"]}`}>
+    <>
+    <div>
       <Mini_Header title={"Account Registration"} Scssdomain={domain} />
 
-      <div>
+      <div className={`${styles["registration-page"]}`}>
         {/* Account data fields */}
         <div
           className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px]`}
@@ -325,14 +326,13 @@ const Registration = ({ domain }: RegistrationProps) => {
             </p>
           ) : null}
         </div>
-
         {/* <ReturnHomeContainer /> */}
-
-        <div className={"mt-[300px]"}>
-          <Footer />
-        </div>
       </div>
-    </div>
+      </div>
+        <div className={`mt-[310px] md:mt-[350px] ${styles["footerQuery"]}`}>
+        <Footer />
+      </div>
+    </>
   );
 };
 
