@@ -39,6 +39,7 @@ export interface OffersProps {
 
 const Offers = ({}: OffersProps) => {
   const router = useRouter();
+
   const { domain } = router.query; //REVIEW THIS - It was giving a duplication problem with the interface.
   const [imagesMap, setImagesMap] = useState<Map<string, string>>();
   // const [jobType, setJobType] = useState<string[]>([]);
@@ -135,12 +136,18 @@ const Offers = ({}: OffersProps) => {
                 </Link>
               ))}
         </div>
+      </div>
+      <div
+        onClick={() => {
+          router.push(`/${domain}`);
+        }}
+      >
         <GoBackContainer
           arrowTitle={`Back to ${domainToLongName(domainClean)} page`}
           link={`/${domain}`}
         />
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { ReactElement } from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import DOMPurify from "dompurify";
-
+import { useRouter } from "next/router";
 import { domainToLongName } from "../utils/domainToLongName";
 
 {
@@ -30,6 +30,7 @@ export interface StaticProps {
   /*UseEffect Implementation Test*/
 }
 const StaticPage = ({ cSass, miniheader, domain, slug }: StaticProps) => {
+  const router = useRouter();
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
   const [cssClass, setCssClass] = useState("");
@@ -63,11 +64,23 @@ const StaticPage = ({ cSass, miniheader, domain, slug }: StaticProps) => {
             </div>
           </div>
         </div>
-        <ContainerFAQContact />
-        <GoBackContainer
-          arrowTitle={`Back to ${domainToLongName(domain)} page`}
-          link={`/${domain}`}
-        />
+        <div
+          onClick={() => {
+            router.push(`/${domain}`);
+          }}
+        >
+          <ContainerFAQContact />
+        </div>
+        <div
+          onClick={() => {
+            router.push(`/${domain}`);
+          }}
+        >
+          <GoBackContainer
+            arrowTitle={`Back to ${domainToLongName(domain)} page`}
+            link={`/${domain}`}
+          />
+        </div>
       </div>
 
       <Footer />

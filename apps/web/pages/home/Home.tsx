@@ -6,6 +6,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import Link from "next/link";
 
 {
   /*STYLES*/
@@ -96,7 +97,7 @@ const Home = () => {
 
   useEffect(() => {
     const test1 = async () => {
-      const data = await axios.get(`http://localhost:5000/counter`);
+      const data = await axios.get(`http:///localhost:5000/jobs/counter`);
       const data2 = await data.data.map(
         (counterarray: { [s: string]: unknown } | ArrayLike<unknown>) =>
           Object.values(counterarray)
@@ -238,14 +239,14 @@ const Home = () => {
         return;
       } else {
         // Just for testing purposes
-        let decoded: {exp: number} = jwt_decode(token);
+        let decoded: { exp: number } = jwt_decode(token);
         console.log("ONLY FOR TESTING");
         console.log(decoded);
 
         const expiration: boolean = decoded.exp < Date.now() / 1000;
 
         console.log(expiration);
-        
+
         if (expiration == true) {
           console.log("Token is expired");
           logoff();
@@ -294,7 +295,7 @@ const Home = () => {
                   >
                     {loginregButtons.slice(0, 2).map((gbutton) => (
                       <LoginButton
-                        className={"ml-8 lg:ml-0"}
+                        className={"ml-8 fix2:ml-0"}
                         key={gbutton.id}
                         route={gbutton.route}
                         cSass={gbutton.cSass}
@@ -326,7 +327,7 @@ const Home = () => {
                         gbutton.id === 3 ? (
                           <LoginButton
                             onClick={logoff}
-                            className={"ml-8 lg:ml-0"}
+                            className={"ml-8 fix2:ml-0"}
                             key={gbutton.id}
                             route={gbutton.route}
                             cSass={gbutton.cSass}
@@ -334,7 +335,7 @@ const Home = () => {
                           />
                         ) : (
                           <LoginButton
-                            className={"ml-8 lg:ml-0"}
+                            className={"ml-8 fix2:ml-0"}
                             key={gbutton.id}
                             route={gbutton.route}
                             cSass={gbutton.cSass}
@@ -364,7 +365,7 @@ const Home = () => {
                         gbutton.id === 3 ? (
                           <LoginButton
                             onClick={logoff}
-                            className={"ml-8 lg:ml-0"}
+                            className={"ml-8 fix2:ml-0"}
                             key={gbutton.id}
                             route={gbutton.route}
                             cSass={gbutton.cSass}
@@ -372,7 +373,7 @@ const Home = () => {
                           />
                         ) : (
                           <LoginButton
-                            className={"ml-8 lg:ml-0"}
+                            className={"ml-8 fix2:ml-0"}
                             key={gbutton.id}
                             route={gbutton.route}
                             cSass={gbutton.cSass}
@@ -393,7 +394,7 @@ const Home = () => {
       {/*PHRASE GENERATOR - ROBOT */}
       <div className={"flex flex-wrap justify-around"}>
         <div
-          className={`md:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}
+          className={`fix1:w-full pr-0 pl-0 ${styles["mainpage-robotcontainer"]}`}
         >
           <h1 className={styles["maingpage-robottext"]}>
             Find
@@ -421,15 +422,16 @@ const Home = () => {
       {/*PILOT TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
         {jobTiles.slice(0, 1).map((pilottile) => (
-          <Tile
-            key={pilottile.id}
-            tilename={pilottile.tilename}
-            cSass={pilottile.cSass}
-            picture={pilottile.picture}
-            subtilename={pilottile.subtilename}
-            arrowbmap={pilottile.arrowbmap}
-            tcounter={pilottile.tcounter}
-          />
+          <Link href={"/pilot"} key={pilottile.id}>
+            <Tile
+              tilename={pilottile.tilename}
+              cSass={pilottile.cSass}
+              picture={pilottile.picture}
+              subtilename={pilottile.subtilename}
+              arrowbmap={pilottile.arrowbmap}
+              tcounter={pilottile.tcounter}
+            />
+          </Link>
         ))}
       </div>
 
@@ -445,15 +447,16 @@ const Home = () => {
       {/*CABIN TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
         {jobTiles.slice(1, 2).map((cabintile) => (
-          <Tile
-            key={cabintile.id}
-            tilename={cabintile.tilename}
-            cSass={cabintile.cSass}
-            picture={cabintile.picture}
-            subtilename={cabintile.subtilename}
-            arrowbmap={cabintile.arrowbmap}
-            tcounter={cabintile.tcounter}
-          />
+          <Link href={"/cabin"} key={cabintile.id}>
+            <Tile
+              tilename={cabintile.tilename}
+              cSass={cabintile.cSass}
+              picture={cabintile.picture}
+              subtilename={cabintile.subtilename}
+              arrowbmap={cabintile.arrowbmap}
+              tcounter={cabintile.tcounter}
+            />
+          </Link>
         ))}
       </div>
 
@@ -473,15 +476,16 @@ const Home = () => {
         className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
       >
         {jobTiles.slice(2, 3).map((atctile) => (
-          <Tile
-            key={atctile.id}
-            tilename={atctile.tilename}
-            cSass={atctile.cSass}
-            picture={atctile.picture}
-            subtilename={atctile.subtilename}
-            arrowbmap={atctile.arrowbmap}
-            tcounter={atctile.tcounter}
-          />
+          <Link href={"/atc"} key={atctile.id}>
+            <Tile
+              tilename={atctile.tilename}
+              cSass={atctile.cSass}
+              picture={atctile.picture}
+              subtilename={atctile.subtilename}
+              arrowbmap={atctile.arrowbmap}
+              tcounter={atctile.tcounter}
+            />
+          </Link>
         ))}
       </div>
 
@@ -497,62 +501,9 @@ const Home = () => {
       <div className={`container mx-auto sm:px-0}`}>
         <ContainerFAQContact />
       </div>
-
       <Footer />
     </div>
   );
 };
 
 export default Home;
-
-{
-  /*
-      NOTES ABOUT BS TO TW:
-container = container mx-auto sm:px-0
-cointainer-fluid = mainpage-header*/
-}
-
-{
-  /*
-      NOTES ABOUT THE DIFFERENT STYLES AFTER LOG IN:
-      
- @if (Auth::user())
-@if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
- <a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}
->Dashboard</a>
-@elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
-<a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
- @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
- <a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
- @endif
-@else
-<a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
-<a href="{{ route('register') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Register</a>
-@endif 
-*/
-}
-
-{
-  /*<div className={`${styles["user-links"]} ${styles["d-sm-block"]} ${styles["d-md-none"]}`}>
- @if (Auth::user())
-@if (Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE) || Auth::user()->hasRole(\App\Models\User::ROLE_AIRLINE_VERIFIED))
-<a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
-@elseif (Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER) || Auth::user()->hasRole(\App\Models\User::ROLE_RECRUITER_VERIFIED))
-<a href="{{ route('dashboard') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Dashboard</a>
- @elseif (Auth::user()->hasRole(\App\Models\User::ROLE_ADMINISTRATOR))
-<a href="{{ route('admin') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Admin panel</a>
- @endif
-@else
-<a href="{{ route('login') }}" className={`${styles["btn-login"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-outline-white"]} ${styles["btn-rounded"]}`}>Log In</a>
-<a href="{{ route('register') }}" className={`${styles["btn-register"]} ${styles.btn} ${styles["btn-lg"]} ${styles["btn-rounded"]}`}>Register</a>
-@endif
-</div> 
-*/
-}
-
-{
-  /*container=container mx-auto sm:px-0*/
-}
-{
-  /*cointainer-fluid=mainpage-header*/
-}

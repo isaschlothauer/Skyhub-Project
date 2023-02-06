@@ -74,6 +74,12 @@
 }
 
 @media only screen and (min-width: 377px) and (max-width:426px) {
+
+  .goback-maincontainer {
+    margin-top: 3rem;
+    margin-bottom: 3.5rem;
+  }
+  
   .goback-textcontainer {
     flex-direction: column;
     padding: 2.5rem 0.175rem;
@@ -87,6 +93,11 @@
 
 
 @media only screen and (min-width: 426px) and (max-width:501px) {
+
+  .goback-maincontainer {
+    margin-top: 3rem;
+    margin-bottom: 3.5rem;
+  }
   .goback-textcontainer {
     flex-direction: column;
     padding: 2.5rem 0.175rem;
@@ -104,6 +115,10 @@
 
 
 @media only screen and (min-width: 501px) and (max-width:769px) {
+  .goback-maincontainer {
+    margin-top: 3rem;
+    margin-bottom: 3.5rem;
+  }
 
   .goback-textcontainer {
     flex-direction: column;
@@ -118,6 +133,7 @@
 
 
 @media only screen and (min-width: 769px) and (max-width:1025px) {
+  
   
   .goback-textcontainer {
     .goback-maintext {

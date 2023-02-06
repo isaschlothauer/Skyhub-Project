@@ -5,6 +5,7 @@ import useAxios from "../hooks/useAxios";
 import styles from "../components/staticpage.module.scss";
 import stylesB from "../components/generalButton.module.scss";
 import stylesC from "./domain_jobOffersContainer.module.scss";
+import stylesD from "./domain_jobTilesContainer.module.scss";
 
 {
   /* COMPONENTS */
@@ -88,43 +89,58 @@ export default function MainStaticCMP(
       <div
         className={`${stylesC.containerDomain} ${"container mx-auto sm:px-0 "}`}
       >
-        {jobs
-          .slice(0, 3)
-          .reverse()
-          .map((job) => (
-            <div className="jobOffersContainer" key={job.id}>
-              <Link href={`/${domain}/offers/${job.id}`}>
-                <JobOffersContainer
-                  position={job.title}
-                  company={job.company}
-                  base={job.base}
-                  link={`/${domain}/offers/${job.id}`}
-                  date={job.date}
-                  imageSrc={imagesMap ? imagesMap.get(job.company) : undefined}
-                />
-              </Link>
-            </div>
-          ))}
+        {jobs.length != 0 ? (
+          jobs
+            .slice(0, 3)
+            .reverse()
+            .map((job) => (
+              <div className="jobOffersContainer" key={job.id}>
+                <Link href={`/${domain}/offers/${job.id}`}>
+                  <JobOffersContainer
+                    position={job.title}
+                    company={job.company}
+                    base={job.base}
+                    link={`/${domain}/offers/${job.id}`}
+                    date={job.date}
+                    imageSrc={
+                      imagesMap ? imagesMap.get(job.company) : undefined
+                    }
+                  />
+                </Link>
+              </div>
+            ))
+        ) : (
+          <div
+            className={`text-center mx-auto text-pink-primary font-bold text-lg ${stylesD.containerNothingfound}`}
+          >
+            No matching results for your search.
+          </div>
+        )}
 
-        <div className="flex flex-row justify-center mb-10">
-          <ButtonCMP
-            route={`${domain}/offers`}
-            buttontext={"SEE MORE OFFERS"}
-            cSass={`${stylesB["see-more-btn"]}`}
-          />
-        </div>
+        {jobs.length != 0 ? (
+          <div className="flex flex-row justify-center mb-16">
+            {" "}
+            {/*Diogo Changed*/}
+            <ButtonCMP
+              route={`${domain}/offers`}
+              buttontext={"SEE MORE OFFERS"}
+              cSass={`${stylesB["see-more-btn"]}`}
+            />
+          </div>
+        ) : (
+          ""
+        )}
 
         <JobTilesContainer domain={domain} />
 
         <AirLineContainer domain={domain} />
-
-        {/* FAQ & CONTACT US COMPONENT*/}
-        <div className={`container mx-auto sm:px-0`}>
-          <ContainerFAQContact />
-        </div>
-        <GoBackContainer arrowTitle={"Go Back to Home"} link={"/"} />
-        <Footer />
       </div>
+      {/* FAQ & CONTACT US COMPONENT*/}
+      <div className={`container mx-auto sm:px-0`}>
+        <ContainerFAQContact />
+      </div>
+      <GoBackContainer arrowTitle={"Go Back to Home"} link={"/"} />
+      <Footer />
     </div>
   );
 }

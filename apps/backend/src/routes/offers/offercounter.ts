@@ -1,6 +1,6 @@
 import { RequestHandler, Response } from "express";
 import { RowDataPacket } from "mysql2";
-import database from "./database";
+import database from "../../database";
 
 export interface CounterValue extends RowDataPacket {
   number_of_jobs: number;

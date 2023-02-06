@@ -2,6 +2,7 @@
   position: relative;
   z-index: 2;
   top: 300px;
+  margin-bottom: 22rem; //Diogo Changed
 }
 
 #offers {
@@ -103,6 +104,8 @@
 }
 
 @media only screen and (max-width: 672px) {
+
+
   .job-offer-list-item-role {
     font-size: 20px !important;
     text-align: left !important;
@@ -210,11 +213,16 @@
 @media only screen and (max-width: 426px) {
   .containerDomain {
     top: 15.625rem;
+    margin-bottom:19.2rem; //Diogo Changed
   }
 }
 
-@media only screen and (min-width: 427px) and (max-width: 768px) {
+@media only screen and (min-width: 426px) and (max-width: 768px) {
   .containerDomain {
     top: 16.625rem;
+    margin-bottom: 20.2rem; //Diogo Changed
   }
 }
+
+
+

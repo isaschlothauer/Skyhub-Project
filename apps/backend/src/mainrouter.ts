@@ -6,7 +6,6 @@ import InsightsRouter from "./pages/insights/insights.router";
 import DomainRouter from "./routes/offers/router";
 import RegistrationRouter from "./pages/registration/registration.router";
 import { registrationValidator } from "../src/pages/registration/registrationValidator";
-import { offersCounter } from "./offercounter";
 
 import { loginValidator } from "./pages/login/login.validator";
 import LoginRouter from "./pages/login/login.router";
@@ -15,15 +14,13 @@ import ImageRouter from "./routes/images/routes";
 import SecureRouter from './pages/secureRoute/secure.router';
 import tokenVerification from "./pages/auth/auth";
 
-
-
 const MainRouter = Router();
 
 MainRouter.use("/static", StaticPageRouter);
 MainRouter.use("/contact-form", validateInput, ContactFormAndFAQRouter);
 MainRouter.use("/faq", ContactFormAndFAQRouter);
 MainRouter.use("/:domain/insights", InsightsRouter);
-MainRouter.use("/counter", offersCounter)
+
 
 // Job offers
 MainRouter.use("/jobs", DomainRouter);
