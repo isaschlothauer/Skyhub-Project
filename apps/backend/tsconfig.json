@@ -1,5 +1,5 @@
 {
   "extends": "tsconfig/base.json",
-  "include": ["**/*.ts", "src/pages/users/user.router.ts"],
+  "include": ["**/*.ts", "src/pages/users/user.router.ts", "src/mailer/mailer.ts", "src/mailer/sendEmail.ts"],
   "exclude": ["node_modules"]
 }
