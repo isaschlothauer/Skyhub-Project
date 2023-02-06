@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useRouter } from "next/router";
 
 {
   /*STYLES*/
@@ -18,7 +17,6 @@ import FAQContact from "./FAQ_ContactTile";
 }
 import FAQTile from "../assets/images/widget/FAQWidget.jpg";
 import ContactTile from "../assets/images/widget/ContactUsWidget.jpg";
-import Link from "next/link";
 
 const arrowButtons = [
   {
@@ -83,20 +81,13 @@ const fcTiles = [
 ];
 
 const ContainerFAQContact = () => {
-  const router = useRouter();
   return (
     <div
       className={`container mx-auto sm:px-0 ${styles["containerfaqcontact"]}`}
     >
       <div className={"flex items-end gap-4 flex-nowrap"}>
         {fcTiles.map((fctile) => (
-          <div
-            key={fctile.id}
-            onClick={() => {
-              router.push(`/${fctile.linkT}`);
-            }}
-            className="clickableDiv"
-          >
+          <div className="clickableDiv">
             <FAQContact
               tilename={fctile.tilename}
               cSass={fctile.cSass}
@@ -105,6 +96,8 @@ const ContainerFAQContact = () => {
               cTailwind={fctile.cTailwind}
               picture={fctile.picture}
               arrowbinfo={fctile.arrowbmap}
+              link={fctile.linkT}
+              key={fctile.id}
             />
           </div>
         ))}
