@@ -6,6 +6,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import Link from "next/link";
 
 {
   /*STYLES*/
@@ -71,12 +72,12 @@ interface JWT {
 }
 
 const Home = () => {
-// TO DO
-// * Invalid token handling
+  // TO DO
+  // * Invalid token handling
 
-// NOTE;
-// So far authToken is used only to render whether user is logged in or not.
-// Application checks local/sessionStorage for the token to determine whether the user is logged in or not.
+  // NOTE;
+  // So far authToken is used only to render whether user is logged in or not.
+  // Application checks local/sessionStorage for the token to determine whether the user is logged in or not.
 
   const [counter, setCounter] = useState([]);
   const [jobTiles, setJobTiles] = useState<{ [key: any]: any }[]>([]);
@@ -213,7 +214,6 @@ const Home = () => {
   useEffect(() => {
     // Initialize 'window'
     if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
-
       if (window.localStorage.auth_token) {
         setAuthToken(window.localStorage.auth_token);
         token = window.localStorage.auth_token;
@@ -284,8 +284,12 @@ const Home = () => {
                   </div>
                 </div>
               ) : authToken != null &&
-                (Object.values(jwt_decode<JWT>(authToken)).includes("recruiter") ||
-                  Object.values(jwt_decode<JWT>(authToken)).includes("airline")) ? (
+                (Object.values(jwt_decode<JWT>(authToken)).includes(
+                  "recruiter"
+                ) ||
+                  Object.values(jwt_decode<JWT>(authToken)).includes(
+                    "airline"
+                  )) ? (
                 <div
                   className={`${"md:w-1/3 pr-0 pl-1 ml-16"} ${"text-right"} ${
                     styles["mainpage-logincontainer"]
@@ -397,15 +401,16 @@ const Home = () => {
       {/*PILOT TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
         {jobTiles.slice(0, 1).map((pilottile) => (
-          <Tile
-            key={pilottile.id}
-            tilename={pilottile.tilename}
-            cSass={pilottile.cSass}
-            picture={pilottile.picture}
-            subtilename={pilottile.subtilename}
-            arrowbmap={pilottile.arrowbmap}
-            tcounter={pilottile.tcounter}
-          />
+          <Link href={"/pilot"} key={pilottile.id}>
+            <Tile
+              tilename={pilottile.tilename}
+              cSass={pilottile.cSass}
+              picture={pilottile.picture}
+              subtilename={pilottile.subtilename}
+              arrowbmap={pilottile.arrowbmap}
+              tcounter={pilottile.tcounter}
+            />
+          </Link>
         ))}
       </div>
 
@@ -421,15 +426,16 @@ const Home = () => {
       {/*CABIN TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
         {jobTiles.slice(1, 2).map((cabintile) => (
-          <Tile
-            key={cabintile.id}
-            tilename={cabintile.tilename}
-            cSass={cabintile.cSass}
-            picture={cabintile.picture}
-            subtilename={cabintile.subtilename}
-            arrowbmap={cabintile.arrowbmap}
-            tcounter={cabintile.tcounter}
-          />
+          <Link href={"/cabin"} key={cabintile.id}>
+            <Tile
+              tilename={cabintile.tilename}
+              cSass={cabintile.cSass}
+              picture={cabintile.picture}
+              subtilename={cabintile.subtilename}
+              arrowbmap={cabintile.arrowbmap}
+              tcounter={cabintile.tcounter}
+            />
+          </Link>
         ))}
       </div>
 
@@ -449,15 +455,16 @@ const Home = () => {
         className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
       >
         {jobTiles.slice(2, 3).map((atctile) => (
-          <Tile
-            key={atctile.id}
-            tilename={atctile.tilename}
-            cSass={atctile.cSass}
-            picture={atctile.picture}
-            subtilename={atctile.subtilename}
-            arrowbmap={atctile.arrowbmap}
-            tcounter={atctile.tcounter}
-          />
+          <Link href={"/atc"} key={atctile.id}>
+            <Tile
+              tilename={atctile.tilename}
+              cSass={atctile.cSass}
+              picture={atctile.picture}
+              subtilename={atctile.subtilename}
+              arrowbmap={atctile.arrowbmap}
+              tcounter={atctile.tcounter}
+            />
+          </Link>
         ))}
       </div>
 
@@ -473,7 +480,6 @@ const Home = () => {
       <div className={`container mx-auto sm:px-0}`}>
         <ContainerFAQContact />
       </div>
-
       <Footer />
     </div>
   );
