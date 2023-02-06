@@ -32,19 +32,18 @@ export const FAQContact = ({
   const router = useRouter();
   return (
     <div
+      className={`${styles.faqcontact} ${cSass}`}
       key={key}
       onClick={() => {
         router.push(link);
       }}
     >
-      <div className={`${styles.faqcontact} ${cSass}`}>
-        <Image src={picture} alt="widgetcheck" />
-        <div className={styles["faqcontact-textoverlay"]}>
-          <div>
-            <div className={styles["faqcontact-subtext"]}>{subtilename}</div>
-            <div className={`${cSass2nd}`}>{tilename}</div>
-            {arrowbinfo}
-          </div>
+      <Image src={picture} alt="widgetcheck" />
+      <div className={styles["faqcontact-textoverlay"]}>
+        <div>
+          <div className={styles["faqcontact-subtext"]}>{subtilename}</div>
+          <div className={`${cSass2nd}`}>{tilename}</div>
+          {arrowbinfo}
         </div>
       </div>
     </div>

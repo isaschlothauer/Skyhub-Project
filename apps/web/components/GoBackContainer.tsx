@@ -23,7 +23,12 @@ export default function GoBackContainer({
   link,
 }: GoBackContainerProps) {
   return (
-    <div className="container mx-auto sm:px-0">
+    <div
+      className="container mx-auto sm:px-0 clickableDiv"
+      onClick={() => {
+        Router.push(link);
+      }}
+    >
       <div
         className={`flex flex-wrap flex-col ${styles["goback-maincontainer"]}`}
       >
@@ -36,20 +41,10 @@ export default function GoBackContainer({
             /* style="cursor:pointer;" */
           >
             <div>
-              <div
-                className={styles["goback-subtext"]}
-                onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-                  Router.push(link);
-                }}
-              >
+              <div className={styles["goback-subtext"]}>
                 Didn&apos;t find what you were looking for?
               </div>
-              <div
-                className={styles["goback-maintext"]}
-                onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-                  Router.push(link);
-                }}
-              >
+              <div className={styles["goback-maintext"]}>
                 Start again from the <span>beginning</span>...
               </div>
             </div>
