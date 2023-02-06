@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { OkPacket, RowDataPacket } from 'mysql2';
 import database from "../../database";
+const mailer = require('../../mailer/mailer');
+
 
 // NEED TO IMPLEMENT DUMPLICATE EMAIL CHECK
 
@@ -33,6 +35,23 @@ export const UserRegistration = (req: Request<{}, {}, RegistrationData>, res: Re
           [account_type, account_name, password, email, company, contact_name, phone, tos])
           .then(([result]) => {
             console.log(result);
+
+            // Verification emailer
+            mailer.sendMail(
+              {
+                // Change this section as necessary
+                from: 'skyhubaero@gmail.com',   // Admin email address
+                to: email,
+                subject: 'Skyhub registration confirmation',
+                text: 'Please click on the following link to confirm your registration: ',
+                html: '<p>Please click on the following link to confirm your registration</p>',
+              },
+              (err: Error, info: string) => {
+                if (err) console.error(err);
+                else console.log(info);
+              }
+            );
+            
             res.status(201).send("Account created");
           })
           .catch((err) => {
