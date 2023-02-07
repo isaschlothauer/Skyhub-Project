@@ -150,7 +150,6 @@ const Login = ({ domain }: LoginProps) => {
             <div className={"mt-3"}>
               {errorMsg? <p className={"text-center"}>{errorMsg}</p> : <p className={"text-center"}>You are already logged in</p>}
               <div className={`mx-auto w-max mt-3 pb-5`}>
-                {/* TO DO: Connect link to recovery page */}
                 <Link href="/" className={`text-pink-primary`}>
                   Back to the landing page
                 </Link>
