@@ -24,14 +24,6 @@ app.listen(5000, () => {
 });
 
 
-{/*//MySQL Query Preparation
-database.execute(
-  'SELECT * FROM `table` WHERE `name` = ? AND `age` > ?',
-  ['Rick C-137', 53],
-  function(err, results, fields) {
-    console.log(results);
-    console.log(fields); 
-  }
-);*/}
+
 
 app.use("/", MainRouter);

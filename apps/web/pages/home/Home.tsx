@@ -194,21 +194,21 @@ const Home = () => {
         subtilename: "Manage the Sky",
         tcounter:
           counter.length === 3
-            ? counter[0][1] === "air traffic control"
+            ? counter[0][1] === "atc"
               ? counter[0][0]
-              : counter[1][1] === "air traffic control"
+              : counter[1][1] === "atc"
               ? counter[1][0]
-              : counter[2][1] === "air traffic control"
+              : counter[2][1] === "atc"
               ? counter[2][0]
               : 0
             : counter.length === 2
-            ? counter[0][1] === "air traffic control"
+            ? counter[0][1] === "atc"
               ? counter[0][0]
-              : counter[1][1] === "air traffic control"
+              : counter[1][1] === "atc"
               ? counter[1][0]
               : 0
             : counter.length === 1
-            ? counter[0][1] === "air traffic control"
+            ? counter[0][1] === "atc"
               ? counter[0][0]
               : 0
             : 0,
