@@ -6,4 +6,5 @@ const UserRouter: Router = Router();
 
 UserRouter.get("/", Auth, UserVerification);
 
+
 export default UserRouter;

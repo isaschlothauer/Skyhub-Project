@@ -11,6 +11,7 @@ import styleslrButton from "../../components/generalButton.module.scss";
 import LoginButton from "../../components/GeneralButton";
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
+import jwt_decode from 'jwt-decode';
 
 // TO DO
 // // 1.User login status implement
@@ -47,6 +48,7 @@ export interface LoginProps {
 const Login = ({ domain }: LoginProps) => {
   // const [user, setUser] = useState(false);  // User login status. Moved to home
   const [remember, setRemember] = useState(false); // Login status to be kept persistent or not
+  const [isVerified, setIsVerified] = useState<boolean>(false); // Login status to be verified or not
 
   // For testing purposes. Clear state
   const [login, setLogin] = useState({
@@ -71,9 +73,6 @@ const Login = ({ domain }: LoginProps) => {
   useEffect(() => {
     // Initialize 'window'
     if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
-
-      console.log("local: " + window.localStorage.auth_token);
-      console.log("session: " + window.sessionStorage.auth_token);
       
       // If token is present, user is already logged in
       if (window.localStorage.auth_token) {
@@ -83,6 +82,18 @@ const Login = ({ domain }: LoginProps) => {
       }
     }
   }, [authToken]);
+
+  useEffect(() => {
+    // const accountVarification = jwt_decode(authToken);
+    if (authToken) {
+      const accountVerification: string = jwt_decode(authToken);
+
+      if (accountVerification.hasOwnProperty('email_verified_at')) {
+        setIsVerified(true);
+      }
+    }
+
+  })
 
   // Submit button behavior definition
   function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLInputElement>): void {
@@ -124,13 +135,31 @@ const Login = ({ domain }: LoginProps) => {
   }
 
   // If user is already logged in, user is notified as such
+
   if (authToken !== undefined) {
     return (
       <>
-        <div className={"mt-20 w-full items-enter"}>
-          <p className={"text-center"}>You are already logged in.</p>
-          <div className={"mt-10 w-full text-center"}>
-            <a href="/" className={"inline-block text-xl"}>Return to landing page</a>
+      <div>
+        <Mini_Header title={"Sign in"} Scssdomain={domain} />
+
+        <div className={`${styles["loginPage"]}`}>
+          {/* Account data fields */}
+          <div
+            className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px] `}
+          >
+            <div className={"mt-3"}>
+              {errorMsg? <p className={"text-center"}>{errorMsg}</p> : <p className={"text-center"}>You are already logged in</p>}
+              <div className={`mx-auto w-max mt-3 pb-5`}>
+                {/* TO DO: Connect link to recovery page */}
+                <Link href="/" className={`text-pink-primary`}>
+                  Back to the landing page
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div className={`mt-[310px] md:mt-[350px] ${styles["footerQuery1"]}`}>
+            <Footer />
           </div>
         </div>
       </>
