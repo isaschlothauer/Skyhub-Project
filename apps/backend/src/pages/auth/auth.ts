@@ -34,7 +34,9 @@ const tokenVerification = (req: Request, res: Response, next: NextFunction) => {
       req.body.payload = jwt.verify(token, process.env.JWT_SECRET);
     }
 
-    const { account_type } = req.body.payload;
+    if (req.body.payload.exp < Date.now() / 1000) {
+      throw new Error("Token has expired");
+    }
 
     // console.log(req.body.payload);
     console.log("Token verification")
