@@ -14,33 +14,29 @@ type SalaryMobileProps = {
 export default function SalaryMobile({ salary }: SalaryMobileProps) {
   return (
     <>
-      {salary.max || salary.avg || salary.min ? (
-        <div className="flex flex-col justify-center items-stretch rounded-[15px] bg-white shadow-main px-6 pt-3 pb-6 mb-6 gap-4">
-          <SalaryTitle icon={salary.icon} jobTitle={salary.title} />
+      <div className="flex flex-col justify-center items-stretch rounded-[15px] bg-white shadow-main px-6 pt-3 pb-6 mb-6 gap-4">
+        <SalaryTitle icon={salary.icon} jobTitle={salary.title} />
 
-          <SalaryRow
-            iconSalary={IconMaxSalary}
-            iconHeight={19}
-            salaryType="Maximum Salary"
-            salaryValue={salary.max}
-          />
+        <SalaryRow
+          iconSalary={IconMaxSalary}
+          iconHeight={19}
+          salaryType="Maximum Salary"
+          salaryValue={salary.max}
+        />
 
-          <SalaryRow
-            iconSalary={IconAvgSalary}
-            salaryType="Average Salary"
-            salaryValue={salary.avg}
-          />
+        <SalaryRow
+          iconSalary={IconAvgSalary}
+          salaryType="Average Salary"
+          salaryValue={salary.avg}
+        />
 
-          <SalaryRow
-            iconSalary={IconMinSalary}
-            iconHeight={19}
-            salaryType="Minimum Salary"
-            salaryValue={salary.min}
-          />
-        </div>
-      ) : (
-        <></>
-      )}
+        <SalaryRow
+          iconSalary={IconMinSalary}
+          iconHeight={19}
+          salaryType="Minimum Salary"
+          salaryValue={salary.min}
+        />
+      </div>
     </>
   );
 }
