@@ -1,0 +1,25 @@
+.controlPage {
+  min-height: calc(100vh - 440px);
+}
+
+.footerQuery {
+  margin-top: 300px;
+}
+
+  @media screen and (min-width: 768px) {
+    .loginPage {
+      min-height: calc(100vh - 480px);
+    }
+  }
+
+  @media only screen and (min-width: 770px) {
+    .loginPage {
+      min-height: calc(100vh - 530px);
+    }
+  }
+
+  @media only screen and (min-width: 1020px) {
+    .loginPage {
+      min-height: calc(100vh - 550px);
+    }
+  }
