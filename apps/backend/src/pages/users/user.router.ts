@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { UserList } from './user.handler';
+import Auth from "../auth/auth"
+import { UserVerification } from './user.verification';
 
 const UserRouter: Router = Router();
 
-UserRouter.get("/", UserList);
+UserRouter.get("/", Auth, UserVerification);
 
 export default UserRouter;
