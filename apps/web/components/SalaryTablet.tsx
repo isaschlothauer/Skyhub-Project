@@ -14,33 +14,29 @@ type SalaryTabletProps = {
 export default function SalaryTablet({ salary }: SalaryTabletProps) {
   return (
     <>
-      {salary.max || salary.avg || salary.min ? (
-        <div className="flex flex-col  rounded-[15px] bg-white shadow-main px-6 pt-3 pb-6 gap-5">
-          <SalaryTitle icon={salary.icon} jobTitle={salary.title} />
+      <div className="flex flex-col  rounded-[15px] bg-white shadow-main px-6 pt-3 pb-6 gap-5">
+        <SalaryTitle icon={salary.icon} jobTitle={salary.title} />
 
-          <SalaryRow
-            iconSalary={IconMaxSalary}
-            iconHeight={19}
-            salaryType="Maximum Salary"
-            salaryValue={salary.max}
-          />
+        <SalaryRow
+          iconSalary={IconMaxSalary}
+          iconHeight={19}
+          salaryType="Maximum Salary"
+          salaryValue={salary.max}
+        />
 
-          <SalaryRow
-            iconSalary={IconAvgSalary}
-            salaryType="Average Salary"
-            salaryValue={salary.avg}
-          />
+        <SalaryRow
+          iconSalary={IconAvgSalary}
+          salaryType="Average Salary"
+          salaryValue={salary.avg}
+        />
 
-          <SalaryRow
-            iconSalary={IconMinSalary}
-            iconHeight={19}
-            salaryType="Minimum Salary"
-            salaryValue={salary.min}
-          />
-        </div>
-      ) : (
-        <></>
-      )}
+        <SalaryRow
+          iconSalary={IconMinSalary}
+          iconHeight={19}
+          salaryType="Minimum Salary"
+          salaryValue={salary.min}
+        />
+      </div>
     </>
   );
 }
