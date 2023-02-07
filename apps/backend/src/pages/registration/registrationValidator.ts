@@ -25,7 +25,6 @@ export const registrationValidator = [
   body("tos").not().isEmpty().trim().escape(),
   (req: Request<{}, {}, InputData>, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
-    // console.log(req.body)
 
     if (!errors.isEmpty()) {
       res.status(422).json({ validationErrors: errors.array() });

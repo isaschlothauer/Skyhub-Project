@@ -3,7 +3,6 @@ import database from '../../database';
 import { RowDataPacket } from 'mysql2';
 
 export const dashboard = (req: Request, res: Response) => {
-  console.log("Dashbaord control receiving request");
 
   database
     .query<RowDataPacket[]>("SELECT * FROM users WHERE email = ?", req.body.payload.email)
@@ -12,7 +11,7 @@ export const dashboard = (req: Request, res: Response) => {
 
       if (data) {
         // Post dev response
-        res.status(200).send({ accountName: user.name, accountType: user.account_type });
+        res.status(200).send({ accountName: user.name, accountType: user.account_type, email_verified_at: user.email_verified_at });
         // res.status(200).json(user); // Test response. Disable in the end and enable above line instead.
       } else {
         res.status(404).send("User not found");

@@ -17,6 +17,7 @@ interface PayloadResult {
   email: string;
   company: string;
   account_type: string;
+  email_verified_at: string;
 }
 
 // TO DO
@@ -58,7 +59,8 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
                 email: userResult.email,
                 name: userResult.name,
                 company: userResult.company,
-                account_type: userResult.account_type
+                account_type: userResult.account_type,
+                email_verified_at: userResult.email_verified_at
               };
 
               // Check for JWT_SECRET
@@ -90,3 +92,4 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
       res.status(500).send("Server error. Unable to process request.");
     });
 }
+

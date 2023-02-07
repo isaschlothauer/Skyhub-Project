@@ -38,10 +38,7 @@ const tokenVerification = (req: Request, res: Response, next: NextFunction) => {
       throw new Error("Token has expired");
     }
 
-    // console.log(req.body.payload);
-    console.log("Token verification")
-
-    next();
+      next();
   } catch (err) {
     console.error(err);
     res.status(401).send("Unauthorized. Please log in and try again.");

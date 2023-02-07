@@ -33,7 +33,6 @@ MainRouter.use("/register", registrationValidator, RegistrationRouter);
 MainRouter.use("/auth", loginValidator, LoginRouter);
 MainRouter.use("/verify", UserRouter);
 
-MainRouter.use("/users", UserRouter); // For testing purposes
 
 // Protected Routes
 

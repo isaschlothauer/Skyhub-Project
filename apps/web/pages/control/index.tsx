@@ -6,13 +6,13 @@ export default function Control () {
   const [account, setAccount] = useState("");
   const [name, setName] = useState<string>("");
   const [accountType, setAccountType] = useState<string>("");
+  const [isVerified, setIsVerified] = useState<boolean>(false);
 
   let token: string | null = null;
   useEffect(() => {
 
       // Token checker (only for development)
       if (window.localStorage.auth_token || window.sessionStorage.auth_token) {
-        console.log("token is in the storage");
   
         if (window.localStorage.auth_token) {
           // setToken(window.localStorage.auth_token);
@@ -22,8 +22,6 @@ export default function Control () {
           token = window.sessionStorage.auth_token;
         }
       }
-
-  // console.log(token);
 
   axios
     .post("http://localhost:5000/secureRoute", {}, {
@@ -41,6 +39,10 @@ export default function Control () {
       setAccount(result.data);
       setName(result.data.accountName);
       setAccountType(result.data.accountType);
+
+      if (result.data.email_verified_at != undefined) {
+        setIsVerified(true);
+      }
     })
     .catch((err) => {
       console.error(err);
@@ -64,6 +66,19 @@ export default function Control () {
       </div>
       </>
     )
+  } else if (isVerified == false) {
+    return (
+      <>
+      {console.log(isVerified)}
+      <div className={"mt-20 w-full items-enter"}>
+        <p className={"text-center"}>Please verify your email account first. Verification email has been sent to you. Try again once verification is completed.</p>
+        <div className={"mt-10 w-full text-center"}>
+          <a href="/" className={"inline-block text-xl"}>Back to the landing page</a>
+        </div>
+      </div>
+      </>
+    )
+
   } else {
     return (
       <>
