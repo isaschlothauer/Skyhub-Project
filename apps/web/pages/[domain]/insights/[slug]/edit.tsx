@@ -43,7 +43,7 @@ export default function EditInsightPage() {
         Scssdomain={domain as string}
       />
       <div className="mx-auto container relative z-10 mobile:top-[15.625rem] tablet:top-[16.25rem] pc:top-[20rem] ">
-        <EditInsight airlineInfo={airlineInfo} />
+        <EditInsight domain={domain} slug={slug} airlineInfo={airlineInfo} />
         <FAQ_Contact_Container />
       </div>
       <div className="relative z-10 mobile:top-[15.625rem] tablet:top-[16.25rem] pc:top-[20rem]">
