@@ -3,10 +3,7 @@ import { OkPacket, RowDataPacket } from 'mysql2';
 import database from "../../database";
 const mailer = require('../../mailer/mailer');
 
-// TEST
 import jwt from "jsonwebtoken";
-
-
 
 // For account registration 
 interface RegistrationData {

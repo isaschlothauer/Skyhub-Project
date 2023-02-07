@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/jsonwebtoken": "^9.0.1",
+    "@types/nodemailer": "^6.4.7",
     "argon2": "^0.30.3",
     "axios": "^1.2.1",
     "cors": "^2.8.5",
