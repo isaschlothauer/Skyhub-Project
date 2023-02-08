@@ -32,6 +32,8 @@ MainRouter.use("/images", ImageRouter);
 MainRouter.use("/register", registrationValidator, RegistrationRouter);
 MainRouter.use("/auth", loginValidator, LoginRouter);
 MainRouter.use("/verify", UserRouter);
+MainRouter.use("/reset", UserRouter);
+MainRouter.use("/reset_pass", UserRouter);
 
 
 // Protected Routes
