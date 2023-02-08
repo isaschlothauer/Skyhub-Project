@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import database from "../../database";
 import { OkPacket, RowDataPacket } from 'mysql2';
 import jwt, { JwtPayload } from 'jsonwebtoken';
+import transporter from '../../mailer/mailer';
 const mailer = require('../../mailer/mailer');
 
 
@@ -64,33 +65,33 @@ export const PasswordReset = (req: Request, res: Response) => {
     .then(([result]) => {
       if (result) {
         const date: Date = new Date();
-            const mail = {
-              // 'id': account_name,
-              'email': email,
-              'created_at': date.toString()
-            }
-            // const secret_code = crypto.randomUUID();
-
-              if (process.env.JWT_SECRET) {
-                const emailVerificationToken = jwt.sign(mail, process.env.JWT_SECRET, { expiresIn: '1h'});
-                const url = "http://localhost:3000/verify?name="+emailVerificationToken;
-  
-                // Verification emailer
-            mailer.sendMail(
-              {
-                // Change this section as necessary
-                from: 'skyhubaero@gmail.com',   // Admin email address
-                to: email,
-                subject: 'Skyhub registration confirmation',
-                text: 'Password can be reset from this link: '+url,
-                html: '<p>Password can be reset from this link: </p><a href="'+url+'">Click here</a>',
-              },
-              (err: Error, info: string) => {
-                if (err) console.error(err);
-                else console.log(info);
-              }
-            );
+          const mail = {
+            // 'id': account_name,
+            'email': email,
+            'created_at': date.toString()
           }
+          // const secret_code = crypto.randomUUID();
+
+            if (process.env.JWT_SECRET) {
+              const emailVerificationToken = jwt.sign(mail, process.env.JWT_SECRET, { expiresIn: '1h'});
+              const url = "http://localhost:3000/reset_password?name="+emailVerificationToken;
+
+              // Verification emailer
+          transporter.sendMail(
+            {
+              // Change this section as necessary
+              from: 'skyhubaero@gmail.com',   // Admin email address
+              to: email,
+              subject: 'Skyhub password reset instruction',
+              text: 'Password can be reset from this link: '+url,
+              html: '<p>Password can be reset from this link: </p><a href="'+url+'">Click here</a>',
+            },
+            (err: Error, info: string) => {
+              if (err) console.error(err);
+              else console.log(info);
+            }
+          );
+        }
       } else {
         console.error("User not found");
         res.status(404).send("User not found");
