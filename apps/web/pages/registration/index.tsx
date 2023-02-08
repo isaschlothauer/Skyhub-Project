@@ -246,9 +246,6 @@ const Registration = ({ domain }: RegistrationProps) => {
               />
             </label>
 
-            {/* Password match/confirmation message generator */}
-            {/* {(registration.password !== "" && registration.passwordRepeat !=="")? registration.password !== registration.passwordRepeat? <p>Passwords mismatch. Please check your password</p>: <p>Passwords match</p>: null } */}
-
             {/* Company input field */}
             <label htmlFor="company" className={labelStyling}>
               Company
@@ -321,8 +318,8 @@ const Registration = ({ domain }: RegistrationProps) => {
             />
           </div>
           {inputDataError ? (
-            <p className={"text-center"}>
-              Error. Please make sure all fields are correctly filled in
+            <p className={"text-center text-red-600"}>
+              Please make sure all fields marked * are correctly filled in.
             </p>
           ) : null}
         </div>

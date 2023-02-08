@@ -16,7 +16,7 @@ export default function Control ({ domain }: ControlProps) {
   const [name, setName] = useState<string>("");
   const [accountType, setAccountType] = useState<string>("");
   const [isVerified, setIsVerified] = useState<boolean>(false);
-
+  const [errorMsg, setErrorMsg] = useState<string>("");
   let token: string | null = null;
   useEffect(() => {
 
@@ -55,6 +55,7 @@ export default function Control ({ domain }: ControlProps) {
     })
     .catch((err) => {
       console.error(err);
+      setErrorMsg(err.response.data);
       setLoginStatus(err.response.status);
       
     })
@@ -68,7 +69,7 @@ export default function Control ({ domain }: ControlProps) {
     return (
       <>
       <div>
-        <Mini_Header title={"Need to verify you raccount?"} Scssdomain={domain} />
+        <Mini_Header title={errorMsg} Scssdomain={domain} />
 
         <div className={`${styles["controlPage"]}`}>
           {/* Account data fields */}
@@ -79,7 +80,7 @@ export default function Control ({ domain }: ControlProps) {
             <p className={"text-center"}>You are not logged in. Please log in and try again.</p>
               <div className={`mx-auto w-max mt-3 pb-5`}>
                 <Link href="/login" className={`text-pink-primary block text-center`}>
-                  Log in?
+                  Sign in
                 </Link>
                 <p className={"text-center my-3"}>or</p>
                 <Link href="/" className={`text-pink-primary`}>
@@ -99,7 +100,7 @@ export default function Control ({ domain }: ControlProps) {
     return (
         <>
         <div>
-          <Mini_Header title={"Need to verify you raccount?"} Scssdomain={domain} />
+          <Mini_Header title={"Please activate your new account"} Scssdomain={domain} />
   
           <div className={`${styles["controlPage"]}`}>
             {/* Account data fields */}
@@ -107,7 +108,7 @@ export default function Control ({ domain }: ControlProps) {
               className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px] `}
             >
               <div className={"mt-3"}>
-              <p className={"text-center"}>Please verify your email account first. Verification email has been sent to you. Try again once verification is completed.</p>
+              <p className={"text-center"}>Verificatio email has been sent to you. Try again once verification is completed.</p>
                 <div className={`mx-auto w-max mt-3 pb-5`}>
                   <Link href="/" className={`text-pink-primary`}>
                     Back to the landing page

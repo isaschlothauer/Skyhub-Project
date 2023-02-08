@@ -22,6 +22,10 @@ interface EmailVerifiedAt extends OkPacket {
   email_verified_at: string;
 }
 
+interface EmailVerification {
+  email: string;
+}
+
 export const UserVerification = (req: Request, res: Response) => {
   const authHeader: string | undefined= req.get("authorization");
   const [type, token]:string[] = authHeader?.split(' ') || [];
@@ -57,7 +61,7 @@ export const UserVerification = (req: Request, res: Response) => {
   }
 }
 
-export const PasswordReset = (req: Request, res: Response) => {
+export const PasswordResetRequest = (req: Request, res: Response) => {
   const { email } = req.body;
 
   database
@@ -105,4 +109,39 @@ export const PasswordReset = (req: Request, res: Response) => {
       console.error(err);
       res.status(500).send(err.message);
     })
+}
+
+export const PasswordReset = (req: Request, res: Response) => {
+  
+  // Not needed here. It is for login, passwordHash function creates it.
+  req.body.verify = "";
+
+  if (req.headers.authorization) {
+    const token:string = req.headers.authorization.split(" ")[1];
+    try {
+      if (process.env.JWT_SECRET) {
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+
+        const { email } = decodedToken as JWTPayload;
+        const { password }: {password: string} = req.body;
+
+        const updateSQL = `UPDATE users SET password = ? WHERE email = ?`;
+
+        database
+          .query<OkPacket>(updateSQL, [password, email])
+          .then(([result]) => {
+            if (result.affectedRows > 0) {
+              res.status(200).send("Password changed successfully");
+            } 
+          })
+          .catch((err) => {
+            console.error(err);
+            res.status(400).send("Unable to update password. Please try again.")
+          })
+      }
+    } catch(err) {
+      console.error(err);
+      res.status(500).send("Unable to execute password update.");
+    }
+  }
 }

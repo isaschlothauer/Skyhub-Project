@@ -1,12 +1,14 @@
 import { Request, Response, NextFunction } from "express";
-import { body, validationResult } from "express-validator";
+import { body, header, validationResult } from "express-validator";
 
 export interface InputData {
+  authorization: string;
   password: string;
   passwordRepeat: string;
 }
 
 export const PasswordValidator = [
+  header("authorization").not().isEmpty().trim().escape(),
   body("password").not().isEmpty().trim().escape().isLength({ min: 6 }),
   body("passwordRepeat").not().isEmpty().trim().escape(),
   (req: Request<{}, {}, InputData>, res: Response, next: NextFunction) => {

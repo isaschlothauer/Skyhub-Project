@@ -32,9 +32,10 @@ const PasswordResetForm = ({ domain }: PasswordResetFormProps) => {
   });
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [isSent, setIsSent] = useState<boolean>(false);
+  const [token, setToken] = useState("");
 
   function inputDataHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    setResetPass({...setResetPass, [event.target.name]: event.target.value});
+    setResetPass({...resetPass, [event.target.name]: event.target.value});
     setErrorMsg("");
   }
 
@@ -45,18 +46,21 @@ const PasswordResetForm = ({ domain }: PasswordResetFormProps) => {
   
       console.log(extractedToken);
       // setVerificationCode(verifyCode);
+      if (extractedToken) {
+        setToken(extractedToken);
+      }
     }
   }, []);
   
-
   function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLInputElement>): void {
     event.preventDefault();
     
     axios
-      .put("http://localhost:5000/reset_pass", {password: resetPass}, {
+      .put("http://localhost:5000/reset_pass", resetPass, {
         headers: {
           Accept: "text/plain, */*",
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((result) => {
@@ -142,9 +146,9 @@ const PasswordResetForm = ({ domain }: PasswordResetFormProps) => {
               />
             </div>
 
-          </div>: <><p className={"text-center"}>Password has been reset.</p><Link href="/login" className={`text-pink-primary`}>
-                Log in
-              </Link></>}
+          </div>: <><p className={"text-center"}>Password has been reset.</p><div className={"text-center mt-7"}><Link href="/login" className={`text-pink-primary`}>
+                Sign in
+              </Link></div></>}
           <div className={`mx-auto w-max mt-5 mb-5`}>
               {/* Return to landing page */}
               <Link href="/" className={`text-pink-primary`}>
