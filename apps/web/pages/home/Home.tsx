@@ -33,6 +33,7 @@ import PilotTile from "../../assets/images/widget/PilotWidgetMainPage.jpg";
 import CabinTile from "../../assets/images/widget/CabinWidgetMainPage.jpg";
 import ATCTile from "../../assets/images/widget/ATCWidgetMainPage.jpg";
 import CrossandSquare from "../../assets/images/branding/branding-3.png";
+import { useRouter } from "next/router";
 
 const loginregButtons = [
   {
@@ -259,6 +260,8 @@ const Home = () => {
     sessionStorage.clear();
   }
 
+  const router = useRouter();
+
   return (
     <div className={styles["mainpage"]}>
       <div
@@ -418,7 +421,13 @@ const Home = () => {
       {/*PILOT TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
         {jobTiles.slice(0, 1).map((pilottile) => (
-          <Link href={"/pilot"} key={pilottile.id}>
+          <div
+            onClick={() => {
+              router.push("/pilot");
+            }}
+            key={pilottile.id}
+            className="clickableDiv"
+          >
             <Tile
               tilename={pilottile.tilename}
               cSass={pilottile.cSass}
@@ -427,7 +436,7 @@ const Home = () => {
               arrowbmap={pilottile.arrowbmap}
               tcounter={pilottile.tcounter}
             />
-          </Link>
+          </div>
         ))}
       </div>
 
@@ -443,7 +452,13 @@ const Home = () => {
       {/*CABIN TILE COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>
         {jobTiles.slice(1, 2).map((cabintile) => (
-          <Link href={"/cabin"} key={cabintile.id}>
+          <div
+            onClick={() => {
+              router.push("/cabin");
+            }}
+            key={cabintile.id}
+            className="clickableDiv"
+          >
             <Tile
               tilename={cabintile.tilename}
               cSass={cabintile.cSass}
@@ -452,7 +467,7 @@ const Home = () => {
               arrowbmap={cabintile.arrowbmap}
               tcounter={cabintile.tcounter}
             />
-          </Link>
+          </div>
         ))}
       </div>
 
@@ -472,7 +487,13 @@ const Home = () => {
         className={`container mx-auto sm:px-0 ${styles["mainpage-atctile"]}`}
       >
         {jobTiles.slice(2, 3).map((atctile) => (
-          <Link href={"/atc"} key={atctile.id}>
+          <div
+            onClick={() => {
+              router.push("/atc");
+            }}
+            key={atctile.id}
+            className="clickableDiv"
+          >
             <Tile
               tilename={atctile.tilename}
               cSass={atctile.cSass}
@@ -481,7 +502,7 @@ const Home = () => {
               arrowbmap={atctile.arrowbmap}
               tcounter={atctile.tcounter}
             />
-          </Link>
+          </div>
         ))}
       </div>
 

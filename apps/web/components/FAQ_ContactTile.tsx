@@ -15,7 +15,6 @@ export interface FAQContactProps {
   cTailwind: string;
   picture: StaticImageData;
   arrowbinfo: any;
-  key: number;
   link: string;
 }
 
@@ -27,7 +26,6 @@ export const FAQContact = ({
   picture,
   arrowbinfo,
   cTailwind,
-  key,
   link,
 }: FAQContactProps) => {
   const router = useRouter();
@@ -35,7 +33,6 @@ export const FAQContact = ({
     <div className={cTailwind}>
       <div
         className="clickableDiv"
-        key={key}
         onClick={() => {
           router.push(link);
         }}
