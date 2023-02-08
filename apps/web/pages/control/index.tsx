@@ -157,32 +157,11 @@ export default function Control ({ domain }: ControlProps) {
             </div>
           </div>
         </div>
-        <div className={`mt-[310px] md:mt-[350px] ${styles["footerQuery1"]}`}>
+        <div className={`mt-[310px] md:mt-[310px] ${styles["footerQuery"]}`}>
           <Footer />
         </div>
       </>
     )
-    // (
-    //   <>
-    //     <p className={"alilgn-center"}>Hello {name}!</p>
-    //     <div className={"mt-5"} />
-    //     {(accountType === "admin")
-    //     ? <p>For the time being, admin panel is not ready and this serves as a place holder. As an admin, you are able to have control over the site's user, content and administrative tasks through this page.</p>
-    //     : <p>For the time being, user dashboard is not ready yet and this serves as a place holder. Account type "{accountType}" will have the ability to post job listing, approove airline information submitted by others and many more.</p>}
-
-    //     <div className={"mt-5"} />
-    //     <p>As an information, here are your account details. Of course this information will not be visible once development is done.</p>
-    //     <div className={"mt-5"} />
-    //     {Object.entries(account).map(([key, value]) => {
-    //       return (
-    //         <p key={key}>{key}: {value}</p>
-    //       )
-    //     })}
-    //     <div className={"mt-10"}>
-    //       <a href="/">Go back to the landing page</a>
-    //     </div>
-    //   </>
-    // )
   }
 }
 
