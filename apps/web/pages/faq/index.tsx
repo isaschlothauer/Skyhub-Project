@@ -47,82 +47,84 @@ const FAQ = ({ domain }: FAQProps) => {
       {/* Mini Header CMP */}
 
       <Mini_Header title={"Frequently Asked Questions"} Scssdomain={domain} />
-
-      <div
-        className={`container mx-auto sm:px-0 ${styles["search-container"]}`}
-      >
-        <div className={"flex flex-wrap"}>
-          <div className={"w-full"}>
-            <div className={styles["faq-search"]}>
-              <input
-                onChange={handeInput}
-                type="text"
-                name="faq_search"
-                className={styles["faq-search-input"]}
-                placeholder="Search for a topic or question"
-              />
+      <div className={styles["search-container"]}>
+        <div className={`${"container mx-auto sm:px-0"}`}>
+          <div className={"flex flex-wrap"}>
+            <div className={"w-full"}>
+              <div className={styles["faq-search"]}>
+                <input
+                  onChange={handeInput}
+                  type="text"
+                  name="faq_search"
+                  className={styles["faq-search-input"]}
+                  placeholder="Search for a topic or question"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* RESEARCH RESULT */}
-      <div
-        className={`${"container mx-auto sm:px-0"} ${
-          styles["faq-questions-container"]
-        }`}
-      >
-        <div className={"flex flex-wrap"}>
-          <div className={"w-full"}>
-            {faqData && (
-              <div className={styles["faq-questions"]}>
-                {faqData
-                  .filter((singleQNA) =>
-                    singleQNA.question
-                      .toLowerCase()
-                      .includes(searchValue.toLowerCase())
-                  )
-                  .map((singleQNA) => (
-                    <div
-                      key={singleQNA.id}
-                      className={`${"row"} ${styles["faq-question-row"]}`}
-                    >
-                      <div className={"w-full"}>
-                        <div className={styles["faq-question-box"]}>
-                          <div
-                            className={styles["faq-question"]}
-                            dangerouslySetInnerHTML={{
-                              __html: singleQNA.question,
-                            }}
-                          />
-                          <div
-                            className={styles["faq-answer"]}
-                            dangerouslySetInnerHTML={{
-                              __html: singleQNA.answer,
-                            }}
-                          />
+        {/* RESEARCH RESULT */}
+        <div
+          className={`${"container mx-auto sm:px-0"} ${
+            styles["faq-questions-container"]
+          }`}
+        >
+          <div className={"flex flex-wrap"}>
+            <div className={"w-full"}>
+              {faqData && (
+                <div className={styles["faq-questions"]}>
+                  {faqData
+                    .filter((singleQNA) =>
+                      singleQNA.question
+                        .toLowerCase()
+                        .includes(searchValue.toLowerCase())
+                    )
+                    .map((singleQNA) => (
+                      <div
+                        key={singleQNA.id}
+                        className={`${"row"} ${styles["faq-question-row"]}`}
+                      >
+                        <div className={"w-full"}>
+                          <div className={styles["faq-question-box"]}>
+                            <div
+                              className={styles["faq-question"]}
+                              dangerouslySetInnerHTML={{
+                                __html: singleQNA.question,
+                              }}
+                            />
+                            <div
+                              className={styles["faq-answer"]}
+                              dangerouslySetInnerHTML={{
+                                __html: singleQNA.answer,
+                              }}
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
 
-                <div
-                  className={`${"flex flex-wrap"} ${
-                    styles["faq-question-no-row"]
-                  }`}
-                >
-                  <div className={"w-full"}>
-                    Nothing found with phrase <strong></strong>
+                  <div
+                    className={`${"flex flex-wrap"} ${
+                      styles["faq-question-no-row"]
+                    }`}
+                  >
+                    <div className={"w-full"}>
+                      Nothing found with phrase <strong></strong>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
+          {/* // BACK TO HOMEPAGE TILE */}{" "}
         </div>
-        {/* // BACK TO HOMEPAGE TILE */}
       </div>
-      <GoHomeContainer arrowTitle={"Go Back to Home"} link={"/"} />
-      <Footer />
+
+      <div>
+        <GoHomeContainer arrowTitle={"Go Back to Home"} link={"/"} />
+        <Footer />
+      </div>
     </div>
   );
 };

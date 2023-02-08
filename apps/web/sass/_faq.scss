@@ -2,10 +2,10 @@
 .search-container {
   z-index: 2;
   position: relative;
-  padding-top: 18rem; //has to be 18 rem, otherwise h1 text is overlapping
+  top: 18rem; //has to be 18 rem, otherwise h1 text is overlapping
+  margin-bottom: 22rem;
 }
 .faq-page {
-
   .faq-search {
     background: white;
     border-radius: 50px;
@@ -24,14 +24,15 @@
       background: transparent;
     }
     &:before {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       width: 19px;
       height: 19px;
       top: 27px;
       left: 33px;
-      background: url("../assets/images/icons/search.png") no-repeat center center;
+      background: url("../assets/images/icons/search.png") no-repeat center
+        center;
     }
   }
   .faq-questions-container {
@@ -64,7 +65,8 @@
       color: #727481;
       border-bottom: 1px solid #ececec;
       padding-bottom: 35px;
-      a, strong {
+      a,
+      strong {
         color: #ec008c;
         font-weight: bold;
         text-decoration: none;
@@ -96,14 +98,17 @@
 }
 
 //media query for header adjustment
-@media only screen and (min-width:475px) and (max-width: 769px) {
+@media only screen and (min-width: 475px) and (max-width: 769px) {
   .search-container {
-    padding-top: 16.25rem;
+    top: 16.25rem;
   }
 }
 
-@media (min-width: 769px) {
+@media only screen and (max-width: 474px) {
   .search-container {
-    padding-top: 20rem;
+    top: 18rem;
+  }
+  .faq-search {
+    margin-bottom: 3rem !important;
   }
 }
