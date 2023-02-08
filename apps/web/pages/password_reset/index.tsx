@@ -79,7 +79,7 @@ const PasswordReset = ({ domain }: PasswordResetProps) => {
               {/* Username input field */}
               <label
                 htmlFor="email"
-                className={"block mt-4 text-pink-primary"}
+                className={"block mt-4 text-pink-primary mb-1"}
               >
                 Registered email address
               </label>
