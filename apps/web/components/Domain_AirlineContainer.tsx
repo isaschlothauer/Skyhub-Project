@@ -45,8 +45,7 @@ function AirLineContainer({ domain }: { domain: string }) {
                   </div>
                   <div className={styles["subtitle"]}>
                     We prepared a comprehensive list of information about
-                    different airline companies worldwide. Check out...Some more
-                    text here to what to expect
+                    different airline companies worldwide. Check it out!
                   </div>
                   <div className={styles.checkBoxes}>
                     <ul>
@@ -78,7 +77,7 @@ function AirLineContainer({ domain }: { domain: string }) {
               <div className={styles.buttonDiv}>
                 <ButtonCMP
                   route={`/${domain}/insights`}
-                  buttontext={"GO TO INSIGHTS"}
+                  buttontext={"Go To insights"}
                   cSass={`${stylesB["see-more-btn-insights"]}`}
                 />
               </div>

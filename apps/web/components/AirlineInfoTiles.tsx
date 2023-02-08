@@ -26,27 +26,37 @@ export default function AirlineInfoTiles({ airlineInfo }: AirlineTilesProps) {
         <div className={`shadow-main p-4 ${styles["small-tiles"]}`}>
           <Image src={headquarter} alt={"headquarter-img"} />
           <h2 className={"nunito text-pink-primary font-bold"}>Headquarter</h2>
-          <p className={"nunito text-[#727481]"}>{airlineInfo.headquarter}</p>
+          <p className={"nunito text-[#727481] text-center"}>
+            {airlineInfo.headquarter}
+          </p>
         </div>
         <div className={`shadow-main p-4 ${styles["small-tiles"]}`}>
           <Image src={employees} alt={"employees-img"} />
           <h2 className={"nunito text-pink-primary font-bold"}>Employees</h2>
-          <p className={"nunito text-[#727481]"}>{airlineInfo.employees}</p>
+          <p className={"nunito text-[#727481] text-center"}>
+            {airlineInfo.employees}
+          </p>
         </div>
         <div className={`shadow-main p-4 ${styles["small-tiles"]}`}>
           <Image src={revenue} alt={"revenue-img"} />
           <h2 className={"nunito text-pink-primary font-bold"}>Revenue</h2>
-          <p className={"nunito text-[#727481]"}>{airlineInfo.profits}</p>
+          <p className={"nunito text-[#727481] text-center"}>
+            {airlineInfo.profits}
+          </p>
         </div>
         <div className={`shadow-main p-4 ${styles["small-tiles"]}`}>
           <Image src={destination} alt={"revenue-img"} />
           <h2 className={"nunito text-pink-primary font-bold"}>Destinations</h2>
-          <p className={"nunito text-[#727481]"}>{airlineInfo.destinations}</p>
+          <p className={"nunito text-[#727481] text-center"}>
+            {airlineInfo.destinations}
+          </p>
         </div>
         <div className={`shadow-main p-4 ${styles["small-tiles"]}`}>
           <Image src={callsign} alt={"revenue-img"} />
           <h2 className={"nunito text-pink-primary font-bold"}>Callsign</h2>
-          <p className={"nunito text-[#727481]"}>{airlineInfo.callsign}</p>
+          <p className={"nunito text-[#727481] text-center"}>
+            {airlineInfo.callsign}
+          </p>
         </div>
       </div>
     </div>

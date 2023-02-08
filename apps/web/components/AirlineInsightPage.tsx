@@ -3,22 +3,20 @@ import Image from "next/image";
 import Mini_Header from "./Header";
 import SalaryMobile from "./SalaryMobile";
 import SalaryTablet from "./SalaryTablet";
-
-import styles from "./airline_insight_page.module.scss";
-import AirlineInfoTiles from "./AirlineInfoTiles";
-
-// images
-import aircraft from "../../web/assets/images/icons/aircraft.png";
-
-// images
-import IconRankCaptain from "../assets/images/icons/icon-rank-captain.png";
-import IconRankSFO from "../assets/images/icons/icon-rank-sfo.png";
-import IconRankFO from "../assets/images/icons/icon-rank-fo.png";
-import IconRankSO from "../assets/images/icons/icon-rank-so.png";
 import { StaticImageData } from "next/image";
 import SalaryDesktop from "./SalaryDesktop";
 import { Button } from "./Button";
 import useMediaQuery from "../hooks/useMediaQuery";
+import AirlineInfoTiles from "./AirlineInfoTiles";
+
+import styles from "./airline_insight_page.module.scss";
+
+// images
+import aircraft from "../../web/assets/images/icons/aircraft.png";
+import IconRankCaptain from "../assets/images/icons/icon-rank-captain.png";
+import IconRankSFO from "../assets/images/icons/icon-rank-sfo.png";
+import IconRankFO from "../assets/images/icons/icon-rank-fo.png";
+import IconRankSO from "../assets/images/icons/icon-rank-so.png";
 
 export type GeneralAirlineProps = {
   domain: string;

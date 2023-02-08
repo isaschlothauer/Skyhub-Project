@@ -4,19 +4,17 @@
 
 //Main container of the component - where every component and text is put together
 .goback-maincontainer {
-    margin-bottom: 5rem;
-    
-  
-    //Container regarding the actual component construction
-    .goback-componentcontainer {
-      background: #FFFFFF;
-      -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-      -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-      box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.25);
-      border-radius: 1.875rem;
-    }
-  }
+  margin-bottom: 5rem;
 
+  //Container regarding the actual component construction
+  .goback-componentcontainer {
+    background: #ffffff;
+    //   -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    //   -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px rgb(0 0 0 / 10%);
+    border-radius: 1.875rem;
+  }
+}
 
 // Container with all the text properties of the component
 .goback-textcontainer {
@@ -28,7 +26,6 @@
   gap: 1rem;
   font-family: "Nunito", "Open Sans", sans-serif;
   padding: 2.5rem 1.875rem;
-  
 
   .goback-subtext {
     color: #a5a5b1;
@@ -50,36 +47,32 @@
   }
 }
 
-
-
 @media (max-width: 376px) {
-
-.goback-maincontainer {
-  margin-top: 3rem;
-  margin-bottom: 3.5rem;
-}
-
-  .goback-textcontainer {
-  display: block;
-  padding: 1rem 1.175rem;
-
-    .goback-subtext {
-      display: none;
-  }
-
-    .goback-maintext {
-      display: none;
-   }
-}
-}
-
-@media only screen and (min-width: 377px) and (max-width:426px) {
-
   .goback-maincontainer {
     margin-top: 3rem;
     margin-bottom: 3.5rem;
   }
-  
+
+  .goback-textcontainer {
+    display: block;
+    padding: 1rem 1.175rem;
+
+    .goback-subtext {
+      display: none;
+    }
+
+    .goback-maintext {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 377px) and (max-width: 426px) {
+  .goback-maincontainer {
+    margin-top: 3rem;
+    margin-bottom: 3.5rem;
+  }
+
   .goback-textcontainer {
     flex-direction: column;
     padding: 2.5rem 0.175rem;
@@ -90,10 +83,7 @@
   }
 }
 
-
-
-@media only screen and (min-width: 426px) and (max-width:501px) {
-
+@media only screen and (min-width: 426px) and (max-width: 501px) {
   .goback-maincontainer {
     margin-top: 3rem;
     margin-bottom: 3.5rem;
@@ -101,7 +91,7 @@
   .goback-textcontainer {
     flex-direction: column;
     padding: 2.5rem 0.175rem;
-  
+
     .goback-subtext {
       margin-bottom: 0rem;
     }
@@ -112,9 +102,7 @@
   }
 }
 
-
-
-@media only screen and (min-width: 501px) and (max-width:769px) {
+@media only screen and (min-width: 501px) and (max-width: 769px) {
   .goback-maincontainer {
     margin-top: 3rem;
     margin-bottom: 3.5rem;
@@ -127,17 +115,14 @@
 
     .goback-maintext {
       font-size: 1.25rem;
+    }
   }
- }
 }
 
-
-@media only screen and (min-width: 769px) and (max-width:1025px) {
-  
-  
+@media only screen and (min-width: 769px) and (max-width: 1025px) {
   .goback-textcontainer {
     .goback-maintext {
       font-size: 1.45rem;
+    }
   }
- }
 }
