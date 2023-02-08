@@ -3,18 +3,6 @@ import * as express from 'express';
 import { RequestHandler, Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 
-// type TokenVerifiedRequest = Request & {
-//   authorizationHeader: string;
-//   type: string;
-//   token: string;
-//   payload: any;
-// };
-
-// interface ErrorMsg extends ErrorConstructor {
-//   message?: string | undefined;
-// }
-
-
 const tokenVerification = (req: Request, res: Response, next: NextFunction) => {
 
   try {

@@ -13,6 +13,8 @@ import styles from "./passwordReset.module.scss";
 }
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
+import axios from 'axios';
+import { SetStateAction } from 'react';
 
 
 // // 1. Layout and styles to be revised
@@ -31,6 +33,30 @@ export interface PasswordResetProps {
   domain: string;
 }
 const PasswordReset = ({ domain }: PasswordResetProps) => {
+  const [passResetEmail, setPassResetEmail] = useState("");
+  const [errorMsg, setErrorMsg] = useState<string>("");
+
+  function inputDataHandler(event: React.ChangeEvent<HTMLInputElement>) {
+    setPassResetEmail(event.target.value);
+    setErrorMsg("");
+  }
+
+  function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLInputElement>): void {
+    event.preventDefault();
+    
+    console.log(passResetEmail);
+    axios
+      .post("http://localhost:5000/reset", {email: passResetEmail}, {
+        headers: {
+          Accept: "text/plain, */*",
+          "Content-Type": "application/json",
+        },
+      })
+      // .then((result) => {
+      //   console.log(result);
+      // })
+  
+  }
 
   return (
     <div>
@@ -47,7 +73,7 @@ const PasswordReset = ({ domain }: PasswordResetProps) => {
                     htmlFor="email"
                     className={"block mt-4 text-pink-primary"}
                   >
-                    Resistered email address
+                    Registered email address
                   </label>
                   <input
                     type="text"
@@ -55,6 +81,13 @@ const PasswordReset = ({ domain }: PasswordResetProps) => {
                     name="email"
                     id="email"
                     placeholder="Please provide your registered email address"
+                    value={passResetEmail}
+                    onChange={inputDataHandler}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter") {
+                        submissionHandler(event);
+                      }
+                    }} 
                     required
                   />
                 </form>
@@ -62,6 +95,7 @@ const PasswordReset = ({ domain }: PasswordResetProps) => {
                 <div className={"w-min mt-12 mx-auto"}>
                   {/* TO DO: Email the account holder with password reset link */}
                   <LoginButton
+                    onClick={submissionHandler}
                     route={loginSubmit.route}
                     cSass={loginSubmit.cSass}
                     buttontext={loginSubmit.buttontext}
