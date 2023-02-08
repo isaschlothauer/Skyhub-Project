@@ -61,9 +61,11 @@ export const PasswordReset = (req: Request, res: Response) => {
   const { email } = req.body;
 
   database
-    .query<OkPacket>("SELECT * FROM users WHERE email = ?", [email])
+    .query<RowDataPacket[]>("SELECT * FROM users WHERE email = ?", [email])
     .then(([result]) => {
-      if (result) {
+      if (result.length > 0) {
+        console.log("Hello")
+        console.log(result)
         const date: Date = new Date();
           const mail = {
             // 'id': account_name,
@@ -77,20 +79,22 @@ export const PasswordReset = (req: Request, res: Response) => {
               const url = "http://localhost:3000/reset_password?name="+emailVerificationToken;
 
               // Verification emailer
-          transporter.sendMail(
-            {
-              // Change this section as necessary
-              from: 'skyhubaero@gmail.com',   // Admin email address
-              to: email,
-              subject: 'Skyhub password reset instruction',
-              text: 'Password can be reset from this link: '+url,
-              html: '<p>Password can be reset from this link: </p><a href="'+url+'">Click here</a>',
-            },
-            (err: Error, info: string) => {
-              if (err) console.error(err);
-              else console.log(info);
-            }
-          );
+          // transporter.sendMail(
+          //   {
+          //     // Change this section as necessary
+          //     from: 'skyhubaero@gmail.com',   // Admin email address
+          //     to: email,
+          //     subject: 'Skyhub password reset instruction',
+          //     text: 'Password can be reset from this link: '+url,
+          //     html: '<p>Password can be reset from this link: </p><a href="'+url+'">Click here</a>',
+          //   },
+          //   (err: Error, info: string) => {
+          //     if (err) console.error(err);
+          //     else console.log(info);
+          //   }
+          // );
+
+          res.sendStatus(200);
         }
       } else {
         console.error("User not found");
