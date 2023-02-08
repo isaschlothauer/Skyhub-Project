@@ -108,7 +108,7 @@ export default function Control ({ domain }: ControlProps) {
               className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px] `}
             >
               <div className={"mt-3"}>
-              <p className={"text-center"}>Verificatio email has been sent to you. Try again once verification is completed.</p>
+              <p className={"text-center"}>Verification email has been sent to you. Try again once verification is completed.</p>
                 <div className={`mx-auto w-max mt-3 pb-5`}>
                   <Link href="/" className={`text-pink-primary`}>
                     Back to the landing page
