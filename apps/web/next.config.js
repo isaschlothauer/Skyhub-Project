@@ -1,5 +1,5 @@
 const ContentSecurityPolicy = `
-  font-src *; 
+  font-src fonts.gstatic.com; 
 `;
 
 const securityHeaders = [
