@@ -18,9 +18,8 @@ interface RegistrationData {
 }
 
 export const UserRegistration = (req: Request<{}, {}, RegistrationData>, res: Response): void => {
-  const { account_type, account_name, password, email, company, contact_name, phone, tos } = req.body;;
+  const { account_type, account_name, password, email, company, contact_name, phone, tos } = req.body;
 
-  // Duplicate email checking mechanism
   database
     .query<RowDataPacket[]>("SELECT * FROM users WHERE email = ?", [email])
     .then(([user]) => {
