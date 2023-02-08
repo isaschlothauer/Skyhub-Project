@@ -29,7 +29,7 @@ const tokenVerification = (req: Request, res: Response, next: NextFunction) => {
       next();
   } catch (err) {
     console.error(err);
-    res.status(401).send("Unauthorized. Please log in and try again.");
+    res.status(401).send("Please check your credentials and try again.");
   }
 };
 

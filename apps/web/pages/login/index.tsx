@@ -171,7 +171,7 @@ const Login = ({ domain }: LoginProps) => {
       <div className={`${styles["loginPage"]}`}>
         {/* Account data fields */}
         <div
-          className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px] `}
+          className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 pb-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px]`}
         >
           <div className={"mt-3"}>
             
@@ -189,11 +189,11 @@ const Login = ({ domain }: LoginProps) => {
                 placeholder="Enter username or email address"
                 value={login.email}
                 onChange={loginHandler}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter") {
-                    submissionHandler(event);
-                  }
-                }} 
+                // onKeyDown={(event) => {
+                //   if (event.key === "Enter") {
+                //     submissionHandler(event);
+                //   }
+                // }} 
                 required
               />
 
@@ -212,12 +212,12 @@ const Login = ({ domain }: LoginProps) => {
                 placeholder="Enter password"
                 value={login.password}
                 onChange={loginHandler}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter") {
-                    submissionHandler(event);
-                  }
-                }} 
-                required
+                // onKeyDown={(event) => {
+                //   if (event.key === "Enter") {
+                //     submissionHandler(event);
+                //   }
+                // }} 
+                // required
               />
               <div className={"mt-3 flex"}>
                 <input
@@ -230,7 +230,7 @@ const Login = ({ domain }: LoginProps) => {
               </div>
             </form>
             {errorMsg ? (
-              <p className={"mt-3 text-center"}>{errorMsg}</p>
+              <p className={"mt-3 text-center text-red-600"}>⚠ {errorMsg}</p>
             ) : null}
             {/* Login Submission button */}
             <div className={"w-min mx-auto mt-4"}>
@@ -242,7 +242,7 @@ const Login = ({ domain }: LoginProps) => {
                 buttontext={loginButton.buttontext}
               />
             </div>
-            <div className={`mx-auto w-max mt-3`}>
+            <div className={`mx-auto w-max mt-5`}>
               {/* TO DO: Connect link to recovery page */}
               <Link href="/password_reset" className={`text-pink-primary`}>
                 Forgot password?

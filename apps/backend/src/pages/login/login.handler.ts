@@ -46,6 +46,7 @@ export const Auth : RequestHandler = (req: Request< {}, {}, Credentials>, res: R
           .verify(userResult.password, req.body.verify)
           .then((loginVerified) => {
             if (loginVerified) {
+              req.body.verify = "";
 
               // Access counter incremented upon sign in
               userResult.access++;
