@@ -76,7 +76,7 @@ export const PasswordReset = (req: Request, res: Response) => {
 
             if (process.env.JWT_SECRET) {
               const emailVerificationToken = jwt.sign(mail, process.env.JWT_SECRET, { expiresIn: '1h'});
-              const url = "http://localhost:3000/reset_password?name="+emailVerificationToken;
+              const url = "http://localhost:3000/reset_form?name="+emailVerificationToken;
 
           // Verification emailer
           transporter.sendMail(

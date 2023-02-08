@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styleslrButton from "../../components/generalButton.module.scss";
 import LoginButton from "../../components/GeneralButton";
 import Link from "next/link";
 
+
 {
   /* STYLES */
 }
-import styles from "./passwordReset.module.scss";
+import styles from "./reset_form.module.scss";
 
 {
   /* COMPONENTS */
@@ -14,14 +15,6 @@ import styles from "./passwordReset.module.scss";
 import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 import axios from 'axios';
-import { SetStateAction } from 'react';
-
-
-// // 1. Layout and styles to be revised
-// 2. Password reset mechanism to be implemented
-// 3. Confirmation email to be sent
-// 4. Redirect to the landing page?
-// 5. Figure out password reset method
 
 const loginSubmit = {
   route: "/",
@@ -29,24 +22,38 @@ const loginSubmit = {
   buttontext: "Submit",
 };
 
-export interface PasswordResetProps {
+export interface PasswordResetFormProps {
   domain: string;
 }
-const PasswordReset = ({ domain }: PasswordResetProps) => {
-  const [passResetEmail, setPassResetEmail] = useState("");
+const PasswordResetForm = ({ domain }: PasswordResetFormProps) => {
+  const [resetPass, setResetPass] = useState({
+    password: "",
+    passwordRepeat: "",
+  });
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [isSent, setIsSent] = useState<boolean>(false);
 
   function inputDataHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    setPassResetEmail(event.target.value);
+    setResetPass({...setResetPass, [event.target.name]: event.target.value});
     setErrorMsg("");
   }
+
+  useEffect(() => {
+    if (window.location.search) {
+      const UrlParams = new URLSearchParams(window.location.search);
+      const extractedToken = UrlParams.get('name');
+  
+      console.log(extractedToken);
+      // setVerificationCode(verifyCode);
+    }
+  }, []);
+  
 
   function submissionHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLInputElement>): void {
     event.preventDefault();
     
     axios
-      .post("http://localhost:5000/reset", {email: passResetEmail}, {
+      .put("http://localhost:5000/reset_pass", {password: resetPass}, {
         headers: {
           Accept: "text/plain, */*",
           "Content-Type": "application/json",
@@ -67,8 +74,8 @@ const PasswordReset = ({ domain }: PasswordResetProps) => {
 
   return (
     <div>
-      <Mini_Header title={"Reset Password"} Scssdomain={domain} />
-      <div className={`${styles["passwordReset"]}`}>
+      <Mini_Header title={"Password Reset Form"} Scssdomain={domain} />
+      <div className={`${styles["resetForm"]}`}>
         <div
           className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px] `}
         >
@@ -81,15 +88,36 @@ const PasswordReset = ({ domain }: PasswordResetProps) => {
                 htmlFor="email"
                 className={"block mt-4 text-pink-primary mb-1"}
               >
-                Registered email address
+                New password
               </label>
               <input
-                type="text"
+                type="password"
                 className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
-                name="email"
-                id="email"
-                placeholder="Please provide your registered email address"
-                value={passResetEmail}
+                name="password"
+                id="password"
+                placeholder="New password"
+                value={resetPass.password}
+                onChange={inputDataHandler}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    submissionHandler(event);
+                  }
+                }} 
+                required
+              />
+              <label
+                htmlFor="passwordRepeat"
+                className={"block mt-4 text-pink-primary mb-1"}
+              >
+                Confirm new password
+              </label>
+              <input
+                type="password"
+                className={"border-2 mt-1 w-full rounded-3xl pl-3 h-9"}
+                name="passwordRepeat"
+                id="passwordRepeat"
+                placeholder="Retype new password"
+                value={resetPass.passwordRepeat}
                 onChange={inputDataHandler}
                 onKeyDown={(event) => {
                   if (event.key === "Enter") {
@@ -114,7 +142,9 @@ const PasswordReset = ({ domain }: PasswordResetProps) => {
               />
             </div>
 
-          </div>: <p className={"text-center"}>Password reset link has been sent to your registered email address.</p>}
+          </div>: <><p className={"text-center"}>Password has been reset.</p><Link href="/login" className={`text-pink-primary`}>
+                Log in
+              </Link></>}
           <div className={`mx-auto w-max mt-5 mb-5`}>
               {/* Return to landing page */}
               <Link href="/" className={`text-pink-primary`}>
@@ -131,4 +161,4 @@ const PasswordReset = ({ domain }: PasswordResetProps) => {
 };
 
 
-export default PasswordReset;
+export default PasswordResetForm;

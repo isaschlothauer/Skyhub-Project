@@ -1,7 +1,8 @@
 import { Router } from "express";
 import Auth from "../auth/auth"
-import { UserVerification } from './user.verification';
-import { PasswordReset } from './user.verification';
+import { UserVerification } from './user.handler';
+import { PasswordReset } from './user.handler';
+import { PasswordValidator } from "./password.validator";
 
 const UserRouter: Router = Router();
 
