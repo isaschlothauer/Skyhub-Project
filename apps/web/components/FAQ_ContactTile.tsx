@@ -15,7 +15,6 @@ export interface FAQContactProps {
   cTailwind: string;
   picture: StaticImageData;
   arrowbinfo: any;
-  key: number;
   link: string;
 }
 
@@ -26,24 +25,27 @@ export const FAQContact = ({
   cSass2nd,
   picture,
   arrowbinfo,
-  key,
+  cTailwind,
   link,
 }: FAQContactProps) => {
   const router = useRouter();
   return (
-    <div
-      className={`${styles.faqcontact} ${cSass}`}
-      key={key}
-      onClick={() => {
-        router.push(link);
-      }}
-    >
-      <Image src={picture} alt="widgetcheck" />
-      <div className={styles["faqcontact-textoverlay"]}>
-        <div>
-          <div className={styles["faqcontact-subtext"]}>{subtilename}</div>
-          <div className={`${cSass2nd}`}>{tilename}</div>
-          {arrowbinfo}
+    <div className={cTailwind}>
+      <div
+        className="clickableDiv"
+        onClick={() => {
+          router.push(link);
+        }}
+      >
+        <div className={`${styles.faqcontact} ${cSass}`}>
+          <Image src={picture} alt="widgetcheck" />
+          <div className={styles["faqcontact-textoverlay"]}>
+            <div>
+              <div className={styles["faqcontact-subtext"]}>{subtilename}</div>
+              <div className={`${cSass2nd}`}>{tilename}</div>
+              {arrowbinfo}
+            </div>
+          </div>
         </div>
       </div>
     </div>

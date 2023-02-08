@@ -11,5 +11,9 @@ const database = mysql.createPool({
     database: process.env.DB_NAME,
   });
   
-
+/*MySQL Query Preparation
+database.execute(
+  "INSERT INTO users (account_type, name, password, email, company_name, contact_name, phone, tos) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+  [],
+);*/
   export default database;
