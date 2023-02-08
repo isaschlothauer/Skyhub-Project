@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { RowDataPacket } from "mysql2";
+import { OkPacket, RowDataPacket } from "mysql2";
 import database from "../../database";
 
 interface GetInsightsParams {
@@ -101,13 +101,81 @@ export const GetInsights: RequestHandler<
 export const GetAllAirlineInsight: RequestHandler = (req, res) => {
   const { domain, slug } = req.params;
   database
-  .query<SingleAirlineInsight[]>
-  ( "SELECT a.*, i.src, i.width, i.height FROM airlines as a JOIN images as i ON a.image_id = i.id WHERE a.job_type = ? and a.slug = ?", [domain, slug])
-  .then((result) => {
-    res.status(200).json(result[0]);
-  })
-  .catch((err) => {
-    console.error(err);
-    res.status(500).send("Internal Server Error");
-});
-}
+    .query<SingleAirlineInsight[]>(
+      "SELECT a.*, i.src, i.width, i.height FROM airlines as a JOIN images as i ON a.image_id = i.id WHERE a.job_type = ? and a.slug = ?",
+      [domain, slug]
+    )
+    .then((result) => {
+      res.status(200).json(result[0]);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Internal Server Error");
+    });
+};
+
+// post handler for airline drafts
+
+type AirlineNewInsight = {
+  assessments: string;
+  assessments_link: string | null;
+  benefits: string;
+  callsign: string;
+  destinations: string;
+  employees: string;
+  fleet: string;
+  founding: string | number;
+  headquarter: string;
+  id: number;
+  job_type: string;
+  orders: string;
+  profits: string;
+  region: string;
+  salary_captain_avg: number | null;
+  salary_captain_max: number | null;
+  salary_captain_min: number | null;
+  salary_fo_avg: number | null;
+  salary_fo_max: number | null;
+  salary_fo_min: number | null;
+  salary_sfo_avg: number | null;
+  salary_sfo_max: number | null;
+  salary_sfo_min: number | null;
+  salary_so_avg: number | null;
+  salary_so_max: number | null;
+  salary_so_min: number | null;
+  slug: string;
+  type: string;
+};
+
+export const PostAirlineInsights: RequestHandler<
+  {},
+  {},
+  AirlineNewInsight,
+  {}
+> = (req, res) => {
+  const { id: insight_id, ...newInsightsWithoutId } = req.body;
+  const newInsights = { insight_id, ...newInsightsWithoutId };
+
+  const sqlQueryColumns = Object.keys(newInsights);
+  const sqlQueryValues = Object.values(newInsights);
+
+  const sqlQuery = `INSERT INTO airlines_draft (${sqlQueryColumns.join(
+    ", "
+  )}, draft_status) VALUES (${sqlQueryValues
+    .map((value) => "?")
+    .join(", ")}, ?)`;
+
+  database
+    .query<OkPacket>(sqlQuery, [...sqlQueryValues, 0])
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.status(400).send("Submission was not successfull");
+      } else {
+        res.status(201).send("Submission was successfull");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Internal Server Errror");
+    });
+};

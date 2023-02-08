@@ -100,7 +100,7 @@ export default function AirlineInsight({
           <Image
             className={`object-contain ${styles["airline-logo"]}`}
             alt="Logo"
-            src={`https://pilot.skyhub.staging.d-a-pfeiffer.info/${airlineInfo.src}`}
+            src={`http://localhost:5080/static/${airlineInfo.src}`}
             width={airlineInfo.width}
             height={airlineInfo.height}
           />

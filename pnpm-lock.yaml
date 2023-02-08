@@ -15,11 +15,13 @@ importers:
   apps/backend:
     specifiers:
       '@types/cors': ^2.8.13
+      '@types/dotenv': ^8.2.0
       '@types/express': ^4.17.14
       '@types/express-serve-static-core': ^4.17.32
       '@types/jsonwebtoken': ^9.0.1
       '@types/multer': ^1.4.7
       '@types/node': ^17.0.12
+      '@types/nodemailer': ^6.4.7
       argon2: ^0.30.3
       axios: ^1.2.1
       cors: ^2.8.5
@@ -36,7 +38,9 @@ importers:
       tsconfig: workspace:*
       typescript: ^4.5.3
     dependencies:
+      '@types/dotenv': 8.2.0
       '@types/jsonwebtoken': 9.0.1
+      '@types/nodemailer': 6.4.7
       argon2: 0.30.3
       axios: 1.2.1
       cors: 2.8.5
@@ -3693,6 +3697,13 @@ packages:
       '@types/trusted-types': 2.0.2
     dev: true
 
+  /@types/dotenv/8.2.0:
+    resolution: {integrity: sha512-ylSC9GhfRH7m1EUXBXofhgx4lUWmFeQDINW5oLuS+gxWdfUeW4zJdeVTYVkexEW+e2VUvlZR2kGnGGipAWR7kw==}
+    deprecated: This is a stub types definition. dotenv provides its own type definitions, so you do not need this installed.
+    dependencies:
+      dotenv: 16.0.3
+    dev: false
+
   /@types/eslint-scope/3.7.4:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
@@ -3848,6 +3859,12 @@ packages:
 
   /@types/node/18.11.12:
     resolution: {integrity: sha512-FgD3NtTAKvyMmD44T07zz2fEf+OKwutgBCEVM8GcvMGVGaDktiLNTDvPwC/LUe3PinMW+X6CuLOF2Ui1mAlSXg==}
+
+  /@types/nodemailer/6.4.7:
+    resolution: {integrity: sha512-f5qCBGAn/f0qtRcd4SEn88c8Fp3Swct1731X4ryPKqS61/A3LmmzN8zaEz7hneJvpjFbUUgY7lru/B/7ODTazg==}
+    dependencies:
+      '@types/node': 18.11.12
+    dev: false
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 type ButtonProps = {
   children: ReactNode;
-  onClick?: () => void;
+  onClick?: (event: any) => void;
   route?: string;
   variant?: "primary" | "outlineWhite" | "outlinePink";
 };

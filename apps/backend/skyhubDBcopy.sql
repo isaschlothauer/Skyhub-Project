@@ -19928,10 +19928,6 @@ VALUES (
         0
     );
 
--------- UPDATE Delete invalid inserts from airlines table---------
-
-UPDATE airlines SET assessments_link = NULL WHERE assessments_link = "/";
-
 -- --------------------------------------------------------
 
 --

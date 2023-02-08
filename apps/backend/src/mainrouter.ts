@@ -31,7 +31,8 @@ MainRouter.use("/images", ImageRouter);
 // Users 
 MainRouter.use("/register", registrationValidator, RegistrationRouter);
 MainRouter.use("/auth", loginValidator, LoginRouter);
-MainRouter.use("/users", UserRouter); // For testing purposes
+MainRouter.use("/verify", UserRouter);
+
 
 // Protected Routes
 

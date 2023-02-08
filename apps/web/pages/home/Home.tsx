@@ -240,12 +240,8 @@ const Home = () => {
       } else {
         // Just for testing purposes
         let decoded: { exp: number } = jwt_decode(token);
-        console.log("ONLY FOR TESTING");
-        console.log(decoded);
 
         const expiration: boolean = decoded.exp < Date.now() / 1000;
-
-        console.log(expiration);
 
         if (expiration == true) {
           console.log("Token is expired");

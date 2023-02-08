@@ -34,12 +34,11 @@ const tokenVerification = (req: Request, res: Response, next: NextFunction) => {
       req.body.payload = jwt.verify(token, process.env.JWT_SECRET);
     }
 
-    const { account_type } = req.body.payload;
+    if (req.body.payload.exp < Date.now() / 1000) {
+      throw new Error("Token has expired");
+    }
 
-    // console.log(req.body.payload);
-    console.log("Token verification")
-
-    next();
+      next();
   } catch (err) {
     console.error(err);
     res.status(401).send("Unauthorized. Please log in and try again.");

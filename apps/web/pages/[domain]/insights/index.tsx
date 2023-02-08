@@ -108,7 +108,7 @@ export default function Insights() {
                   return (
                     <AirlineTile
                       key={airline.name}
-                      logo={`https://pilot.skyhub.staging.d-a-pfeiffer.info/${airline.src}`}
+                      logo={`http://localhost:5080/static/${airline.src}`}
                       title={airline.name}
                       slug={airline.slug}
                     />

@@ -1,90 +1,140 @@
-import React from "react";
+import axios from "axios";
+import React, { SyntheticEvent, useRef } from "react";
 import { useState } from "react";
+import { Button } from "./Button";
 
 export type GeneralAirlineProps = {
   airlineInfo: AirlineInformationType;
+  domain: string | string[];
+  slug: string | string[];
 };
 
-export default function EditInsights({ airlineInfo }: GeneralAirlineProps) {
-  const [inputFields, setInputFields] = useState({
-    founded: airlineInfo.founding,
-    headquarter: airlineInfo.headquarter,
-    employees: airlineInfo.employees,
-    revenue: airlineInfo.profits,
-    destinations: airlineInfo.destinations,
-    callsign: airlineInfo.callsign,
-    assessment_link: airlineInfo.assessments_link,
-    captain_max_salary: airlineInfo.salary_captain_max,
-    captain_avg_salary: airlineInfo.salary_captain_avg,
-    captain_min_salary: airlineInfo.salary_captain_min,
-    sfo_max_salary: airlineInfo.salary_sfo_max,
-    sfo_avg_salary: airlineInfo.salary_sfo_avg,
-    sfo_min_salary: airlineInfo.salary_sfo_min,
-    fo_max_salary: airlineInfo.salary_fo_max,
-    fo_avg_salary: airlineInfo.salary_fo_avg,
-    fo_min_salary: airlineInfo.salary_fo_min,
-    so_max_salary: airlineInfo.salary_so_max,
-    so_avg_salary: airlineInfo.salary_so_avg,
-    so_min_salary: airlineInfo.salary_so_min,
-  });
+export default function EditInsights({
+  airlineInfo,
+  domain,
+  slug,
+}: GeneralAirlineProps) {
+  const [inputFields, setInputFields] = useState(airlineInfo);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<string[]>([]);
 
   function handleInputChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
+    const { name, value, type } = event.target;
     setInputFields((prevInputFields) => {
-      const { name, value } = event.target;
       return {
         ...prevInputFields,
-        [name]: value,
+        [name]: type === "number" ? parseInt(value) : value,
       };
     });
+    setErrors((prevErrors) =>
+      prevErrors.filter((fieldname) => fieldname !== name)
+    );
   }
+
+  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    event.preventDefault();
+    const {
+      has_draft,
+      created_at,
+      updated_at,
+      height,
+      width,
+      src,
+      image_id,
+      ...inputTobeSubmitted
+    } = inputFields;
+
+    axios
+      .post(
+        `http://localhost:5000/${domain}/insights/${slug}/edit`,
+        inputTobeSubmitted,
+        {
+          headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((result) => {
+        if (result.status === 201) {
+          setErrors([]);
+          setIsSubmitted(true);
+        }
+      })
+      .catch((err) => {
+        const errorItems = err.response.data.validationErrors.map(
+          (errorItem: any) => errorItem.param
+        );
+        document.getElementsByName(errorItems[0])[0].focus();
+        setErrors(errorItems);
+      });
+  };
 
   const formData = [
     {
       header: "Airline Informations",
       inputs: [
         {
-          name: "founded",
+          name: "founding",
           label: "Founded",
-          type: "text",
-          value: inputFields.founded,
+          type: "number",
         },
         {
           name: "headquarter",
           label: "Headquarter",
           type: "text",
-          value: inputFields.headquarter,
         },
         {
           name: "employees",
           label: "Employees",
           type: "text",
-          value: inputFields.employees,
         },
         {
-          name: "revenue",
+          name: "profits",
           label: "Revenue",
           type: "text",
-          value: inputFields.revenue,
         },
         {
           name: "destinations",
           label: "Destinations",
           type: "text",
-          value: inputFields.destinations,
         },
         {
           name: "callsign",
           label: "Callsign",
           type: "text",
-          value: inputFields.callsign,
         },
         {
-          name: "assessment_link",
+          name: "assessments_link",
           label: "Assessments link",
           type: "text",
-          value: inputFields.assessment_link,
+        },
+        {
+          name: "assessments",
+          label: `${airlineInfo.name} assesment consists of`,
+          type: "text",
+        },
+      ],
+    },
+    {
+      header: "Aircraft Fleet",
+      inputs: [
+        {
+          name: "fleet",
+          label: "Aircraft Fleet",
+          type: "text",
+        },
+      ],
+    },
+    {
+      header: "Aircraft Benefits",
+      inputs: [
+        {
+          name: "benefits",
+          label: "Aircraft Benefits",
+          type: "text",
         },
       ],
     },
@@ -92,22 +142,19 @@ export default function EditInsights({ airlineInfo }: GeneralAirlineProps) {
       header: "Captain Salary",
       inputs: [
         {
-          name: "captain_max_salary",
+          name: "salary_captain_max",
           label: "Maximum Captain Salary (€)",
-          type: "text",
-          value: inputFields.captain_max_salary,
+          type: "number",
         },
         {
-          name: "captain_avg_salary",
+          name: "salary_captain_avg",
           label: "Average Captain Salary (€)",
-          type: "text",
-          value: inputFields.captain_avg_salary,
+          type: "number",
         },
         {
-          name: "captain_min_salary",
+          name: "salary_captain_min",
           label: "Minimum Captain Salary (€)",
-          type: "text",
-          value: inputFields.captain_min_salary,
+          type: "number",
         },
       ],
     },
@@ -115,22 +162,19 @@ export default function EditInsights({ airlineInfo }: GeneralAirlineProps) {
       header: "Senior First Officer Salary (€)",
       inputs: [
         {
-          name: "sfo_max_salary",
+          name: "salary_sfo_max",
           label: "Maximum Senior First Offier Salary (€)",
-          type: "text",
-          value: inputFields.sfo_max_salary,
+          type: "number",
         },
         {
-          name: "sfo_avg_salary",
+          name: "salary_sfo_avg",
           label: "Average Senior First Officer Salary (€)",
-          type: "text",
-          value: inputFields.sfo_avg_salary,
+          type: "number",
         },
         {
-          name: "sfo_min_salary",
+          name: "salary_sfo_min",
           label: "Minimum Senior First Officer Salary (€)",
-          type: "text",
-          value: inputFields.sfo_min_salary,
+          type: "number",
         },
       ],
     },
@@ -138,22 +182,19 @@ export default function EditInsights({ airlineInfo }: GeneralAirlineProps) {
       header: "First Officer Salary(€)",
       inputs: [
         {
-          name: "fo_max_salary",
+          name: "salary_fo_max",
           label: "Maximum First Officer Salary (€)",
-          type: "text",
-          value: inputFields.fo_max_salary,
+          type: "number",
         },
         {
-          name: "fo_avg_salary",
+          name: "salary_fo_avg",
           label: "Average First Officer Salary (€)",
-          type: "text",
-          value: inputFields.fo_avg_salary,
+          type: "number",
         },
         {
-          name: "fo_min_salary",
+          name: "salary_fo_min",
           label: "Minimum First Officer (€)",
-          type: "text",
-          value: inputFields.fo_min_salary,
+          type: "number",
         },
       ],
     },
@@ -161,22 +202,19 @@ export default function EditInsights({ airlineInfo }: GeneralAirlineProps) {
       header: "Second Officer Salary (€)",
       inputs: [
         {
-          name: "so_max_salary",
+          name: "salary_so_max",
           label: "Maximum Second Officer Salary (€)",
-          type: "text",
-          value: inputFields.so_max_salary,
+          type: "number",
         },
         {
-          name: "so_avg_salary",
+          name: "salary_so_avg",
           label: "Average Second Officer Salary (€)",
-          type: "text",
-          value: inputFields.so_avg_salary,
+          type: "number",
         },
         {
-          name: "so_min_salary",
+          name: "salary_so_min",
           label: "Minimum Second Officer Salary (€)",
-          type: "text",
-          value: inputFields.so_min_salary,
+          type: "number",
         },
       ],
     },
@@ -184,32 +222,111 @@ export default function EditInsights({ airlineInfo }: GeneralAirlineProps) {
 
   return (
     <div className="container mx-auto shadow-main bg-white rounded-[15px] px-8 py-10 mb-12 tablet:px-16 tablet:py-12 pc:px-24 pc:py-16 ">
-      <form>
-        {formData.map(({ header, inputs }) => {
-          return (
-            <div key={header}>
-              <h2 className="text-blue-primary font-extrabold text-base text-center mb-5">
-                {header}
-              </h2>
-              {inputs.map((input) => (
-                <div key={input.label} className="flex flex-col gap-4 ">
-                  <label htmlFor={input.label} className="text-pink-primary">
-                    {input.label}
-                  </label>
-                  <input
-                    onChange={handleInputChange}
-                    className=" border border-dark-gray py-4 p-8 mb-8 rounded-[3.125rem] focus:outline-none focus:border-2  focus:border-orange-400  "
-                    id={input.label}
-                    name={input.name}
-                    type={input.type}
-                    value={input.value || ""}
-                  />
-                </div>
-              ))}
-            </div>
-          );
-        })}
-      </form>
+      {!isSubmitted && (
+        <form>
+          {formData.map(({ header, inputs }) => {
+            return (
+              <div key={header}>
+                <h2 className="text-blue-primary font-extrabold text-base text-center mb-5">
+                  {header}
+                </h2>
+                {inputs.map((input) =>
+                  ["assessments", "fleet", "orders", "benefits"].includes(
+                    input.name
+                  ) ? (
+                    <div key={input.label} className="flex flex-col gap-4 ">
+                      <label
+                        htmlFor={input.label}
+                        className="text-pink-primary"
+                      >
+                        {input.label}
+                      </label>
+                      <textarea
+                        onChange={handleInputChange}
+                        className={`border border-dark-gray py-4 p-8 ${
+                          !errors.includes(input.name)
+                            ? "mb-10"
+                            : "border-red-500"
+                        } rounded-[3.125rem] focus:outline-none focus:border-2 `}
+                        id={input.label}
+                        name={input.name}
+                        rows={6}
+                        cols={50}
+                        value={
+                          inputFields[
+                            input.name as keyof AirlineInformationType
+                          ] || ""
+                        }
+                      >
+                        Test
+                      </textarea>
+                      {errors.includes(input.name) && (
+                        <p className=" text-left text-red-500 font-semibold text-base pb-8 ">
+                          {input.label} is not valid. please provide a valid
+                          value.
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <div key={input.label} className="flex flex-col gap-4 ">
+                      <label
+                        htmlFor={input.label}
+                        className="text-pink-primary"
+                      >
+                        {input.label}
+                      </label>
+                      <input
+                        onChange={handleInputChange}
+                        onWheel={(event) => {
+                          event?.currentTarget.blur();
+                        }}
+                        className={`border border-dark-gray py-4 p-8 ${
+                          !errors.includes(input.name)
+                            ? "mb-10"
+                            : "border-red-500"
+                        } rounded-[3.125rem] focus:outline-none focus:border-2 `}
+                        id={input.label}
+                        name={input.name}
+                        type={input.type}
+                        value={
+                          inputFields[
+                            input.name as keyof AirlineInformationType
+                          ] || ""
+                        }
+                      />
+                      {errors.includes(input.name) && (
+                        <p className=" text-left  text-red-500 font-semibold text-base pb-8 ">
+                          The value you entered for {input.label} is not valid.
+                          Please enter a valid value.
+                        </p>
+                      )}
+                    </div>
+                  )
+                )}
+              </div>
+            );
+          })}
+        </form>
+      )}
+      {isSubmitted && (
+        <p className=" text-center mx-auto text-pink-primary font-bold text-lg pb-12 pt-8 ">
+          Congratulations! Your submission was successfull! Our team will review
+          it soon and update accordingly. Thank you for your contribution.
+        </p>
+      )}
+      {!isSubmitted && (
+        <div className="flex flex-row justify-center">
+          <Button variant="primary" onClick={handleSubmit}>
+            Submit new info
+          </Button>
+        </div>
+      )}
+      {errors.length > 0 && (
+        <p className=" text-center mx-auto text-pink-primary font-bold text-lg pb-12 pt-8 ">
+          Oops, it looks like you entered invalid values. Please check your
+          input. Thanks!
+        </p>
+      )}
     </div>
   );
 }
