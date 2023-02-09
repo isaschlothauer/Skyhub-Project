@@ -15,7 +15,13 @@ export default function AirlineTile({ logo, title, slug }: ArilineTileProps) {
 
   return (
     <>
-      <Link href={`/${router.query.domain}/insights/${slug}`}>
+      <Link
+        href={{
+          pathname: `/[domain]/insights/[slug]`,
+          query: { domain: router.query.domain, slug },
+          //   `/${router.query.domain}/insights/${slug}`,
+        }}
+      >
         <div className="flex flex-col h-full justify-center items-center bg-white p-3 shadow-main rounded-[15px] sm:p-5 md:p-8">
           <div className=" relative w-full h-16 mb-4">
             <Image className=" object-contain" alt="Logo" src={logo} fill />
