@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { OkPacket, RowDataPacket } from 'mysql2';
 import database from "../../database";
-const mailer = require('../../mailer/mailer');
 
 import jwt from "jsonwebtoken";
+import transporter from '../../mailer/mailer';
 
 // For account registration 
 interface RegistrationData {
@@ -46,12 +46,12 @@ export const UserRegistration = (req: Request<{}, {}, RegistrationData>, res: Re
                 const url = "http://localhost:3000/verify?name="+emailVerificationToken;
   
                 // Verification emailer
-            mailer.sendMail(
+            transporter.sendMail(
               {
                 // Change this section as necessary
                 from: 'skyhubaero@gmail.com',   // Admin email address
                 to: email,
-                subject: 'Skyhub registration confirmation',
+                subject: 'Skyhub account verification',
                 text: 'Please click on the following link to confirm your registration: '+url,
                 html: '<p>Please click on the following link to confirm your registration</p><a href="'+url+'">Click here</a>',
               },

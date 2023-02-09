@@ -109,7 +109,9 @@ export default function MainStaticCMP(
           <div
             className={`text-center mx-auto text-pink-primary font-bold text-lg ${stylesD.containerNothingfound}`}
           >
-            No matching results for your search.
+            Sorry, currently we don't have matching job offers. You are a
+            recruiter or airline company? Register to post job offers and find
+            your future employee!
           </div>
         )}
 
@@ -118,17 +120,15 @@ export default function MainStaticCMP(
             {/*Diogo Changed*/}
             <ButtonCMP
               route={`${domain}/offers`}
-              buttontext={"SEE MORE OFFERS"}
+              buttontext={"See more Offers"}
               cSass={`${stylesB["see-more-btn"]}`}
             />
           </div>
         ) : (
           ""
         )}
-
-        <JobTilesContainer domain={domain} />
-
         <AirLineContainer domain={domain} />
+        <JobTilesContainer domain={domain} />
       </div>
       {/* FAQ & CONTACT US COMPONENT*/}
       <div className={`container mx-auto sm:px-0`}>

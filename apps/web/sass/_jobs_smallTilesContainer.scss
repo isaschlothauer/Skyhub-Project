@@ -3,18 +3,18 @@
 .containerTitle {
   font-family: "Nunito";
   font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
+  font-weight: 800;
+  font-size: 1.75rem;
   line-height: 1.5rem;
-  margin-bottom: 3rem; 
-  text-align: center; 
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
 .containerNothingfound {
-  font-size: 32px;
-  line-height: 44px;
-  margin-bottom: 8rem; 
-  padding-top: 2rem; 
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  margin-bottom: 8rem;
+  padding-top: 2rem;
 }
 
 .title {
@@ -29,7 +29,7 @@
 .line {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   gap: 2rem;
   flex-wrap: wrap;
   align-items: center;
@@ -39,9 +39,9 @@
 .singleContainer {
   min-width: 25%;
   // border: 1px solid rgba(0, 0, 0, 0.107);
-  box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.25);
+  box-shadow: 0 0 30px rgb(0 0 0 / 10%);
   border-radius: 15px;
-  background-color: $body-bg;
+  background-color: white;
   background-size: cover;
   padding: 2rem; //5%;
   transition: all ease 0.1s;
@@ -52,16 +52,16 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+    // margin-bottom: 1rem;
     width: 100%;
   }
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 900;
   line-height: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-align: center;
   color: $black;
 }
@@ -86,13 +86,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 501px) { //*Diogo Changed*/
+@media only screen and (min-width: 320px) and (max-width: 501px) {
+  //*Diogo Changed*/
   .containerTitle {
-    font-size: 1.125rem;
-    margin-bottom: 2rem; 
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
   }
 
   .containerNothingfound {
@@ -118,8 +119,9 @@
     margin: 0 !important;
   }
   .title {
-    font-size: 0.9rem !important;
+    font-size: 1rem !important;
     margin-bottom: 0 !important;
+    line-height: 1rem;
   }
   .subtitle {
     display: none;

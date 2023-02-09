@@ -26,7 +26,7 @@ export default function Select({
     <div className="w-full">
       <Listbox value={selected} onChange={handleChange}>
         <div className="relative mt-1">
-          <Listbox.Button className="relative grow w-full h-[3.875rem] cursor-default rounded-full bg-white py-2 pl-3 pr-10 text-left border-solid border border-light-gray focus:outline-none sm:text-sm ">
+          <Listbox.Button className="relative grow w-full h-[4.125rem] cursor-default rounded-full bg-white py-2 pl-3 pr-10 text-left border-solid border border-light-gray focus:outline-none sm:text-sm tablet:h-[3.875rem]">
             <div className="flex flex-col pl-2">
               <span className="nunito text-[#727481] text-xs md:text-sm ">
                 {label}

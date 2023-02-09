@@ -243,7 +243,7 @@ export default function EditInsights({
                       </label>
                       <textarea
                         onChange={handleInputChange}
-                        className={`border border-dark-gray py-4 p-8 ${
+                        className={`overflow-hidden border border-dark-gray py-4 p-8 ${
                           !errors.includes(input.name)
                             ? "mb-10"
                             : "border-red-500"

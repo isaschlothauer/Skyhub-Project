@@ -3,18 +3,6 @@ import * as express from 'express';
 import { RequestHandler, Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 
-// type TokenVerifiedRequest = Request & {
-//   authorizationHeader: string;
-//   type: string;
-//   token: string;
-//   payload: any;
-// };
-
-// interface ErrorMsg extends ErrorConstructor {
-//   message?: string | undefined;
-// }
-
-
 const tokenVerification = (req: Request, res: Response, next: NextFunction) => {
 
   try {
@@ -41,7 +29,7 @@ const tokenVerification = (req: Request, res: Response, next: NextFunction) => {
       next();
   } catch (err) {
     console.error(err);
-    res.status(401).send("Unauthorized. Please log in and try again.");
+    res.status(401).send("Please check your credentials and try again.");
   }
 };
 
