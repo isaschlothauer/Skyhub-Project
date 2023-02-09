@@ -3,7 +3,6 @@ import styleslrButton from "../../components/generalButton.module.scss";
 import LoginButton from "../../components/GeneralButton";
 import Link from "next/link";
 
-
 {
   /* STYLES */
 }
@@ -44,8 +43,6 @@ const PasswordResetForm = ({ domain }: PasswordResetFormProps) => {
       const UrlParams = new URLSearchParams(window.location.search);
       const extractedToken = UrlParams.get('name');
   
-      console.log(extractedToken);
-      // setVerificationCode(verifyCode);
       if (extractedToken) {
         setToken(extractedToken);
       }
@@ -65,7 +62,6 @@ const PasswordResetForm = ({ domain }: PasswordResetFormProps) => {
       })
       .then((result) => {
         if (result) {
-          // console.log(result);
           setIsSent(true);
           console.log(isSent);
         }
@@ -92,7 +88,7 @@ const PasswordResetForm = ({ domain }: PasswordResetFormProps) => {
                 htmlFor="email"
                 className={"block mt-4 text-pink-primary mb-1"}
               >
-                New password
+                New password (minimum 6 characters) 
               </label>
               <input
                 type="password"
@@ -113,7 +109,7 @@ const PasswordResetForm = ({ domain }: PasswordResetFormProps) => {
                 htmlFor="passwordRepeat"
                 className={"block mt-4 text-pink-primary mb-1"}
               >
-                Confirm new password
+                Confirm new password 
               </label>
               <input
                 type="password"

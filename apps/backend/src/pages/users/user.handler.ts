@@ -68,16 +68,11 @@ export const PasswordResetRequest = (req: Request, res: Response) => {
     .query<RowDataPacket[]>("SELECT * FROM users WHERE email = ?", [email])
     .then(([result]) => {
       if (result.length > 0) {
-        console.log("Hello")
-        console.log(result)
         const date: Date = new Date();
           const mail = {
-            // 'id': account_name,
             'email': email,
             'created_at': date.toString()
           }
-          // const secret_code = crypto.randomUUID();
-
             if (process.env.JWT_SECRET) {
               const emailVerificationToken = jwt.sign(mail, process.env.JWT_SECRET, { expiresIn: '1h'});
               const url = "http://localhost:3000/reset_form?name="+emailVerificationToken;

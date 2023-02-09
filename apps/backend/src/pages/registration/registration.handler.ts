@@ -35,11 +35,9 @@ export const UserRegistration = (req: Request<{}, {}, RegistrationData>, res: Re
 
             const date: Date = new Date();
             const mail = {
-              // 'id': account_name,
               'email': email,
               'created_at': date.toString()
             }
-            // const secret_code = crypto.randomUUID();
 
               if (process.env.JWT_SECRET) {
                 const emailVerificationToken = jwt.sign(mail, process.env.JWT_SECRET, { expiresIn: '1h'});
