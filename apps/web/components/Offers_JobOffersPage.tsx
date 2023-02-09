@@ -58,9 +58,6 @@ function JobOffersPage({ domain }: { domain: string }) {
 
   const mainImage =
     imageSRC[0] != null ? apiUrlImages.concat(imageSRC[0].source) : undefined;
-
-  console.log(airlineName);
-  console.log(mainImage);
   {
     /* javascript-time-ago shenaningans */
   }
@@ -148,7 +145,6 @@ function JobOffersPage({ domain }: { domain: string }) {
   const certificateValues =
     jobs[0] != undefined ? jobs[0].certificates.split(", ") : undefined;
 
-  // console.log(certificateValues);
   return (
     <>
       {jobs[0] != undefined ? (

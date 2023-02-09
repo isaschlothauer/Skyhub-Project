@@ -57,7 +57,6 @@ const Offers = ({}: OffersProps) => {
           return axios
             .get(`http://localhost:5000/images?airline=${offer.company}`)
             .then((result) => {
-              console.log("result.data", result.data);
               _imagesMap.set(
                 offer.company,
                 IMAGE_STORAGE_URL + result.data[0].source
@@ -65,7 +64,6 @@ const Offers = ({}: OffersProps) => {
             });
         })
       ).then(() => {
-        // console.log("_imagesMap", _imagesMap);
         setImagesMap(_imagesMap);
       });
 
@@ -74,16 +72,11 @@ const Offers = ({}: OffersProps) => {
     },
   });
 
-  console.log("jobs", jobs);
-  // console.log("jobType", jobType.toString().split(", "));
-
   const [searchJobType, setSearchJobType] = useState<string>("");
 
   const debounced = useDebouncedCallback((value) => {
     setSearchJobType(value);
   }, 500);
-
-  console.log("selectedJobType", searchJobType);
 
   const domainClean: string = domain
     ? typeof domain === typeof ""

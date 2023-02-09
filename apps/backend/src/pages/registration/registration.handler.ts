@@ -59,7 +59,7 @@ export const UserRegistration = (req: Request<{}, {}, RegistrationData>, res: Re
                 if (err) console.error(err);
                 else console.log(info);
               }
-            );
+          );
           }
             res.status(201).send("Account created");
           })

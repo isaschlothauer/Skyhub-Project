@@ -128,7 +128,6 @@ const Registration = ({ domain }: RegistrationProps) => {
       .then((result) => {
         // Clearing useState for all fields and checkboxes
         if (result.status === 201) {
-          console.log(result);
           stateResetter();
 
           // Redirect to login page

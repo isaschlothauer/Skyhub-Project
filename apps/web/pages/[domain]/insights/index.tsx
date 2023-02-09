@@ -45,7 +45,6 @@ export default function Insights() {
           optionsRegion: string[];
           optionsAirlineType: string[];
         }) => {
-          // console.log(data);
           setOptionsRegion(["---", ...data.optionsRegion]);
           setOptionsAirlineType(["---", ...data.optionsAirlineType]);
           setAirlineCompanies(data.airlines);

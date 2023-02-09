@@ -63,7 +63,6 @@ export default function MainStaticCMP(
           return axios
             .get(`http://localhost:5000/images?airline=${offer.company}`)
             .then((result) => {
-              console.log("result_data", result.data);
               _imagesMap.set(
                 offer.company,
                 "http://localhost:5080/static" + result.data[0].source
@@ -71,7 +70,6 @@ export default function MainStaticCMP(
             });
         })
       ).then(() => {
-        console.log("images map", _imagesMap);
         setImagesMap(_imagesMap);
       });
 
@@ -79,9 +77,7 @@ export default function MainStaticCMP(
       return offers;
     },
   });
-
-  console.log("jobs[0]", jobs[0]);
-
+  
   return (
     <div id={styles.domainPage}>
       <Mini_Header title={"Available Jobs"} Scssdomain={domain} />
@@ -118,8 +114,7 @@ export default function MainStaticCMP(
         )}
 
         {jobs.length != 0 ? (
-          <div className="flex flex-row justify-center mb-16">
-            {" "}
+          <div className="flex flex-row justify-center mb-16">        
             {/*Diogo Changed*/}
             <ButtonCMP
               route={`${domain}/offers`}
