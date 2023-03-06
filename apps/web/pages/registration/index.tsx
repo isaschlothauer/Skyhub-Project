@@ -45,15 +45,15 @@ const Registration = ({ domain }: RegistrationProps) => {
   const [airlineRep, setAirlineRep] = useState(false);
   const [recruitmentRep, setRecruitmentRep] = useState(false);
   const [registration, setRegistration] = useState({
-    account_type: "airline",
-    account_name: "TestAirline",
-    email: "sammi.takeuchi@gmail.com",
-    password: "111111",
-    passwordRepeat: "111111",
+    account_type: "",
+    account_name: "",
+    email: "",
+    password: "",
+    passwordRepeat: "",
     company: "",
     contact_name: "",
     phone: "",
-    tos: "confirmed",
+    tos: "",
   });
 
   const router = useRouter();
