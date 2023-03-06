@@ -34,7 +34,6 @@ export const getJobsById = (
 ) => {
   const { domain } = req.query;
   const id = parseInt(req.query.id);
-  console.log(id);
   database
     .query<JobContainer[]>(
       "SELECT * FROM job WHERE job_type=? AND id=?",

@@ -21,7 +21,6 @@ export default function EditInsightPage() {
         .get(`http://localhost:5000/${domain}/insights/${slug}`)
         .then((response) => response.data)
         .then((data) => {
-          //   console.log(data[0]);
           const airlineInfo = {
             ...data[0],
             fleet: DOMPurify.sanitize(data[0].fleet),
@@ -33,7 +32,6 @@ export default function EditInsightPage() {
         });
   }, [domain, slug]);
 
-  //   console.log(airlineInfo);
   if (domain == null || slug == null || airlineInfo == null) return <></>;
 
   return (

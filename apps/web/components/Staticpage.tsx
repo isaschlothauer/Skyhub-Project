@@ -29,6 +29,7 @@ export interface StaticProps {
 {
   /*UseEffect Implementation Test*/
 }
+
 const StaticPage = ({ cSass, miniheader, domain, slug }: StaticProps) => {
   const router = useRouter();
   const [title, setTitle] = useState("");
