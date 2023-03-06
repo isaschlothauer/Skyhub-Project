@@ -68,15 +68,15 @@ export default function Control ({ domain }: ControlProps) {
     sessionStorage.clear();
     return (
       <>
-      <div>
+      <div className={``}>
         <Mini_Header title={errorMsg} Scssdomain={domain} />
 
         <div className={`${styles["controlPage"]}`}>
           {/* Account data fields */}
           <div
-            className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px] `}
+            className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 mx-auto rounded-3xl py-6 shadow-main mb-10 md:max-w-x sm:max-w-[600px] `}
           >
-            <div className={"mt-3"}>
+            <div className={"mt-5"}>
             <p className={"text-center"}>You are not logged in. Please log in and try again.</p>
               <div className={`mx-auto w-max mt-3 pb-5`}>
                 <Link href="/login" className={`text-pink-primary block text-center`}>
@@ -90,7 +90,7 @@ export default function Control ({ domain }: ControlProps) {
             </div>
           </div>
         </div>
-          <div className={`mt-[310px] md:mt-[350px] ${styles["footerQuery1"]}`}>
+          <div className={`mt-[310px] md:mt-[245px] sticky bottom-0 top-[600px]`}>
             <Footer />
           </div>
         </div>
@@ -117,7 +117,7 @@ export default function Control ({ domain }: ControlProps) {
               </div>
             </div>
           </div>
-            <div className={`mt-[310px] md:mt-[350px] ${styles["footerQuery1"]}`}>
+            <div className={`mt-[310px] md:mt-[350px]  sticky bottom-0 top-[600px]`}>
               <Footer />
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function Control ({ domain }: ControlProps) {
         <div className={`${styles["controlPage"]}`}>
           {/* Account data fields */}
           <div
-            className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main mb-10 md:max-w-x sm:max-w-[600px] `}
+            className={`container relative top-[260px] md:top-[300px] z-10 bg-white pt-7 px-8 mx-auto rounded-3xl py-3 shadow-main md:max-w-x sm:max-w-[600px] `}
           >
             <div className={"mt-3"}>
               <p className={"text-center"}>Hello {name}!</p>
@@ -158,7 +158,7 @@ export default function Control ({ domain }: ControlProps) {
             </div>
           </div>
         </div>
-        <div className={`mt-[310px] md:mt-[310px] ${styles["footerQuery"]}`}>
+        <div className={`mt-[310px] md:mt-[350px] sticky bottom-0 top-[700px]`}>
           <Footer />
         </div>
       </>
