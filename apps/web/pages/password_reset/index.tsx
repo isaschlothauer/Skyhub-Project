@@ -16,13 +16,6 @@ import Mini_Header from "../../components/Header";
 import axios from 'axios';
 import { SetStateAction } from 'react';
 
-
-// // 1. Layout and styles to be revised
-// 2. Password reset mechanism to be implemented
-// 3. Confirmation email to be sent
-// 4. Redirect to the landing page?
-// 5. Figure out password reset method
-
 const loginSubmit = {
   route: "/",
   cSass: styleslrButton["loginreg-pink"],

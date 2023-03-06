@@ -13,24 +13,6 @@ import Footer from "../../components/Footer";
 import Mini_Header from "../../components/Header";
 import jwt_decode from 'jwt-decode';
 
-// TO DO
-// // 1.User login status implement
-// //   1.1 Should user status be lifted to bypass login page, change landing page login button to log off?
-// //   1.2 Landing page should have if (user).... to check for login status of user
-// //     1.2.1 when logged in, then Login button should be Log Off
-// //     1.2.2 when logged in, a button to admin panel should appear instead of register button
-// // 2. Implement persistent login via cookie?
-// //2. Implement session based login if "remember me" is not enabled
-// //   2.1 Should this also be lifted?
-
-// // 3. Do something about the password state. It should not store plain password
-// //    3.1 Server should just ok or not
-// // 4. Login.password must not store password or hash. It should not be visible or retrievable.
-// //5. Add a simple field input checker not to allow empty fields. No point using express-validator.
-// // LINE 58, Axios needs to be completed
-// 6: check and modify typescript
-// 7: At the moment, second auth_token can be manually added to access first account. This needs to be taken care of.
-
 const loginButton = {
   route: "/control",
   cSass: styleslrButton["loginreg-pink"],
@@ -46,7 +28,6 @@ export interface LoginProps {
   domain: string;
 }
 const Login = ({ domain }: LoginProps) => {
-  // const [user, setUser] = useState(false);  // User login status. Moved to home
   const [remember, setRemember] = useState(false); // Login status to be kept persistent or not
   const [isVerified, setIsVerified] = useState<boolean>(false); // Login status to be verified or not
 
